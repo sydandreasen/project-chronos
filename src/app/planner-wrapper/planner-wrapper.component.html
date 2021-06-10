@@ -1,11 +1,22 @@
 <div class="row action-row">
-  <!-- TODO edit buttons to have icons and bind to a view variable to include the two non-current icons -->
-  <!-- FIXME figure out why bootstrap styling on buttons won't work -->
-  <button type="button" class="btn btn-primary">See Month View</button>
-  <button>See Week View</button>
-  <button>See Day View</button>
+  <!-- TODO edit buttons to bind to a view variable to include the two non-current icons -->
+  <button class="tooltip" mat-icon-button>
+    <mat-icon>calendar_today</mat-icon>
+    <span class="tooltiptext">Monthly View</span>
+  </button>
+  <button class="tooltip" mat-icon-button>
+    <mat-icon>view_week</mat-icon>
+    <span class="tooltiptext">Weekly View</span>
+  </button>
+  <button class="tooltip" mat-icon-button>
+    <mat-icon>today</mat-icon>
+    <span class="tooltiptext">Daily View</span>
+  </button>
   <!-- TODO style this to be on the right side of the page -->
-  <button>More Actions</button>
+  <button class="tooltip" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+    <span class="tooltiptext">More Options</span>
+  </button>
 </div>
 
 <div class="row planner-row">

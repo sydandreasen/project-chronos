@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlannerWrapperComponent } from './planner-wrapper/planner-wrapper.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes = [
   // TODO implement these routes as components get developed
@@ -21,6 +25,10 @@ const routes = [
     BrowserModule,
     // AppRoutingModule, // created by CLI - a more complex routing implementation
     RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
