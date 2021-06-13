@@ -1,7 +1,8 @@
 <div class="wrapping-grid">
-  <!-- TODO add listeners to nav buttons -->
   <div class="nav-arrow">
-    <button mat-icon-button><mat-icon>arrow_back_ios</mat-icon></button>
+    <button (click)="lastWeek()" mat-icon-button>
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
   </div>
 
   <div class="week-grid">
@@ -13,42 +14,44 @@
     <h4>Friday</h4>
     <h4>Saturday</h4>
     <div class="day">
-      <div class="date">1</div>
+      <div class="date">{{ weekDates[0]?.getDate() }}</div>
       <br />
       Day Content
     </div>
     <div class="day">
-      <div class="date">2</div>
+      <div class="date">{{ weekDates[1]?.getDate() }}</div>
       <br />
       Day Content
     </div>
     <div class="day">
-      <div class="date">3</div>
+      <div class="date">{{ weekDates[2]?.getDate() }}</div>
       <br />
       Day Content
     </div>
     <div class="day">
-      <div class="date">4</div>
+      <div class="date">{{ weekDates[3]?.getDate() }}</div>
       <br />
       Day Content
     </div>
     <div class="day">
-      <div class="date">5</div>
+      <div class="date">{{ weekDates[4]?.getDate() }}</div>
       <br />
       Day Content
     </div>
     <div class="day">
-      <div class="date">6</div>
+      <div class="date">{{ weekDates[5]?.getDate() }}</div>
       <br />
       Day Content
     </div>
     <div class="day">
-      <div class="date">7</div>
+      <div class="date">{{ weekDates[6]?.getDate() }}</div>
       <br />
       Day Content
     </div>
   </div>
   <div class="nav-arrow">
-    <button mat-icon-button><mat-icon>arrow_forward_ios</mat-icon></button>
+    <button (click)="nextWeek()" mat-icon-button>
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
   </div>
 </div>

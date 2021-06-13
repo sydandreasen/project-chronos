@@ -3,7 +3,7 @@
     class="tooltip"
     mat-icon-button
     (click)="switchMode('month')"
-    *ngIf="mode !== 'month'"
+    [disabled]="mode === 'month'"
   >
     <mat-icon>calendar_today</mat-icon>
     <span class="tooltiptext">Monthly View</span>
@@ -12,7 +12,7 @@
     class="tooltip"
     mat-icon-button
     (click)="switchMode('week')"
-    *ngIf="mode !== 'week'"
+    [disabled]="mode === 'week'"
   >
     <mat-icon>view_week</mat-icon>
     <span class="tooltiptext">Weekly View</span>
@@ -21,7 +21,7 @@
     class="tooltip"
     mat-icon-button
     (click)="switchMode('day')"
-    *ngIf="mode !== 'day'"
+    [disabled]="mode === 'day'"
   >
     <mat-icon>today</mat-icon>
     <span class="tooltiptext">Daily View</span>
