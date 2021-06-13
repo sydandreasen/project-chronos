@@ -1,14 +1,28 @@
 <div class="row action-row">
-  <!-- TODO edit buttons to bind to a view variable to include the two non-current icons -->
-  <button class="tooltip" mat-icon-button>
+  <button
+    class="tooltip"
+    mat-icon-button
+    (click)="switchMode('month')"
+    *ngIf="mode !== 'month'"
+  >
     <mat-icon>calendar_today</mat-icon>
     <span class="tooltiptext">Monthly View</span>
   </button>
-  <button class="tooltip" mat-icon-button>
+  <button
+    class="tooltip"
+    mat-icon-button
+    (click)="switchMode('week')"
+    *ngIf="mode !== 'week'"
+  >
     <mat-icon>view_week</mat-icon>
     <span class="tooltiptext">Weekly View</span>
   </button>
-  <button class="tooltip" mat-icon-button>
+  <button
+    class="tooltip"
+    mat-icon-button
+    (click)="switchMode('day')"
+    *ngIf="mode !== 'day'"
+  >
     <mat-icon>today</mat-icon>
     <span class="tooltiptext">Daily View</span>
   </button>
@@ -19,10 +33,10 @@
   </button>
 </div>
 
-<div class="row planner-row">
-  Insert The Current View's (weekly/day/monthly) component in here based on the
-  button clicks and a bound variable
-  <app-weekly-view></app-weekly-view>
+<div class="row planner-row" [ngSwitch]="mode">
+  <app-monthly-view *ngSwitchCase="'month'"></app-monthly-view>
+  <app-weekly-view *ngSwitchCase="'week'"></app-weekly-view>
+  <app-daily-view *ngSwitchCase="'day'"></app-daily-view>
 </div>
 
 <div class="row item-option-row">

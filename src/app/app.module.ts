@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { PlannerWrapperComponent } from './planner-wrapper/planner-wrapper.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WeeklyViewComponent } from './weekly-view/weekly-view.component';
+import { MonthlyViewComponent } from './monthly-view/monthly-view.component';
+import { DailyViewComponent } from './daily-view/daily-view.component';
 
 const routes = [
   // TODO implement these routes as components get developed
@@ -21,7 +23,7 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, PlannerWrapperComponent, WeeklyViewComponent],
+  declarations: [AppComponent, PlannerWrapperComponent, WeeklyViewComponent, MonthlyViewComponent, DailyViewComponent],
   imports: [
     BrowserModule,
     // AppRoutingModule, // created by CLI - a more complex routing implementation
