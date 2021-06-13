@@ -4,6 +4,11 @@ $white: #ffffff;
 $ltgrey: #c1c0c0;
 $dkgrey: #7a797a;
 
+.date-range {
+  margin: 1.5rem auto;
+  color: $dkgrey;
+}
+
 .wrapping-grid {
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
