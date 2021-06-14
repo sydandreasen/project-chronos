@@ -1,0 +1,32 @@
+// our color scheme
+$blue: #3c96f7;
+$white: #ffffff;
+$ltgrey: #c1c0c0;
+$dkgrey: #7a797a;
+
+.date-shown {
+  margin: 1.5rem auto;
+  color: $dkgrey;
+}
+
+.wrapping-grid {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+
+  .nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h4 {
+    margin: 0 auto;
+    color: $blue;
+  }
+
+  .day {
+    border: 1px solid $dkgrey;
+    min-height: 500px;
+    color: $dkgrey;
+  }
+}

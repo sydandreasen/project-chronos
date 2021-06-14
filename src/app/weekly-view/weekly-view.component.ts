@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weekly-view.component.scss'],
 })
 export class WeeklyViewComponent implements OnInit {
-  focusDate = new Date(); // default date to build the week around.
+  focusDate: Date = new Date(); // default date to build the week around.
   weekDates: Date[] = []; // array of dates to populate UI
 
   constructor() {}
@@ -16,6 +16,7 @@ export class WeeklyViewComponent implements OnInit {
     // i.e. based on the current date, pull the day of week, and grab
     // dates for start and end of week accordingly
     // set those into this.weekDates arrray
+    // this array should take care of 5 weeks of dates to ensure every date in the month can appear on the cal
     // after doing so, you should see the date numbers populate in the UI..
     // because you will also need to find list of dates any time the navigation buttons are clicked,
     // a function for this based on this.focusDate would be good instead of repeating code in

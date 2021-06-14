@@ -3,13 +3,26 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-daily-view',
   templateUrl: './daily-view.component.html',
-  styleUrls: ['./daily-view.component.scss']
+  styleUrls: ['./daily-view.component.scss'],
 })
 export class DailyViewComponent implements OnInit {
+  focusDate: Date = new Date();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  // navigate to tomorrow
+  tomorrow() {
+    console.log('navigate to tomorrow');
+    // TODO Royal to implement
+    // should effect this.focusDate
   }
 
+  // navigate to yesterday
+  yesterday() {
+    console.log('navigate to yesterday');
+    // TODO Royal to implement
+    // should effect this.focusDate
+  }
 }

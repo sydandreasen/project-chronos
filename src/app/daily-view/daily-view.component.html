@@ -1,1 +1,21 @@
-<p>daily-view works!</p>
+<div>
+  <div class="date-shown">
+    <h2>
+      {{ focusDate | date: "mediumDate" }}
+    </h2>
+  </div>
+  <div class="wrapping-grid">
+    <div class="nav-arrow">
+      <button (click)="yesterday()" mat-icon-button>
+        <mat-icon>arrow_back_ios</mat-icon>
+      </button>
+    </div>
+
+    <div class="day">Day Content</div>
+    <div class="nav-arrow">
+      <button (click)="tomorrow()" mat-icon-button>
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
