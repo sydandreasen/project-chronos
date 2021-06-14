@@ -12,18 +12,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WeeklyViewComponent } from './weekly-view/weekly-view.component';
 import { MonthlyViewComponent } from './monthly-view/monthly-view.component';
 import { DailyViewComponent } from './daily-view/daily-view.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes = [
   // TODO implement these routes as components get developed
-  { path: '', redirectTo: 'plan', pathMatch: 'full' }, // FIXME probably want to later redirect to login
-  // {path: 'login', component: LoginComponent},
-  // {path: 'signup', component: SignupComponent},
+  { path: '', redirectTo: 'login', pathMatch: 'full' }, // FIXME add logic around auth state
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'plan', component: PlannerWrapperComponent },
-  // {path: '**', component: NotFoundComponent}
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
-  declarations: [AppComponent, PlannerWrapperComponent, WeeklyViewComponent, MonthlyViewComponent, DailyViewComponent],
+  declarations: [
+    AppComponent,
+    PlannerWrapperComponent,
+    WeeklyViewComponent,
+    MonthlyViewComponent,
+    DailyViewComponent,
+    LoginComponent,
+    SignupComponent,
+    NotFoundComponent,
+  ],
   imports: [
     BrowserModule,
     // AppRoutingModule, // created by CLI - a more complex routing implementation
