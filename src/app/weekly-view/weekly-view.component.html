@@ -9,8 +9,9 @@
   </div>
   <div class="wrapping-grid">
     <div class="nav-arrow">
-      <button (click)="lastWeek()" mat-icon-button>
+      <button class="tooltip" (click)="lastWeek()" mat-icon-button>
         <mat-icon>arrow_back_ios</mat-icon>
+        <span class="tooltiptext">Previous Week</span>
       </button>
     </div>
 
@@ -59,8 +60,9 @@
       </div>
     </div>
     <div class="nav-arrow">
-      <button (click)="nextWeek()" mat-icon-button>
+      <button class="tooltip" (click)="nextWeek()" mat-icon-button>
         <mat-icon>arrow_forward_ios</mat-icon>
+        <span class="tooltiptext">Following Week</span>
       </button>
     </div>
   </div>
