@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 // import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,6 @@ import { SignupComponent } from './signup/signup.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes = [
-  // TODO implement these routes as components get developed
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // FIXME add logic around auth state
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
@@ -44,6 +44,7 @@ const routes = [
     MatIconModule,
     MatTooltipModule,
     MatButtonModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
