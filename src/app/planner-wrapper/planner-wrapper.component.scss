@@ -17,6 +17,12 @@ $dkgrey: #7a797a;
 
 .action-row {
   padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 20fr;
+
+  div {
+    text-align: right;
+  }
 
   button {
     margin: 0 15px;

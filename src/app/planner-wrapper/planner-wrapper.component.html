@@ -26,15 +26,16 @@
     <mat-icon>today</mat-icon>
     <span class="tooltiptext">Daily View</span>
   </button>
-  <!-- TODO style this to be on the right side of the page -->
-  <button class="tooltip" mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>menu</mat-icon>
-    <span class="tooltiptext">More Options</span>
-  </button>
-  <mat-menu #menu="matMenu">
-    <!-- TODO implement auth logic on logout -->
-    <button routerLink="/login" mat-menu-item>Logout</button>
-  </mat-menu>
+  <div>
+    <button class="tooltip" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+      <span class="tooltiptext">More Options</span>
+    </button>
+    <mat-menu #menu="matMenu">
+      <!-- TODO implement auth logic on logout -->
+      <button routerLink="/login" mat-menu-item>Logout</button>
+    </mat-menu>
+  </div>
 </div>
 
 <div class="row planner-row" [ngSwitch]="mode">
