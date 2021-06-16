@@ -10,9 +10,6 @@
 # dependencies
 /node_modules
 
-# don't want to push database key info
-/src/environments/
-
 # profiling files
 chrome-profiler-events*.json
 
