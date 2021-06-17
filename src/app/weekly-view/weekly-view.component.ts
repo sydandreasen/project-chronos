@@ -21,6 +21,24 @@ export class WeeklyViewComponent implements OnInit {
     // because you will also need to find list of dates any time the navigation buttons are clicked,
     // a function for this based on this.focusDate would be good instead of repeating code in
     // nextWeek() and lastWeek() functions
+    this.generateweek(this.focusDate);
+  }
+
+  generateweek(current: Date) {
+    var tracker = 0;
+    var spot = current.getUTCDay();
+    var working = new Date();
+    for (var i = spot; i >= 0; i--) {
+      working.setDate(current.getDate() - tracker);
+      this.weekDates[i] = this.copy(working);
+      tracker++;
+    }
+    tracker = 1; 
+    for (var i = spot + 1; i < 31; i++){
+      working.setDate(current.getDate() + tracker);
+      this.weekDates[i] = this.copy(working);
+      tracker++;
+    }
   }
 
   // navigate to next week
@@ -28,6 +46,8 @@ export class WeeklyViewComponent implements OnInit {
     console.log('navigate to next week');
     // TODO Royal to implement
     // should effect this.focusDate and this.weekDates
+    this.focusDate.setDate(this.focusDate.getDate() + 7);
+    this.generateweek(this.focusDate);
   }
 
   // navigate to previous week
@@ -35,5 +55,14 @@ export class WeeklyViewComponent implements OnInit {
     console.log('navigate to previous week');
     // TODO Royal to implement
     // should effect this.focusDate and this.weekDates
+    this.focusDate.setDate(this.focusDate.getDate() - 7);
+    this.generateweek(this.focusDate);
+  }
+
+  copy(working: Date): Date {
+    var reckoning = new Date;
+    reckoning.setDate(working.getDate());
+    reckoning.setMonth(working.getMonth());
+    return reckoning;
   }
 }

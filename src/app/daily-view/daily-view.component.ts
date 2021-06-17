@@ -17,6 +17,8 @@ export class DailyViewComponent implements OnInit {
     console.log('navigate to tomorrow');
     // TODO Royal to implement
     // should effect this.focusDate
+    this.focusDate.setDate(this.focusDate.getDate() + 1);
+    console.log('Date = ' + this.focusDate);
   }
 
   // navigate to yesterday
@@ -24,5 +26,7 @@ export class DailyViewComponent implements OnInit {
     console.log('navigate to yesterday');
     // TODO Royal to implement
     // should effect this.focusDate
+    this.focusDate.setDate(this.focusDate.getDate() - 1);
+    console.log('Date = ' + this.focusDate);
   }
 }
