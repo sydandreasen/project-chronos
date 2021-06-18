@@ -25,7 +25,13 @@ $dkgrey: #7a797a;
   }
 
   button {
-    margin: 0 15px;
+    margin: auto 15px;
+
+    &:disabled {
+      border: 1px solid $dkgrey;
+      background-color: $ltgrey;
+      color: $blue;
+    }
 
     &:hover {
       transform: scale(0.9);

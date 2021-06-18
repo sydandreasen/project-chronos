@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./daily-view.component.scss'],
 })
 export class DailyViewComponent implements OnInit {
-  focusDate: Date = new Date();
+  focusDate: Date;
 
-  constructor() {}
+  constructor() {
+    this.focusDate = new Date();
+  }
 
   ngOnInit(): void {}
 
