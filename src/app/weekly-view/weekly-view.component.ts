@@ -15,10 +15,6 @@ export class WeeklyViewComponent implements OnInit {
     this.generateweek(this.focusDate);
   }
 
-  /// NOTE getUTCDay() might cause weird issues when you're a few hours from the next/previous day
-  // I think .getDay() prevents this
-  // NOTE setting working equal to a new date I think was possibly causing problems when jumping over months and such, so I copied 'current'
-  // also NOTE var is outdated. let is preferred
   generateweek(current: Date) {
     let tracker = 0; // this is for num days displacement from current day
     let spot = current.getDay(); // indexed day of week, starting with Sunday

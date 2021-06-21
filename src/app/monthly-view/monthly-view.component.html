@@ -1,8 +1,8 @@
 <div>
   <div class="date-range">
     <h2>
-      {{ monthDates[0] | date: "mediumDate" }} -
-      {{ monthDates[monthDates.length - 1] | date: "mediumDate" }}
+      <!-- 15 will always be in the main month, not backfilled or forwardfilled days -->
+      {{ monthDates[15] | date: "MMMM y" }}
     </h2>
   </div>
   <div class="wrapping-grid">
