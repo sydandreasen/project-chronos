@@ -15,18 +15,29 @@ export class WeeklyViewComponent implements OnInit {
     this.generateweek(this.focusDate);
   }
 
-  // FIXME why does february get generated after clicking through June?
+  /// NOTE getUTCDay() might cause weird issues when you're a few hours from the next/previous day
+  // I think .getDay() prevents this
+  // NOTE setting working equal to a new date I think was possibly causing problems when jumping over months and such, so I copied 'current'
+  // also NOTE var is outdated. let is preferred
   generateweek(current: Date) {
-    var tracker = 0;
-    var spot = current.getUTCDay();
-    var working = new Date();
-    for (var i = spot; i >= 0; i--) {
+    let tracker = 0; // this is for num days displacement from current day
+    let spot = current.getDay(); // indexed day of week, starting with Sunday
+    let working = this.copy(current);
+    for (let i = spot; i >= 0; i--) {
+      // backfill the array, starting with the current day
+      working.setFullYear(current.getFullYear());
+      working.setMonth(current.getMonth());
       working.setDate(current.getDate() - tracker);
       this.weekDates[i] = this.copy(working);
       tracker++;
     }
+    // re-initialize some stuff
     tracker = 1;
-    for (var i = spot + 1; i < 31; i++) {
+    working = this.copy(current);
+    for (let i = spot + 1; i < 7; i++) {
+      // fill rest of days until end of week
+      working.setFullYear(current.getFullYear());
+      working.setMonth(current.getMonth());
       working.setDate(current.getDate() + tracker);
       this.weekDates[i] = this.copy(working);
       tracker++;
@@ -46,9 +57,10 @@ export class WeeklyViewComponent implements OnInit {
   }
 
   copy(working: Date): Date {
-    var reckoning = new Date();
-    reckoning.setDate(working.getDate());
+    let reckoning = new Date();
+    reckoning.setFullYear(working.getFullYear());
     reckoning.setMonth(working.getMonth());
+    reckoning.setDate(working.getDate());
     return reckoning;
   }
 }
