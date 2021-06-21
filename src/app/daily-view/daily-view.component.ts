@@ -16,13 +16,19 @@ export class DailyViewComponent implements OnInit {
 
   // navigate to tomorrow
   tomorrow() {
-    this.focusDate.setDate(this.focusDate.getDate() + 1);
-    console.log('Date = ' + this.focusDate);
+    this.focusDate = new Date(
+      this.focusDate.getFullYear(),
+      this.focusDate.getMonth(),
+      this.focusDate.getDate() + 1
+    );
   }
 
   // navigate to yesterday
   yesterday() {
-    this.focusDate.setDate(this.focusDate.getDate() - 1);
-    console.log('Date = ' + this.focusDate);
+    this.focusDate = new Date(
+      this.focusDate.getFullYear(),
+      this.focusDate.getMonth(),
+      this.focusDate.getDate() - 1
+    );
   }
 }
