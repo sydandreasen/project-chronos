@@ -33,8 +33,8 @@ export class MonthlyViewComponent implements OnInit {
   generateMonth(current: Date) {
     // want index to still be based on day of the week, so need to offset UNLESS the first of the month is a sunday
     let spot = this.isSquareMonth(current)
-      ? current.getDate()
-      : current.getDate() + current.getDay();
+      ? current.getDate() - 1
+      : current.getDate() - 1 + current.getDay(); // note spot is zero-indexed but getDate() isn't
     let tracker = 0;
     let working = this.copy(current);
     working.setMonth(current.getMonth());
