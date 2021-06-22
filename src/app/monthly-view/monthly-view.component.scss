@@ -69,15 +69,20 @@ $dkgrey: #7a797a;
       color: $dkgrey;
 
       .date {
-        background-color: $blue;
+        background-color: $ltgrey;
         color: $white;
         border-radius: 50%;
         width: 1.6vw;
         height: 1.6vw;
+        padding: 2px;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 3px;
+      }
+
+      .currentMonth {
+        background-color: $blue;
       }
     }
   }

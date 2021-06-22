@@ -27,7 +27,6 @@ export class MonthlyViewComponent implements OnInit {
     this.generateMonth(this.focusDate);
   }
 
-  // TODO as a nice to have, change styling on date circle for dates not in the main month
   // TODO as a nice to have, in all three views, alter styling on focusDate
 
   generateMonth(current: Date) {

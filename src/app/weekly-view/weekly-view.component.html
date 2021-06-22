@@ -22,38 +22,8 @@
       <h4>Thursday</h4>
       <h4>Friday</h4>
       <h4>Saturday</h4>
-      <div class="day">
-        <div class="date">{{ weekDates[0]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[1]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[2]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[3]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[4]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[5]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[6]?.getDate() }}</div>
+      <div *ngFor="let date of weekDates" class="day">
+        <div class="date">{{ date.getDate() }}</div>
         <br />
         Day Content
       </div>
