@@ -5,6 +5,7 @@
       {{ weekDates[6] | date: "mediumDate" }}
     </h2>
   </div>
+  <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   <div class="wrapping-grid">
     <div class="nav-arrow">
       <button class="tooltip" (click)="lastWeek()" mat-icon-button>

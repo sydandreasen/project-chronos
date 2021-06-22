@@ -5,6 +5,7 @@
       {{ monthDates[15] | date: "MMMM y" }}
     </h2>
   </div>
+  <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   <div class="wrapping-grid">
     <div class="nav-arrow">
       <button class="tooltip" (click)="lastMonth()" mat-icon-button>

@@ -15,6 +15,11 @@ export class WeeklyViewComponent implements OnInit {
     this.generateweek(this.focusDate);
   }
 
+  jumpToToday() {
+    this.focusDate = new Date();
+    this.generateweek(this.focusDate);
+  }
+
   generateweek(current: Date) {
     let tracker = 0; // this is for num days displacement from current day
     let spot = current.getDay(); // indexed day of week, starting with Sunday

@@ -31,6 +31,17 @@ $dkgrey: #7a797a;
   color: $dkgrey;
 }
 
+.jumpButton {
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.6rem;
+  background: $ltgrey;
+  border: none;
+  padding: 0.7rem;
+  color: $white;
+  font-size: 0.8rem;
+}
+
 .wrapping-grid {
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
