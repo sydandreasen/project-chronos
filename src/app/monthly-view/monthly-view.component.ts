@@ -16,38 +16,62 @@ export class MonthlyViewComponent implements OnInit {
     this.generateMonth(working);
   }
 
-  // FIXME we should have the array starting with a sunday date so that each date number appear on the correct day
-  // of the week
+  isSquareMonth(date: Date) {
+    let temp = this.copy(date);
+    temp.setDate(1);
+    return temp.getDay() === 0;
+  }
 
-  // TODO, it would be nice to have the ending dates of the previous month and beginning dates of the next month
-  // like real calendars have
+  jumpToToday() {
+    this.focusDate = new Date();
+    this.generateMonth(this.focusDate);
+  }
+
+  // TODO as a nice to have, change styling on date circle for dates not in the main month
+  // TODO as a nice to have, in all three views, alter styling on focusDate
+
   generateMonth(current: Date) {
-    var spot = current.getDate();
-    var tracker = 0;
-    var working = new Date();
+    // want index to still be based on day of the week, so need to offset UNLESS the first of the month is a sunday
+    let spot = this.isSquareMonth(current)
+      ? current.getDate()
+      : current.getDate() + current.getDay();
+    let tracker = 0;
+    let working = this.copy(current);
     working.setMonth(current.getMonth());
-    for (var i = spot; i > 0; i--) {
+    for (let i = spot; tracker < current.getDate(); i--) {
+      // backfill the rest of the current month, starting with the current day
+      working.setFullYear(current.getFullYear());
+      working.setMonth(current.getMonth());
       working.setDate(current.getDate() - tracker);
-      this.monthDates[i] = copy(working);
+      this.monthDates[i] = this.copy(working);
       tracker++;
     }
+    // backfill days in previous month
+    let tempDate = this.copy(current);
+    tempDate.setDate(0); // will go to last day in previous month
+    let daysInPreviousMonth = tempDate.getDate();
+    let daysToBackFill = working.getDay();
+    for (let i = 0; i < daysToBackFill; i++) {
+      working.setFullYear(tempDate.getFullYear());
+      working.setMonth(tempDate.getMonth());
+      working.setDate(daysInPreviousMonth - i);
+      this.monthDates[daysToBackFill - 1 - i] = this.copy(working);
+    }
+    // re-initialize some stuff
     tracker = 1;
-    for (var i = spot + 1; i < 31; i++) {
+    working = this.copy(current);
+    for (let i = spot + 1; i < 35; i++) {
+      // fill rest of days until end of 5 weeks
+      working.setFullYear(current.getFullYear());
+      working.setMonth(current.getMonth());
       working.setDate(current.getDate() + tracker);
-      this.monthDates[i] = copy(working);
+      this.monthDates[i] = this.copy(working);
       tracker++;
-    }
-    for (var i = 0; i < 31; i++) {
-      console.log(this.monthDates[i]);
     }
   }
 
   // navigate to next month
   nextMonth() {
-    console.log('navigate to next month');
-    // TODO Royal to implement
-    // should effect this.focusDate and this.monthDates
-
     this.focusDate.setMonth(this.focusDate.getMonth() + 1);
     this.generateMonth(this.focusDate);
   }
@@ -57,11 +81,12 @@ export class MonthlyViewComponent implements OnInit {
     this.focusDate.setMonth(this.focusDate.getMonth() - 1);
     this.generateMonth(this.focusDate);
   }
-}
 
-function copy(working: Date): Date {
-  var reckoning = new Date();
-  reckoning.setDate(working.getDate());
-  reckoning.setMonth(working.getMonth());
-  return reckoning;
+  copy(working: Date): Date {
+    let reckoning = new Date();
+    reckoning.setFullYear(working.getFullYear());
+    reckoning.setMonth(working.getMonth());
+    reckoning.setDate(working.getDate());
+    return reckoning;
+  }
 }

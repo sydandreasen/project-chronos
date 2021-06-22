@@ -1,10 +1,11 @@
 <div>
   <div class="date-range">
     <h2>
-      {{ monthDates[0] | date: "mediumDate" }} -
-      {{ monthDates[monthDates.length - 1] | date: "mediumDate" }}
+      <!-- 15 will always be in the main month, not backfilled or forwardfilled days -->
+      {{ monthDates[15] | date: "MMMM y" }}
     </h2>
   </div>
+  <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   <div class="wrapping-grid">
     <div class="nav-arrow">
       <button class="tooltip" (click)="lastMonth()" mat-icon-button>

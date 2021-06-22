@@ -14,15 +14,25 @@ export class DailyViewComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // navigate to tomorrow
-  tomorrow() {
-    this.focusDate.setDate(this.focusDate.getDate() + 1);
-    console.log('Date = ' + this.focusDate);
+  jumpToToday() {
+    this.focusDate = new Date();
   }
 
-  // navigate to yesterday
+  // navigate to tomorrow (relative to focusDate)
+  tomorrow() {
+    this.focusDate = new Date(
+      this.focusDate.getFullYear(),
+      this.focusDate.getMonth(),
+      this.focusDate.getDate() + 1
+    );
+  }
+
+  // navigate to yesterday (relative to focusDate)
   yesterday() {
-    this.focusDate.setDate(this.focusDate.getDate() - 1);
-    console.log('Date = ' + this.focusDate);
+    this.focusDate = new Date(
+      this.focusDate.getFullYear(),
+      this.focusDate.getMonth(),
+      this.focusDate.getDate() - 1
+    );
   }
 }
