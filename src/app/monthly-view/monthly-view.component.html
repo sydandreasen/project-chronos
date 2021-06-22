@@ -23,7 +23,8 @@
       <h4>Friday</h4>
       <h4>Saturday</h4>
       <div *ngFor="let date of monthDates" class="day">
-        <div class="date">{{ date?.getDate() }}</div>
+        <div [class.currentMonth]="date?.getMonth() === monthDates[15]?.getMonth()" 
+        class="date">{{ date?.getDate() }}</div>
         <br />
         Day Content
       </div>
