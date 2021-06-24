@@ -30,6 +30,7 @@ export class MonthlyViewComponent implements OnInit {
   // TODO as a nice to have, in all three views, alter styling on focusDate
 
   generateMonth(current: Date) {
+    this.monthDates = [];
     // want index to still be based on day of the week, so need to offset UNLESS the first of the month is a sunday
     let spot = this.isSquareMonth(current)
       ? current.getDate() - 1
@@ -42,9 +43,11 @@ export class MonthlyViewComponent implements OnInit {
       working.setFullYear(current.getFullYear());
       working.setMonth(current.getMonth());
       working.setDate(current.getDate() - tracker);
+      console.log(working);
       this.monthDates[i] = this.copy(working);
       tracker++;
     }
+    console.log('--');
     // backfill days in previous month
     let tempDate = this.copy(current);
     tempDate.setDate(0); // will go to last day in previous month
@@ -54,8 +57,10 @@ export class MonthlyViewComponent implements OnInit {
       working.setFullYear(tempDate.getFullYear());
       working.setMonth(tempDate.getMonth());
       working.setDate(daysInPreviousMonth - i);
+      console.log(working);
       this.monthDates[daysToBackFill - 1 - i] = this.copy(working);
     }
+    console.log('--');
     // re-initialize some stuff
     tracker = 1;
     working = this.copy(current);
@@ -64,6 +69,7 @@ export class MonthlyViewComponent implements OnInit {
       working.setFullYear(current.getFullYear());
       working.setMonth(current.getMonth());
       working.setDate(current.getDate() + tracker);
+      console.log(working);
       this.monthDates[i] = this.copy(working);
       tracker++;
     }
