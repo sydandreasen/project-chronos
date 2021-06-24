@@ -46,7 +46,7 @@ export function writeUserData(userId: string, name: string) {
       {
         name: name,
       },
-      (error) => {
+      (error : any) => {
         if (error) {
           console.log('error', error);
         } else {
