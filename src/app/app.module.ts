@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -41,6 +42,7 @@ const routes = [
     // AppRoutingModule, // created by CLI - a more complex routing implementation
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatIconModule,
     MatTooltipModule,
     MatButtonModule,
