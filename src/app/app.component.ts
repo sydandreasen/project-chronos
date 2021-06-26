@@ -15,6 +15,8 @@ export class AppComponent {
 
   users = {};
 
+  // TODO add logic so that people can't go to a route they aren't auth'd for
+
   // TODO when auth complete, change DB rules back to read and write false so that
   // read/write is only  allowed when auth completed and access is no longer public
 

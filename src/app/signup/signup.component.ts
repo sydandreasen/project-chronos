@@ -15,7 +15,6 @@ import { FirebaseService } from '../firebase.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  @Input() fb: any = null;
   signupForm: FormGroup;
   auth;
 
@@ -27,10 +26,16 @@ export class SignupComponent implements OnInit {
     this.auth = fbService.auth;
 
     this.signupForm = this.formBuilder.group({
-      username: [null, Validators.required],
-      confirmUser: [null, [Validators.required, this.match('username')]],
-      password: [null, Validators.required],
-      confirmPass: [null, [Validators.required, this.match('password')]],
+      username: [null, [Validators.required, Validators.email]],
+      confirmUser: [
+        null,
+        [Validators.required, Validators.email, this.match('username')],
+      ],
+      password: [null, [Validators.required, Validators.minLength(6)]],
+      confirmPass: [
+        null,
+        [Validators.required, Validators.minLength(6), this.match('password')],
+      ],
     });
   }
 

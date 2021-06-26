@@ -2,26 +2,33 @@
 
 <!-- TODO add logic to the login button surrounding actual auth -->
 
-<div class="rcorners2">
+<div [formGroup]="loginForm" class="rcorners2">
+  <!-- FIXMEwhat's this empty div for below? -->
   <div></div>
   <p class="logtext">Login</p>
   <img src="assets/default-avatar.png" alt="Default Login" class="centerd" />
   <br />
   <input
-    type="text"
+    type="email"
     id="fname"
     name="fname"
     placeholder="Username"
     class="typebox"
+    formControlName="username"
+    [class.invalid]="!loginForm.get('username')?.valid"
   />
-  <button routerLink="/plan" class="logbut">></button>
+  <button [disabled]="!this.loginForm.valid" (click)="onLogin()" class="logbut">
+    >
+  </button>
 
   <input
-    type="text"
+    type="password"
     id="fname"
     name="fname"
     placeholder="Password"
     class="typebox"
+    formControlName="password"
+    [class.invalid]="!loginForm.get('password')?.valid"
   />
   <p class="sutxt">Don't have an account? <a href="/signup">Sign Up</a></p>
 </div>
