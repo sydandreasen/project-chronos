@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FirebaseService } from '../firebase.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -15,10 +16,16 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   @Input() fb: any = null;
-
   signupForm: FormGroup;
+  auth;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(
+    private fbService: FirebaseService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    this.auth = fbService.auth;
+
     this.signupForm = this.formBuilder.group({
       username: [null, Validators.required],
       confirmUser: [null, [Validators.required, this.match('username')]],
@@ -33,7 +40,15 @@ export class SignupComponent implements OnInit {
     const email = this.signupForm.get('username')?.value;
     const password = this.signupForm.get('password')?.value;
 
-    // this.router.navigate(['plan']);
+    this.auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((credentials) => {
+        console.log(credentials.user);
+        this.router.navigate(['plan']);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   }
 
   match(fieldToMatch: string): ValidatorFn {

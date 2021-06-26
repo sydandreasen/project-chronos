@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import firebase from 'firebase';
-import { environment } from '../environments/environment';
+import { FirebaseService } from './firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,12 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ProjectChronos';
+  db;
 
-  fb = firebase.initializeApp(environment.firebase);
-  db = this.fb.database();
+  constructor(private fbService: FirebaseService) {
+    this.db = fbService.db;
+  }
+
   users = {};
 
   // TODO when auth complete, change DB rules back to read and write false so that
@@ -22,27 +23,23 @@ export class AppComponent {
     // subscribe to some data and let the variable contents change dynamically
     // get() is an option if only one snapshot in time of data is needed
     // also know that .child() calls can be used following .ref() to identify a path in the db
-    var subscription = firebase.database().ref('users/');
+    var subscription = this.db.ref('users/');
     subscription.on('value', (snapshot) => {
       this.users = snapshot.val();
     });
     // write some data (overwriting)
-    writeUserData('testUser1', 'SallyJean'); // change the name or path to see new data appear on refresh
+    this.writeUserData('testUser1', 'SallyJean'); // change the name or path to see new data appear on refresh
     // update some data
     this.db
       .ref()
       .update({ 'users/testUser1/accountInfo/email': 'sallysEmail@gmail.com' }); // adds to SallyJean's info, but doesn't get rid of the property for her name
   }
-}
 
-// set() will OVERWRITE the data at the given path with the data specified
-// note that both set() and update() allow a second parameter callback function where you can handle an error
-// to delete data instead of write data, call remove() on a reference
-export function writeUserData(userId: string, name: string) {
-  firebase
-    .database()
-    .ref('users/' + userId + '/accountInfo')
-    .set(
+  // set() will OVERWRITE the data at the given path with the data specified
+  // note that both set() and update() allow a second parameter callback function where you can handle an error
+  // to delete data instead of write data, call remove() on a reference
+  writeUserData(userId: string, name: string) {
+    this.db.ref('users/' + userId + '/accountInfo').set(
       {
         name: name,
       },
@@ -54,4 +51,5 @@ export function writeUserData(userId: string, name: string) {
         }
       }
     );
+  }
 }
