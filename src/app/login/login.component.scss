@@ -4,7 +4,6 @@ $white: #ffffff;
 $ltgrey: #c1c0c0;
 $dkgrey: #7a797a;
 
-
 .rcorners2 {
   margin-left: auto;
   margin-right: auto;
@@ -25,23 +24,38 @@ $dkgrey: #7a797a;
 }
 
 .logtext {
-    text-align: center;
-    color: $dkgrey;
+  text-align: center;
+  color: $dkgrey;
 }
 
 .logbut {
   text-align: right;
   color: $blue;
   float: right;
+  background: transparent;
+  border-radius: 0.25rem;
+  border: 1px solid $blue;
+
+  &:disabled {
+    color: $dkgrey;
+    background: $ltgrey;
+    border: 1px solid $ltgrey;
+  }
 }
 
 .sutxt {
-    text-align: center;
-    color: $dkgrey;
-    font-size: 12px;
+  text-align: center;
+  color: $dkgrey;
+  font-size: 12px;
 }
 
 .typebox {
   padding: 2px;
   margin-bottom: 7px;
+  border-radius: 0.25rem;
+  border: 1px solid $blue;
+}
+
+.invalid {
+  border: 1px solid red;
 }
