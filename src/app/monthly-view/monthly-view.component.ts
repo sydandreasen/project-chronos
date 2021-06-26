@@ -30,10 +30,13 @@ export class MonthlyViewComponent implements OnInit {
   // TODO as a nice to have, in all three views, alter styling on focusDate
 
   generateMonth(current: Date) {
+    this.monthDates = [];
+    let firstOfMonth = this.copy(current);
+    firstOfMonth.setDate(1);
     // want index to still be based on day of the week, so need to offset UNLESS the first of the month is a sunday
     let spot = this.isSquareMonth(current)
-      ? current.getDate() - 1
-      : current.getDate() - 1 + current.getDay(); // note spot is zero-indexed but getDate() isn't
+      ? current.getDate() - 1 // square month, index for 'current' date is simply one less than current's date
+      : current.getDate() - 1 + firstOfMonth.getDay(); // if not square month, current should have index offset by the day of the week
     let tracker = 0;
     let working = this.copy(current);
     working.setMonth(current.getMonth());
@@ -59,7 +62,13 @@ export class MonthlyViewComponent implements OnInit {
     // re-initialize some stuff
     tracker = 1;
     working = this.copy(current);
-    for (let i = spot + 1; i < 35; i++) {
+    let lastDayOfMonth = this.copy(current); // makes new copy
+    lastDayOfMonth.setMonth(current.getMonth() + 1); // advances month
+    lastDayOfMonth.setDate(0); // sets back to last day of working month
+    let daysInCurrentMonth = lastDayOfMonth.getDate();
+    let need6Weeks = daysInCurrentMonth + firstOfMonth.getDay() > 35; // getDay() = 0 for sunday
+    let arrLen = need6Weeks ? 42 : 35;
+    for (let i = spot + 1; i < arrLen; i++) {
       // fill rest of days until end of 5 weeks
       working.setFullYear(current.getFullYear());
       working.setMonth(current.getMonth());

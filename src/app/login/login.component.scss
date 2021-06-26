@@ -12,7 +12,7 @@ $dkgrey: #7a797a;
   border: 3px solid $ltgrey;
   padding: 20px;
   width: 200px;
-  height: 150px;
+  height: 255px;
   position: relative;
   top: 150px;
 }
@@ -30,9 +30,9 @@ $dkgrey: #7a797a;
 }
 
 .logbut {
-    text-align: right;
-    color: $blue;
-    float: right;
+  text-align: right;
+  color: $blue;
+  float: right;
 }
 
 .sutxt {
@@ -42,5 +42,6 @@ $dkgrey: #7a797a;
 }
 
 .typebox {
-    padding: 2px;
+  padding: 2px;
+  margin-bottom: 7px;
 }

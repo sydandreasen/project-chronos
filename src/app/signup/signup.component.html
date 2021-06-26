@@ -2,35 +2,67 @@
 
 <!-- TODO add logic to the signup button surrounding actual auth -->
 
-<p class="CreateAcctext">
-    Create an Account
-</p>
-
+<p class="CreateAcctext">Create an Account</p>
 
 <!-- TODO Add pics and fix alignment, pretty up formatting-->
 <div class="subox">
-    <input type="text" id="fname" name="fname" placeholder="Email Address" class="typebox">
-    <br />
-    <input type="text" id="fname" name="fname" placeholder="Confirm Email" class="typebox">
-    <br />
-    <p class="logtext">Birthdate:</p>
-    <label for="birthday_day" class="logtext">Birthday Day</label>
-    <input type="text" name="birthday_day" id="birthday_day" size="2" maxlength="2" value="" placeholder="MM" />
+  <input
+    type="text"
+    id="fname"
+    name="fname"
+    placeholder="Email Address"
+    class="typebox"
+  />
+  <br />
+  <input
+    type="text"
+    id="fname"
+    name="fname"
+    placeholder="Confirm Email"
+    class="typebox"
+  />
+  <br />
+  <p class="logtext">Birthdate:</p>
+  <label for="birthday_day" class="logtext">Birthday Day</label>
+  <input
+    type="text"
+    name="birthday_day"
+    id="birthday_day"
+    size="2"
+    maxlength="2"
+    value=""
+    placeholder="MM"
+  />
 
-    <label for="birthday_month" class="logtext">Birthday Month</label>
-    <input type="text" name="birthday_month" id="birthday_month" size="2" maxlength="2" value="" placeholder="DD" />
-
-    <label for="birthday_year" class="logtext">Birthday Year</label>
-    <input type="text" name="birthday_year" id="birthday_year" size="4" maxlength="4" value="" placeholder="YYYY" />
-    <br />
-    <input type="text" id="fname" name="fname" placeholder="Password" class="typebox">
-    <br />
-    <input type="text" id="fname" name="fname" placeholder="Confirm Password" class="typebox">
-    <img src="assets/default-avatar.jpg" alt="Default AddPic">
-    <br />
-    <button routerLink="/plan" class="logbut">Sign up</button>
-    <br />
-    <p class="litxt"> Already have an account? <a href="/login">Log In</a></p>
-
+  <label for="birthday_year" class="logtext">Birthday Year</label>
+  <input
+    type="text"
+    name="birthday_year"
+    id="birthday_year"
+    size="4"
+    maxlength="4"
+    value=""
+    placeholder="YYYY"
+  />
+  <br />
+  <input
+    type="text"
+    id="fname"
+    name="fname"
+    placeholder="Password"
+    class="typebox"
+  />
+  <br />
+  <input
+    type="text"
+    id="fname"
+    name="fname"
+    placeholder="Confirm Password"
+    class="typebox"
+  />
+  <img src="assets/default-avatar.png" alt="Default AddPic" />
+  <br />
+  <button routerLink="/plan" class="logbut">Sign up</button>
+  <br />
+  <p class="litxt">Already have an account? <a href="/login">Log In</a></p>
 </div>
-
