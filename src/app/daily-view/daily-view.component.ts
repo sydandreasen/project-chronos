@@ -1,24 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
+/**
+ * shows/manages daily view of plan endpoint
+ */
 @Component({
   selector: 'app-daily-view',
   templateUrl: './daily-view.component.html',
   styleUrls: ['./daily-view.component.scss'],
 })
-export class DailyViewComponent implements OnInit {
-  focusDate: Date;
+export class DailyViewComponent {
+  /**
+   * the currently shown date
+   */
+  focusDate: Date = new Date();
 
-  constructor() {
-    this.focusDate = new Date();
-  }
-
-  ngOnInit(): void {}
-
+  /**
+   * reset the focused date back to today
+   */
   jumpToToday() {
     this.focusDate = new Date();
   }
 
-  // navigate to tomorrow (relative to focusDate)
+  /**
+   * navigate to tomorrow (relative to focusDate)
+   */
   tomorrow() {
     this.focusDate = new Date(
       this.focusDate.getFullYear(),
@@ -27,7 +32,9 @@ export class DailyViewComponent implements OnInit {
     );
   }
 
-  // navigate to yesterday (relative to focusDate)
+  /**
+   * navigate to yesterday (relative to focusDate)
+   */
   yesterday() {
     this.focusDate = new Date(
       this.focusDate.getFullYear(),

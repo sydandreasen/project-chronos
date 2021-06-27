@@ -6,37 +6,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./monthly-view.component.scss'],
 })
 export class MonthlyViewComponent implements OnInit {
+  /**
+   * the main focuses date. starts out as today
+   * and can shift as the users specifies
+   */
   focusDate: Date = new Date(); // default date to build the month around.
-  monthDates: Date[] = []; // array of dates to populate UI
 
-  constructor() {}
+  /** the array of dates to populate UI for the month around focusDate*/
+  monthDates: Date[] = [];
 
+  /**
+   * generates month based on initial focus date of today
+   */
   ngOnInit(): void {
-    var working = new Date();
-    this.generateMonth(working);
+    this.generateMonth(this.focusDate);
   }
 
-  isSquareMonth(date: Date) {
-    let temp = this.copy(date);
-    temp.setDate(1);
-    return temp.getDay() === 0;
-  }
-
+  /**
+   * jump back to focus on today
+   */
   jumpToToday() {
     this.focusDate = new Date();
     this.generateMonth(this.focusDate);
   }
 
-  // TODO as a nice to have, in all three views, alter styling on focusDate
+  /** jump to a new focus date. mainly to be used when within same month
+   * @param date the new date to focus on
+   */
+  setFocusDate(date: Date): void {
+    this.focusDate = date;
+  }
 
+  /** based on whatever the new focus date should be, generate a month around that
+   * @param current the date to generate the month around
+   */
   generateMonth(current: Date) {
     this.monthDates = [];
     let firstOfMonth = this.copy(current);
     firstOfMonth.setDate(1);
-    // want index to still be based on day of the week, so need to offset UNLESS the first of the month is a sunday
-    let spot = this.isSquareMonth(current)
-      ? current.getDate() - 1 // square month, index for 'current' date is simply one less than current's date
-      : current.getDate() - 1 + firstOfMonth.getDay(); // if not square month, current should have index offset by the day of the week
+    // want index to still be based on day of the week. note getDay() is zero indexed and getDate() is not
+    let spot = current.getDate() - 1 + firstOfMonth.getDay();
     let tracker = 0;
     let working = this.copy(current);
     working.setMonth(current.getMonth());
@@ -78,18 +87,22 @@ export class MonthlyViewComponent implements OnInit {
     }
   }
 
-  // navigate to next month
+  /** navigate to next month */
   nextMonth() {
     this.focusDate.setMonth(this.focusDate.getMonth() + 1);
     this.generateMonth(this.focusDate);
   }
 
-  // navigate to previous month
+  /** navigate to previous month */
   lastMonth() {
     this.focusDate.setMonth(this.focusDate.getMonth() - 1);
     this.generateMonth(this.focusDate);
   }
 
+  /** copy a date so that the copied object won't be affected when new is altered
+   * @param working the date to copy
+   * @returns the copied date
+   */
   copy(working: Date): Date {
     let reckoning = new Date();
     reckoning.setFullYear(working.getFullYear());

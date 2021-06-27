@@ -22,9 +22,18 @@
       <h4>Thursday</h4>
       <h4>Friday</h4>
       <h4>Saturday</h4>
-      <div *ngFor="let date of monthDates" class="day">
-        <div [class.currentMonth]="date?.getMonth() === monthDates[15]?.getMonth()" 
-        class="date">{{ date?.getDate() }}</div>
+      <div
+        *ngFor="let date of monthDates"
+        (click)="setFocusDate(date)"
+        [class.focused]="focusDate.toDateString() === date.toDateString()"
+        class="day"
+      >
+        <div
+          [class.currentMonth]="date?.getMonth() === monthDates[15]?.getMonth()"
+          class="date"
+        >
+          {{ date?.getDate() }}
+        </div>
         <br />
         Day Content
       </div>

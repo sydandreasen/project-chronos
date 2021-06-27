@@ -7,7 +7,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 
-// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlannerWrapperComponent } from './planner-wrapper/planner-wrapper.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,6 +17,9 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+/**
+ * routes to show certain components based on URL
+ */
 const routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // FIXME add logic around auth state
   { path: 'login', component: LoginComponent },
@@ -26,6 +28,9 @@ const routes = [
   { path: '**', component: NotFoundComponent },
 ];
 
+/**
+ * declare all necessary components and modules to use in the app module.
+ */
 @NgModule({
   declarations: [
     AppComponent,
