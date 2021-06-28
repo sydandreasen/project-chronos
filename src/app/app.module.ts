@@ -6,8 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCarouselModule } from 'ng-mat-carousel';
 
-// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlannerWrapperComponent } from './planner-wrapper/planner-wrapper.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,10 +17,6 @@ import { DailyViewComponent } from './daily-view/daily-view.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { MatCarouselModule } from 'ng-mat-carousel';
-
-
-
 
 const routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // FIXME add logic around auth state
@@ -52,7 +48,6 @@ const routes = [
     MatButtonModule,
     MatMenuModule,
     MatCarouselModule.forRoot(),
-    
   ],
   providers: [],
   bootstrap: [AppComponent],

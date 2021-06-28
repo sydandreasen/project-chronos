@@ -12,7 +12,13 @@ $dkgrey: #7a797a;
 
 .item-option-row {
   text-align: center;
+  padding: 0 12rem;
   margin: 3% auto;
+
+  mat-carousel {
+    // height: 10rem; // FIXME
+    // border-radius: 1rem; // FIXME
+  }
 }
 
 .action-row {

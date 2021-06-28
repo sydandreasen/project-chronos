@@ -44,16 +44,15 @@
   <app-daily-view *ngSwitchCase="'day'"></app-daily-view>
 </div>
 
-
-<div [style.height]="auto">
+<div class="item-option-row">
   <mat-carousel
     timings="250ms ease-in"
     [autoplay]="true"
-    interval="5000"
+    [interval]="5000"
     color="accent"
     maxWidth="auto"
-    proportion="25"
-    slides="5"
+    [proportion]="25"
+    [slides]="5"
     [loop]="true"
     [hideArrows]="false"
     [hideIndicators]="false"
@@ -70,4 +69,3 @@
     ></mat-carousel-slide>
   </mat-carousel>
 </div>
-    
