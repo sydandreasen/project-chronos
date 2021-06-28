@@ -82,5 +82,10 @@ $dkgrey: #7a797a;
         margin: 3px;
       }
     }
+
+    .focused {
+      border: 3px solid $blue;
+      box-shadow: 0.25rem 0.25rem $ltgrey;
+    }
   }
 }

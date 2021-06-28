@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
+/** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
 @Component({
   selector: 'app-planner-wrapper',
   templateUrl: './planner-wrapper.component.html',
   styleUrls: ['./planner-wrapper.component.scss'],
 })
-export class PlannerWrapperComponent implements OnInit {
+export class PlannerWrapperComponent {
+  /** which view should be shown. week is default */
   mode = 'week'; // default
 
   slides: { image: string }[] = [];
@@ -32,7 +34,9 @@ export class PlannerWrapperComponent implements OnInit {
     });
   }
 
-  // based on top left buttons to switch view mode
+  /** based on top left buttons to switch view mode
+   * @param mode the view to switch to
+   */
   switchMode(mode: string) {
     if (mode === 'week') {
       this.mode = mode;

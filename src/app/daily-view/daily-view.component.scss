@@ -59,7 +59,8 @@ $dkgrey: #7a797a;
   }
 
   .day {
-    border: 1px solid $dkgrey;
+    border: 3px solid $blue;
+    box-shadow: 0.25rem 0.25rem $ltgrey;
     min-height: 500px;
     color: $dkgrey;
     border-radius: 1rem;
