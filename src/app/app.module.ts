@@ -17,6 +17,10 @@ import { DailyViewComponent } from './daily-view/daily-view.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MatCarouselModule } from 'ng-mat-carousel';
+
+
+
 
 const routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // FIXME add logic around auth state
@@ -47,6 +51,8 @@ const routes = [
     MatTooltipModule,
     MatButtonModule,
     MatMenuModule,
+    MatCarouselModule.forRoot(),
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

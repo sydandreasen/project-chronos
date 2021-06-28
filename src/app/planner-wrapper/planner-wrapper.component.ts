@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatCarouselComponent } from 'ng-mat-carousel';
+
+
 
 @Component({
   selector: 'app-planner-wrapper',
-  templateUrl: './planner-wrapper.component.html',
+  templateUrl: './planner-wrapper.component.html', 
   styleUrls: ['./planner-wrapper.component.scss'],
 })
 export class PlannerWrapperComponent implements OnInit {
