@@ -13,7 +13,7 @@ export class PlannerWrapperComponent {
   /** based on top left buttons to switch view mode
    * @param mode the view to switch to
    */
-  switchMode(mode: string) {
+  switchMode(mode: string): void {
     if (mode === 'week') {
       this.mode = mode;
     } else if (mode === 'day') {

@@ -19,7 +19,7 @@ export class WeeklyViewComponent implements OnInit {
   }
 
   /** jump the focus date automatically back to today */
-  jumpToToday() {
+  jumpToToday(): void {
     this.focusDate = new Date();
     this.generateweek(this.focusDate);
   }
@@ -34,7 +34,7 @@ export class WeeklyViewComponent implements OnInit {
   /** generate a new week around a new date to be focused on
    * @param current the date to generate the week around
    */
-  generateweek(current: Date) {
+  generateweek(current: Date): void {
     let tracker = 0; // this is for num days displacement from current day
     let spot = current.getDay(); // indexed day of week, starting with Sunday
     let working = this.copy(current);
@@ -60,13 +60,13 @@ export class WeeklyViewComponent implements OnInit {
   }
 
   /** navigate to next week */
-  nextWeek() {
+  nextWeek(): void {
     this.focusDate.setDate(this.focusDate.getDate() + 7);
     this.generateweek(this.focusDate);
   }
 
   /** navigate to previous week */
-  lastWeek() {
+  lastWeek(): void {
     this.focusDate.setDate(this.focusDate.getDate() - 7);
     this.generateweek(this.focusDate);
   }

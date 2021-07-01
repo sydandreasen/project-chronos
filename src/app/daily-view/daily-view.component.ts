@@ -17,14 +17,14 @@ export class DailyViewComponent {
   /**
    * reset the focused date back to today
    */
-  jumpToToday() {
+  jumpToToday(): void {
     this.focusDate = new Date();
   }
 
   /**
    * navigate to tomorrow (relative to focusDate)
    */
-  tomorrow() {
+  tomorrow(): void {
     this.focusDate = new Date(
       this.focusDate.getFullYear(),
       this.focusDate.getMonth(),
@@ -35,7 +35,7 @@ export class DailyViewComponent {
   /**
    * navigate to yesterday (relative to focusDate)
    */
-  yesterday() {
+  yesterday(): void {
     this.focusDate = new Date(
       this.focusDate.getFullYear(),
       this.focusDate.getMonth(),
