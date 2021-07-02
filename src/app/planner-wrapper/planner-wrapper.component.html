@@ -43,19 +43,17 @@
     *ngSwitchCase="'month'"
     [focusDate]="focusDate"
     (sendFocusDate)="setFocusDate($event)"
+    (onEditDay)="editDay($event)"
   ></app-monthly-view>
   <app-weekly-view
     *ngSwitchCase="'week'"
     [focusDate]="focusDate"
     (sendFocusDate)="setFocusDate($event)"
+    (onEditDay)="editDay($event)"
   ></app-weekly-view>
   <app-daily-view
     *ngSwitchCase="'day'"
     [focusDate]="focusDate"
     (sendFocusDate)="setFocusDate($event)"
   ></app-daily-view>
-</div>
-
-<div class="row item-option-row">
-  Include carousel of items they can drag and drop into their day
 </div>

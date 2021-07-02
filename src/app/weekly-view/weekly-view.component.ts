@@ -13,8 +13,14 @@ export class WeeklyViewComponent implements OnInit {
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
+  /** tell wrapper to go to daily view on specific date */
+  @Output() onEditDay: EventEmitter<Date> = new EventEmitter<Date>();
+
   /** the currently displayed week. sunday through saturday */
   weekDates: Date[] = []; // array of dates to populate UI
+
+  /** timer to allow for double click before single click fires */
+  singleClickTimer: any = setTimeout(() => {}, 0);
 
   /** generate initial week */
   ngOnInit(): void {
@@ -31,7 +37,15 @@ export class WeeklyViewComponent implements OnInit {
    * @param date the date to now focus on
    */
   setFocusDate(date: Date): void {
-    this.sendFocusDate.emit(date);
+    this.singleClickTimer = setTimeout(() => {
+      this.sendFocusDate.emit(date);
+    }, 80);
+  }
+
+  /** communicate to parent to edit date */
+  onDoubleClick(date: Date): void {
+    clearTimeout(this.singleClickTimer);
+    this.onEditDay.emit(date);
   }
 
   /** generate a new week around a new date to be focused on

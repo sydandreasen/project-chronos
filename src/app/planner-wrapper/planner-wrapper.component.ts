@@ -29,4 +29,10 @@ export class PlannerWrapperComponent {
   setFocusDate(date: Date) {
     this.focusDate = date;
   }
+
+  /** edit a specific day */
+  editDay(date: Date) {
+    this.setFocusDate(date);
+    this.switchMode('day');
+  }
 }

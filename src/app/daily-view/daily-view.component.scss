@@ -37,9 +37,20 @@ $dkgrey: #7a797a;
   font-size: 0.8rem;
 }
 
-.date-shown {
+.day-head {
   margin: 1.5rem auto;
-  color: $dkgrey;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  .date-shown {
+    color: $blue;
+    grid-column: 6/8;
+    text-align: center;
+  }
+
+  button {
+    grid-column: 11/12;
+  }
 }
 
 .wrapping-grid {
@@ -65,4 +76,9 @@ $dkgrey: #7a797a;
     color: $dkgrey;
     border-radius: 1rem;
   }
+}
+
+.item-option-row {
+  text-align: center;
+  margin: 3% auto;
 }

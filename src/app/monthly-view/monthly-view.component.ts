@@ -15,8 +15,14 @@ export class MonthlyViewComponent implements OnInit {
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
+  /** tell wrapper to go to daily view on specific date */
+  @Output() onEditDay: EventEmitter<Date> = new EventEmitter<Date>();
+
   /** the array of dates to populate UI for the month around focusDate*/
   monthDates: Date[] = [];
+
+  /** timer to allow for double click before single click fires */
+  singleClickTimer: any = setTimeout(() => {}, 0);
 
   /**
    * generates month based on initial focus date of today
@@ -37,7 +43,15 @@ export class MonthlyViewComponent implements OnInit {
    * @param date the date to now focus on
    */
   setFocusDate(date: Date): void {
-    this.sendFocusDate.emit(date);
+    this.singleClickTimer = setTimeout(() => {
+      this.sendFocusDate.emit(date);
+    }, 80);
+  }
+
+  /** communicate to parent to edit date */
+  onDoubleClick(date: Date): void {
+    clearTimeout(this.singleClickTimer);
+    this.onEditDay.emit(date);
   }
 
   /** based on whatever the new focus date should be, generate a month around that

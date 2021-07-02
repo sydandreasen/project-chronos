@@ -26,9 +26,20 @@ $dkgrey: #7a797a;
   margin: 5px 0;
 }
 
-.date-range {
+.month-head {
   margin: 1.5rem auto;
-  color: $dkgrey;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  .date-range {
+    color: $blue;
+    grid-column: 6/8;
+    text-align: center;
+  }
+
+  button {
+    grid-column: 11/12;
+  }
 }
 
 .jumpButton {
@@ -44,7 +55,7 @@ $dkgrey: #7a797a;
 
 .wrapping-grid {
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: 1fr 18fr 1fr;
 
   .nav-arrow {
     display: flex;
@@ -65,7 +76,7 @@ $dkgrey: #7a797a;
 
     .day {
       border: 1px solid $dkgrey;
-      min-height: 100px;
+      min-height: 150px;
       color: $dkgrey;
       border-radius: 1rem;
 
