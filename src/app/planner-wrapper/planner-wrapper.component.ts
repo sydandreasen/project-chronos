@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./planner-wrapper.component.scss'],
 })
 export class PlannerWrapperComponent {
+  /** start focusing on today. */
+  focusDate: Date = new Date();
   /** which view should be shown. week is default */
-  mode = 'week'; // default
+  mode: string = 'week'; // default
 
   /** based on top left buttons to switch view mode
    * @param mode the view to switch to
@@ -21,5 +23,10 @@ export class PlannerWrapperComponent {
     } else if (mode === 'month') {
       this.mode = mode;
     }
+  }
+
+  /** set focus data at wrapper level to pass updated info  to views */
+  setFocusDate(date: Date) {
+    this.focusDate = date;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-monthly-view',
@@ -10,7 +10,10 @@ export class MonthlyViewComponent implements OnInit {
    * the main focuses date. starts out as today
    * and can shift as the users specifies
    */
-  focusDate: Date = new Date(); // default date to build the month around.
+  @Input() focusDate: Date = new Date(); // default date to build the month around.
+
+  /** set focus date back at top to communicate between */
+  @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
   /** the array of dates to populate UI for the month around focusDate*/
   monthDates: Date[] = [];
@@ -26,15 +29,15 @@ export class MonthlyViewComponent implements OnInit {
    * jump back to focus on today
    */
   jumpToToday() {
-    this.focusDate = new Date();
-    this.generateMonth(this.focusDate);
+    this.setFocusDate(new Date());
+    this.generateMonth(new Date());
   }
 
-  /** jump to a new focus date. mainly to be used when within same month
-   * @param date the new date to focus on
+  /** jump to a new focus date.
+   * @param date the date to now focus on
    */
   setFocusDate(date: Date): void {
-    this.focusDate = date;
+    this.sendFocusDate.emit(date);
   }
 
   /** based on whatever the new focus date should be, generate a month around that
