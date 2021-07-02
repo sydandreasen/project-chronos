@@ -48,7 +48,7 @@ export class AppComponent {
     // subscribe to some data and let the variable contents change dynamically
     // get() is an option if only one snapshot in time of data is needed
     // also know that .child() calls can be used following .ref() to identify a path in the db
-    var subscription = this.db.ref('users/');
+    let subscription = this.db.ref('users/');
     subscription.on('value', (snapshot) => {
       this.users = snapshot.val();
     });
@@ -68,7 +68,7 @@ export class AppComponent {
   // set() will OVERWRITE the data at the given path with the data specified
   // note that both set() and update() allow a second parameter callback function where you can handle an error
   // to delete data instead of write data, call remove() on a reference
-  writeUserData(userId: string, name: string) {
+  writeUserData(userId: string, name: string): void {
     this.db.ref('users/' + userId + '/accountInfo').set(
       {
         name: name,

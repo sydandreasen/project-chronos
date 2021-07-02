@@ -43,7 +43,7 @@ export class MonthlyViewComponent implements OnInit {
   /** based on whatever the new focus date should be, generate a month around that
    * @param current the date to generate the month around
    */
-  generateMonth(current: Date) {
+  generateMonth(current: Date): void {
     this.monthDates = [];
     let firstOfMonth = this.copy(current);
     firstOfMonth.setDate(1);
@@ -91,13 +91,13 @@ export class MonthlyViewComponent implements OnInit {
   }
 
   /** navigate to next month */
-  nextMonth() {
+  nextMonth(): void {
     this.focusDate.setMonth(this.focusDate.getMonth() + 1);
     this.generateMonth(this.focusDate);
   }
 
   /** navigate to previous month */
-  lastMonth() {
+  lastMonth(): void {
     this.focusDate.setMonth(this.focusDate.getMonth() - 1);
     this.generateMonth(this.focusDate);
   }

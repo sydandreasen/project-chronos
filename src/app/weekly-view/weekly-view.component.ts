@@ -63,13 +63,13 @@ export class WeeklyViewComponent implements OnInit {
   }
 
   /** navigate to next week */
-  nextWeek() {
+  nextWeek(): void {
     this.focusDate.setDate(this.focusDate.getDate() + 7);
     this.generateweek(this.focusDate);
   }
 
   /** navigate to previous week */
-  lastWeek() {
+  lastWeek(): void {
     this.focusDate.setDate(this.focusDate.getDate() - 7);
     this.generateweek(this.focusDate);
   }
