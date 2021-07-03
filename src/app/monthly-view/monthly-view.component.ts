@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-monthly-view',
@@ -6,37 +6,63 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./monthly-view.component.scss'],
 })
 export class MonthlyViewComponent implements OnInit {
-  focusDate: Date = new Date(); // default date to build the month around.
-  monthDates: Date[] = []; // array of dates to populate UI
+  /**
+   * the main focuses date. starts out as today
+   * and can shift as the users specifies
+   */
+  @Input() focusDate: Date = new Date(); // default date to build the month around.
 
-  constructor() {}
+  /** set focus date back at top to communicate between */
+  @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
+  /** tell wrapper to go to daily view on specific date */
+  @Output() onEditDay: EventEmitter<Date> = new EventEmitter<Date>();
+
+  /** the array of dates to populate UI for the month around focusDate*/
+  monthDates: Date[] = [];
+
+  /** timer to allow for double click before single click fires */
+  singleClickTimer: any = setTimeout(() => {}, 0);
+
+  /**
+   * generates month based on initial focus date of today
+   */
   ngOnInit(): void {
-    var working = new Date();
-    this.generateMonth(working);
-  }
-
-  isSquareMonth(date: Date) {
-    let temp = this.copy(date);
-    temp.setDate(1);
-    return temp.getDay() === 0;
-  }
-
-  jumpToToday() {
-    this.focusDate = new Date();
     this.generateMonth(this.focusDate);
   }
 
-  // TODO as a nice to have, in all three views, alter styling on focusDate
+  /**
+   * jump back to focus on today
+   */
+  jumpToToday() {
+    this.setFocusDate(new Date());
+    this.generateMonth(new Date());
+  }
 
-  generateMonth(current: Date) {
+  /** jump to a new focus date.
+   * @param date the date to now focus on
+   */
+  setFocusDate(date: Date): void {
+    this.singleClickTimer = setTimeout(() => {
+      this.sendFocusDate.emit(date);
+    }, 80);
+  }
+
+  /** communicate to parent to edit date */
+  onDoubleClick(date: Date): void {
+    clearTimeout(this.singleClickTimer);
+    this.onEditDay.emit(date);
+  }
+
+  /** based on whatever the new focus date should be, generate a month around that
+   * @param current the date to generate the month around
+   */
+  generateMonth(current: Date): void {
     this.monthDates = [];
     let firstOfMonth = this.copy(current);
     firstOfMonth.setDate(1);
-    // want index to still be based on day of the week, so need to offset UNLESS the first of the month is a sunday
-    let spot = this.isSquareMonth(current)
-      ? current.getDate() - 1 // square month, index for 'current' date is simply one less than current's date
-      : current.getDate() - 1 + firstOfMonth.getDay(); // if not square month, current should have index offset by the day of the week
+    // want index to still be based on day of the week. note getDay() is zero indexed and getDate() is not
+    let spot = current.getDate() - 1 + firstOfMonth.getDay();
     let tracker = 0;
     let working = this.copy(current);
     working.setMonth(current.getMonth());
@@ -78,18 +104,22 @@ export class MonthlyViewComponent implements OnInit {
     }
   }
 
-  // navigate to next month
-  nextMonth() {
+  /** navigate to next month */
+  nextMonth(): void {
     this.focusDate.setMonth(this.focusDate.getMonth() + 1);
     this.generateMonth(this.focusDate);
   }
 
-  // navigate to previous month
-  lastMonth() {
+  /** navigate to previous month */
+  lastMonth(): void {
     this.focusDate.setMonth(this.focusDate.getMonth() - 1);
     this.generateMonth(this.focusDate);
   }
 
+  /** copy a date so that the copied object won't be affected when new is altered
+   * @param working the date to copy
+   * @returns the copied date
+   */
   copy(working: Date): Date {
     let reckoning = new Date();
     reckoning.setFullYear(working.getFullYear());

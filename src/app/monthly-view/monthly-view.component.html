@@ -1,11 +1,11 @@
 <div>
-  <div class="date-range">
-    <h2>
+  <div class="month-head">
+    <h2 class="date-range">
       <!-- 15 will always be in the main month, not backfilled or forwardfilled days -->
       {{ monthDates[15] | date: "MMMM y" }}
     </h2>
+    <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   </div>
-  <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   <div class="wrapping-grid">
     <div class="nav-arrow">
       <button class="tooltip" (click)="lastMonth()" mat-icon-button>
@@ -22,11 +22,20 @@
       <h4>Thursday</h4>
       <h4>Friday</h4>
       <h4>Saturday</h4>
-      <div *ngFor="let date of monthDates" class="day">
-        <div [class.currentMonth]="date?.getMonth() === monthDates[15]?.getMonth()" 
-        class="date">{{ date?.getDate() }}</div>
-        <br />
-        Day Content
+      <div
+        *ngFor="let date of monthDates"
+        (click)="setFocusDate(date)"
+        (dblclick)="onDoubleClick(date)"
+        [class.focused]="focusDate.toDateString() === date.toDateString()"
+        class="day"
+      >
+        <div
+          [class.currentMonth]="date?.getMonth() === monthDates[15]?.getMonth()"
+          class="date"
+        >
+          {{ date?.getDate() }}
+        </div>
+        <span> <br />Day Content</span>
       </div>
     </div>
     <div class="nav-arrow">
@@ -36,4 +45,5 @@
       </button>
     </div>
   </div>
+  <span>**Double click on any date to edit it in the daily view.**</span>
 </div>

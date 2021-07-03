@@ -37,9 +37,20 @@ $dkgrey: #7a797a;
   font-size: 0.8rem;
 }
 
-.date-shown {
+.day-head {
   margin: 1.5rem auto;
-  color: $dkgrey;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  .date-shown {
+    color: $blue;
+    grid-column: 6/8;
+    text-align: center;
+  }
+
+  button {
+    grid-column: 11/12;
+  }
 }
 
 .wrapping-grid {
@@ -59,9 +70,15 @@ $dkgrey: #7a797a;
   }
 
   .day {
-    border: 1px solid $dkgrey;
+    border: 3px solid $blue;
+    box-shadow: 0.25rem 0.25rem $ltgrey;
     min-height: 500px;
     color: $dkgrey;
     border-radius: 1rem;
   }
+}
+
+.item-option-row {
+  text-align: center;
+  margin: 3% auto;
 }

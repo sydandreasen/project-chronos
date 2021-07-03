@@ -1,10 +1,10 @@
 <div>
-  <div class="date-shown">
-    <h2>
+  <div class="day-head">
+    <h2 class="date-shown">
       {{ focusDate | date: "mediumDate" }}
     </h2>
+    <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   </div>
-  <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   <div class="wrapping-grid">
     <div class="nav-arrow">
       <button class="tooltip" (click)="yesterday()" mat-icon-button>
@@ -20,5 +20,9 @@
         <span class="tooltiptext">Following Day</span>
       </button>
     </div>
+  </div>
+
+  <div class="row item-option-row">
+    Include carousel of items they can drag and drop into their day
   </div>
 </div>

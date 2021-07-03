@@ -1,11 +1,11 @@
 <div>
-  <div class="date-range">
-    <h2>
+  <div class="week-head">
+    <h2 class="date-range">
       {{ weekDates[0] | date: "mediumDate" }} -
       {{ weekDates[6] | date: "mediumDate" }}
     </h2>
+    <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   </div>
-  <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   <div class="wrapping-grid">
     <div class="nav-arrow">
       <button class="tooltip" (click)="lastWeek()" mat-icon-button>
@@ -15,17 +15,20 @@
     </div>
 
     <div class="week-grid">
-      <h4>Sunday</h4>
-      <h4>Monday</h4>
-      <h4>Tuesday</h4>
-      <h4>Wednesday</h4>
-      <h4>Thursday</h4>
-      <h4>Friday</h4>
-      <h4>Saturday</h4>
-      <div *ngFor="let date of weekDates" class="day">
-        <div class="date">{{ date.getDate() }}</div>
-        <br />
-        Day Content
+      <div
+        *ngFor="let date of weekDates; index as i"
+        (click)="setFocusDate(date)"
+        (dblclick)="onDoubleClick(date)"
+      >
+        <h4>{{ dayNames[i] }}</h4>
+        <div
+          [class.focused]="focusDate.toDateString() === date.toDateString()"
+          class="day"
+        >
+          <div class="date">{{ date.getDate() }}</div>
+          <br />
+          Day Content
+        </div>
       </div>
     </div>
     <div class="nav-arrow">
@@ -35,4 +38,5 @@
       </button>
     </div>
   </div>
+  <span>**Double click on any date to edit it in the daily view.**</span>
 </div>
