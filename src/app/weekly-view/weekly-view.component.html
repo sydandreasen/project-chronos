@@ -15,23 +15,20 @@
     </div>
 
     <div class="week-grid">
-      <h4>Sunday</h4>
-      <h4>Monday</h4>
-      <h4>Tuesday</h4>
-      <h4>Wednesday</h4>
-      <h4>Thursday</h4>
-      <h4>Friday</h4>
-      <h4>Saturday</h4>
       <div
-        *ngFor="let date of weekDates"
+        *ngFor="let date of weekDates; index as i"
         (click)="setFocusDate(date)"
         (dblclick)="onDoubleClick(date)"
-        [class.focused]="focusDate.toDateString() === date.toDateString()"
-        class="day"
       >
-        <div class="date">{{ date.getDate() }}</div>
-        <br />
-        Day Content
+        <h4>{{ dayNames[i] }}</h4>
+        <div
+          [class.focused]="focusDate.toDateString() === date.toDateString()"
+          class="day"
+        >
+          <div class="date">{{ date.getDate() }}</div>
+          <br />
+          Day Content
+        </div>
       </div>
     </div>
     <div class="nav-arrow">

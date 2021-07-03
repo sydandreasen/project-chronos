@@ -55,7 +55,7 @@ $dkgrey: #7a797a;
 
 .wrapping-grid {
   display: grid;
-  grid-template-columns: 1fr 18fr 1fr;
+  grid-template-columns: 1fr 20fr 1fr;
 
   .nav-arrow {
     display: flex;
@@ -72,11 +72,12 @@ $dkgrey: #7a797a;
     h4 {
       margin: 0 auto;
       color: $blue;
+      font-size: xx-small; // back to initial at at least 800px
     }
 
     .day {
       border: 1px solid $dkgrey;
-      min-height: 150px;
+      min-height: min-content; // made larger in big view
       color: $dkgrey;
       border-radius: 1rem;
 
@@ -85,12 +86,18 @@ $dkgrey: #7a797a;
         color: $white;
         border-radius: 50%;
         width: 1.6vw;
+        min-width: 20px;
         height: 1.6vw;
+        min-height: 20px;
         padding: 2px;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 3px;
+      }
+
+      span {
+        display: none; // mobile. appears again at 800px
       }
 
       .currentMonth {
@@ -101,6 +108,19 @@ $dkgrey: #7a797a;
     .focused {
       border: 3px solid $blue;
       box-shadow: 0.25rem 0.25rem $ltgrey;
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  h4 {
+    font-size: large !important;
+  }
+  .day {
+    min-height: 150px !important;
+
+    span {
+      display: block !important;
     }
   }
 }

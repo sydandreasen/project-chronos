@@ -19,6 +19,17 @@ export class WeeklyViewComponent implements OnInit {
   /** the currently displayed week. sunday through saturday */
   weekDates: Date[] = []; // array of dates to populate UI
 
+  /** weekday names */
+  dayNames: string[] = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
   /** timer to allow for double click before single click fires */
   singleClickTimer: any = setTimeout(() => {}, 0);
 
