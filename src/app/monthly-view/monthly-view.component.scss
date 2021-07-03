@@ -93,21 +93,27 @@ $dkgrey: #7a797a;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 3px;
-      }
-
-      span {
-        display: none; // mobile. appears again at 800px
+        margin: auto;
+        margin-top: 2px;
       }
 
       .currentMonth {
         background-color: $blue;
+        padding: 2px;
+      }
+
+      span {
+        display: none; // mobile. appears again at 800px
       }
     }
 
     .focused {
       border: 3px solid $blue;
       box-shadow: 0.25rem 0.25rem $ltgrey;
+
+      .date {
+        margin-top: 0px;
+      }
     }
   }
 }
@@ -118,6 +124,10 @@ $dkgrey: #7a797a;
   }
   .day {
     min-height: 150px !important;
+
+    .date {
+      margin: 3px !important;
+    }
 
     span {
       display: block !important;
