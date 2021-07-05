@@ -32,8 +32,9 @@
       <span class="tooltiptext">More Options</span>
     </button>
     <mat-menu #menu="matMenu">
-      <!-- TODO implement auth logic on logout -->
-      <button routerLink="/login" mat-menu-item>Logout</button>
+      <button (click)="onLogout()" routerLink="/login" mat-menu-item>
+        Logout
+      </button>
     </mat-menu>
   </div>
 </div>

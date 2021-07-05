@@ -5,7 +5,7 @@
  */
 
 import { Component } from '@angular/core';
-import { FirebaseService } from './firebase.service';
+import { FirebaseService } from './services/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -34,11 +34,6 @@ export class AppComponent {
    */
   users = {};
 
-  // TODO add logic so that people can't go to a route they aren't auth'd for
-
-  // TODO when auth complete, change DB rules back to read and write false so that
-  // read/write is only  allowed when auth completed and access is no longer public
-
   /**
    * initialization lifecycle function.
    * run necessary subscriptions to data.
@@ -48,16 +43,16 @@ export class AppComponent {
     // subscribe to some data and let the variable contents change dynamically
     // get() is an option if only one snapshot in time of data is needed
     // also know that .child() calls can be used following .ref() to identify a path in the db
-    let subscription = this.db.ref('users/');
-    subscription.on('value', (snapshot) => {
-      this.users = snapshot.val();
-    });
+    // let subscription = this.db.ref('users/');
+    // subscription.on('value', (snapshot) => {
+    //   this.users = snapshot.val();
+    // });
     // write some data (overwriting)
-    this.writeUserData('testUser1', 'SallyJean'); // change the name or path to see new data appear on refresh
+    // this.writeUserData('testUser1', 'SallyJean'); // change the name or path to see new data appear on refresh
     // update some data
-    this.db
-      .ref()
-      .update({ 'users/testUser1/accountInfo/email': 'sallysEmail@gmail.com' }); // adds to SallyJean's info, but doesn't get rid of the property for her name
+    // this.db
+    //   .ref()
+    //   .update({ 'users/testUser1/accountInfo/email': 'sallysEmail@gmail.com' }); // adds to SallyJean's info, but doesn't get rid of the property for her name
   }
 
   /**

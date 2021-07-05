@@ -1,13 +1,10 @@
-<!-- FIXME why are we giving non-unique id's??? -->
-
 <p class="CreateAcctext">Create an Account</p>
 
 <!-- TODO Add pics and fix alignment, pretty up formatting-->
 <div class="subox" [formGroup]="signupForm">
   <input
     type="email"
-    id="fname"
-    name="fname"
+    id="email"
     placeholder="Email Address"
     class="typebox"
     formControlName="username"
@@ -16,8 +13,7 @@
   <br />
   <input
     type="email"
-    id="fname"
-    name="fname"
+    id="emailConfirm"
     placeholder="Confirm Email"
     class="typebox"
     formControlName="confirmUser"
@@ -26,8 +22,7 @@
   <br />
   <input
     type="password"
-    id="fname"
-    name="fname"
+    id="password"
     placeholder="Password"
     class="typebox"
     formControlName="password"
@@ -36,8 +31,7 @@
   <br />
   <input
     type="password"
-    id="fname"
-    name="fname"
+    id="passwordConfirm"
     placeholder="Confirm Password"
     class="typebox"
     formControlName="confirmPass"

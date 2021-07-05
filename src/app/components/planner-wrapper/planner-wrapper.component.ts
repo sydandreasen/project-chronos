@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
 @Component({
@@ -11,6 +12,9 @@ export class PlannerWrapperComponent {
   focusDate: Date = new Date();
   /** which view should be shown. week is default */
   mode: string = 'week'; // default
+
+  /** create planner wrapper */
+  constructor(private afAuth: AngularFireAuth) {}
 
   /** based on top left buttons to switch view mode
    * @param mode the view to switch to
@@ -34,5 +38,10 @@ export class PlannerWrapperComponent {
   editDay(date: Date) {
     this.setFocusDate(date);
     this.switchMode('day');
+  }
+
+  /** logout of authentication */
+  onLogout(): void {
+    this.afAuth.signOut();
   }
 }

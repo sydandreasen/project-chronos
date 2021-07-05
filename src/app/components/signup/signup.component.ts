@@ -8,7 +8,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FirebaseService } from '../firebase.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 /** manage signup form and authentication process */
 @Component({
@@ -20,22 +21,19 @@ export class SignupComponent {
   /** the form that contains inputs for signing up */
   signupForm: FormGroup;
 
-  /** the authentication instance from firebase. provided by FirebaseService */
-  auth;
-
   /**
    * assign clas vars
-   * @param fbService provides connections to firebase
+   * @param authService connects to signup logic
+   * @param afAuth allows handling of Angular Firebase Authentication
    * @param formBuilder allows easy creation of the signup form group
    * @param router allows managing navigation logic in typescript
    */
   constructor(
-    private fbService: FirebaseService,
+    private authService: AuthService,
+    private afAuth: AngularFireAuth,
     private formBuilder: FormBuilder,
     private router: Router
   ) {
-    this.auth = fbService.auth;
-
     this.signupForm = this.formBuilder.group({
       username: [null, [Validators.required, Validators.email]],
       confirmUser: [
@@ -56,16 +54,7 @@ export class SignupComponent {
   onSignup(): void {
     const email = this.signupForm.get('username')?.value;
     const password = this.signupForm.get('password')?.value;
-
-    this.auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((credentials) => {
-        console.log(credentials.user);
-        this.router.navigate(['plan']);
-      })
-      .catch((error) => {
-        alert(error);
-      });
+    this.authService.signUp(email, password);
   }
 
   /** a validator function for making sure inputs match the field they are confirming
