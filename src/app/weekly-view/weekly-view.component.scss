@@ -31,6 +31,17 @@ $dkgrey: #7a797a;
   color: $dkgrey;
 }
 
+.jumpButton {
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.6rem;
+  background: $ltgrey;
+  border: none;
+  padding: 0.7rem;
+  color: $white;
+  font-size: 0.8rem;
+}
+
 .wrapping-grid {
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
@@ -56,13 +67,15 @@ $dkgrey: #7a797a;
       border: 1px solid $dkgrey;
       min-height: 500px;
       color: $dkgrey;
+      border-radius: 1rem;
 
       .date {
         background-color: $blue;
         color: $white;
         border-radius: 50%;
-        width: 1.5vw;
-        height: 1.5vw;
+        width: 1.6vw;
+        height: 1.6vw;
+        padding: 2px;
         display: flex;
         justify-content: center;
         align-items: center;

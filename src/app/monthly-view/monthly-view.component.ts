@@ -12,27 +12,89 @@ export class MonthlyViewComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // TODO Royal to implement logic around dates
-    // i.e. based on the current date, pull the date and day of week, and grab
-    // dates for start and end of month accordingly
-    // set those into this.monthDates arrray
-    // after doing so, you should see the date numbers populate in the UI..
-    // because you will also need to find list of dates any time the navigation buttons are clicked,
-    // a function for this based on this.focusDate would be good instead of repeating code in
-    // nextMonth() and lastMonth() functions
+    var working = new Date();
+    this.generateMonth(working);
+  }
+
+  isSquareMonth(date: Date) {
+    let temp = this.copy(date);
+    temp.setDate(1);
+    return temp.getDay() === 0;
+  }
+
+  jumpToToday() {
+    this.focusDate = new Date();
+    this.generateMonth(this.focusDate);
+  }
+
+  // TODO as a nice to have, in all three views, alter styling on focusDate
+
+  generateMonth(current: Date) {
+    this.monthDates = [];
+    let firstOfMonth = this.copy(current);
+    firstOfMonth.setDate(1);
+    // want index to still be based on day of the week, so need to offset UNLESS the first of the month is a sunday
+    let spot = this.isSquareMonth(current)
+      ? current.getDate() - 1 // square month, index for 'current' date is simply one less than current's date
+      : current.getDate() - 1 + firstOfMonth.getDay(); // if not square month, current should have index offset by the day of the week
+    let tracker = 0;
+    let working = this.copy(current);
+    working.setMonth(current.getMonth());
+    for (let i = spot; tracker < current.getDate(); i--) {
+      // backfill the rest of the current month, starting with the current day
+      working.setFullYear(current.getFullYear());
+      working.setMonth(current.getMonth());
+      working.setDate(current.getDate() - tracker);
+      this.monthDates[i] = this.copy(working);
+      tracker++;
+    }
+    // backfill days in previous month
+    let tempDate = this.copy(current);
+    tempDate.setDate(0); // will go to last day in previous month
+    let daysInPreviousMonth = tempDate.getDate();
+    let daysToBackFill = working.getDay();
+    for (let i = 0; i < daysToBackFill; i++) {
+      working.setFullYear(tempDate.getFullYear());
+      working.setMonth(tempDate.getMonth());
+      working.setDate(daysInPreviousMonth - i);
+      this.monthDates[daysToBackFill - 1 - i] = this.copy(working);
+    }
+    // re-initialize some stuff
+    tracker = 1;
+    working = this.copy(current);
+    let lastDayOfMonth = this.copy(current); // makes new copy
+    lastDayOfMonth.setMonth(current.getMonth() + 1); // advances month
+    lastDayOfMonth.setDate(0); // sets back to last day of working month
+    let daysInCurrentMonth = lastDayOfMonth.getDate();
+    let need6Weeks = daysInCurrentMonth + firstOfMonth.getDay() > 35; // getDay() = 0 for sunday
+    let arrLen = need6Weeks ? 42 : 35;
+    for (let i = spot + 1; i < arrLen; i++) {
+      // fill rest of days until end of 5 weeks
+      working.setFullYear(current.getFullYear());
+      working.setMonth(current.getMonth());
+      working.setDate(current.getDate() + tracker);
+      this.monthDates[i] = this.copy(working);
+      tracker++;
+    }
   }
 
   // navigate to next month
   nextMonth() {
-    console.log('navigate to next month');
-    // TODO Royal to implement
-    // should effect this.focusDate and this.monthDates
+    this.focusDate.setMonth(this.focusDate.getMonth() + 1);
+    this.generateMonth(this.focusDate);
   }
 
   // navigate to previous month
   lastMonth() {
-    console.log('navigate to previous month');
-    // TODO Royal to implement
-    // should effect this.focusDate and this.monthDates
+    this.focusDate.setMonth(this.focusDate.getMonth() - 1);
+    this.generateMonth(this.focusDate);
+  }
+
+  copy(working: Date): Date {
+    let reckoning = new Date();
+    reckoning.setFullYear(working.getFullYear());
+    reckoning.setMonth(working.getMonth());
+    reckoning.setDate(working.getDate());
+    return reckoning;
   }
 }

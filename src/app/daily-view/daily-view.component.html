@@ -4,6 +4,7 @@
       {{ focusDate | date: "mediumDate" }}
     </h2>
   </div>
+  <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   <div class="wrapping-grid">
     <div class="nav-arrow">
       <button class="tooltip" (click)="yesterday()" mat-icon-button>

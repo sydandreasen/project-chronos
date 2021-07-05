@@ -1,12 +1,11 @@
 <div>
   <div class="date-range">
-    <!-- FIXME switch to weekDates[0]? and weekDates[6]? -->
-    fix this later after Royal implements date logic:
     <h2>
-      {{ focusDate | date: "mediumDate" }} -
-      {{ focusDate | date: "mediumDate" }}
+      {{ weekDates[0] | date: "mediumDate" }} -
+      {{ weekDates[6] | date: "mediumDate" }}
     </h2>
   </div>
+  <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   <div class="wrapping-grid">
     <div class="nav-arrow">
       <button class="tooltip" (click)="lastWeek()" mat-icon-button>
@@ -23,38 +22,8 @@
       <h4>Thursday</h4>
       <h4>Friday</h4>
       <h4>Saturday</h4>
-      <div class="day">
-        <div class="date">{{ weekDates[0]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[1]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[2]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[3]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[4]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[5]?.getDate() }}</div>
-        <br />
-        Day Content
-      </div>
-      <div class="day">
-        <div class="date">{{ weekDates[6]?.getDate() }}</div>
+      <div *ngFor="let date of weekDates" class="day">
+        <div class="date">{{ date.getDate() }}</div>
         <br />
         Day Content
       </div>

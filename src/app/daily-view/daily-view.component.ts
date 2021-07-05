@@ -6,23 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./daily-view.component.scss'],
 })
 export class DailyViewComponent implements OnInit {
-  focusDate: Date = new Date();
+  focusDate: Date;
 
-  constructor() {}
+  constructor() {
+    this.focusDate = new Date();
+  }
 
   ngOnInit(): void {}
 
-  // navigate to tomorrow
-  tomorrow() {
-    console.log('navigate to tomorrow');
-    // TODO Royal to implement
-    // should effect this.focusDate
+  jumpToToday() {
+    this.focusDate = new Date();
   }
 
-  // navigate to yesterday
+  // navigate to tomorrow (relative to focusDate)
+  tomorrow() {
+    this.focusDate = new Date(
+      this.focusDate.getFullYear(),
+      this.focusDate.getMonth(),
+      this.focusDate.getDate() + 1
+    );
+  }
+
+  // navigate to yesterday (relative to focusDate)
   yesterday() {
-    console.log('navigate to yesterday');
-    // TODO Royal to implement
-    // should effect this.focusDate
+    this.focusDate = new Date(
+      this.focusDate.getFullYear(),
+      this.focusDate.getMonth(),
+      this.focusDate.getDate() - 1
+    );
   }
 }

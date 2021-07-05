@@ -30,24 +30,32 @@ $dkgrey: #7a797a;
 
 .typebox {
   padding: 2px;
-  margin-left: auto
+  margin-left: auto;
+  border-radius: 0.25rem;
+  border: 1px solid $blue;
+}
 
+.invalid {
+  border: 1px solid red;
 }
 
 .litxt {
   text-align: center;
   color: $dkgrey;
   font-size: 12px;
-  
 }
 
 .logbut {
   text-align: right;
   color: $blue;
   float: right;
-}
+  background: transparent;
+  border-radius: 0.25rem;
+  border: 1px solid $blue;
 
-.supic {
-    width: 100px;
-    height: 100px;
+  &:disabled {
+    color: $dkgrey;
+    background: $ltgrey;
+    border: 1px solid $ltgrey;
+  }
 }
