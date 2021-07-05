@@ -13,34 +13,8 @@ export class PlannerWrapperComponent {
   /** which view should be shown. week is default */
   mode: string = 'week'; // default
 
-<<<<<<< HEAD:src/app/planner-wrapper/planner-wrapper.component.ts
-
-
-  constructor() {}
-
-  // ngOnInit(): void {
-  //   // test a couple images for the carousel
-  //   this.slides.push({
-  //     image:
-  //       'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
-  //   });
-  //   this.slides.push({
-  //     image:
-  //       'https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__340.jpg',
-  //   });
-  //   this.slides.push({
-  //     image:
-  //       'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__340.jpg',
-  //   });
-  //   this.slides.push({
-  //     image:
-  //       'https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297__340.jpg',
-  //   });
-  // }
-=======
   /** create planner wrapper */
   constructor(private afAuth: AngularFireAuth) {}
->>>>>>> dff39e8a6129f85df85587894c8d813dfec16eb5:src/app/components/planner-wrapper/planner-wrapper.component.ts
 
   /** based on top left buttons to switch view mode
    * @param mode the view to switch to
