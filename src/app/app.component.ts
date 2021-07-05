@@ -68,7 +68,7 @@ export class AppComponent {
       {
         name: name,
       },
-      (error) => {
+      (error : any) => {
         if (error) {
           console.log('error', error);
         } else {

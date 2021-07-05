@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCarouselModule } from 'ng-mat-carousel';
 
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './services/auth.guard';
@@ -60,6 +61,7 @@ const routes: Routes = [
     MatTooltipModule,
     MatButtonModule,
     MatMenuModule,
+    MatCarouselModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
