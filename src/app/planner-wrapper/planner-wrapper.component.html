@@ -38,24 +38,8 @@
   </div>
 </div>
 
-<div class="row planner-row" [ngSwitch]="mode">
-
-  <app-monthly-view
-    *ngSwitchCase="'month'"
-    [focusDate]="focusDate"
-    (sendFocusDate)="setFocusDate($event)"
-    (onEditDay)="editDay($event)"
-  ></app-monthly-view>
-  <app-weekly-view
-    *ngSwitchCase="'week'"
-    [focusDate]="focusDate"
-    (sendFocusDate)="setFocusDate($event)"
-    (onEditDay)="editDay($event)"
-  ></app-weekly-view>
-  <app-daily-view
-    *ngSwitchCase="'day'"
-    [focusDate]="focusDate"
-    (sendFocusDate)="setFocusDate($event)"
-  ></app-daily-view>
-</div>
-    
+ <div class="row planner-row" [ngSwitch]="mode">
+  <app-monthly-view *ngSwitchCase="'month'"></app-monthly-view>
+  <app-weekly-view *ngSwitchCase="'week'"></app-weekly-view>
+  <app-daily-view *ngSwitchCase="'day'"></app-daily-view>
+</div> 

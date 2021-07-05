@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCarouselModule } from 'ng-mat-carousel';
 
 import { AppComponent } from './app.component';
 import { PlannerWrapperComponent } from './planner-wrapper/planner-wrapper.component';
@@ -16,10 +17,6 @@ import { DailyViewComponent } from './daily-view/daily-view.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { MatCarouselModule } from 'ng-mat-carousel';
-
-
-
 
 /**
  * routes to show certain components based on URL
@@ -57,7 +54,6 @@ const routes = [
     MatButtonModule,
     MatMenuModule,
     MatCarouselModule.forRoot(),
-    
   ],
   providers: [],
   bootstrap: [AppComponent],
