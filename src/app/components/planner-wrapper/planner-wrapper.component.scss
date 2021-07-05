@@ -10,6 +10,20 @@ $dkgrey: #7a797a;
   padding: 0 20px;
 }
 
+<<<<<<< HEAD
+=======
+.item-option-row {
+  text-align: center;
+  padding: 0 12rem;
+  margin: 3% auto;
+
+  mat-carousel {
+    // height: 10rem; // FIXME
+    // border-radius: 1rem; // FIXME
+  }
+}
+
+>>>>>>> c0ac2744ad6dd0b4b5f00bb4b2cbf1230c9fb25e
 .action-row {
   padding: 0 20px;
   display: grid;
