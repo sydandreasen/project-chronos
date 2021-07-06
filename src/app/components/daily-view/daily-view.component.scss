@@ -72,7 +72,7 @@ $dkgrey: #7a797a;
   .day {
     border: 3px solid $blue;
     box-shadow: 0.25rem 0.25rem $ltgrey;
-    min-height: 500px;
+    min-height: 350px;
     color: $dkgrey;
     border-radius: 1rem;
   }
@@ -80,5 +80,6 @@ $dkgrey: #7a797a;
 
 .item-option-row {
   text-align: center;
-  margin: 3% auto;
+  margin: 1% auto 3% auto;
+  width: 67%;
 }

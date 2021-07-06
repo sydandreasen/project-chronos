@@ -6,17 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  /** whether a user is logged in */
-  isAuthenticated: boolean;
-
-  constructor(private router: Router, private afAuth: AngularFireAuth) {
-    this.isAuthenticated = false; // to start
-
-    this.afAuth.onAuthStateChanged((user) => {
-      // subscribe
-      this.isAuthenticated = !!user;
-    });
-  }
+  constructor(private router: Router, private afAuth: AngularFireAuth) {}
 
   /** signup a new user */
   signUp(email: string, password: string): void {
