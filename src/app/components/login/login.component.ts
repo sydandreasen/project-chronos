@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FirebaseService } from '../firebase.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from 'src/app/services/auth.service';
+
 /**
  * shows/manages the login page
  */
@@ -17,24 +19,18 @@ export class LoginComponent {
   loginForm: FormGroup;
 
   /**
-   * authentication instance from firebase.
-   * provided by FirebaseService.
-   */
-  auth;
-
-  /**
    * create instance of login component
-   * @param fbService provides connections to firebase
    * @param formBuilder allows to create form group easily
    * @param router allows to manage URL navigation logic in TypeScript
+   * @param afAuth allows handling of Angular Firebase Authentication
+   * @param authService connects to login logic
    */
   constructor(
-    private fbService: FirebaseService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private authService: AuthService
   ) {
-    this.auth = fbService.auth;
-
     this.loginForm = formBuilder.group({
       username: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6)]],
@@ -48,15 +44,6 @@ export class LoginComponent {
   onLogin(): void {
     const email = this.loginForm.get('username')?.value;
     const password = this.loginForm.get('password')?.value;
-
-    this.auth
-      .signInWithEmailAndPassword(email, password)
-      .then((credentials) => {
-        console.log(credentials.user);
-        this.router.navigate(['plan']);
-      })
-      .catch((error) => {
-        alert(error);
-      });
+    this.authService.login(email, password);
   }
 }

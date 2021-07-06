@@ -9,11 +9,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./daily-view.component.scss'],
 })
 export class DailyViewComponent {
-  /**
-   * the currently shown date
-   */
+  /** the currently shown date */
   @Input() focusDate: Date = new Date();
-  
 
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
