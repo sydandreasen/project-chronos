@@ -25,10 +25,9 @@
   <div class="item-option-row">
     <mat-carousel
       timings="250ms ease-in"
-      [autoplay]="true"
-      [interval]="5000"
-      color="accent"
+      [autoplay]="false"
       maxWidth="auto"
+      color="accent"
       [proportion]="25"
       [slides]="5"
       [loop]="true"
@@ -40,11 +39,14 @@
     >
       <mat-carousel-slide
         #matCarouselSlide
-        *ngFor="let slide of slides; let i = index"
-        [image]="slide.image"
-        overlayColor="#00000040"
+        *ngFor="let slide of slides; index as i"
+        overlayColor="rgba(255,255,255,0)"
         [hideOverlay]="false"
-      ></mat-carousel-slide>
+      >
+        <div class="draggable" id="{{ i }}-slide">
+          {{ createElement(slide, i) }}
+        </div>
+      </mat-carousel-slide>
     </mat-carousel>
   </div>
 </div>

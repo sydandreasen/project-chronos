@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 /**
@@ -15,26 +16,34 @@ export class DailyViewComponent {
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
-  slides: { image: string }[] = [];
+  slides: string[] = [];
 
+  /** initalize carousel element options */
   ngOnInit(): void {
     // test a couple images for the carousel
-    this.slides.push({
-      image:
-        'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
-    });
-    this.slides.push({
-      image:
-        'https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__340.jpg',
-    });
-    this.slides.push({
-      image:
-        'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__340.jpg',
-    });
-    this.slides.push({
-      image:
-        'https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297__340.jpg',
-    });
+    this.slides.push('textarea');
+    this.slides.push('input');
+    this.slides.push('button');
+  }
+
+  // FIXME, why can't I interact with them? aka type stuff into textarea and input
+  /** create a carousel element */
+  createElement(el: string, idx: number): void {
+    let element = document.createElement(el);
+    element.textContent = 'test ' + el;
+    element.style.height = '60%';
+    element.style.width = '75%';
+    element.style.textAlign = 'center';
+    element.style.borderRadius = '0.75rem';
+    element.style.border = '1px solid #7a797a';
+    element.style.backgroundColor = 'white';
+    element.style.padding = '1.2rem';
+
+    let wrapper = document.getElementById(idx + '-slide');
+    if (wrapper) {
+      wrapper.innerHTML = '';
+      wrapper.appendChild(element);
+    }
   }
 
   /**
