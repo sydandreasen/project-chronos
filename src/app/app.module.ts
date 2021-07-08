@@ -8,6 +8,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCarouselModule } from 'ng-mat-carousel';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './services/auth.guard';
@@ -62,6 +63,7 @@ const routes: Routes = [
     MatButtonModule,
     MatMenuModule,
     MatCarouselModule.forRoot(),
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

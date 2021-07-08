@@ -13,7 +13,23 @@
       </button>
     </div>
 
-    <div class="day">Day Content</div>
+    <div
+      class="day"
+      cdkDropList
+      #dayList="cdkDropList"
+      [cdkDropListData]="dayOptions"
+      [cdkDropListConnectedTo]="[optionList]"
+      (cdkDropListDropped)="dropNewOption($event)"
+    >
+      <div
+        id="{{ i }}-slide"
+        *ngFor="let item of dayOptions; index as i"
+        class="draggable"
+        cdkDrag
+      >
+        {{ createElement(item, i) }}
+      </div>
+    </div>
     <div class="nav-arrow">
       <button class="tooltip" (click)="tomorrow()" mat-icon-button>
         <mat-icon>arrow_forward_ios</mat-icon>
@@ -22,7 +38,29 @@
     </div>
   </div>
 
-  <div class="item-option-row">
+  <div
+    class="item-option-row"
+    cdkDropList
+    #optionList="cdkDropList"
+    [cdkDropListData]="slideList"
+    [cdkDropListConnectedTo]="[dayList]"
+    (cdkDropListDropped)="dropExistingOption($event)"
+  >
+    Using this for now instead of carousel to simplify creation of draggable
+    components: Drag options from below into the day to include them. To discard
+    an option, drag it back into the options bank.
+    <br /><br /><br />
+    <div
+      class="draggable"
+      id="{{ i }}-slide"
+      cdkDrag
+      *ngFor="let slide of slideList; index as i"
+    >
+      {{ createElement(slide, i) }}
+    </div>
+  </div>
+
+  <!-- <div class="item-option-row">
     <mat-carousel
       timings="250ms ease-in"
       [autoplay]="false"
@@ -39,14 +77,14 @@
     >
       <mat-carousel-slide
         #matCarouselSlide
-        *ngFor="let slide of slides; index as i"
+        *ngFor="let slide of slideList; index as i"
         overlayColor="rgba(255,255,255,0)"
         [hideOverlay]="false"
       >
-        <div class="draggable" id="{{ i }}-slide">
+        <div class="draggable" id="{{ i }}-slide" cdkDrag>
           {{ createElement(slide, i) }}
         </div>
       </mat-carousel-slide>
     </mat-carousel>
-  </div>
+  </div> -->
 </div>

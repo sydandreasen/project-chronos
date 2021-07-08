@@ -86,8 +86,10 @@ $dkgrey: #7a797a;
   text-align: center;
   margin: 1% auto 3% auto;
   width: 50%;
+}
 
-  .draggable {
-    height: 100% !important;
-  }
+.draggable {
+  height: 100% !important;
+  margin: 1.5rem;
+  display: inline-block;
 }

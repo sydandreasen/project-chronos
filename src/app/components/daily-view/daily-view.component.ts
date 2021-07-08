@@ -1,4 +1,8 @@
-import { stringify } from '@angular/compiler/src/util';
+import {
+  CdkDragDrop,
+  copyArrayItem,
+  moveItemInArray,
+} from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 /**
@@ -16,23 +20,15 @@ export class DailyViewComponent {
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
-  slides: string[] = [];
+  slideList: Array<any> = ['textarea', 'input', 'button'];
 
-  /** initalize carousel element options */
-  ngOnInit(): void {
-    // test a couple images for the carousel
-    this.slides.push('textarea');
-    this.slides.push('input');
-    this.slides.push('button');
-  }
+  dayOptions: Array<any> = [];
 
-  // FIXME, why can't I interact with them? aka type stuff into textarea and input
   /** create a carousel element */
   createElement(el: string, idx: number): void {
     let element = document.createElement(el);
-    element.textContent = 'test ' + el;
-    element.style.height = '60%';
-    element.style.width = '75%';
+    element.textContent = "I'm a " + el + ' element!';
+    element.style.height = 'fit-content';
     element.style.textAlign = 'center';
     element.style.borderRadius = '0.75rem';
     element.style.border = '1px solid #7a797a';
@@ -43,6 +39,37 @@ export class DailyViewComponent {
     if (wrapper) {
       wrapper.innerHTML = '';
       wrapper.appendChild(element);
+    }
+  }
+
+  /** handle drag and drop into day */
+  dropNewOption(dropItem: CdkDragDrop<any>) {
+    if (dropItem.previousContainer === dropItem.container) {
+      moveItemInArray(
+        dropItem.container.data,
+        dropItem.previousIndex,
+        dropItem.currentIndex
+      );
+    } else {
+      copyArrayItem(
+        dropItem.previousContainer.data,
+        dropItem.container.data,
+        dropItem.previousIndex,
+        dropItem.currentIndex
+      );
+    }
+  }
+
+  /* handle drag and drop into options */
+  dropExistingOption(dropItem: CdkDragDrop<any>) {
+    if (dropItem.previousContainer === dropItem.container) {
+      moveItemInArray(
+        dropItem.container.data,
+        dropItem.previousIndex,
+        dropItem.currentIndex
+      );
+    } else {
+      this.dayOptions.splice(dropItem.previousIndex, 1);
     }
   }
 
