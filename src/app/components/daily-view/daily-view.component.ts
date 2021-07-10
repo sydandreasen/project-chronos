@@ -3,7 +3,13 @@ import {
   copyArrayItem,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 /**
  * shows/manages daily view of plan endpoint
@@ -20,27 +26,9 @@ export class DailyViewComponent {
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
-  slideList: Array<any> = ['textarea', 'input', 'button'];
+  slideList: Array<any> = [];
 
   dayOptions: Array<any> = [];
-
-  /** create a carousel element */
-  createElement(el: string, idx: number): void {
-    let element = document.createElement(el);
-    element.textContent = "I'm a " + el + ' element!';
-    element.style.height = 'fit-content';
-    element.style.textAlign = 'center';
-    element.style.borderRadius = '0.75rem';
-    element.style.border = '1px solid #7a797a';
-    element.style.backgroundColor = 'white';
-    element.style.padding = '1.2rem';
-
-    let wrapper = document.getElementById(idx + '-slide');
-    if (wrapper) {
-      wrapper.innerHTML = '';
-      wrapper.appendChild(element);
-    }
-  }
 
   /** handle drag and drop into day */
   dropNewOption(dropItem: CdkDragDrop<any>) {
@@ -57,6 +45,13 @@ export class DailyViewComponent {
         dropItem.previousIndex,
         dropItem.currentIndex
       );
+      // TODO add to DB
+      let optionsParent = document.getElementById('day-options');
+      let addingEl = dropItem.item.element.nativeElement.cloneNode(true);
+      optionsParent?.appendChild(addingEl);
+      document.querySelectorAll('.draggable').forEach((draggable) => {
+        draggable.classList.remove('cdk-drag-dragging');
+      });
     }
   }
 
@@ -68,9 +63,16 @@ export class DailyViewComponent {
         dropItem.previousIndex,
         dropItem.currentIndex
       );
-    } else {
-      this.dayOptions.splice(dropItem.previousIndex, 1);
-    }
+    } //else {
+    // this.dayOptions.splice(dropItem.previousIndex, 1);
+    // }
+  }
+
+  onDelete(el: any) {
+    // find out if element is in the day, not carousel
+    // console.log(el);
+    // TODO remove from DB
+    // el.nativeElement.remove;
   }
 
   /**
