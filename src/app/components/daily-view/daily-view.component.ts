@@ -3,13 +3,7 @@ import {
   copyArrayItem,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { draggable } from '../draggable/draggable.model';
 
 /**
@@ -33,33 +27,6 @@ export class DailyViewComponent {
   ];
 
   dayOptions: Array<any> = [];
-
-  /** handle drag and drop into day */
-  dropNewOption(dropItem: CdkDragDrop<any>) {
-    if (dropItem.previousContainer === dropItem.container) {
-      moveItemInArray(
-        dropItem.container.data,
-        dropItem.previousIndex,
-        dropItem.currentIndex
-      );
-    } else {
-      copyArrayItem(
-        dropItem.previousContainer.data,
-        dropItem.container.data,
-        dropItem.previousIndex,
-        dropItem.currentIndex
-      );
-      // TODO add to DB
-    }
-  }
-
-  /* handle drag and drop into options */
-  dropExistingOption(dropItem: CdkDragDrop<any>) {
-    if (dropItem.previousContainer !== dropItem.container) {
-      this.dayOptions.splice(dropItem.currentIndex, 1);
-      // TODO remove from DB
-    }
-  }
 
   /**
    * reset the focused date back to today
@@ -97,5 +64,32 @@ export class DailyViewComponent {
       this.focusDate.getDate() - 1
     );
     this.setFocusDate(temp);
+  }
+
+  /** handle drag and drop into day */
+  dropNewOption(dropItem: CdkDragDrop<any>) {
+    if (dropItem.previousContainer === dropItem.container) {
+      moveItemInArray(
+        dropItem.container.data,
+        dropItem.previousIndex,
+        dropItem.currentIndex
+      );
+    } else {
+      copyArrayItem(
+        dropItem.previousContainer.data,
+        dropItem.container.data,
+        dropItem.previousIndex,
+        dropItem.currentIndex
+      );
+      // TODO add to DB
+    }
+  }
+
+  /* handle drag and drop into options */
+  dropExistingOption(dropItem: CdkDragDrop<any>) {
+    if (dropItem.previousContainer !== dropItem.container) {
+      this.dayOptions.splice(dropItem.currentIndex, 1);
+      // TODO remove from DB
+    }
   }
 }

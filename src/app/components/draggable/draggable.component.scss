@@ -55,3 +55,16 @@ label {
     background: #efefef;
   }
 }
+
+.cdk-drag {
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-placeholder {
+  background-color: $ltgrey;
+  border: 3px dotted $dkgrey;
+}
