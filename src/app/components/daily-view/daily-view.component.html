@@ -21,7 +21,11 @@
       [cdkDropListData]="dayOptions"
       [cdkDropListConnectedTo]="[optionList]"
       (cdkDropListDropped)="dropNewOption($event)"
-    ></div>
+    >
+      <span *ngFor="let option of dayOptions">
+        <app-draggable [option]="option"></app-draggable>
+      </span>
+    </div>
     <div class="nav-arrow">
       <button class="tooltip" (click)="tomorrow()" mat-icon-button>
         <mat-icon>arrow_forward_ios</mat-icon>
@@ -30,57 +34,29 @@
     </div>
   </div>
 
-  <div
-    class="item-option-row"
-    cdkDropList
-    #optionList="cdkDropList"
-    [cdkDropListData]="slideList"
-    [cdkDropListConnectedTo]="[dayList]"
-    (cdkDropListDropped)="dropExistingOption($event)"
-  >
-    Using this for now instead of carousel to simplify creation of draggable
-    components: Drag options from below into the day to include them. To discard
-    an option, drag it back into the options bank.<br /><br />
-    <div class="draggable" id="task-option" cdkDrag>
-      <textarea>task</textarea>
-      <mat-icon (click)="onDelete($event)">delete</mat-icon>
-    </div>
-    <div class="draggable" id="metric-option" cdkDrag>
-      <label for="metry-entry"
-        ><input
-          type="text"
-          id="metric-label"
-          placeholder="metric label" /></label
-      >: <input type="text" id="metric-entry" placeholder="enter value" />
-      <mat-icon (click)="onDelete($event)">delete</mat-icon>
-    </div>
-  </div>
-
-  <!-- <div class="item-option-row">
+  <div class="item-option-row">
     <mat-carousel
       timings="250ms ease-in"
       [autoplay]="false"
-      maxWidth="auto"
-      color="accent"
-      [proportion]="25"
-      [slides]="5"
-      [loop]="true"
+      [proportion]="37"
       [hideArrows]="false"
       [hideIndicators]="false"
-      [useKeyboard]="true"
-      [useMouseWheel]="false"
       orientation="ltr"
+      cdkDropList
+      #optionList="cdkDropList"
+      [cdkDropListData]="slideList"
+      [cdkDropListConnectedTo]="[dayList]"
+      (cdkDropListDropped)="dropExistingOption($event)"
     >
       <mat-carousel-slide
         #matCarouselSlide
-        *ngFor="let slide of slideList; index as i"
+        *ngFor="let option of slideList"
         overlayColor="rgba(255,255,255,0)"
         [hideOverlay]="false"
       >
-        <div class="draggable" id="{{ i }}-slide" cdkDrag>
-          {{ createElement(slide, i) }}
-        </div>
+        Grab my hand to drag me into your day. Drag me back to delete me.
+        <app-draggable [option]="option"></app-draggable>
       </mat-carousel-slide>
     </mat-carousel>
-  </div> -->
+  </div>
 </div>

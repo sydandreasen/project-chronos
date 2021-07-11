@@ -1,0 +1,32 @@
+<div class="draggable" cdkDrag>
+  <span class="task" *ngIf="option.type === 'task'">
+    <span>
+      <mat-icon cdkDragHandle>pan_tool</mat-icon>
+      <input type="checkbox" [checked]="" />
+      <br />
+    </span>
+    <textarea
+      type="text"
+      placeholder="task"
+      cols="20"
+      wrap="hard"
+      placeholder="task"
+    ></textarea>
+  </span>
+  <span class="metric" *ngIf="option.type === 'metric'">
+    <label for="metry-entry"
+      ><input
+        onkeypress="this.style.width = (this.value.length+1) + 'ch';"
+        type="text"
+        id="metric-label"
+        placeholder="metric"
+    /></label>
+    :<mat-icon cdkDragHandle>pan_tool</mat-icon><br />
+    <input
+      onkeypress="this.style.width = (this.value.length+1) + 'ch';"
+      type="text"
+      id="metric-entry"
+      placeholder="value"
+    />
+  </span>
+</div>

@@ -10,6 +10,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { draggable } from '../draggable/draggable.model';
 
 /**
  * shows/manages daily view of plan endpoint
@@ -26,7 +27,10 @@ export class DailyViewComponent {
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
-  slideList: Array<any> = [];
+  slideList: Array<draggable> = [
+    { type: 'task', value: '' },
+    { type: 'metric', value: '' },
+  ];
 
   dayOptions: Array<any> = [];
 
@@ -46,33 +50,15 @@ export class DailyViewComponent {
         dropItem.currentIndex
       );
       // TODO add to DB
-      let optionsParent = document.getElementById('day-options');
-      let addingEl = dropItem.item.element.nativeElement.cloneNode(true);
-      optionsParent?.appendChild(addingEl);
-      document.querySelectorAll('.draggable').forEach((draggable) => {
-        draggable.classList.remove('cdk-drag-dragging');
-      });
     }
   }
 
   /* handle drag and drop into options */
   dropExistingOption(dropItem: CdkDragDrop<any>) {
-    if (dropItem.previousContainer === dropItem.container) {
-      moveItemInArray(
-        dropItem.container.data,
-        dropItem.previousIndex,
-        dropItem.currentIndex
-      );
-    } //else {
-    // this.dayOptions.splice(dropItem.previousIndex, 1);
-    // }
-  }
-
-  onDelete(el: any) {
-    // find out if element is in the day, not carousel
-    // console.log(el);
-    // TODO remove from DB
-    // el.nativeElement.remove;
+    if (dropItem.previousContainer !== dropItem.container) {
+      this.dayOptions.splice(dropItem.currentIndex, 1);
+      // TODO remove from DB
+    }
   }
 
   /**
