@@ -1,0 +1,60 @@
+<div class="row action-row">
+  <button
+    class="tooltip"
+    mat-icon-button
+    (click)="switchMode('month')"
+    [disabled]="mode === 'month'"
+  >
+    <mat-icon>calendar_today</mat-icon>
+    <span class="tooltiptext">Monthly View</span>
+  </button>
+  <button
+    class="tooltip"
+    mat-icon-button
+    (click)="switchMode('week')"
+    [disabled]="mode === 'week'"
+  >
+    <mat-icon>view_week</mat-icon>
+    <span class="tooltiptext">Weekly View</span>
+  </button>
+  <button
+    class="tooltip"
+    mat-icon-button
+    (click)="switchMode('day')"
+    [disabled]="mode === 'day'"
+  >
+    <mat-icon>today</mat-icon>
+    <span class="tooltiptext">Daily View</span>
+  </button>
+  <div>
+    <button class="tooltip" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+      <span class="tooltiptext">More Options</span>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button (click)="onLogout()" routerLink="/login" mat-menu-item>
+        Logout
+      </button>
+    </mat-menu>
+  </div>
+</div>
+
+<div class="row planner-row" [ngSwitch]="mode">
+  <app-monthly-view
+    *ngSwitchCase="'month'"
+    [focusDate]="focusDate"
+    (sendFocusDate)="setFocusDate($event)"
+    (onEditDay)="editDay($event)"
+  ></app-monthly-view>
+  <app-weekly-view
+    *ngSwitchCase="'week'"
+    [focusDate]="focusDate"
+    (sendFocusDate)="setFocusDate($event)"
+    (onEditDay)="editDay($event)"
+  ></app-weekly-view>
+  <app-daily-view
+    *ngSwitchCase="'day'"
+    [focusDate]="focusDate"
+    (sendFocusDate)="setFocusDate($event)"
+  ></app-daily-view>
+</div>

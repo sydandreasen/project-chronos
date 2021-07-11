@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "project-chronos-planner"
+  },
+  "targets": {
+    "project-chronos-planner": {
+      "hosting": {
+        "ProjectChronos": [
+          "project-chronos-planner"
+        ]
+      }
+    }
   }
 }

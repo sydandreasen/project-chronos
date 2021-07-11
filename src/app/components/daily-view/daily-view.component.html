@@ -1,0 +1,62 @@
+<div>
+  <div class="day-head">
+    <h2 class="date-shown">
+      {{ focusDate | date: "mediumDate" }}
+    </h2>
+    <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
+  </div>
+  <div class="wrapping-grid">
+    <div class="nav-arrow">
+      <button class="tooltip" (click)="yesterday()" mat-icon-button>
+        <mat-icon>arrow_back_ios</mat-icon>
+        <span class="tooltiptext">Previous Day</span>
+      </button>
+    </div>
+
+    <div
+      id="day-options"
+      class="day"
+      cdkDropList
+      #dayList="cdkDropList"
+      [cdkDropListData]="dayOptions"
+      [cdkDropListConnectedTo]="[optionList]"
+      (cdkDropListDropped)="dropNewOption($event)"
+    >
+      <span *ngFor="let option of dayOptions">
+        <app-draggable [option]="option"></app-draggable>
+      </span>
+    </div>
+    <div class="nav-arrow">
+      <button class="tooltip" (click)="tomorrow()" mat-icon-button>
+        <mat-icon>arrow_forward_ios</mat-icon>
+        <span class="tooltiptext">Following Day</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="item-option-row">
+    <mat-carousel
+      timings="250ms ease-in"
+      [autoplay]="false"
+      [proportion]="37"
+      [hideArrows]="false"
+      [hideIndicators]="false"
+      orientation="ltr"
+      cdkDropList
+      #optionList="cdkDropList"
+      [cdkDropListData]="slideList"
+      [cdkDropListConnectedTo]="[dayList]"
+      (cdkDropListDropped)="dropExistingOption($event)"
+    >
+      <mat-carousel-slide
+        #matCarouselSlide
+        *ngFor="let option of slideList"
+        overlayColor="rgba(255,255,255,0)"
+        [hideOverlay]="false"
+      >
+        Grab my hand to drag me into your day. Drag me back to delete me.<br />
+        <app-draggable [option]="option"></app-draggable>
+      </mat-carousel-slide>
+    </mat-carousel>
+  </div>
+</div>
