@@ -52,6 +52,7 @@ export class DailyViewComponent {
       this.focusDate.getDate() + 1
     );
     this.setFocusDate(temp);
+    this.dayOptions = [];
   }
 
   /**
@@ -64,6 +65,7 @@ export class DailyViewComponent {
       this.focusDate.getDate() - 1
     );
     this.setFocusDate(temp);
+    this.dayOptions = [];
   }
 
   /** handle drag and drop into day */
