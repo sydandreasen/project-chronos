@@ -1,0 +1,50 @@
+<div>
+  <div class="day-head">
+    <h2 class="date-shown" [class.red]="chosenColor === 'red'" [class.blue]="chosenColor === 'blue'" [class.green]="chosenColor === 'green'">
+      {{ focusDate | date: "mediumDate" }}
+    </h2>
+    <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
+  </div>
+  <div class="wrapping-grid">
+    <div class="nav-arrow">
+      <button class="tooltip" (click)="yesterday()" mat-icon-button>
+        <mat-icon>arrow_back_ios</mat-icon>
+        <span class="tooltiptext">Previous Day</span>
+      </button>
+    </div>
+
+    <div class="day">Day Content</div>
+    <div class="nav-arrow">
+      <button class="tooltip" (click)="tomorrow()" mat-icon-button>
+        <mat-icon>arrow_forward_ios</mat-icon>
+        <span class="tooltiptext">Following Day</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="item-option-row">
+    <mat-carousel
+      timings="250ms ease-in"
+      [autoplay]="true"
+      [interval]="5000"
+      color="accent"
+      maxWidth="auto"
+      [proportion]="25"
+      [slides]="5"
+      [loop]="true"
+      [hideArrows]="false"
+      [hideIndicators]="false"
+      [useKeyboard]="true"
+      [useMouseWheel]="false"
+      orientation="ltr"
+    >
+      <mat-carousel-slide
+        #matCarouselSlide
+        *ngFor="let slide of slides; let i = index"
+        [image]="slide.image"
+        overlayColor="#00000040"
+        [hideOverlay]="false"
+      ></mat-carousel-slide>
+    </mat-carousel>
+  </div>
+</div>
