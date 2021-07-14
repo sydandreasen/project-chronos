@@ -11,6 +11,7 @@
       cols="20"
       wrap="hard"
       placeholder="task"
+      [style.fontSize]="fontSize"
     ></textarea>
   </span>
   <span class="metric" *ngIf="option.type === 'metric'">
@@ -20,6 +21,7 @@
         type="text"
         id="metric-label"
         placeholder="metric"
+        [style.fontSize]="fontSize"
     /></label>
     :<mat-icon cdkDragHandle>pan_tool</mat-icon><br />
     <input
@@ -27,6 +29,7 @@
       type="text"
       id="metric-entry"
       placeholder="value"
+      [style.fontSize]="fontSize"
     />
   </span>
 </div>

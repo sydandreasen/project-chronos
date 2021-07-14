@@ -18,6 +18,9 @@ export class DailyViewComponent {
   /** the currently shown date */
   @Input() focusDate: Date = new Date();
 
+  /** the font size to have for tasks and metrics */
+  @Input() fontSize: number = 0;
+
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
@@ -52,6 +55,7 @@ export class DailyViewComponent {
       this.focusDate.getDate() + 1
     );
     this.setFocusDate(temp);
+    this.dayOptions = [];
   }
 
   /**
@@ -64,6 +68,7 @@ export class DailyViewComponent {
       this.focusDate.getDate() - 1
     );
     this.setFocusDate(temp);
+    this.dayOptions = [];
   }
 
   /** handle drag and drop into day */
@@ -91,5 +96,10 @@ export class DailyViewComponent {
       this.dayOptions.splice(dropItem.currentIndex, 1);
       // TODO remove from DB
     }
+  }
+
+  /** get font size in pixels based on inputted number */
+  getFontSize() {
+    return this.fontSize + 'px';
   }
 }

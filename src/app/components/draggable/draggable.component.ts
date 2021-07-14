@@ -8,4 +8,6 @@ import { draggable } from './draggable.model';
 })
 export class DraggableComponent {
   @Input() option: draggable = new draggable();
+
+  @Input() fontSize: string = '';
 }

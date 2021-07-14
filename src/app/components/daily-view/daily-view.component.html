@@ -23,7 +23,10 @@
       (cdkDropListDropped)="dropNewOption($event)"
     >
       <span *ngFor="let option of dayOptions">
-        <app-draggable [option]="option"></app-draggable>
+        <app-draggable
+          [fontSize]="getFontSize()"
+          [option]="option"
+        ></app-draggable>
       </span>
     </div>
     <div class="nav-arrow">
@@ -55,7 +58,10 @@
         [hideOverlay]="false"
       >
         Grab my hand to drag me into your day. Drag me back to delete me.<br />
-        <app-draggable [option]="option"></app-draggable>
+        <app-draggable
+          [fontSize]="getFontSize()"
+          [option]="option"
+        ></app-draggable>
       </mat-carousel-slide>
     </mat-carousel>
   </div>
