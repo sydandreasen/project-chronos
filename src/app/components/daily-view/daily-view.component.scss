@@ -43,7 +43,7 @@ $dkgrey: #7a797a;
   grid-template-columns: repeat(12, 1fr);
 
   .date-shown {
-    color: $blue;
+    //color: $blue;
     grid-column: 6/8;
     text-align: center;
   }
@@ -82,4 +82,16 @@ $dkgrey: #7a797a;
   text-align: center;
   margin: 1% auto 3% auto;
   width: 67%;
+}
+
+.blue {
+  color:#3c96f7;
+}
+
+.green {
+  color:green;
+}
+
+.red {
+  color: red;
 }

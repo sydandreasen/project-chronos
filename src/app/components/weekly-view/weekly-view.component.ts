@@ -10,6 +10,8 @@ export class WeeklyViewComponent implements OnInit {
   /** the currently focused date. defaults to today */
   @Input() focusDate: Date = new Date(); // default date to build the week around.
 
+  @Input() chosenColor: String = '';
+
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 

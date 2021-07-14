@@ -12,6 +12,8 @@ export class MonthlyViewComponent implements OnInit {
    */
   @Input() focusDate: Date = new Date(); // default date to build the month around.
 
+  @Input() chosenColor: String = '';
+
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 

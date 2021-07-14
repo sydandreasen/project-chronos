@@ -12,6 +12,8 @@ export class DailyViewComponent {
   /** the currently shown date */
   @Input() focusDate: Date = new Date();
 
+  @Input() chosenColor: String = '';
+
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 

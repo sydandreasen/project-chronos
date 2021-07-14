@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import {MatButtonModule} from '@angular/material/button';
+//import { builtinModules } from 'module';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
 @Component({
@@ -13,6 +15,7 @@ export class PlannerWrapperComponent {
   /** which view should be shown. week is default */
   mode: string = 'week'; // default
 
+  chosenColor: string = 'blue';
   /** create planner wrapper */
   constructor(private afAuth: AngularFireAuth) {}
 
@@ -44,4 +47,17 @@ export class PlannerWrapperComponent {
   onLogout(): void {
     this.afAuth.signOut();
   }
+
+  goRed(): void {
+    this.chosenColor = 'red';
+  }
+
+  goBlue(): void {
+    this.chosenColor = 'blue';
+  }
+
+  goGreen(): void {
+    this.chosenColor = 'green';
+  }
+
 }
