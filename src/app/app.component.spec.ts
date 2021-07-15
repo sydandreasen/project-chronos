@@ -1,27 +1,52 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { DailyViewComponent } from './components/daily-view/daily-view.component';
+import { LoginComponent } from './components/login/login.component';
+import { MonthlyViewComponent } from './components/monthly-view/monthly-view.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PlannerWrapperComponent } from './components/planner-wrapper/planner-wrapper.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { WeeklyViewComponent } from './components/weekly-view/weekly-view.component';
+
 
 describe('AppComponent', () => {
+
+  let fixture : ComponentFixture<AppComponent>;
+  let ui : any;
+  let component : AppComponent;
+
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent],
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        AppComponent, 
+        DailyViewComponent,
+        LoginComponent,
+        MonthlyViewComponent,
+        NotFoundComponent,
+        PlannerWrapperComponent,
+        SignupComponent,
+        WeeklyViewComponent
+      ],
     }).compileComponents();
   });
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    ui = fixture.nativeElement;
+    fixture.detectChanges();
+  })
+
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain(
-      'ProjectChronos app is running!'
-    );
-  });
+  afterEach(() => {
+    expect(ui.querySelector('header h1').textContent).toEqual('Project Chronos');
+  })
 });
