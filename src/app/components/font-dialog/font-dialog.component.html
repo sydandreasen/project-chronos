@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>
+  Choose the font size for your tasks and metrics (in pixels).
+</h2>
+
+<mat-dialog-content>
+  <p>Choose the font size (in pixels).</p>
+  <mat-form-field>
+    <mat-select [formControl]="fontSize">
+      <mat-option *ngFor="let size of fontSizes" [value]="size">{{
+        size
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>Choose the font.</p>
+  <mat-form-field>
+    <mat-select [formControl]="fontFamily">
+      <mat-option *ngFor="let family of fontFamilies" [value]="family">{{
+        family
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button (click)="close()">Close</button>
+</mat-dialog-actions>

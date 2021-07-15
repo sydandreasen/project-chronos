@@ -73,15 +73,21 @@ $dkgrey: #7a797a;
     border: 3px solid $blue;
     box-shadow: 0.25rem 0.25rem $ltgrey;
     min-height: 350px;
-    color: $dkgrey;
+    // color: $dkgrey;
     border-radius: 1rem;
+    text-align: left;
   }
 }
 
 .item-option-row {
+  background-color: $blue;
+  border-radius: 0.75rem;
+  border: 2px solid $ltgrey;
+  padding: 1rem;
   text-align: center;
   margin: 1% auto 3% auto;
-  width: 67%;
+  width: 33%;
+  min-width: 400px;
 }
 
 .blue {

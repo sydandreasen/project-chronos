@@ -1,4 +1,10 @@
+import {
+  CdkDragDrop,
+  copyArrayItem,
+  moveItemInArray,
+} from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { draggable } from '../draggable/draggable.model';
 
 /**
  * shows/manages daily view of plan endpoint
@@ -12,32 +18,25 @@ export class DailyViewComponent {
   /** the currently shown date */
   @Input() focusDate: Date = new Date();
 
+
   @Input() chosenColor: String = '';
+
+  /** the font size to have for tasks and metrics */
+  @Input() fontSize: number = 0;
+
+  /** the font family to have for tasks and metrics */
+  @Input() fontFamily: string = '';
+
 
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
-  slides: { image: string }[] = [];
+  slideList: Array<draggable> = [
+    { type: 'task', value: '' },
+    { type: 'metric', value: '' },
+  ];
 
-  ngOnInit(): void {
-    // test a couple images for the carousel
-    this.slides.push({
-      image:
-        'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
-    });
-    this.slides.push({
-      image:
-        'https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__340.jpg',
-    });
-    this.slides.push({
-      image:
-        'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__340.jpg',
-    });
-    this.slides.push({
-      image:
-        'https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297__340.jpg',
-    });
-  }
+  dayOptions: Array<any> = [];
 
   /**
    * reset the focused date back to today
@@ -63,6 +62,7 @@ export class DailyViewComponent {
       this.focusDate.getDate() + 1
     );
     this.setFocusDate(temp);
+    this.dayOptions = [];
   }
 
   /**
@@ -75,5 +75,38 @@ export class DailyViewComponent {
       this.focusDate.getDate() - 1
     );
     this.setFocusDate(temp);
+    this.dayOptions = [];
+  }
+
+  /** handle drag and drop into day */
+  dropNewOption(dropItem: CdkDragDrop<any>) {
+    if (dropItem.previousContainer === dropItem.container) {
+      moveItemInArray(
+        dropItem.container.data,
+        dropItem.previousIndex,
+        dropItem.currentIndex
+      );
+    } else {
+      copyArrayItem(
+        dropItem.previousContainer.data,
+        dropItem.container.data,
+        dropItem.previousIndex,
+        dropItem.currentIndex
+      );
+      // TODO add to DB
+    }
+  }
+
+  /* handle drag and drop into options */
+  dropExistingOption(dropItem: CdkDragDrop<any>) {
+    if (dropItem.previousContainer !== dropItem.container) {
+      this.dayOptions.splice(dropItem.currentIndex, 1);
+      // TODO remove from DB
+    }
+  }
+
+  /** get font size in pixels based on inputted number */
+  getFontSize() {
+    return this.fontSize + 'px';
   }
 }

@@ -8,6 +8,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCarouselModule } from 'ng-mat-carousel';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './services/auth.guard';
@@ -21,6 +24,8 @@ import { DailyViewComponent } from './components/daily-view/daily-view.component
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { DraggableComponent } from './components/draggable/draggable.component';
+import { FontDialogComponent } from './components/font-dialog/font-dialog.component';
 
 /**
  * routes to show certain components based on URL
@@ -50,6 +55,8 @@ const routes: Routes = [
     LoginComponent,
     SignupComponent,
     NotFoundComponent,
+    DraggableComponent,
+    FontDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +69,9 @@ const routes: Routes = [
     MatButtonModule,
     MatMenuModule,
     MatCarouselModule.forRoot(),
+    MatSelectModule,
+    MatDialogModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

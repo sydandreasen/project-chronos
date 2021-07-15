@@ -28,7 +28,12 @@
     <span class="tooltiptext">Daily View</span>
   </button>
   <div>
-    <button class="tooltip" mat-icon-button [matMenuTriggerFor]="menu">
+    <button
+      class="tooltip"
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      #menuTrigger
+    >
       <mat-icon>menu</mat-icon>
       <span class="tooltiptext">More Options</span>
     </button>
@@ -46,6 +51,7 @@
       <button (click)="onLogout()" routerLink="/login" mat-menu-item>
         Logout
       </button>
+      <button mat-menu-item (click)="openFontDialog()">Customize Fonts</button>
     </mat-menu>
   </div>
 </div>
@@ -70,5 +76,7 @@
     [focusDate]="focusDate"
     [chosenColor]="chosenColor"
     (sendFocusDate)="setFocusDate($event)"
+    [fontSize]="fontSize"
+    [fontFamily]="fontFamily"
   ></app-daily-view>
 </div>
