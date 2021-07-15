@@ -10,4 +10,6 @@ export class DraggableComponent {
   @Input() option: draggable = new draggable();
 
   @Input() fontSize: string = '';
+
+  @Input() fontFamily: string = '';
 }

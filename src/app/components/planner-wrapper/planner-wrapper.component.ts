@@ -2,7 +2,7 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { FontSizeDialogComponent } from '../font-size-dialog/font-size-dialog.component';
+import { FontDialogComponent } from '../font-dialog/font-dialog.component';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
 @Component({
@@ -14,8 +14,11 @@ export class PlannerWrapperComponent {
   /** the trigger to open menu (the button with three horizontal lines icon) */
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger | undefined;
 
-  /** grab a font size change */
+  /** font size for tasks and metrics */
   fontSize: number = 14; // TODO set this in onInit or something after getting default from DB
+
+  /** font-fmaily for tasks and metrics */
+  fontFamily: string = 'Roboto'; // TODO set this in onInit or something after getting default from DB
 
   /** start focusing on today. */
   focusDate: Date = new Date();
@@ -59,17 +62,26 @@ export class PlannerWrapperComponent {
     this.fontSize = size;
   }
 
+  /** set a new font-family */
+  setFontFamily(family: string): void {
+    this.fontFamily = family;
+  }
+
   /** open the dialog for setting font size */
-  openFontSizeDialog(): void {
+  openFontDialog(): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.restoreFocus = false;
-    dialogConfig.data = { fontSize: 14 };
+    dialogConfig.data = {
+      fontSize: this.fontSize,
+      fontFamily: this.fontFamily,
+    };
     const fontSizeDialogRef = this.dialog.open(
-      FontSizeDialogComponent,
+      FontDialogComponent,
       dialogConfig
     );
-    fontSizeDialogRef.afterClosed().subscribe((fontSize) => {
-      this.setFontSize(fontSize);
+    fontSizeDialogRef.afterClosed().subscribe((data) => {
+      this.setFontSize(data.fontSize);
+      this.setFontFamily(data.fontFamily);
       this.menuTrigger?.focus();
     });
   }

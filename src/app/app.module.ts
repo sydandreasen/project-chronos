@@ -25,7 +25,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DraggableComponent } from './components/draggable/draggable.component';
-import { FontSizeDialogComponent } from './components/font-size-dialog/font-size-dialog.component';
+import { FontDialogComponent } from './components/font-dialog/font-dialog.component';
 
 /**
  * routes to show certain components based on URL
@@ -56,7 +56,7 @@ const routes: Routes = [
     SignupComponent,
     NotFoundComponent,
     DraggableComponent,
-    FontSizeDialogComponent,
+    FontDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -25,6 +25,7 @@
       <span *ngFor="let option of dayOptions">
         <app-draggable
           [fontSize]="getFontSize()"
+          [fontFamily]="fontFamily"
           [option]="option"
         ></app-draggable>
       </span>
@@ -60,6 +61,7 @@
         Grab my hand to drag me into your day. Drag me back to delete me.<br />
         <app-draggable
           [fontSize]="getFontSize()"
+          [fontFamily]="fontFamily"
           [option]="option"
         ></app-draggable>
       </mat-carousel-slide>

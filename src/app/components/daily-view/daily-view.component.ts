@@ -21,6 +21,9 @@ export class DailyViewComponent {
   /** the font size to have for tasks and metrics */
   @Input() fontSize: number = 0;
 
+  /** the font family to have for tasks and metrics */
+  @Input() fontFamily: string = '';
+
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
