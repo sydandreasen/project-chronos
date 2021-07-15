@@ -29,7 +29,6 @@ $dkgrey: #7a797a;
 }
 
 .typebox {
-  align-content: center;
   padding: 2px;
   margin-bottom: 7px;
   border-radius: 0.25rem;
@@ -59,27 +58,4 @@ $dkgrey: #7a797a;
     background: $ltgrey;
     border: 1px solid $ltgrey;
   }
-}
-
-.sugraphic {
-  width: 50%;
-  height: 40%;
-  max-width: 350px;
-  max-height: 800px;
-  min-width: 85px;
-  min-height: 195px;
-}
-
-.supfp {
-  align-content: center;
-  height: auto;
-  width: auto;
-  max-width: 135px;
-  max-height: 135px;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
 }
