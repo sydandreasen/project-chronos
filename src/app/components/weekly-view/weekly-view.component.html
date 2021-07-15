@@ -1,6 +1,6 @@
 <div>
   <div class="week-head">
-    <h2 class="date-range">
+    <h2 class="date-range" [class.red]="chosenColor === 'red'" [class.blue]="chosenColor === 'blue'" [class.green]="chosenColor === 'green'">
       {{ weekDates[0] | date: "mediumDate" }} -
       {{ weekDates[6] | date: "mediumDate" }}
     </h2>
@@ -20,7 +20,11 @@
         (click)="setFocusDate(date)"
         (dblclick)="onDoubleClick(date)"
       >
-        <h4>{{ dayNames[i] }}</h4>
+        <h4 
+        [class.red]="chosenColor === 'red'" 
+        [class.blue]="chosenColor === 'blue'" 
+        [class.green]="chosenColor === 'green'"
+        >{{ dayNames[i] }}</h4>
         <div
           [class.focused]="focusDate.toDateString() === date.toDateString()"
           class="day"
