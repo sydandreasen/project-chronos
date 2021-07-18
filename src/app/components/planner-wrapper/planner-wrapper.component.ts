@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { Router } from '@angular/router';
 import { FontDialogComponent } from '../font-dialog/font-dialog.component';
 
 
@@ -32,7 +33,11 @@ export class PlannerWrapperComponent {
 
   chosenColor: string = 'blue';
   /** create planner wrapper */
-  constructor(private afAuth: AngularFireAuth, private dialog: MatDialog) {}
+  constructor(
+    private afAuth: AngularFireAuth,
+    private dialog: MatDialog,
+    private router: Router
+  ) {}
 
   /** based on top left buttons to switch view mode
    * @param mode the view to switch to
@@ -60,6 +65,7 @@ export class PlannerWrapperComponent {
 
   /** logout of authentication */
   onLogout(): void {
+    this.router.navigate(['login']);
     this.afAuth.signOut();
   }
 

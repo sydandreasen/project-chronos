@@ -67,7 +67,9 @@ One item we mentioned in our milestone 1 goals was to also route to a page for c
 
 # Release Notes: Milestone 2 Functionality
 
-coming soon
+Basic customization tools have now been added. On the daily view, tasks and metrics can be drag-and-dropped into the days, with their text boxes being editable. Some basic color, font size, and font family customizations are also possible. This is all front-end at this point with no persistency of customizations because the backend part has not been created.
+
+Authentication backend now exists for signup and login, as well as guarding the /plan URL endpoint so that un-authenticated users cannot access it.
 
 
 # Release Notes: Milestone 3 Functionality
