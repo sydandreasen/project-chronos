@@ -1,6 +1,6 @@
 <div>
   <div class="day-head">
-    <h2 class="date-shown">
+    <h2 class="date-shown" [class.red]="chosenColor === 'red'" [class.blue]="chosenColor === 'blue'" [class.green]="chosenColor === 'green'">
       {{ focusDate | date: "mediumDate" }}
     </h2>
     <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>

@@ -12,14 +12,13 @@ $dkgrey: #7a797a;
 }
 
 .subox {
-  // margin-left: auto;
-  margin: 4rem 20rem 8rem 20rem;
-  // margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 25px;
   border: 3px solid $ltgrey;
   padding: 20px;
-  // width: 60%;
-  // height: 50%;
+  width: 60%;
+  height: 50%;
   position: relative;
   top: 20px;
 }
@@ -30,7 +29,6 @@ $dkgrey: #7a797a;
 }
 
 .typebox {
-  align-content: center;
   padding: 2px;
   margin-bottom: 7px;
   border-radius: 0.25rem;
@@ -47,18 +45,10 @@ $dkgrey: #7a797a;
   font-size: 12px;
 }
 
-table {
-  width: 100%;
-
-  td:nth-child(2) {
-    width: 67%;
-    text-align: center;
-  }
-}
-
 .logbut {
   text-align: right;
   color: $blue;
+  float: right;
   background: transparent;
   border-radius: 0.25rem;
   border: 1px solid $blue;
@@ -68,27 +58,4 @@ table {
     background: $ltgrey;
     border: 1px solid $ltgrey;
   }
-}
-
-.sugraphic {
-  // width: 50%;
-  // height: 40%;
-  max-width: 350px;
-  max-height: 800px;
-  min-width: 85px;
-  min-height: 195px;
-}
-
-.supfp {
-  align-content: center;
-  height: auto;
-  width: auto;
-  max-width: 135px;
-  max-height: 135px;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
 }

@@ -32,7 +32,7 @@ $dkgrey: #7a797a;
   grid-template-columns: repeat(12, 1fr);
 
   .date-range {
-    color: $blue;
+    //color: $blue;
     grid-column: 5/9;
     text-align: center;
   }
@@ -70,7 +70,7 @@ $dkgrey: #7a797a;
 
     h4 {
       margin: 0 auto;
-      color: $blue;
+      //color: $blue;
     }
 
     .day {
@@ -112,4 +112,17 @@ $dkgrey: #7a797a;
       min-height: 550px !important;
     }
   }
+
+  .blue {
+    color:#3c96f7;
+  }
+  
+  .green {
+    color:green;
+  }
+  
+  .red {
+    color: red;
+  }
+  
 }

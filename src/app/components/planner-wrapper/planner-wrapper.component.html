@@ -37,8 +37,17 @@
       <span class="tooltiptext">More Options</span>
     </button>
     <mat-menu #menu="matMenu">
-      <button (click)="onLogout()" mat-menu-item>Logout</button>
+      <button (click)="goRed()" routerLink="/plan" mat-menu-item>
+        Red Text
+      </button>
+      <button (click)="goBlue()" routerLink="/plan" mat-menu-item>
+        Blue Text
+      </button>
+      <button (click)="goGreen()" routerLink="/plan" mat-menu-item>
+        Green Text
+      </button>
       <button mat-menu-item (click)="openFontDialog()">Customize Fonts</button>
+      <button (click)="onLogout()" mat-menu-item>Logout</button>
     </mat-menu>
   </div>
 </div>
@@ -47,18 +56,21 @@
   <app-monthly-view
     *ngSwitchCase="'month'"
     [focusDate]="focusDate"
+    [chosenColor]="chosenColor"
     (sendFocusDate)="setFocusDate($event)"
     (onEditDay)="editDay($event)"
   ></app-monthly-view>
   <app-weekly-view
     *ngSwitchCase="'week'"
     [focusDate]="focusDate"
+    [chosenColor]="chosenColor"
     (sendFocusDate)="setFocusDate($event)"
     (onEditDay)="editDay($event)"
   ></app-weekly-view>
   <app-daily-view
     *ngSwitchCase="'day'"
     [focusDate]="focusDate"
+    [chosenColor]="chosenColor"
     (sendFocusDate)="setFocusDate($event)"
     [fontSize]="fontSize"
     [fontFamily]="fontFamily"

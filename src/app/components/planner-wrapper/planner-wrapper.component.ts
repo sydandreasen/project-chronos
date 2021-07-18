@@ -1,9 +1,14 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+
+import {MatButtonModule} from '@angular/material/button';
+//import { builtinModules } from 'module';
+
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { FontDialogComponent } from '../font-dialog/font-dialog.component';
+
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
 @Component({
@@ -26,6 +31,7 @@ export class PlannerWrapperComponent {
   /** which view should be shown. week is default */
   mode: string = 'week'; // default
 
+  chosenColor: string = 'blue';
   /** create planner wrapper */
   constructor(
     private afAuth: AngularFireAuth,
@@ -63,6 +69,20 @@ export class PlannerWrapperComponent {
     this.afAuth.signOut();
   }
 
+
+  goRed(): void {
+    this.chosenColor = 'red';
+  }
+
+  goBlue(): void {
+    this.chosenColor = 'blue';
+  }
+
+  goGreen(): void {
+    this.chosenColor = 'green';
+  }
+
+
   /** set a new font size */
   setFontSize(size: number): void {
     this.fontSize = size;
@@ -91,4 +111,5 @@ export class PlannerWrapperComponent {
       this.menuTrigger?.focus();
     });
   }
+
 }
