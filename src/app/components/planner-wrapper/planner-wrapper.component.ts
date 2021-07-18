@@ -1,14 +1,11 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-
-import {MatButtonModule} from '@angular/material/button';
-//import { builtinModules } from 'module';
-
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { FontDialogComponent } from '../font-dialog/font-dialog.component';
-
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
 @Component({
@@ -21,23 +18,53 @@ export class PlannerWrapperComponent {
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger | undefined;
 
   /** font size for tasks and metrics */
-  fontSize: number = 14; // TODO set this in onInit or something after getting default from DB
+  fontSize: number = 0; // overridden in subscription
 
   /** font-fmaily for tasks and metrics */
-  fontFamily: string = 'Roboto'; // TODO set this in onInit or something after getting default from DB
+  fontFamily: string = ''; // overridden in subscription
 
   /** start focusing on today. */
   focusDate: Date = new Date();
-  /** which view should be shown. week is default */
-  mode: string = 'week'; // default
 
-  chosenColor: string = 'blue';
+  /** which view should be shown. week is default */
+  mode: string = 'week'; // default // TODO let them change this default setting
+
+  /** the chosen text color */
+  chosenColor: string = ''; // overridden in subscription
+
+  /** the user's current data */
+  userData: { [key: string]: any } = {};
+
   /** create planner wrapper */
   constructor(
     private afAuth: AngularFireAuth,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private fbService: FirebaseService,
+    private authService: AuthService
   ) {}
+
+  /** setup Db subscription */
+  ngOnInit() {
+    const uid = this.authService.getUID();
+    this.subscribeToUser(uid);
+  }
+
+  /** subscribe to user's data */
+  subscribeToUser(uid: string): void {
+    this.fbService.db.ref('users/' + uid).on('value', (snapshot) => {
+      this.userData = snapshot.val();
+      this.chosenColor = snapshot.val().settings?.fontColor
+        ? snapshot.val().settings.fontColor
+        : 'blue';
+      this.fontSize = snapshot.val().settings?.fontSize
+        ? snapshot.val().settings.fontSize
+        : 14;
+      this.fontFamily = snapshot.val().settings?.fontFamily
+        ? snapshot.val().settings.fontFamily
+        : 'Roboto';
+    });
+  }
 
   /** based on top left buttons to switch view mode
    * @param mode the view to switch to
@@ -69,7 +96,6 @@ export class PlannerWrapperComponent {
     this.afAuth.signOut();
   }
 
-
   goRed(): void {
     this.chosenColor = 'red';
   }
@@ -81,7 +107,6 @@ export class PlannerWrapperComponent {
   goGreen(): void {
     this.chosenColor = 'green';
   }
-
 
   /** set a new font size */
   setFontSize(size: number): void {
@@ -106,10 +131,13 @@ export class PlannerWrapperComponent {
       dialogConfig
     );
     fontSizeDialogRef.afterClosed().subscribe((data) => {
-      this.setFontSize(data.fontSize);
-      this.setFontFamily(data.fontFamily);
+      if (data?.fontSize) {
+        this.setFontSize(data.fontSize);
+      }
+      if (data?.fontFamily) {
+        this.setFontFamily(data.fontFamily);
+      }
       this.menuTrigger?.focus();
     });
   }
-
 }

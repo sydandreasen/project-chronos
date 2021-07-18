@@ -7,6 +7,8 @@ import { FirebaseService } from './firebase.service';
   providedIn: 'root',
 })
 export class AuthService {
+  uid: string = '';
+
   constructor(
     private router: Router,
     private afAuth: AngularFireAuth,
@@ -15,8 +17,14 @@ export class AuthService {
     this.afAuth.onAuthStateChanged((user) => {
       if (user?.uid) {
         this.fbService.checkExistingUser(user);
+        this.uid = user.uid;
       }
     });
+  }
+
+  /** getter for user's uid */
+  getUID(): string {
+    return this.uid;
   }
 
   /** signup a new user */
