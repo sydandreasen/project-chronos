@@ -28,9 +28,9 @@ export class AuthGuard implements CanActivate {
         if (user) {
           resolve(true);
         } else {
-          alert(
-            "Access denied :( We're redirecting you back to the login screen."
-          );
+          // alert(
+          //   "Either your session ended or you were denied access. We're redirecting you back to the login screen."
+          // );
           this.router.navigate(['login']);
           resolve(false);
         }
