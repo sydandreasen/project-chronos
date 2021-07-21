@@ -108,6 +108,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_services_firebase_service.FirebaseService.html#createNewUserEntry" class="tsd-kind-icon">create<wbr>New<wbr>User<wbr>Entry</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_services_firebase_service.FirebaseService.html#createUniqueID" class="tsd-kind-icon">create<wbr>UniqueID</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_services_firebase_service.FirebaseService.html#reorderMetricOrTask" class="tsd-kind-icon">reorder<wbr>Metric<wbr>OrTask</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_services_firebase_service.FirebaseService.html#updateMetricOrTask" class="tsd-kind-icon">update<wbr>Metric<wbr>OrTask</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_services_firebase_service.FirebaseService.html#writeMetricOrTask" class="tsd-kind-icon">write<wbr>Metric<wbr>OrTask</a></li>
 							</ul>
 						</section>
@@ -286,7 +287,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/services/firebase.service.ts#L210">services/firebase.service.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/services/firebase.service.ts#L228">services/firebase.service.ts:228</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -303,25 +304,88 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/services/firebase.service.ts#L126">services/firebase.service.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/services/firebase.service.ts#L133">services/firebase.service.ts:133</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>adjust all the indexes on the metrics/tasks in the day because they reordered them</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>uid: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>user&#39;s id</p>
+									</div>
 								</li>
 								<li>
 									<h5>date: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>string representing the date</p>
+									</div>
 								</li>
 								<li>
 									<h5>prevIdx: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the index where the moved one used to be</p>
+									</div>
 								</li>
 								<li>
 									<h5>newIdx: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the index where the moved one should now be</p>
+									</div>
 								</li>
 								<li>
 									<h5>allDraggablesInDay: <a href="app_components_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>all the draggable options in the day</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="updateMetricOrTask" class="tsd-anchor"></a>
+					<h3>update<wbr>Metric<wbr>OrTask</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Metric<wbr>OrTask<span class="tsd-signature-symbol">(</span>uid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, date<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dragItem<span class="tsd-signature-symbol">: </span><a href="app_components_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/services/firebase.service.ts#L209">services/firebase.service.ts:209</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>update a single metric/task that&#39;s already been configured with whatever needs updating</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uid: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>user&#39;s id</p>
+									</div>
+								</li>
+								<li>
+									<h5>date: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>string representing date to save stuff under</p>
+									</div>
+								</li>
+								<li>
+									<h5>dragItem: <a href="app_components_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the draggable item to be updated in the DB</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -338,25 +402,45 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/services/firebase.service.ts#L165">services/firebase.service.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/services/firebase.service.ts#L169">services/firebase.service.ts:169</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>create a brand new metric or task in the db</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>uid: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the user id</p>
+									</div>
 								</li>
 								<li>
 									<h5>date: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a string representing the date to put the metric/task on</p>
+									</div>
 								</li>
 								<li>
 									<h5>dragItem: <a href="app_components_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the item being dropped into the day</p>
+									</div>
 								</li>
 								<li>
 									<h5>idx: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the index at which that item shall be dropped</p>
+									</div>
 								</li>
 								<li>
 									<h5>allDraggablesInDay: <a href="app_components_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>all the draggables already in the day before dropping this one</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -445,6 +529,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_services_firebase_service.FirebaseService.html#reorderMetricOrTask" class="tsd-kind-icon">reorder<wbr>Metric<wbr>OrTask</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="app_services_firebase_service.FirebaseService.html#updateMetricOrTask" class="tsd-kind-icon">update<wbr>Metric<wbr>OrTask</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_services_firebase_service.FirebaseService.html#writeMetricOrTask" class="tsd-kind-icon">write<wbr>Metric<wbr>OrTask</a>

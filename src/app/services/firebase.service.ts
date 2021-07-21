@@ -122,7 +122,14 @@ export class FirebaseService {
     });
   }
 
-  // TODO add docs
+  /**
+   * adjust all the indexes on the metrics/tasks in the day because they reordered them
+   * @param uid user's id
+   * @param date string representing the date
+   * @param prevIdx the index where the moved one used to be
+   * @param newIdx the index where the moved one should now be
+   * @param allDraggablesInDay all the draggable options in the day
+   */
   reorderMetricOrTask(
     uid: string,
     date: string,
@@ -133,13 +140,10 @@ export class FirebaseService {
     // item from prevIdx should always go to newIdx
     // if prevIdx > newIdx, all items previously at idx of newIdx or greater and less than prevIdx should increase their idx by one
     // if prevIdx < newIdx, items between should decrease their idx by one
-
-    console.log(JSON.stringify(allDraggablesInDay));
     allDraggablesInDay.forEach((draggable: draggable) => {
       if (draggable.idx === prevIdx) {
-        {
-          draggable.idx = newIdx;
-        }
+        draggable.idx = newIdx;
+        this.updateMetricOrTask(uid, date, draggable);
       } else if (
         draggable.idx >= Math.min(prevIdx, newIdx) &&
         draggable.idx <= Math.max(prevIdx, newIdx)
@@ -149,19 +153,19 @@ export class FirebaseService {
         } else if (prevIdx > newIdx) {
           draggable.idx++;
         }
+        this.updateMetricOrTask(uid, date, draggable);
       }
     });
-    console.log(JSON.stringify(allDraggablesInDay));
-
-    // maybe try to use dayOptions and just use all and then update each of those where needed
-
-    // use safe operators in case no metrics and/or tasks for day
-    // work on metrics
-
-    // work on tasks
   }
 
-  // TODO add docs
+  /**
+   * create a brand new metric or task in the db
+   * @param uid  the user id
+   * @param date a string representing the date to put the metric/task on
+   * @param dragItem the item being dropped into the day
+   * @param idx the index at which that item shall be dropped
+   * @param allDraggablesInDay all the draggables already in the day before dropping this one
+   */
   writeMetricOrTask(
     uid: string,
     date: string,
@@ -169,10 +173,13 @@ export class FirebaseService {
     idx: number,
     allDraggablesInDay: Array<draggable>
   ): void {
-    // TODO, depending on where placed, might need to update indexes for others. possibly call reorder method after just creating the one?
     dragItem.idx = idx;
     let writeObj: { [key: string]: any } = {};
-    writeObj.value = dragItem.value; // FIXME
+    writeObj.value = dragItem.value; // FIXME -- not necessarily broken, but may
+    // need adjusted/improved -- when working on updating db
+    // on metric/task edit function, which will better determine the format
+    // in the DB. try to keep this and DB format generalized so that we don't
+    // have to do too much 'if task, if metric' differentiating
     writeObj.idx = dragItem.idx;
 
     // get id for metric or tasks, unique within the day
@@ -190,8 +197,19 @@ export class FirebaseService {
     dragItem.id = itemId;
 
     allDraggablesInDay.splice(dragItem.idx, 0, dragItem); // put it in the right place in the array of options
+    this.updateMetricOrTask(uid, date, dragItem);
+  }
 
-    // use update()
+  /**
+   * update a single metric/task that's already been configured with whatever needs updating
+   * @param uid user's id
+   * @param date string representing date to save stuff under
+   * @param dragItem the draggable item to be updated in the DB
+   */
+  updateMetricOrTask(uid: string, date: string, dragItem: draggable): void {
+    let updateObj: { [key: string]: any } = {};
+    updateObj.idx = dragItem.idx;
+    updateObj.value = dragItem.value;
     this.db
       .ref(
         'users/' +
@@ -201,10 +219,10 @@ export class FirebaseService {
           '/' +
           dragItem.type +
           's/' +
-          itemId +
+          dragItem.id +
           '/'
       )
-      .update(writeObj);
+      .update(updateObj);
   }
 
   createUniqueID(): string {

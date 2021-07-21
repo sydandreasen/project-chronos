@@ -105,7 +105,6 @@ export class DailyViewComponent {
     if (dropItem.previousContainer === dropItem.container) {
       // update dragged one's idx
       this.fbService.reorderMetricOrTask(
-        // FIXME method not finished
         this.uid,
         this.focusDate.toDateString().replace(/ /g, ''),
         dropItem.previousIndex,
@@ -126,28 +125,6 @@ export class DailyViewComponent {
         this.dayOptions.length, // currentIndex provided by library seemed off having the first drop into the day always go to the end. let them reorder from there
         this.dayOptions
       );
-
-      // console.log('prev cont data', dropItem.previousContainer.data);
-      // console.log('cont data', dropItem.container.data);
-      // console.log('prev ind', dropItem.previousIndex);
-      // console.log('current idx', dropItem.currentIndex);
-      // copyArrayItem(
-      //   // FIXME, this is the wrong kind of copy. need info, not object reference
-      //   dropItem.previousContainer.data,
-      //   dropItem.container.data,
-      //   dropItem.previousIndex,
-      //   dropItem.currentIndex
-      // );
-
-      // fix shallow copy issue from drag-and-drop library. need deep one
-      // library does shallow copy, so now set the slide to a fresh slide
-      // this.slideList[dropItem.previousIndex] = new draggable();
-      // this.slideList[dropItem.previousIndex].type =
-      //   this.dayOptions[dropItem.currentIndex].type;
-      // console.log('slides', this.slideList);
-      // console.log('chosen options', this.dayOptions);
-      console.log('slides', this.slideList);
-      console.log('chosen options', this.dayOptions);
     }
   }
 
