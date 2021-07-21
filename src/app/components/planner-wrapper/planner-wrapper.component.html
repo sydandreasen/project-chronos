@@ -58,6 +58,7 @@
     [focusDate]="focusDate"
     [chosenColor]="chosenColor"
     (sendFocusDate)="setFocusDate($event)"
+    [allDayOptions]="allDayOptions"
     (onEditDay)="editDay($event)"
   ></app-monthly-view>
   <app-weekly-view
@@ -65,6 +66,7 @@
     [focusDate]="focusDate"
     [chosenColor]="chosenColor"
     (sendFocusDate)="setFocusDate($event)"
+    [allDayOptions]="allDayOptions"
     (onEditDay)="editDay($event)"
   ></app-weekly-view>
   <app-daily-view

@@ -94,6 +94,11 @@ $dkgrey: #7a797a;
         align-items: center;
         margin: 3px;
       }
+
+      .day-content {
+        text-align: left;
+        margin: 0.5rem 0.75rem;
+      }
     }
 
     .focused {
@@ -114,15 +119,14 @@ $dkgrey: #7a797a;
   }
 
   .blue {
-    color:#3c96f7;
+    color: #3c96f7;
   }
-  
+
   .green {
-    color:green;
+    color: green;
   }
-  
+
   .red {
     color: red;
   }
-  
 }

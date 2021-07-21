@@ -10,7 +10,11 @@ export class WeeklyViewComponent implements OnInit {
   /** the currently focused date. defaults to today */
   @Input() focusDate: Date = new Date(); // default date to build the week around.
 
+  /** the currently chosen font color */
   @Input() chosenColor: String = '';
+
+  /** the current options planned for all days */
+  @Input() allDayOptions: { [key: string]: any } = {};
 
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
@@ -38,6 +42,11 @@ export class WeeklyViewComponent implements OnInit {
   /** generate initial week */
   ngOnInit(): void {
     this.generateweek(this.focusDate);
+  }
+
+  /** get the format of a given date as it'll show in the db data */
+  getDateString(date: Date): string {
+    return date.toDateString().replace(/ /g, '');
   }
 
   /** jump the focus date automatically back to today */

@@ -12,7 +12,11 @@ export class MonthlyViewComponent implements OnInit {
    */
   @Input() focusDate: Date = new Date(); // default date to build the month around.
 
+  /** the currently chosen font color */
   @Input() chosenColor: String = '';
+
+  /** the current options planned for all days */
+  @Input() allDayOptions: { [key: string]: any } = {};
 
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
@@ -31,6 +35,11 @@ export class MonthlyViewComponent implements OnInit {
    */
   ngOnInit(): void {
     this.generateMonth(this.focusDate);
+  }
+
+  /** get the format of a given date as it'll show in the db data */
+  getDateString(date: Date): string {
+    return date.toDateString().replace(/ /g, '');
   }
 
   /**
