@@ -1,8 +1,4 @@
-import {
-  CdkDragDrop,
-  copyArrayItem,
-  moveItemInArray,
-} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -29,20 +25,20 @@ export class DailyViewComponent {
   /** the font family to have for tasks and metrics */
   @Input() fontFamily: string = '';
 
-  /** the user's current metric/task data */
-  @Input() dateInfo: { [key: string]: any } = {};
+  /** the current options planned for all days */
+  @Input() allDayOptions: { [key: string]: any } = {};
 
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
+
+  /** date string for DB location and finding write info in allDayOptions */
+  dateString: string = '';
 
   /** the draggable options that appear as slides in the carousel */
   slideList: Array<draggable> = [
     { type: 'task', value: '', id: '', idx: -1 },
     { type: 'metric', value: '', id: '', idx: -1 },
   ];
-
-  /** the current options to be used for the day */
-  dayOptions: Array<draggable> = [];
 
   /** the user's uid */
   uid: string = '';
@@ -56,8 +52,7 @@ export class DailyViewComponent {
   /** setup class vars */
   ngOnInit() {
     this.uid = this.authService.getUID();
-
-    console.log(this.dateInfo);
+    this.setStringDate();
   }
 
   /**
@@ -65,13 +60,21 @@ export class DailyViewComponent {
    */
   jumpToToday() {
     this.setFocusDate(new Date());
+    this.setStringDate();
   }
 
   /** jump to a new focus date.
    * @param date the date to now focus on
    */
   setFocusDate(date: Date): void {
+    this.focusDate = date;
     this.sendFocusDate.emit(date);
+    this.dateString = this.focusDate.toDateString().replace(/ /g, '');
+  }
+
+  /* set string date for accessing correct data */
+  setStringDate(): void {
+    this.dateString = this.focusDate.toDateString().replace(/ /g, '');
   }
 
   /**
@@ -84,7 +87,7 @@ export class DailyViewComponent {
       this.focusDate.getDate() + 1
     );
     this.setFocusDate(temp);
-    this.dayOptions = [];
+    this.setStringDate();
   }
 
   /**
@@ -97,7 +100,7 @@ export class DailyViewComponent {
       this.focusDate.getDate() - 1
     );
     this.setFocusDate(temp);
-    this.dayOptions = [];
+    this.setStringDate();
   }
 
   /** handle drag and drop into day */
@@ -106,10 +109,10 @@ export class DailyViewComponent {
       // update dragged one's idx
       this.fbService.reorderMetricOrTask(
         this.uid,
-        this.focusDate.toDateString().replace(/ /g, ''),
+        this.dateString,
         dropItem.previousIndex,
         dropItem.currentIndex,
-        this.dayOptions
+        this.allDayOptions[this.dateString]
       );
       moveItemInArray(
         dropItem.container.data,
@@ -120,10 +123,10 @@ export class DailyViewComponent {
       // write new metric/task
       this.fbService.writeMetricOrTask(
         this.uid,
-        this.focusDate.toDateString().replace(/ /g, ''),
+        this.dateString,
         JSON.parse(JSON.stringify(this.slideList[dropItem.previousIndex])),
-        this.dayOptions.length, // currentIndex provided by library seemed off having the first drop into the day always go to the end. let them reorder from there
-        this.dayOptions
+        this.allDayOptions[this.dateString]?.length | 0, // currentIndex provided by library seemed off having the first drop into the day always go to the end. let them reorder from there
+        this.allDayOptions[this.dateString]
       );
     }
   }
@@ -131,7 +134,7 @@ export class DailyViewComponent {
   /* handle drag and drop into options */
   dropExistingOption(dropItem: CdkDragDrop<any>) {
     if (dropItem.previousContainer !== dropItem.container) {
-      this.dayOptions.splice(dropItem.currentIndex, 1);
+      this.allDayOptions[this.dateString].splice(dropItem.currentIndex, 1);
       // TODO remove from DB
     }
   }

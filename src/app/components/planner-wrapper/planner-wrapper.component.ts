@@ -5,6 +5,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { draggable } from '../draggable/draggable.model';
 import { FontDialogComponent } from '../font-dialog/font-dialog.component';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
@@ -37,6 +38,9 @@ export class PlannerWrapperComponent {
    */
   dateInfo: { [key: string]: any } = {};
 
+  /** the current options to be used for the day */
+  allDayOptions: { [key: string]: any } = {};
+
   /** create planner wrapper */
   constructor(
     private afAuth: AngularFireAuth,
@@ -55,7 +59,6 @@ export class PlannerWrapperComponent {
   /** subscribe to user's data */
   subscribeToUser(uid: string): void {
     this.fbService.db.ref('users/' + uid).on('value', (snapshot) => {
-      this.dateInfo = snapshot.val().dates;
       this.chosenColor = snapshot.val().settings?.fontColor
         ? snapshot.val().settings.fontColor
         : 'blue';
@@ -65,6 +68,38 @@ export class PlannerWrapperComponent {
       this.fontFamily = snapshot.val().settings?.fontFamily
         ? snapshot.val().settings.fontFamily
         : 'Roboto';
+
+      this.dateInfo = snapshot.val().dates;
+      this.allDayOptions = {};
+      let thisDayOptions: Array<draggable> = [];
+      if (this.dateInfo) {
+        const dates = Object.getOwnPropertyNames(this.dateInfo);
+        dates.forEach((dateString) => {
+          thisDayOptions = [];
+          const draggableTypes = Object.getOwnPropertyNames(
+            this.dateInfo[dateString]
+          );
+          draggableTypes.forEach((type) => {
+            const draggablesOfType = this.dateInfo[dateString][type];
+            const draggableIds = Object.getOwnPropertyNames(draggablesOfType);
+            draggableIds.forEach((id) => {
+              const draggable = this.dateInfo[dateString][type][id];
+              let newDraggable: draggable = {
+                type: type.substring(0, type.length - 1), // take of the plural s
+                id: id,
+                value: draggable.value,
+                idx: draggable.idx,
+              };
+              if (newDraggable.idx >= thisDayOptions.length) {
+                thisDayOptions.push(newDraggable);
+              } else {
+                thisDayOptions.splice(newDraggable.idx, 0, newDraggable);
+              }
+            });
+          });
+          this.allDayOptions[dateString] = thisDayOptions;
+        });
+      }
     });
   }
 

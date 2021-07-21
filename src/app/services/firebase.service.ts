@@ -184,11 +184,13 @@ export class FirebaseService {
 
     // get id for metric or tasks, unique within the day
     let usedIds: string[] = [];
-    allDraggablesInDay.forEach((dragItem: draggable) => {
-      if (dragItem.id) {
-        usedIds.push(dragItem.id);
-      }
-    });
+    if (allDraggablesInDay) {
+      allDraggablesInDay.forEach((dragItem: draggable) => {
+        if (dragItem.id) {
+          usedIds.push(dragItem.id);
+        }
+      });
+    }
     let itemId: string = this.createUniqueID();
     while (usedIds.includes(itemId)) {
       // if happens to be non-unique, try to make a new one
@@ -196,7 +198,7 @@ export class FirebaseService {
     }
     dragItem.id = itemId;
 
-    allDraggablesInDay.splice(dragItem.idx, 0, dragItem); // put it in the right place in the array of options
+    allDraggablesInDay?.splice(dragItem.idx, 0, dragItem); // put it in the right place in the array of options
     this.updateMetricOrTask(uid, date, dragItem);
   }
 

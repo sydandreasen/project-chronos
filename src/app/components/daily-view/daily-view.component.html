@@ -6,7 +6,7 @@
       [class.blue]="chosenColor === 'blue'"
       [class.green]="chosenColor === 'green'"
     >
-      {{ focusDate | date: "mediumDate" }}
+      {{ focusDate | date: "EE, MMM d, yyyy" }}
     </h2>
     <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
   </div>
@@ -23,11 +23,11 @@
       class="day"
       cdkDropList
       #dayList="cdkDropList"
-      [cdkDropListData]="dayOptions"
+      [cdkDropListData]="allDayOptions[dateString]"
       [cdkDropListConnectedTo]="[optionList]"
       (cdkDropListDropped)="dropNewOption($event)"
     >
-      <span *ngFor="let option of dayOptions">
+      <span *ngFor="let option of allDayOptions[dateString]">
         <app-draggable
           [fontSize]="getFontSize()"
           [fontFamily]="fontFamily"
