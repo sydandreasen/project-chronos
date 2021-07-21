@@ -1,6 +1,11 @@
 <div>
   <div class="day-head">
-    <h2 class="date-shown" [class.red]="chosenColor === 'red'" [class.blue]="chosenColor === 'blue'" [class.green]="chosenColor === 'green'">
+    <h2
+      class="date-shown"
+      [class.red]="chosenColor === 'red'"
+      [class.blue]="chosenColor === 'blue'"
+      [class.green]="chosenColor === 'green'"
+    >
       {{ focusDate | date: "mediumDate" }}
     </h2>
     <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
@@ -59,6 +64,7 @@
         [hideOverlay]="false"
       >
         Grab my hand to drag me into your day. Drag me back to delete me.<br />
+        <br />
         <app-draggable
           [fontSize]="getFontSize()"
           [fontFamily]="fontFamily"

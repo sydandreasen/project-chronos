@@ -70,8 +70,9 @@
   <app-daily-view
     *ngSwitchCase="'day'"
     [focusDate]="focusDate"
-    [chosenColor]="chosenColor"
     (sendFocusDate)="setFocusDate($event)"
+    [dateInfo]="dateInfo"
+    [chosenColor]="chosenColor"
     [fontSize]="fontSize"
     [fontFamily]="fontFamily"
   ></app-daily-view>

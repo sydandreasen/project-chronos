@@ -3,4 +3,8 @@ export class draggable {
   type: string = '';
   /** a value to populate the draggable's text */
   value: string = '';
+  /** id of draggable item. unique compared to others in the same day */
+  id: string = '';
+  /** index at which this draggable should show for that day */
+  idx: number = -1;
 }

@@ -4,6 +4,8 @@ import {
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { draggable } from '../draggable/draggable.model';
 
 /**
@@ -18,7 +20,7 @@ export class DailyViewComponent {
   /** the currently shown date */
   @Input() focusDate: Date = new Date();
 
-
+  /** the font color chosen */
   @Input() chosenColor: String = '';
 
   /** the font size to have for tasks and metrics */
@@ -27,16 +29,36 @@ export class DailyViewComponent {
   /** the font family to have for tasks and metrics */
   @Input() fontFamily: string = '';
 
+  /** the user's current metric/task data */
+  @Input() dateInfo: { [key: string]: any } = {};
 
   /** set focus date back at top to communicate between */
   @Output() sendFocusDate: EventEmitter<Date> = new EventEmitter<Date>();
 
+  /** the draggable options that appear as slides in the carousel */
   slideList: Array<draggable> = [
-    { type: 'task', value: '' },
-    { type: 'metric', value: '' },
+    { type: 'task', value: '', id: '', idx: -1 },
+    { type: 'metric', value: '', id: '', idx: -1 },
   ];
 
-  dayOptions: Array<any> = [];
+  /** the current options to be used for the day */
+  dayOptions: Array<draggable> = [];
+
+  /** the user's uid */
+  uid: string = '';
+
+  /** inject services */
+  constructor(
+    private fbService: FirebaseService,
+    private authService: AuthService
+  ) {}
+
+  /** setup class vars */
+  ngOnInit() {
+    this.uid = this.authService.getUID();
+
+    console.log(this.dateInfo);
+  }
 
   /**
    * reset the focused date back to today
@@ -81,19 +103,51 @@ export class DailyViewComponent {
   /** handle drag and drop into day */
   dropNewOption(dropItem: CdkDragDrop<any>) {
     if (dropItem.previousContainer === dropItem.container) {
+      // update dragged one's idx
+      this.fbService.reorderMetricOrTask(
+        // FIXME method not finished
+        this.uid,
+        this.focusDate.toDateString().replace(/ /g, ''),
+        dropItem.previousIndex,
+        dropItem.currentIndex,
+        this.dayOptions
+      );
       moveItemInArray(
         dropItem.container.data,
         dropItem.previousIndex,
         dropItem.currentIndex
       );
     } else {
-      copyArrayItem(
-        dropItem.previousContainer.data,
-        dropItem.container.data,
-        dropItem.previousIndex,
-        dropItem.currentIndex
+      // write new metric/task
+      this.fbService.writeMetricOrTask(
+        this.uid,
+        this.focusDate.toDateString().replace(/ /g, ''),
+        JSON.parse(JSON.stringify(this.slideList[dropItem.previousIndex])),
+        this.dayOptions.length, // currentIndex provided by library seemed off having the first drop into the day always go to the end. let them reorder from there
+        this.dayOptions
       );
-      // TODO add to DB
+
+      // console.log('prev cont data', dropItem.previousContainer.data);
+      // console.log('cont data', dropItem.container.data);
+      // console.log('prev ind', dropItem.previousIndex);
+      // console.log('current idx', dropItem.currentIndex);
+      // copyArrayItem(
+      //   // FIXME, this is the wrong kind of copy. need info, not object reference
+      //   dropItem.previousContainer.data,
+      //   dropItem.container.data,
+      //   dropItem.previousIndex,
+      //   dropItem.currentIndex
+      // );
+
+      // fix shallow copy issue from drag-and-drop library. need deep one
+      // library does shallow copy, so now set the slide to a fresh slide
+      // this.slideList[dropItem.previousIndex] = new draggable();
+      // this.slideList[dropItem.previousIndex].type =
+      //   this.dayOptions[dropItem.currentIndex].type;
+      // console.log('slides', this.slideList);
+      // console.log('chosen options', this.dayOptions);
+      console.log('slides', this.slideList);
+      console.log('chosen options', this.dayOptions);
     }
   }
 

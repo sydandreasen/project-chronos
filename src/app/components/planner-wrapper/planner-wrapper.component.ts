@@ -32,8 +32,10 @@ export class PlannerWrapperComponent {
   /** the chosen text color */
   chosenColor: string = ''; // overridden in subscription
 
-  /** the user's current data */
-  userData: { [key: string]: any } = {};
+  /** the user's current dates data -- any date may include metric and/or task data.
+   * at wrapper level to pass to each view
+   */
+  dateInfo: { [key: string]: any } = {};
 
   /** create planner wrapper */
   constructor(
@@ -53,7 +55,7 @@ export class PlannerWrapperComponent {
   /** subscribe to user's data */
   subscribeToUser(uid: string): void {
     this.fbService.db.ref('users/' + uid).on('value', (snapshot) => {
-      this.userData = snapshot.val();
+      this.dateInfo = snapshot.val().dates;
       this.chosenColor = snapshot.val().settings?.fontColor
         ? snapshot.val().settings.fontColor
         : 'blue';
