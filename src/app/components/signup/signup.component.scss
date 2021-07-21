@@ -9,17 +9,16 @@ $dkgrey: #7a797a;
   color: $blue;
   font-size: 40px;
   font-weight: bold;
+  margin-bottom: 0;
 }
 
 .subox {
-  // margin-left: auto;
-  margin: 4rem 20rem 8rem 20rem;
-  // margin-right: auto;
+  margin: 1rem auto;
   border-radius: 25px;
   border: 3px solid $ltgrey;
   padding: 20px;
-  // width: 60%;
-  // height: 50%;
+  min-width: 300px;
+  max-width: 70vw;
   position: relative;
   top: 20px;
 }
@@ -71,12 +70,8 @@ table {
 }
 
 .sugraphic {
-  // width: 50%;
-  // height: 40%;
-  max-width: 350px;
-  max-height: 800px;
-  min-width: 85px;
-  min-height: 195px;
+  width: 80%;
+  max-width: 20vw;
 }
 
 .supfp {

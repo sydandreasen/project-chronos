@@ -1,12 +1,31 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { FirebaseService } from './firebase.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router, private afAuth: AngularFireAuth) {}
+  uid: string = '';
+
+  constructor(
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private fbService: FirebaseService
+  ) {
+    this.afAuth.onAuthStateChanged((user) => {
+      if (user?.uid) {
+        this.fbService.checkExistingUser(user);
+        this.uid = user.uid;
+      }
+    });
+  }
+
+  /** getter for user's uid */
+  getUID(): string {
+    return this.uid;
+  }
 
   /** signup a new user */
   signUp(email: string, password: string): void {

@@ -7,9 +7,12 @@ import { draggable } from './draggable.model';
   styleUrls: ['./draggable.component.scss'],
 })
 export class DraggableComponent {
+  /** the draggable option - a metric or task*/
   @Input() option: draggable = new draggable();
 
+  /** the font size that the draggable's text should use */
   @Input() fontSize: string = '';
 
+  /** the font family that the draggable's text should use */
   @Input() fontFamily: string = '';
 }
