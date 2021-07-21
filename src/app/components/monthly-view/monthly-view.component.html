@@ -1,6 +1,11 @@
 <div>
   <div class="month-head">
-    <h2 class="date-range" [class.red]="chosenColor === 'red'" [class.blue]="chosenColor === 'blue'" [class.green]="chosenColor === 'green'">
+    <h2
+      class="date-range"
+      [class.red]="chosenColor === 'red'"
+      [class.blue]="chosenColor === 'blue'"
+      [class.green]="chosenColor === 'green'"
+    >
       <!-- 15 will always be in the main month, not backfilled or forwardfilled days -->
       {{ monthDates[15] | date: "MMMM y" }}
     </h2>
@@ -14,7 +19,12 @@
       </button>
     </div>
 
-    <div class="month-grid" [class.red]="chosenColor === 'red'" [class.blue]="chosenColor === 'blue'" [class.green]="chosenColor === 'green'">
+    <div
+      class="month-grid"
+      [class.red]="chosenColor === 'red'"
+      [class.blue]="chosenColor === 'blue'"
+      [class.green]="chosenColor === 'green'"
+    >
       <h4>Sunday</h4>
       <h4>Monday</h4>
       <h4>Tuesday</h4>
@@ -35,7 +45,19 @@
         >
           {{ date?.getDate() }}
         </div>
-        <span> <br />Day Content</span>
+        <div
+          class="day-content"
+          *ngFor="let dateOption of allDayOptions[getDateString(date)]"
+        >
+          <hr />
+          <span *ngIf="dateOption.type === 'metric'">
+            <h5>metric label:</h5>
+            <span>metric value</span>
+          </span>
+          <span *ngIf="dateOption.type === 'task'">
+            <input type="checkbox" [checked]="" />task text
+          </span>
+        </div>
       </div>
     </div>
     <div class="nav-arrow">

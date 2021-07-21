@@ -96,13 +96,15 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#allDayOptions" class="tsd-kind-icon">all<wbr>Day<wbr>Options</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#chosenColor" class="tsd-kind-icon">chosen<wbr>Color</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#dayOptions" class="tsd-kind-icon">day<wbr>Options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#dateString" class="tsd-kind-icon">date<wbr>String</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#focusDate" class="tsd-kind-icon">focus<wbr>Date</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#fontFamily" class="tsd-kind-icon">font<wbr>Family</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#fontSize" class="tsd-kind-icon">font<wbr>Size</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#sendFocusDate" class="tsd-kind-icon">send<wbr>Focus<wbr>Date</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#slideList" class="tsd-kind-icon">slide<wbr>List</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#uid" class="tsd-kind-icon">uid</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -112,7 +114,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#dropNewOption" class="tsd-kind-icon">drop<wbr>New<wbr>Option</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#getFontSize" class="tsd-kind-icon">get<wbr>Font<wbr>Size</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#jumpToToday" class="tsd-kind-icon">jump<wbr>ToToday</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#ngOnInit" class="tsd-kind-icon">ng<wbr>OnInit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#setStringDate" class="tsd-kind-icon">set<wbr>String<wbr>Date</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#tomorrow" class="tsd-kind-icon">tomorrow</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#yesterday" class="tsd-kind-icon">yesterday</a></li>
 							</ul>
@@ -126,12 +130,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Daily<wbr>View<wbr>Component<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html" class="tsd-signature-type" data-tsd-kind="Class">DailyViewComponent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Daily<wbr>View<wbr>Component<span class="tsd-signature-symbol">(</span>fbService<span class="tsd-signature-symbol">: </span><a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a>, authService<span class="tsd-signature-symbol">: </span><a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_daily_view_daily_view_component.DailyViewComponent.html" class="tsd-signature-type" data-tsd-kind="Class">DailyViewComponent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L47">components/daily-view/daily-view.component.ts:47</a></li>
+								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>inject services</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fbService: <a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a></h5>
+								</li>
+								<li>
+									<h5>authService: <a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="app_components_daily_view_daily_view_component.DailyViewComponent.html" class="tsd-signature-type" data-tsd-kind="Class">DailyViewComponent</a></h4>
 						</li>
 					</ul>
@@ -140,24 +161,57 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="allDayOptions" class="tsd-anchor"></a>
+					<h3>all<wbr>Day<wbr>Options</h3>
+					<div class="tsd-signature tsd-kind-icon">all<wbr>Day<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = {}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L29">components/daily-view/daily-view.component.ts:29</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the current options planned for all days</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="chosenColor" class="tsd-anchor"></a>
 					<h3>chosen<wbr>Color</h3>
 					<div class="tsd-signature tsd-kind-icon">chosen<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">String</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L22">components/daily-view/daily-view.component.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L20">components/daily-view/daily-view.component.ts:20</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the font color chosen</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="dayOptions" class="tsd-anchor"></a>
-					<h3>day<wbr>Options</h3>
-					<div class="tsd-signature tsd-kind-icon">day<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
+					<a name="dateString" class="tsd-anchor"></a>
+					<h3>date<wbr>String</h3>
+					<div class="tsd-signature tsd-kind-icon">date<wbr>String<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L39">components/daily-view/daily-view.component.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L35">components/daily-view/daily-view.component.ts:35</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>date string for DB location and finding write info in allDayOptions</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="focusDate" class="tsd-anchor"></a>
@@ -165,7 +219,7 @@
 					<div class="tsd-signature tsd-kind-icon">focus<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L19">components/daily-view/daily-view.component.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L17">components/daily-view/daily-view.component.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -180,7 +234,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Family<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L28">components/daily-view/daily-view.component.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L26">components/daily-view/daily-view.component.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -195,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L25">components/daily-view/daily-view.component.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L23">components/daily-view/daily-view.component.ts:23</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -210,7 +264,7 @@
 					<div class="tsd-signature tsd-kind-icon">send<wbr>Focus<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L32">components/daily-view/daily-view.component.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L32">components/daily-view/daily-view.component.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -225,9 +279,29 @@
 					<div class="tsd-signature tsd-kind-icon">slide<wbr>List<span class="tsd-signature-symbol">:</span> <a href="app_components_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L34">components/daily-view/daily-view.component.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L38">components/daily-view/daily-view.component.ts:38</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the draggable options that appear as slides in the carousel</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="uid" class="tsd-anchor"></a>
+					<h3>uid</h3>
+					<div class="tsd-signature tsd-kind-icon">uid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L44">components/daily-view/daily-view.component.ts:44</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the user&#39;s uid</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -242,7 +316,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L101">components/daily-view/daily-view.component.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L135">components/daily-view/daily-view.component.ts:135</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -265,7 +339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L82">components/daily-view/daily-view.component.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L107">components/daily-view/daily-view.component.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -293,7 +367,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L109">components/daily-view/daily-view.component.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L143">components/daily-view/daily-view.component.ts:143</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -315,12 +389,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L44">components/daily-view/daily-view.component.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L61">components/daily-view/daily-view.component.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>reset the focused date back to today</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="ngOnInit" class="tsd-anchor"></a>
+					<h3>ng<wbr>OnInit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">ng<wbr>OnInit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L53">components/daily-view/daily-view.component.ts:53</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>setup class vars</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -337,7 +433,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L51">components/daily-view/daily-view.component.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L69">components/daily-view/daily-view.component.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,6 +455,23 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setStringDate" class="tsd-anchor"></a>
+					<h3>set<wbr>String<wbr>Date</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>String<wbr>Date<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L76">components/daily-view/daily-view.component.ts:76</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="tomorrow" class="tsd-anchor"></a>
 					<h3>tomorrow</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -368,7 +481,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L58">components/daily-view/daily-view.component.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L83">components/daily-view/daily-view.component.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -390,7 +503,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/b868743/src/app/components/daily-view/daily-view.component.ts#L71">components/daily-view/daily-view.component.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/daily-view/daily-view.component.ts#L96">components/daily-view/daily-view.component.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -468,10 +581,13 @@
 								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#allDayOptions" class="tsd-kind-icon">all<wbr>Day<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#chosenColor" class="tsd-kind-icon">chosen<wbr>Color</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#dayOptions" class="tsd-kind-icon">day<wbr>Options</a>
+								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#dateString" class="tsd-kind-icon">date<wbr>String</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#focusDate" class="tsd-kind-icon">focus<wbr>Date</a>
@@ -488,6 +604,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#slideList" class="tsd-kind-icon">slide<wbr>List</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#uid" class="tsd-kind-icon">uid</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#dropExistingOption" class="tsd-kind-icon">drop<wbr>Existing<wbr>Option</a>
 							</li>
@@ -501,7 +620,13 @@
 								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#jumpToToday" class="tsd-kind-icon">jump<wbr>ToToday</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#ngOnInit" class="tsd-kind-icon">ng<wbr>OnInit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#setStringDate" class="tsd-kind-icon">set<wbr>String<wbr>Date</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_daily_view_daily_view_component.DailyViewComponent.html#tomorrow" class="tsd-kind-icon">tomorrow</a>

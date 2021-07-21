@@ -73,6 +73,7 @@ $dkgrey: #7a797a;
     border: 3px solid $blue;
     box-shadow: 0.25rem 0.25rem $ltgrey;
     min-height: 350px;
+    padding: 0.2rem;
     // color: $dkgrey;
     border-radius: 1rem;
     text-align: left;
@@ -91,11 +92,11 @@ $dkgrey: #7a797a;
 }
 
 .blue {
-  color:#3c96f7;
+  color: #3c96f7;
 }
 
 .green {
-  color:green;
+  color: green;
 }
 
 .red {
