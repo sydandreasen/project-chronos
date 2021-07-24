@@ -51,11 +51,17 @@
         >
           <hr />
           <span *ngIf="dateOption.type === 'metric'">
-            <h5>metric label:</h5>
-            <span>metric value</span>
+            <h5>
+              {{ dateOption.value.label ? dateOption.value.label : " " }}
+            </h5>
+            <span>{{
+              dateOption.value.value ? dateOption.value.value : " "
+            }}</span>
           </span>
           <span *ngIf="dateOption.type === 'task'">
-            <input type="checkbox" [checked]="" />task text
+            <input type="checkbox" [checked]="dateOption.value.isComplete" />{{
+              dateOption.value.value ? dateOption.value.value : " "
+            }}
           </span>
         </div>
       </div>

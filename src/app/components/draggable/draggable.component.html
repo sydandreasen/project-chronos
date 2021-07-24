@@ -1,38 +1,20 @@
 <div class="draggable" cdkDrag>
-  <span class="task" *ngIf="option.type === 'task'">
-    <span>
-      <mat-icon cdkDragHandle>pan_tool</mat-icon>
-      <input type="checkbox" [checked]="" />
-      <br />
-    </span>
-    <textarea
-      type="text"
-      placeholder="task"
-      cols="20"
-      wrap="hard"
-      placeholder="task"
-      [style.fontSize]="fontSize"
-      [style.fontFamily]="fontFamily"
-    ></textarea>
-  </span>
-  <span class="metric" *ngIf="option.type === 'metric'">
-    <label for="metry-entry"
-      ><input
-        onkeypress="this.style.width = (this.value.length+1) + 'ch';"
-        type="text"
-        class="metric-label"
-        placeholder="metric"
-        [style.fontSize]="fontSize"
-        [style.fontFamily]="fontFamily"
-    /></label>
-    :<mat-icon cdkDragHandle>pan_tool</mat-icon><br />
-    <input
-      onkeypress="this.style.width = (this.value.length+1) + 'ch';"
-      type="text"
-      class="metric-entry"
-      placeholder="value"
-      [style.fontSize]="fontSize"
-      [style.fontFamily]="fontFamily"
-    />
-  </span>
+  <app-tasks
+    *ngIf="option.type === 'task'"
+    [fontSize]="fontSize"
+    [fontFamily]="fontFamily"
+    [info]="option.value"
+    [taskId]="option.id"
+    [dateString]="dateString"
+    [uid]="uid"
+  ></app-tasks>
+  <app-metrics
+    *ngIf="option.type === 'metric'"
+    [fontSize]="fontSize"
+    [fontFamily]="fontFamily"
+    [info]="option.value"
+    [metricId]="option.id"
+    [dateString]="dateString"
+    [uid]="uid"
+  ></app-metrics>
 </div>

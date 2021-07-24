@@ -5,9 +5,7 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
