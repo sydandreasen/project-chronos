@@ -15,4 +15,10 @@ export class DraggableComponent {
 
   /** the font family that the draggable's text should use */
   @Input() fontFamily: string = '';
+
+  /** the date string */
+  @Input() dateString: string = '';
+
+  /** the user's id */
+  @Input() uid: string = '';
 }

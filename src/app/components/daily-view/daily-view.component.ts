@@ -2,7 +2,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { draggable } from '../draggable/draggable.model';
+import { draggable, metric, task } from '../draggable/draggable.model';
 
 /**
  * shows/manages daily view of plan endpoint
@@ -36,8 +36,8 @@ export class DailyViewComponent {
 
   /** the draggable options that appear as slides in the carousel */
   slideList: Array<draggable> = [
-    { type: 'task', value: '', id: '', idx: -1 },
-    { type: 'metric', value: '', id: '', idx: -1 },
+    { type: 'task', value: new task(), id: '', idx: -1 },
+    { type: 'metric', value: new metric(), id: '', idx: -1 },
   ];
 
   /** the user's uid */

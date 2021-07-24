@@ -1,0 +1,24 @@
+<span class="metric">
+  <label for="metry-entry"
+    ><input
+      onkeypress="this.style.width = (this.value.length+1) + 'ch';"
+      [value]="info.label ? info.label : ''"
+      [formControl]="labelControl"
+      type="text"
+      class="metric-label"
+      placeholder="metric"
+      [style.fontSize]="fontSize"
+      [style.fontFamily]="fontFamily"
+  /></label>
+  :<mat-icon cdkDragHandle>pan_tool</mat-icon><br />
+  <input
+    onkeypress="this.style.width = (this.value.length+1) + 'ch';"
+    [value]="info.value ? info.value : ''"
+    [formControl]="valueControl"
+    type="text"
+    class="metric-entry"
+    placeholder="value"
+    [style.fontSize]="fontSize"
+    [style.fontFamily]="fontFamily"
+  />
+</span>

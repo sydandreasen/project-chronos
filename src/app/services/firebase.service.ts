@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { draggable } from '../components/draggable/draggable.model';
+import {
+  draggable,
+  metric,
+  task,
+} from '../components/draggable/draggable.model';
 
 /** a service that can be injected in any component to provide connections to
  * firebase while only initializing the app here
@@ -231,5 +235,26 @@ export class FirebaseService {
     return (
       Math.floor(Math.random() * Math.floor(Math.random() * Date.now())) + ''
     );
+  }
+
+  /** update a metric's content after editing the label or input fields */
+  editMetric(
+    uid: string,
+    date: string,
+    metricId: string,
+    updateObj: metric
+  ): void {
+    let objWithVal = { value: updateObj };
+    this.db
+      .ref('users/' + uid + '/dates/' + date + '/metrics/' + metricId + '/')
+      .update(objWithVal);
+  }
+
+  /** update a metric's content after editing the textarea or checkbox fields */
+  editTask(uid: string, date: string, taskId: string, updateObj: task): void {
+    let objWithVal = { value: updateObj };
+    this.db
+      .ref('users/' + uid + '/dates/' + date + '/tasks/' + taskId + '/')
+      .update(objWithVal);
   }
 }
