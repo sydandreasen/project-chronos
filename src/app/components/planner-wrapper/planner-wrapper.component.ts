@@ -133,16 +133,26 @@ export class PlannerWrapperComponent {
     this.afAuth.signOut();
   }
 
+  /** FIXME clean these up. 3 separate for same functionality not efficient. do one function with 1 param */
+  /** change font to red */
   goRed(): void {
     this.chosenColor = 'red';
+    const uid = this.authService.getUID();
+    this.fbService.editFontColor(uid, 'red');
   }
 
+  /** change font to blue */
   goBlue(): void {
     this.chosenColor = 'blue';
+    const uid = this.authService.getUID();
+    this.fbService.editFontColor(uid, 'blue');
   }
 
+  /** change font to green */
   goGreen(): void {
     this.chosenColor = 'green';
+    const uid = this.authService.getUID();
+    this.fbService.editFontColor(uid, 'green');
   }
 
   /** set a new font size */
@@ -176,5 +186,10 @@ export class PlannerWrapperComponent {
       }
       this.menuTrigger?.focus();
     });
+  }
+
+  /** get font size in pixels based on inputted number */
+  getFontSize() {
+    return this.fontSize + 'px';
   }
 }

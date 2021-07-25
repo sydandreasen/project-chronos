@@ -297,4 +297,33 @@ export class FirebaseService {
       .ref('users/' + uid + '/dates/' + date + '/tasks/' + taskId + '/')
       .update(objWithVal);
   }
+
+  /**
+   * set the font size in settings
+   * @param uid the user's id
+   * @param fontSize the customized font size
+   */
+  editFontSize(uid: string, fontSize: number) {
+    this.db.ref('users/' + uid + '/settings/').update({ fontSize: fontSize });
+  }
+
+  /**
+   * set the font family in settings
+   * @param uid the user's id
+   * @param fontFamily the customized font family
+   */
+  editFontFamily(uid: string, fontFamily: string) {
+    this.db
+      .ref('users/' + uid + '/settings/')
+      .update({ fontFamily: fontFamily });
+  }
+
+  /**
+   * set the font color in settings
+   * @param uid the user's id
+   * @param fontColor the customized font color
+   */
+  editFontColor(uid: string, fontColor: string) {
+    this.db.ref('users/' + uid + '/settings/').update({ fontColor: fontColor });
+  }
 }

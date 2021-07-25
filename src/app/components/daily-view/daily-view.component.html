@@ -29,7 +29,7 @@
     >
       <span *ngFor="let option of allDayOptions[dateString]">
         <app-draggable
-          [fontSize]="getFontSize()"
+          [fontSize]="fontSize"
           [fontFamily]="fontFamily"
           [option]="option"
           [dateString]="dateString"
@@ -70,7 +70,7 @@
         <app-draggable
           [style.maxWidth]="'80%'"
           [style.display]="'inline-grid'"
-          [fontSize]="getFontSize()"
+          [fontSize]="fontSize"
           [fontFamily]="fontFamily"
           [option]="option"
         ></app-draggable>
