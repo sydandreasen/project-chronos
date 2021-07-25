@@ -47,6 +47,8 @@
         </div>
         <div
           class="day-content"
+          [ngStyle]="{ 'font-size': fontSize }"
+          [style.fontFamily]="fontFamily"
           *ngFor="let dateOption of allDayOptions[getDateString(date)]"
         >
           <hr />

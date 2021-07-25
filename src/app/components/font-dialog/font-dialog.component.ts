@@ -5,6 +5,8 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-font-dialog',
@@ -39,14 +41,30 @@ export class FontDialogComponent {
   /** send font size up */
   @Output() fontSizeChange: EventEmitter<number> = new EventEmitter<number>();
 
+  /** injections and setup */
   constructor(
     private dialogRef: MatDialogRef<MatDialog>,
-    @Inject(MAT_DIALOG_DATA) data: any
+    @Inject(MAT_DIALOG_DATA) data: any,
+    private fbService: FirebaseService,
+    private authService: AuthService
   ) {
     this.fontSize.setValue(data.fontSize);
     this.fontFamily.setValue(data.fontFamily);
   }
 
+  /** manage form control changes */
+  ngOnInit() {
+    this.fontSize.valueChanges.subscribe((fontSize: number) => {
+      const uid = this.authService.getUID();
+      this.fbService.editFontSize(uid, fontSize);
+    });
+    this.fontFamily.valueChanges.subscribe((fontFamily: string) => {
+      const uid = this.authService.getUID();
+      this.fbService.editFontFamily(uid, fontFamily);
+    });
+  }
+
+  /** pass data up to parents */
   close() {
     this.dialogRef.close({
       fontSize: this.fontSize.value,

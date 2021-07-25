@@ -20,7 +20,7 @@ export class DailyViewComponent {
   @Input() chosenColor: String = '';
 
   /** the font size to have for tasks and metrics */
-  @Input() fontSize: number = 0;
+  @Input() fontSize: string = '';
 
   /** the font family to have for tasks and metrics */
   @Input() fontFamily: string = '';
@@ -155,10 +155,5 @@ export class DailyViewComponent {
         deleteItem.id
       );
     }
-  }
-
-  /** get font size in pixels based on inputted number */
-  getFontSize() {
-    return this.fontSize + 'px';
   }
 }

@@ -15,6 +15,12 @@ export class MonthlyViewComponent implements OnInit {
   /** the currently chosen font color */
   @Input() chosenColor: String = '';
 
+  /** the font size to have for tasks and metrics */
+  @Input() fontSize: string = '';
+
+  /** the font family to have for tasks and metrics */
+  @Input() fontFamily: string = '';
+
   /** the current options planned for all days */
   @Input() allDayOptions: { [key: string]: any } = {};
 

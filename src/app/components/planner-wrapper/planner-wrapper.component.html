@@ -60,6 +60,8 @@
     (sendFocusDate)="setFocusDate($event)"
     [allDayOptions]="allDayOptions"
     (onEditDay)="editDay($event)"
+    [fontSize]="getFontSize()"
+    [fontFamily]="fontFamily"
   ></app-monthly-view>
   <app-weekly-view
     *ngSwitchCase="'week'"
@@ -68,6 +70,8 @@
     (sendFocusDate)="setFocusDate($event)"
     [allDayOptions]="allDayOptions"
     (onEditDay)="editDay($event)"
+    [fontSize]="getFontSize()"
+    [fontFamily]="fontFamily"
   ></app-weekly-view>
   <app-daily-view
     *ngSwitchCase="'day'"
@@ -75,7 +79,7 @@
     (sendFocusDate)="setFocusDate($event)"
     [allDayOptions]="allDayOptions"
     [chosenColor]="chosenColor"
-    [fontSize]="fontSize"
+    [fontSize]="getFontSize()"
     [fontFamily]="fontFamily"
   ></app-daily-view>
 </div>
