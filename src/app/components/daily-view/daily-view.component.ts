@@ -134,8 +134,26 @@ export class DailyViewComponent {
   /* handle drag and drop into options */
   dropExistingOption(dropItem: CdkDragDrop<any>) {
     if (dropItem.previousContainer !== dropItem.container) {
-      this.allDayOptions[this.dateString].splice(dropItem.currentIndex, 1);
-      // TODO remove from DB
+      // grab item to be deleted
+      let deleteItem: draggable =
+        this.allDayOptions[this.dateString][dropItem.previousIndex];
+
+      // re-assign new indexes to any following the deleted one
+      this.fbService.reorderMetricOrTask(
+        this.uid,
+        this.dateString,
+        dropItem.previousIndex,
+        (this.allDayOptions[this.dateString].length - 1) | 0, // end of array
+        this.allDayOptions[this.dateString]
+      );
+
+      // delete the drug one, which should now be at the end
+      this.fbService.deleteDraggable(
+        this.uid,
+        this.dateString,
+        deleteItem.type,
+        deleteItem.id
+      );
     }
   }
 

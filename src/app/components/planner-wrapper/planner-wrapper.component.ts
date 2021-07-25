@@ -85,12 +85,12 @@ export class PlannerWrapperComponent {
             draggableIds.forEach((id) => {
               const draggable = this.dateInfo[dateString][type][id];
               let newDraggable: draggable = {
-                type: type.substring(0, type.length - 1), // take of the plural s
+                type: type.substring(0, type.length - 1), // take off the plural s
                 id: id,
                 value: draggable.value,
                 idx: draggable.idx,
               };
-              if (newDraggable.idx >= thisDayOptions.length) {
+              if (thisDayOptions.length === 0) {
                 thisDayOptions.push(newDraggable);
               } else {
                 thisDayOptions.splice(newDraggable.idx, 0, newDraggable);
