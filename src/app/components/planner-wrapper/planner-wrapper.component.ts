@@ -5,7 +5,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { draggable } from '../draggable/draggable.model';
+import { draggable, metric, task } from '../draggable/draggable.model';
 import { FontDialogComponent } from '../font-dialog/font-dialog.component';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */

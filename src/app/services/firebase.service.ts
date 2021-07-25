@@ -180,11 +180,7 @@ export class FirebaseService {
   ): void {
     dragItem.idx = idx;
     let writeObj: { [key: string]: any } = {};
-    writeObj.value = dragItem.value; // FIXME -- not necessarily broken, but may
-    // need adjusted/improved -- when working on updating db
-    // on metric/task edit function, which will better determine the format
-    // in the DB. try to keep this and DB format generalized so that we don't
-    // have to do too much 'if task, if metric' differentiating
+    writeObj.value = dragItem.value;
     writeObj.idx = dragItem.idx;
 
     // get id for metric or tasks, unique within the day

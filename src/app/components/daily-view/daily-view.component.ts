@@ -52,7 +52,92 @@ export class DailyViewComponent {
   /** setup class vars */
   ngOnInit() {
     this.uid = this.authService.getUID();
-    this.setStringDate();
+    this.dateString = this.getStringDate(this.focusDate);
+  }
+
+  /** generate metrics and tasks for the week based on the focused day */
+  generateWeek(): void {
+    // items to base generation on
+    const basis: Array<draggable> = this.allDayOptions[this.dateString];
+    let tallyForBasisDraggableTypes: { [key: string]: any } = {};
+    let examples: { [key: string]: any } = {};
+    basis?.forEach((dragItem: draggable) => {
+      if (tallyForBasisDraggableTypes[dragItem.type]) {
+        tallyForBasisDraggableTypes[dragItem.type]++;
+      } else {
+        tallyForBasisDraggableTypes[dragItem.type] = 1;
+        // make an example
+        examples[dragItem.type] = new draggable();
+        examples[dragItem.type].type = dragItem.type;
+        examples[dragItem.type].value = this.getFreshDraggableValue(dragItem); // TODO may need to come back and make this nicer so that it corresponds to format of specific kind of draggable's value
+      }
+    });
+    // dates to edit
+    const dayOfWeek: number = this.focusDate.getDay(); // zero-indexed
+    for (let i = 0; i < 7; i++) {
+      if (i !== dayOfWeek) {
+        const temp = new Date(
+          this.focusDate.getFullYear(),
+          this.focusDate.getMonth(),
+          this.focusDate.getDate() + i - dayOfWeek
+        );
+
+        const tempStringDate: string = this.getStringDate(temp);
+        const compareDraggables: Array<draggable> =
+          this.allDayOptions[tempStringDate];
+        let tallyForExistingDraggableTypes: { [key: string]: any } = {};
+        compareDraggables?.forEach((dragItem: draggable) => {
+          if (tallyForExistingDraggableTypes[dragItem.type]) {
+            tallyForExistingDraggableTypes[dragItem.type]++;
+          } else {
+            tallyForExistingDraggableTypes[dragItem.type] = 1;
+          }
+        });
+        const draggableTypesToHave = Object.getOwnPropertyNames(
+          tallyForBasisDraggableTypes
+        );
+        draggableTypesToHave.forEach((neededType) => {
+          // if there's not enough of that type already, add as many as needed
+          if (
+            !tallyForExistingDraggableTypes[neededType] ||
+            tallyForExistingDraggableTypes[neededType] <
+              tallyForBasisDraggableTypes[neededType]
+          ) {
+            for (
+              let i = tallyForExistingDraggableTypes[neededType] | 0;
+              i < tallyForBasisDraggableTypes[neededType];
+              i++
+            ) {
+              // write draggables to the day such that the total of that type on the day becomes no more than in the model day
+              this.fbService.writeMetricOrTask(
+                this.uid,
+                tempStringDate,
+                examples[neededType],
+                this.allDayOptions[tempStringDate]?.length | 0,
+                this.allDayOptions[tempStringDate]
+              );
+            }
+          }
+        });
+      }
+    }
+  }
+
+  /** return a new draggable value based on its type
+   * // FIXME this could all probably be refactored to make draggable an interface that the other two extend
+   * @param draggable the draggable item to get the value of based on type
+   */
+  getFreshDraggableValue(draggable: draggable): metric | task | undefined {
+    switch (draggable.type) {
+      case 'metric':
+        return new metric();
+        break;
+      case 'task':
+        return new task();
+        break;
+      default:
+        return undefined; // shouldn't ever happen
+    }
   }
 
   /**
@@ -60,7 +145,7 @@ export class DailyViewComponent {
    */
   jumpToToday() {
     this.setFocusDate(new Date());
-    this.setStringDate();
+    this.dateString = this.getStringDate(this.focusDate);
   }
 
   /** jump to a new focus date.
@@ -73,8 +158,8 @@ export class DailyViewComponent {
   }
 
   /* set string date for accessing correct data */
-  setStringDate(): void {
-    this.dateString = this.focusDate.toDateString().replace(/ /g, '');
+  getStringDate(date: Date): string {
+    return date.toDateString().replace(/ /g, '');
   }
 
   /**
@@ -87,7 +172,7 @@ export class DailyViewComponent {
       this.focusDate.getDate() + 1
     );
     this.setFocusDate(temp);
-    this.setStringDate();
+    this.dateString = this.getStringDate(this.focusDate);
   }
 
   /**
@@ -100,7 +185,7 @@ export class DailyViewComponent {
       this.focusDate.getDate() - 1
     );
     this.setFocusDate(temp);
-    this.setStringDate();
+    this.dateString = this.getStringDate(this.focusDate);
   }
 
   /** handle drag and drop into day */
