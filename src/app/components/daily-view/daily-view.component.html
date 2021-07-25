@@ -8,7 +8,16 @@
     >
       {{ focusDate | date: "EE, MMM d, yyyy" }}
     </h2>
-    <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
+    <button class="btn template-button tooltip" (click)="generateWeek()">
+      Generate Week
+      <span class="tooltiptext"
+        >Fill out the rest of the week with at least this many metrics and
+        tasks.</span
+      >
+    </button>
+    <button class="btn jump-button" (click)="jumpToToday()">
+      Jump to Today
+    </button>
   </div>
   <div class="wrapping-grid">
     <div class="nav-arrow">
