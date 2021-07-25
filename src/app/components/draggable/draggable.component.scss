@@ -8,16 +8,22 @@ $dkgrey: #7a797a;
   border: 1px solid $ltgrey;
   border-radius: 0.5rem;
   background-color: white;
-  margin: 0.2rem;
+  margin: 0.2rem auto;
   padding: 0.2rem;
   display: inline-block;
   text-align: left;
 
-  width: 212px;
-  height: 77px;
-  display: inline-grid;
+  width: 98%;
+  // width: 212px;
+  // height: 77px;
+  // display: inline-grid;
   align-items: center;
   justify-content: center;
+}
+
+app-metrics,
+app-tasks {
+  display: block;
 }
 
 .cdk-drag {

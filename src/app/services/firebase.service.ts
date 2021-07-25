@@ -126,6 +126,7 @@ export class FirebaseService {
     });
   }
 
+  // FIXME figure out why index isn't always reliable if metric/task doesn't fill whole width
   /**
    * adjust all the indexes on the metrics/tasks in the day because they reordered them
    * @param uid user's id
@@ -231,13 +232,47 @@ export class FirebaseService {
       .update(updateObj);
   }
 
+  /**
+   * delete a draggable
+   * @param uid the user's id
+   * @param date the dateString
+   * @param draggableType the draggable type, such as metric or task
+   * @param draggableId the id of the draggable to delete
+   */
+  deleteDraggable(
+    uid: string,
+    date: string,
+    draggableType: string,
+    draggableId: string
+  ): void {
+    this.db
+      .ref(
+        'users/' +
+          uid +
+          '/dates/' +
+          date +
+          '/' +
+          draggableType +
+          's/' +
+          draggableId
+      )
+      .remove();
+  }
+
+  /** generate a unique ID for the metric or task */
   createUniqueID(): string {
     return (
       Math.floor(Math.random() * Math.floor(Math.random() * Date.now())) + ''
     );
   }
 
-  /** update a metric's content after editing the label or input fields */
+  /**
+   * update a metric's content after editing the label or input fields
+   * @param uid the user id
+   * @param date the dateString
+   * @param metridId the metric's id
+   * @param updateObj the draggable:value object; type metric
+   */
   editMetric(
     uid: string,
     date: string,
@@ -250,7 +285,12 @@ export class FirebaseService {
       .update(objWithVal);
   }
 
-  /** update a metric's content after editing the textarea or checkbox fields */
+  /** update a metric's content after editing the textarea or checkbox fields
+   * @param uid the user id
+   * @param date the dateString
+   * @param taskId the task's id
+   * @param updateObj the dragggable:value object; type task
+   */
   editTask(uid: string, date: string, taskId: string, updateObj: task): void {
     let objWithVal = { value: updateObj };
     this.db
