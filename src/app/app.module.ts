@@ -32,7 +32,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 /**
  * routes to show certain components based on URL
  */
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
