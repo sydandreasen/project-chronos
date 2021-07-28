@@ -100,6 +100,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_font_dialog_font_dialog_component.FontDialogComponent.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_font_dialog_font_dialog_component.FontDialogComponent.html#ngOnInit" class="tsd-kind-icon">ng<wbr>OnInit</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,15 +112,20 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Font<wbr>Dialog<wbr>Component<span class="tsd-signature-symbol">(</span>dialogRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MatDialogRef</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MatDialog</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_font_dialog_font_dialog_component.FontDialogComponent.html" class="tsd-signature-type" data-tsd-kind="Class">FontDialogComponent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Font<wbr>Dialog<wbr>Component<span class="tsd-signature-symbol">(</span>dialogRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MatDialogRef</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MatDialog</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, fbService<span class="tsd-signature-symbol">: </span><a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a>, authService<span class="tsd-signature-symbol">: </span><a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_font_dialog_font_dialog_component.FontDialogComponent.html" class="tsd-signature-type" data-tsd-kind="Class">FontDialogComponent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/font-dialog/font-dialog.component.ts#L42">components/font-dialog/font-dialog.component.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/font-dialog/font-dialog.component.ts#L45">components/font-dialog/font-dialog.component.ts:45</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>injections and setup</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -127,6 +133,12 @@
 								</li>
 								<li>
 									<h5>data: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>fbService: <a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a></h5>
+								</li>
+								<li>
+									<h5>authService: <a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="app_components_font_dialog_font_dialog_component.FontDialogComponent.html" class="tsd-signature-type" data-tsd-kind="Class">FontDialogComponent</a></h4>
@@ -142,7 +154,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Families<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/font-dialog/font-dialog.component.ts#L25">components/font-dialog/font-dialog.component.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/font-dialog/font-dialog.component.ts#L27">components/font-dialog/font-dialog.component.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -157,7 +169,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Family<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FormControl</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/font-dialog/font-dialog.component.ts#L22">components/font-dialog/font-dialog.component.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/font-dialog/font-dialog.component.ts#L24">components/font-dialog/font-dialog.component.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -172,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FormControl</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/font-dialog/font-dialog.component.ts#L16">components/font-dialog/font-dialog.component.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/font-dialog/font-dialog.component.ts#L18">components/font-dialog/font-dialog.component.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -187,7 +199,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/font-dialog/font-dialog.component.ts#L40">components/font-dialog/font-dialog.component.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/font-dialog/font-dialog.component.ts#L42">components/font-dialog/font-dialog.component.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -202,7 +214,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Sizes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/font-dialog/font-dialog.component.ts#L19">components/font-dialog/font-dialog.component.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/font-dialog/font-dialog.component.ts#L21">components/font-dialog/font-dialog.component.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -224,9 +236,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/86fc277/src/app/components/font-dialog/font-dialog.component.ts#L50">components/font-dialog/font-dialog.component.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/font-dialog/font-dialog.component.ts#L68">components/font-dialog/font-dialog.component.ts:68</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>pass data up to parents</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="ngOnInit" class="tsd-anchor"></a>
+					<h3>ng<wbr>OnInit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">ng<wbr>OnInit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/font-dialog/font-dialog.component.ts#L56">components/font-dialog/font-dialog.component.ts:56</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>manage form control changes</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -261,6 +300,9 @@
 						<a href="../modules/app_components_login_login_component.html">app/components/login/login.component</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/app_components_metrics_metrics_component.html">app/components/metrics/metrics.component</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/app_components_monthly_view_monthly_view_component.html">app/components/monthly-<wbr>view/monthly-<wbr>view.component</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -271,6 +313,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/app_components_signup_signup_component.html">app/components/signup/signup.component</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/app_components_tasks_tasks_component.html">app/components/tasks/tasks.component</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/app_components_weekly_view_weekly_view_component.html">app/components/weekly-<wbr>view/weekly-<wbr>view.component</a>
@@ -313,6 +358,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_font_dialog_font_dialog_component.FontDialogComponent.html#close" class="tsd-kind-icon">close</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="app_components_font_dialog_font_dialog_component.FontDialogComponent.html#ngOnInit" class="tsd-kind-icon">ng<wbr>OnInit</a>
 							</li>
 						</ul>
 					</li>
