@@ -74,7 +74,7 @@ Authentication backend now exists for signup and login, as well as guarding the 
 
 # Release Notes: Milestone 3 Functionality
 
-coming soon
+New functionality is largely related to back-end edits. Now, a user is created upon signup. The user is also read upon login. When a user is authenticated, there is a check for whether basic settings exist for them in the DB. If they for some reason do not exist, default values are populated into the DB for that user. The user settings from the DB are used to populate the UI and are editable in the UI and persistent via changes to the DB. Metrics and tasks can be created by dragging and dropping them into a given day. They can be edited, with that information all saved to the DB. They can also be reordered within the day or removed from the day with that all reflectedin the DB. Metricsa and tasks are of course also read in to populate the UI. There is also an option to use the current day in daily view as a template and give that many empty tasks and metrics to all other days in the week. There is also an option to use a week as a template and export that to a png file.
  
  
 # Release Notes: Milestone 4 Functionality
