@@ -1,0 +1,43 @@
+// our color scheme
+$blue: #3c96f7;
+$white: #ffffff;
+$ltgrey: #c1c0c0;
+$dkgrey: #7a797a;
+
+.metric {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 15px;
+  gap: 0;
+
+  input {
+    align-self: center;
+    grid-column: 1/2;
+  }
+}
+
+.mat-icon {
+  font-size: 14px;
+  padding-right: 4px;
+  color: $blue;
+  width: 14px;
+  cursor: grab;
+}
+
+input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: #dedede;
+}
+
+label {
+  border: none;
+  background: none;
+  padding: 0;
+
+  input {
+    margin-right: 0.5rem;
+    background: #efefef;
+  }
+}

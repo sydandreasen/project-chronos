@@ -9,7 +9,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 /** manage signup form and authentication process */
 @Component({
@@ -24,13 +23,11 @@ export class SignupComponent {
   /**
    * assign clas vars
    * @param authService connects to signup logic
-   * @param afAuth allows handling of Angular Firebase Authentication
    * @param formBuilder allows easy creation of the signup form group
    * @param router allows managing navigation logic in typescript
    */
   constructor(
     private authService: AuthService,
-    private afAuth: AngularFireAuth,
     private formBuilder: FormBuilder,
     private router: Router
   ) {

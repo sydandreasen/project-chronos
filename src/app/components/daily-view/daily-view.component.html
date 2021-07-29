@@ -1,9 +1,23 @@
 <div>
   <div class="day-head">
-    <h2 class="date-shown" [class.red]="chosenColor === 'red'" [class.blue]="chosenColor === 'blue'" [class.green]="chosenColor === 'green'">
-      {{ focusDate | date: "mediumDate" }}
+    <h2
+      class="date-shown"
+      [class.red]="chosenColor === 'red'"
+      [class.blue]="chosenColor === 'blue'"
+      [class.green]="chosenColor === 'green'"
+    >
+      {{ focusDate | date: "EE, MMM d, yyyy" }}
     </h2>
-    <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
+    <button class="btn template-button tooltip" (click)="generateWeek()">
+      Generate Week
+      <span class="tooltiptext"
+        >Fill out the rest of the week with at least this many metrics and
+        tasks.</span
+      >
+    </button>
+    <button class="btn jump-button" (click)="jumpToToday()">
+      Jump to Today
+    </button>
   </div>
   <div class="wrapping-grid">
     <div class="nav-arrow">
@@ -18,15 +32,17 @@
       class="day"
       cdkDropList
       #dayList="cdkDropList"
-      [cdkDropListData]="dayOptions"
+      [cdkDropListData]="allDayOptions[dateString]"
       [cdkDropListConnectedTo]="[optionList]"
       (cdkDropListDropped)="dropNewOption($event)"
     >
-      <span *ngFor="let option of dayOptions">
+      <span *ngFor="let option of allDayOptions[dateString]">
         <app-draggable
-          [fontSize]="getFontSize()"
+          [fontSize]="fontSize"
           [fontFamily]="fontFamily"
           [option]="option"
+          [dateString]="dateString"
+          [uid]="uid"
         ></app-draggable>
       </span>
     </div>
@@ -59,8 +75,11 @@
         [hideOverlay]="false"
       >
         Grab my hand to drag me into your day. Drag me back to delete me.<br />
+        <br />
         <app-draggable
-          [fontSize]="getFontSize()"
+          [style.maxWidth]="'80%'"
+          [style.display]="'inline-grid'"
+          [fontSize]="fontSize"
           [fontFamily]="fontFamily"
           [option]="option"
         ></app-draggable>

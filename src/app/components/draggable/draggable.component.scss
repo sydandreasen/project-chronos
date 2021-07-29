@@ -8,52 +8,22 @@ $dkgrey: #7a797a;
   border: 1px solid $ltgrey;
   border-radius: 0.5rem;
   background-color: white;
-  margin: 1.5rem;
-  padding: 0.4rem;
+  margin: 0.2rem auto;
+  padding: 0.2rem;
   display: inline-block;
   text-align: left;
 
-  width: 212px;
-  height: 77px;
-  display: inline-grid;
+  width: 98%;
+  // width: 212px;
+  // height: 77px;
+  // display: inline-grid;
   align-items: center;
   justify-content: center;
 }
 
-.task {
-  display: grid;
-  grid-template-columns: 13px 1fr;
-  gap: 0.8rem;
-
-  input {
-    align-self: center;
-  }
-}
-
-.mat-icon {
-  font-size: 14px;
-  padding-left: 2px;
-  color: $blue;
-  width: 14px;
-  cursor: grab;
-}
-
-textarea,
-input {
-  padding: 0.5rem;
-  border: none;
-  border-radius: 0.25rem;
-  background: #dedede;
-}
-
-label {
-  border: none;
-  background: none;
-  padding: 0;
-
-  input {
-    background: #efefef;
-  }
+app-metrics,
+app-tasks {
+  display: block;
 }
 
 .cdk-drag {

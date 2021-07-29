@@ -5,6 +5,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { draggable, metric, task } from '../draggable/draggable.model';
 import { FontDialogComponent } from '../font-dialog/font-dialog.component';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
@@ -32,8 +33,13 @@ export class PlannerWrapperComponent {
   /** the chosen text color */
   chosenColor: string = ''; // overridden in subscription
 
-  /** the user's current data */
-  userData: { [key: string]: any } = {};
+  /** the user's current dates data -- any date may include metric and/or task data.
+   * at wrapper level to pass to each view
+   */
+  dateInfo: { [key: string]: any } = {};
+
+  /** the current options to be used for the day */
+  allDayOptions: { [key: string]: any } = {};
 
   /** create planner wrapper */
   constructor(
@@ -53,7 +59,6 @@ export class PlannerWrapperComponent {
   /** subscribe to user's data */
   subscribeToUser(uid: string): void {
     this.fbService.db.ref('users/' + uid).on('value', (snapshot) => {
-      this.userData = snapshot.val();
       this.chosenColor = snapshot.val().settings?.fontColor
         ? snapshot.val().settings.fontColor
         : 'blue';
@@ -63,6 +68,38 @@ export class PlannerWrapperComponent {
       this.fontFamily = snapshot.val().settings?.fontFamily
         ? snapshot.val().settings.fontFamily
         : 'Roboto';
+
+      this.dateInfo = snapshot.val().dates;
+      this.allDayOptions = {};
+      let thisDayOptions: Array<draggable> = [];
+      if (this.dateInfo) {
+        const dates = Object.getOwnPropertyNames(this.dateInfo);
+        dates.forEach((dateString) => {
+          thisDayOptions = [];
+          const draggableTypes = Object.getOwnPropertyNames(
+            this.dateInfo[dateString]
+          );
+          draggableTypes.forEach((type) => {
+            const draggablesOfType = this.dateInfo[dateString][type];
+            const draggableIds = Object.getOwnPropertyNames(draggablesOfType);
+            draggableIds.forEach((id) => {
+              const draggable = this.dateInfo[dateString][type][id];
+              let newDraggable: draggable = {
+                type: type.substring(0, type.length - 1), // take off the plural s
+                id: id,
+                value: draggable.value,
+                idx: draggable.idx,
+              };
+              if (thisDayOptions.length === 0) {
+                thisDayOptions.push(newDraggable);
+              } else {
+                thisDayOptions.splice(newDraggable.idx, 0, newDraggable);
+              }
+            });
+          });
+          this.allDayOptions[dateString] = thisDayOptions;
+        });
+      }
     });
   }
 
@@ -96,16 +133,26 @@ export class PlannerWrapperComponent {
     this.afAuth.signOut();
   }
 
+  /** FIXME clean these up. 3 separate for same functionality not efficient. do one function with 1 param */
+  /** change font to red */
   goRed(): void {
     this.chosenColor = 'red';
+    const uid = this.authService.getUID();
+    this.fbService.editFontColor(uid, 'red');
   }
 
+  /** change font to blue */
   goBlue(): void {
     this.chosenColor = 'blue';
+    const uid = this.authService.getUID();
+    this.fbService.editFontColor(uid, 'blue');
   }
 
+  /** change font to green */
   goGreen(): void {
     this.chosenColor = 'green';
+    const uid = this.authService.getUID();
+    this.fbService.editFontColor(uid, 'green');
   }
 
   /** set a new font size */
@@ -139,5 +186,10 @@ export class PlannerWrapperComponent {
       }
       this.menuTrigger?.focus();
     });
+  }
+
+  /** get font size in pixels based on inputted number */
+  getFontSize() {
+    return this.fontSize + 'px';
   }
 }

@@ -1,6 +1,11 @@
 <div>
   <div class="week-head">
-    <h2 class="date-range" [class.red]="chosenColor === 'red'" [class.blue]="chosenColor === 'blue'" [class.green]="chosenColor === 'green'">
+    <h2
+      class="date-range"
+      [class.red]="chosenColor === 'red'"
+      [class.blue]="chosenColor === 'blue'"
+      [class.green]="chosenColor === 'green'"
+    >
       {{ weekDates[0] | date: "mediumDate" }} -
       {{ weekDates[6] | date: "mediumDate" }}
     </h2>
@@ -20,18 +25,42 @@
         (click)="setFocusDate(date)"
         (dblclick)="onDoubleClick(date)"
       >
-        <h4 
-        [class.red]="chosenColor === 'red'" 
-        [class.blue]="chosenColor === 'blue'" 
-        [class.green]="chosenColor === 'green'"
-        >{{ dayNames[i] }}</h4>
+        <h4
+          [class.red]="chosenColor === 'red'"
+          [class.blue]="chosenColor === 'blue'"
+          [class.green]="chosenColor === 'green'"
+        >
+          {{ dayNames[i] }}
+        </h4>
         <div
           [class.focused]="focusDate.toDateString() === date.toDateString()"
           class="day"
         >
           <div class="date">{{ date.getDate() }}</div>
-          <br />
-          Day Content
+          <div
+            class="day-content"
+            [ngStyle]="{ 'font-size': fontSize }"
+            [style.fontFamily]="fontFamily"
+            *ngFor="let dateOption of allDayOptions[getDateString(date)]"
+          >
+            <hr />
+            <span *ngIf="dateOption.type === 'metric'">
+              <h4>
+                {{ dateOption.value.label ? dateOption.value.label : " " }}
+              </h4>
+              <span>{{
+                dateOption.value.value ? dateOption.value.value : " "
+              }}</span>
+            </span>
+            <span *ngIf="dateOption.type === 'task'">
+              <input
+                type="checkbox"
+                [checked]="dateOption.value.isComplete"
+              /><span>{{
+                dateOption.value.value ? dateOption.value.value : " "
+              }}</span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
