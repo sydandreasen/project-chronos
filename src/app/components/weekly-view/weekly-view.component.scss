@@ -26,6 +26,14 @@ $dkgrey: #7a797a;
   margin: 5px 0;
 }
 
+.tallTask {
+  line-height: 2 !important;
+}
+
+.tallMetric {
+  height: 2rem;
+}
+
 .week-head {
   margin: 1.5rem auto;
   display: grid;
@@ -37,20 +45,33 @@ $dkgrey: #7a797a;
     text-align: center;
   }
 
-  button {
+  .template-button {
+    grid-column: 10/11;
+  }
+
+  .jump-button {
     grid-column: 11/12;
   }
 }
 
-.jumpButton {
+.btn {
   margin-top: 0.2rem;
   margin-bottom: 0.4rem;
   border-radius: 0.6rem;
   background: $ltgrey;
   border: none;
-  padding: 0.7rem;
+  padding: 0.35rem;
+  margin: 0.35rem;
   color: $white;
   font-size: 0.8rem;
+}
+
+.export-button {
+  grid-column: 10/11;
+}
+
+.jump-button {
+  grid-column: 11/12;
 }
 
 .wrapping-grid {
