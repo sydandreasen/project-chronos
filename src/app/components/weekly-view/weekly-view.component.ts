@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
 /** manage weekly view */
 @Component({
@@ -27,6 +28,9 @@ export class WeeklyViewComponent implements OnInit {
 
   /** tell wrapper to go to daily view on specific date */
   @Output() onEditDay: EventEmitter<Date> = new EventEmitter<Date>();
+
+  /** whether draggable content should be wiped clean for exporting an image */
+  hideDraggableContent: boolean = false;
 
   /** the currently displayed week. sunday through saturday */
   weekDates: Date[] = []; // array of dates to populate UI
@@ -126,5 +130,40 @@ export class WeeklyViewComponent implements OnInit {
     reckoning.setMonth(working.getMonth());
     reckoning.setDate(working.getDate());
     return reckoning;
+  }
+
+  /**
+   * export an image of the week.
+   * start by hiding specific
+   * text from UI and setting a timer that
+   * will call downloadImage() when complete
+   * */
+  exportWeek(): void {
+    // empty the draggable content
+    this.hideDraggableContent = true;
+
+    // make a delay to have the content hiding register; then download image
+    setTimeout(() => this.downloadImage(), 300);
+  }
+
+  /** after timer do the actual image save and then put the text back into the UI */
+  downloadImage(): void {
+    const weekGrid = document.querySelector('.week-grid') as HTMLElement;
+    toPng(weekGrid)
+      .then((dataUrl) => {
+        // download image
+        var a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = 'download.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // repopulate task content
+        this.hideDraggableContent = false;
+      })
+      .catch((error) =>
+        alert('something went wrong while exporting your template')
+      );
   }
 }

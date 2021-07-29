@@ -9,7 +9,16 @@
       {{ weekDates[0] | date: "mediumDate" }} -
       {{ weekDates[6] | date: "mediumDate" }}
     </h2>
-    <button class="jumpButton" (click)="jumpToToday()">Jump to Today</button>
+    <button class="btn export-button tooltip" (click)="exportWeek()">
+      Export
+      <span class="tooltiptext"
+        >Download an image that uses the current weekly layout as a blank canvas
+        for planning a generic week.</span
+      >
+    </button>
+    <button class="btn jump-button" (click)="jumpToToday()">
+      Jump to Today
+    </button>
   </div>
   <div class="wrapping-grid">
     <div class="nav-arrow">
@@ -36,7 +45,9 @@
           [class.focused]="focusDate.toDateString() === date.toDateString()"
           class="day"
         >
-          <div class="date">{{ date.getDate() }}</div>
+          <div class="date">
+            {{ !hideDraggableContent ? date.getDate() : "" }}
+          </div>
           <div
             class="day-content"
             [ngStyle]="{ 'font-size': fontSize }"
@@ -45,19 +56,33 @@
           >
             <hr />
             <span *ngIf="dateOption.type === 'metric'">
+              <div
+                *ngIf="hideDraggableContent"
+                [class.tallMetric]="hideDraggableContent"
+              ></div>
               <h4>
-                {{ dateOption.value.label ? dateOption.value.label : " " }}
+                {{
+                  dateOption.value.label && !hideDraggableContent
+                    ? dateOption.value.label
+                    : ""
+                }}
               </h4>
               <span>{{
-                dateOption.value.value ? dateOption.value.value : " "
+                dateOption.value.value && !hideDraggableContent
+                  ? dateOption.value.value
+                  : ""
               }}</span>
             </span>
             <span *ngIf="dateOption.type === 'task'">
               <input
                 type="checkbox"
-                [checked]="dateOption.value.isComplete"
-              /><span>{{
-                dateOption.value.value ? dateOption.value.value : " "
+                [checked]="
+                  !hideDraggableContent ? dateOption.value.isComplete : false
+                "
+              /><span [class.tallTask]="hideDraggableContent">{{
+                dateOption.value.value && !hideDraggableContent
+                  ? dateOption.value.value
+                  : ""
               }}</span>
             </span>
           </div>
