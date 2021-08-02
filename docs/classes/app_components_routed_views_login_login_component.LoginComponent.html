@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SignupComponent | Project Chronos</title>
+	<title>LoginComponent | Project Chronos</title>
 	<meta name="description" content="Documentation for Project Chronos">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">Project Chronos</a>
 				</li>
 				<li>
-					<a href="../modules/app_components_signup_signup_component.html">app/components/signup/signup.component</a>
+					<a href="../modules/app_components_routed_views_login_login_component.html">app/components/routed-views/login/login.component</a>
 				</li>
 				<li>
-					<a href="app_components_signup_signup_component.SignupComponent.html">SignupComponent</a>
+					<a href="app_components_routed_views_login_login_component.LoginComponent.html">LoginComponent</a>
 				</li>
 			</ul>
-			<h1>Class SignupComponent</h1>
+			<h1>Class LoginComponent</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>manage signup form and authentication process</p>
+						<p>shows/manages the login page</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">SignupComponent</span>
+						<span class="target">LoginComponent</span>
 					</li>
 				</ul>
 			</section>
@@ -90,20 +90,19 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="app_components_signup_signup_component.SignupComponent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="app_components_routed_views_login_login_component.LoginComponent.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_signup_signup_component.SignupComponent.html#signupForm" class="tsd-kind-icon">signup<wbr>Form</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_routed_views_login_login_component.LoginComponent.html#loginForm" class="tsd-kind-icon">login<wbr>Form</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_signup_signup_component.SignupComponent.html#match" class="tsd-kind-icon">match</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_signup_signup_component.SignupComponent.html#onSignup" class="tsd-kind-icon">on<wbr>Signup</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_login_login_component.LoginComponent.html#onLogin" class="tsd-kind-icon">on<wbr>Login</a></li>
 							</ul>
 						</section>
 					</div>
@@ -115,35 +114,27 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Signup<wbr>Component<span class="tsd-signature-symbol">(</span>authService<span class="tsd-signature-symbol">: </span><a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a>, formBuilder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FormBuilder</span>, router<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_signup_signup_component.SignupComponent.html" class="tsd-signature-type" data-tsd-kind="Class">SignupComponent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Login<wbr>Component<span class="tsd-signature-symbol">(</span>formBuilder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FormBuilder</span>, router<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span>, afAuth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AngularFireAuth</span>, authService<span class="tsd-signature-symbol">: </span><a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_routed_views_login_login_component.LoginComponent.html" class="tsd-signature-type" data-tsd-kind="Class">LoginComponent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/signup/signup.component.ts#L29">components/signup/signup.component.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/routed-views/login/login.component.ts#L28">components/routed-views/login/login.component.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>assign clas vars</p>
+									<p>create instance of login component</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>authService: <a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>connects to signup logic</p>
-										</div>
-									</div>
-								</li>
-								<li>
 									<h5>formBuilder: <span class="tsd-signature-type">FormBuilder</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>allows easy creation of the signup form group</p>
+											<p>allows to create form group easily</p>
 										</div>
 									</div>
 								</li>
@@ -151,12 +142,28 @@
 									<h5>router: <span class="tsd-signature-type">Router</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>allows managing navigation logic in typescript</p>
+											<p>allows to manage URL navigation logic in TypeScript</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>afAuth: <span class="tsd-signature-type">AngularFireAuth</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>allows handling of Angular Firebase Authentication</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>authService: <a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>connects to login logic</p>
 										</div>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="app_components_signup_signup_component.SignupComponent.html" class="tsd-signature-type" data-tsd-kind="Class">SignupComponent</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="app_components_routed_views_login_login_component.LoginComponent.html" class="tsd-signature-type" data-tsd-kind="Class">LoginComponent</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -164,17 +171,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="signupForm" class="tsd-anchor"></a>
-					<h3>signup<wbr>Form</h3>
-					<div class="tsd-signature tsd-kind-icon">signup<wbr>Form<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FormGroup</span></div>
+					<a name="loginForm" class="tsd-anchor"></a>
+					<h3>login<wbr>Form</h3>
+					<div class="tsd-signature tsd-kind-icon">login<wbr>Form<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FormGroup</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/signup/signup.component.ts#L21">components/signup/signup.component.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/routed-views/login/login.component.ts#L19">components/routed-views/login/login.component.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>the form that contains inputs for signing up</p>
+							<p>form to manage login. containing username and password</p>
 						</div>
 					</div>
 				</section>
@@ -182,54 +189,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="match" class="tsd-anchor"></a>
-					<h3>match</h3>
+					<a name="onLogin" class="tsd-anchor"></a>
+					<h3>on<wbr>Login</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">match<span class="tsd-signature-symbol">(</span>fieldToMatch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValidatorFn</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Login<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/signup/signup.component.ts#L61">components/signup/signup.component.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/routed-views/login/login.component.ts#L44">components/routed-views/login/login.component.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>a validator function for making sure inputs match the field they are confirming</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>fieldToMatch: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>the field name in the form which the content of the tested field should match</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ValidatorFn</span></h4>
-							<p>a validator function which either returns null if valid (matched what it was supposed to) or validation error</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="onSignup" class="tsd-anchor"></a>
-					<h3>on<wbr>Signup</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Signup<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/signup/signup.component.ts#L51">components/signup/signup.component.ts:51</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>upon form submission (which can only happen when form is valid), pull username and password
-									and try to authenticate them as a new user. alert if error.</p>
+									<p>grab credentials from form upon login form submission and attempt
+									logging them in via firebase authentication. if fail, alert the error.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -251,40 +226,43 @@
 						<a href="../modules/app_app_module.html">app/app.module</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_daily_view_daily_view_component.html">app/components/daily-<wbr>view/daily-<wbr>view.component</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_draggable_draggable_component.html">app/components/draggable/draggable.component</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_draggable_draggable_model.html">app/components/draggable/draggable.model</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/app_components_font_dialog_font_dialog_component.html">app/components/font-<wbr>dialog/font-<wbr>dialog.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_login_login_component.html">app/components/login/login.component</a>
+						<a href="../modules/app_components_plannables_draggable_draggable_component.html">app/components/plannables/draggable/draggable.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_metrics_metrics_component.html">app/components/metrics/metrics.component</a>
+						<a href="../modules/app_components_plannables_draggable_draggable_model.html">app/components/plannables/draggable/draggable.model</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_monthly_view_monthly_view_component.html">app/components/monthly-<wbr>view/monthly-<wbr>view.component</a>
+						<a href="../modules/app_components_plannables_metrics_metrics_component.html">app/components/plannables/metrics/metrics.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_not_found_not_found_component.html">app/components/not-<wbr>found/not-<wbr>found.component</a>
+						<a href="../modules/app_components_plannables_notes_notes_component.html">app/components/plannables/notes/notes.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_planner_wrapper_planner_wrapper_component.html">app/components/planner-<wbr>wrapper/planner-<wbr>wrapper.component</a>
+						<a href="../modules/app_components_plannables_tasks_tasks_component.html">app/components/plannables/tasks/tasks.component</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/app_components_planning_views_daily_view_daily_view_component.html">app/components/planning-<wbr>views/daily-<wbr>view/daily-<wbr>view.component</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/app_components_planning_views_monthly_view_monthly_view_component.html">app/components/planning-<wbr>views/monthly-<wbr>view/monthly-<wbr>view.component</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/app_components_planning_views_weekly_view_weekly_view_component.html">app/components/planning-<wbr>views/weekly-<wbr>view/weekly-<wbr>view.component</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/app_components_signup_signup_component.html">app/components/signup/signup.component</a>
+						<a href="../modules/app_components_routed_views_login_login_component.html">app/components/routed-<wbr>views/login/login.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_tasks_tasks_component.html">app/components/tasks/tasks.component</a>
+						<a href="../modules/app_components_routed_views_not_found_not_found_component.html">app/components/routed-<wbr>views/not-<wbr>found/not-<wbr>found.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_weekly_view_weekly_view_component.html">app/components/weekly-<wbr>view/weekly-<wbr>view.component</a>
+						<a href="../modules/app_components_routed_views_planner_wrapper_planner_wrapper_component.html">app/components/routed-<wbr>views/planner-<wbr>wrapper/planner-<wbr>wrapper.component</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/app_components_routed_views_signup_signup_component.html">app/components/routed-<wbr>views/signup/signup.component</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/app_services_auth_guard.html">app/services/auth.guard</a>
@@ -302,19 +280,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="app_components_signup_signup_component.SignupComponent.html" class="tsd-kind-icon">Signup<wbr>Component</a>
+						<a href="app_components_routed_views_login_login_component.LoginComponent.html" class="tsd-kind-icon">Login<wbr>Component</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="app_components_signup_signup_component.SignupComponent.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="app_components_routed_views_login_login_component.LoginComponent.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="app_components_signup_signup_component.SignupComponent.html#signupForm" class="tsd-kind-icon">signup<wbr>Form</a>
+								<a href="app_components_routed_views_login_login_component.LoginComponent.html#loginForm" class="tsd-kind-icon">login<wbr>Form</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="app_components_signup_signup_component.SignupComponent.html#match" class="tsd-kind-icon">match</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="app_components_signup_signup_component.SignupComponent.html#onSignup" class="tsd-kind-icon">on<wbr>Signup</a>
+								<a href="app_components_routed_views_login_login_component.LoginComponent.html#onLogin" class="tsd-kind-icon">on<wbr>Login</a>
 							</li>
 						</ul>
 					</li>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AuthService | Project Chronos</title>
+	<title>SignupComponent | Project Chronos</title>
 	<meta name="description" content="Documentation for Project Chronos">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,24 +55,31 @@
 					<a href="../modules.html">Project Chronos</a>
 				</li>
 				<li>
-					<a href="../modules/app_services_auth_service.html">app/services/auth.service</a>
+					<a href="../modules/app_components_routed_views_signup_signup_component.html">app/components/routed-views/signup/signup.component</a>
 				</li>
 				<li>
-					<a href="app_services_auth_service.AuthService.html">AuthService</a>
+					<a href="app_components_routed_views_signup_signup_component.SignupComponent.html">SignupComponent</a>
 				</li>
 			</ul>
-			<h1>Class AuthService</h1>
+			<h1>Class SignupComponent</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>manage signup form and authentication process</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AuthService</span>
+						<span class="target">SignupComponent</span>
 					</li>
 				</ul>
 			</section>
@@ -83,21 +90,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="app_services_auth_service.AuthService.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="app_components_routed_views_signup_signup_component.SignupComponent.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_services_auth_service.AuthService.html#uid" class="tsd-kind-icon">uid</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_routed_views_signup_signup_component.SignupComponent.html#signupForm" class="tsd-kind-icon">signup<wbr>Form</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_services_auth_service.AuthService.html#getUID" class="tsd-kind-icon">getUID</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_services_auth_service.AuthService.html#login" class="tsd-kind-icon">login</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_services_auth_service.AuthService.html#signUp" class="tsd-kind-icon">sign<wbr>Up</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_signup_signup_component.SignupComponent.html#match" class="tsd-kind-icon">match</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_signup_signup_component.SignupComponent.html#onSignup" class="tsd-kind-icon">on<wbr>Signup</a></li>
 							</ul>
 						</section>
 					</div>
@@ -109,28 +115,48 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Auth<wbr>Service<span class="tsd-signature-symbol">(</span>router<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span>, afAuth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AngularFireAuth</span>, fbService<span class="tsd-signature-symbol">: </span><a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Signup<wbr>Component<span class="tsd-signature-symbol">(</span>authService<span class="tsd-signature-symbol">: </span><a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a>, formBuilder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FormBuilder</span>, router<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_routed_views_signup_signup_component.SignupComponent.html" class="tsd-signature-type" data-tsd-kind="Class">SignupComponent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/services/auth.service.ts#L12">services/auth.service.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/routed-views/signup/signup.component.ts#L29">components/routed-views/signup/signup.component.ts:29</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>assign clas vars</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>authService: <a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>connects to signup logic</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>formBuilder: <span class="tsd-signature-type">FormBuilder</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>allows easy creation of the signup form group</p>
+										</div>
+									</div>
+								</li>
+								<li>
 									<h5>router: <span class="tsd-signature-type">Router</span></h5>
-								</li>
-								<li>
-									<h5>afAuth: <span class="tsd-signature-type">AngularFireAuth</span></h5>
-								</li>
-								<li>
-									<h5>fbService: <a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>allows managing navigation logic in typescript</p>
+										</div>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="app_components_routed_views_signup_signup_component.SignupComponent.html" class="tsd-signature-type" data-tsd-kind="Class">SignupComponent</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -138,98 +164,74 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="uid" class="tsd-anchor"></a>
-					<h3>uid</h3>
-					<div class="tsd-signature tsd-kind-icon">uid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
+					<a name="signupForm" class="tsd-anchor"></a>
+					<h3>signup<wbr>Form</h3>
+					<div class="tsd-signature tsd-kind-icon">signup<wbr>Form<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FormGroup</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/services/auth.service.ts#L10">services/auth.service.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/routed-views/signup/signup.component.ts#L21">components/routed-views/signup/signup.component.ts:21</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the form that contains inputs for signing up</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getUID" class="tsd-anchor"></a>
-					<h3>getUID</h3>
+					<a name="match" class="tsd-anchor"></a>
+					<h3>match</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">getUID<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">match<span class="tsd-signature-symbol">(</span>fieldToMatch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValidatorFn</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/services/auth.service.ts#L26">services/auth.service.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/routed-views/signup/signup.component.ts#L61">components/routed-views/signup/signup.component.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>getter for user&#39;s uid</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="login" class="tsd-anchor"></a>
-					<h3>login</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">login<span class="tsd-signature-symbol">(</span>email<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/services/auth.service.ts#L43">services/auth.service.ts:43</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>login an existing user</p>
+									<p>a validator function for making sure inputs match the field they are confirming</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>email: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>password: <span class="tsd-signature-type">string</span></h5>
+									<h5>fieldToMatch: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the field name in the form which the content of the tested field should match</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ValidatorFn</span></h4>
+							<p>a validator function which either returns null if valid (matched what it was supposed to) or validation error</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="signUp" class="tsd-anchor"></a>
-					<h3>sign<wbr>Up</h3>
+					<a name="onSignup" class="tsd-anchor"></a>
+					<h3>on<wbr>Signup</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">sign<wbr>Up<span class="tsd-signature-symbol">(</span>email<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Signup<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/services/auth.service.ts#L31">services/auth.service.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/routed-views/signup/signup.component.ts#L51">components/routed-views/signup/signup.component.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>signup a new user</p>
+									<p>upon form submission (which can only happen when form is valid), pull username and password
+									and try to authenticate them as a new user. alert if error.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>email: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>password: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -284,13 +286,13 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/app_components_routed_views_planner_wrapper_planner_wrapper_component.html">app/components/routed-<wbr>views/planner-<wbr>wrapper/planner-<wbr>wrapper.component</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/app_components_routed_views_signup_signup_component.html">app/components/routed-<wbr>views/signup/signup.component</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/app_services_auth_guard.html">app/services/auth.guard</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/app_services_auth_service.html">app/services/auth.service</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -303,22 +305,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="app_services_auth_service.AuthService.html" class="tsd-kind-icon">Auth<wbr>Service</a>
+						<a href="app_components_routed_views_signup_signup_component.SignupComponent.html" class="tsd-kind-icon">Signup<wbr>Component</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="app_services_auth_service.AuthService.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="app_components_routed_views_signup_signup_component.SignupComponent.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="app_services_auth_service.AuthService.html#uid" class="tsd-kind-icon">uid</a>
+								<a href="app_components_routed_views_signup_signup_component.SignupComponent.html#signupForm" class="tsd-kind-icon">signup<wbr>Form</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="app_services_auth_service.AuthService.html#getUID" class="tsd-kind-icon">getUID</a>
+								<a href="app_components_routed_views_signup_signup_component.SignupComponent.html#match" class="tsd-kind-icon">match</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="app_services_auth_service.AuthService.html#login" class="tsd-kind-icon">login</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="app_services_auth_service.AuthService.html#signUp" class="tsd-kind-icon">sign<wbr>Up</a>
+								<a href="app_components_routed_views_signup_signup_component.SignupComponent.html#onSignup" class="tsd-kind-icon">on<wbr>Signup</a>
 							</li>
 						</ul>
 					</li>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>metric | Project Chronos</title>
+	<title>task | Project Chronos</title>
 	<meta name="description" content="Documentation for Project Chronos">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">Project Chronos</a>
 				</li>
 				<li>
-					<a href="../modules/app_components_draggable_draggable_model.html">app/components/draggable/draggable.model</a>
+					<a href="../modules/app_components_plannables_draggable_draggable_model.html">app/components/plannables/draggable/draggable.model</a>
 				</li>
 				<li>
-					<a href="app_components_draggable_draggable_model.metric.html">metric</a>
+					<a href="app_components_plannables_draggable_draggable_model.task.html">task</a>
 				</li>
 			</ul>
-			<h1>Class metric</h1>
+			<h1>Class task</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">metric</span>
+						<span class="target">task</span>
 					</li>
 				</ul>
 			</section>
@@ -83,14 +83,14 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="app_components_draggable_draggable_model.metric.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="app_components_plannables_draggable_draggable_model.task.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_draggable_draggable_model.metric.html#label" class="tsd-kind-icon">label</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_draggable_draggable_model.metric.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_plannables_draggable_draggable_model.task.html#isComplete" class="tsd-kind-icon">is<wbr>Complete</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_plannables_draggable_draggable_model.task.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,13 +102,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new metric<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_draggable_draggable_model.metric.html" class="tsd-signature-type" data-tsd-kind="Class">metric</a></li>
+						<li class="tsd-signature tsd-kind-icon">new task<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_plannables_draggable_draggable_model.task.html" class="tsd-signature-type" data-tsd-kind="Class">task</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="app_components_draggable_draggable_model.metric.html" class="tsd-signature-type" data-tsd-kind="Class">metric</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="app_components_plannables_draggable_draggable_model.task.html" class="tsd-signature-type" data-tsd-kind="Class">task</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -116,17 +116,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="label" class="tsd-anchor"></a>
-					<h3>label</h3>
-					<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
+					<a name="isComplete" class="tsd-anchor"></a>
+					<h3>is<wbr>Complete</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Complete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/draggable/draggable.model.ts#L16">components/draggable/draggable.model.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/plannables/draggable/draggable.model.ts#L26">components/plannables/draggable/draggable.model.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>the label text for the metric</p>
+							<p>whether the task has been complete -- whether the checkbox is checked</p>
 						</div>
 					</div>
 				</section>
@@ -136,12 +136,12 @@
 					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/fed152b/src/app/components/draggable/draggable.model.ts#L18">components/draggable/draggable.model.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/plannables/draggable/draggable.model.ts#L24">components/plannables/draggable/draggable.model.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>the value text for that metric</p>
+							<p>the task text</p>
 						</div>
 					</div>
 				</section>
@@ -160,40 +160,43 @@
 						<a href="../modules/app_app_module.html">app/app.module</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_daily_view_daily_view_component.html">app/components/daily-<wbr>view/daily-<wbr>view.component</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_draggable_draggable_component.html">app/components/draggable/draggable.component</a>
-					</li>
-					<li class="current tsd-kind-module">
-						<a href="../modules/app_components_draggable_draggable_model.html">app/components/draggable/draggable.model</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/app_components_font_dialog_font_dialog_component.html">app/components/font-<wbr>dialog/font-<wbr>dialog.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_login_login_component.html">app/components/login/login.component</a>
+						<a href="../modules/app_components_plannables_draggable_draggable_component.html">app/components/plannables/draggable/draggable.component</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/app_components_plannables_draggable_draggable_model.html">app/components/plannables/draggable/draggable.model</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_metrics_metrics_component.html">app/components/metrics/metrics.component</a>
+						<a href="../modules/app_components_plannables_metrics_metrics_component.html">app/components/plannables/metrics/metrics.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_monthly_view_monthly_view_component.html">app/components/monthly-<wbr>view/monthly-<wbr>view.component</a>
+						<a href="../modules/app_components_plannables_notes_notes_component.html">app/components/plannables/notes/notes.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_not_found_not_found_component.html">app/components/not-<wbr>found/not-<wbr>found.component</a>
+						<a href="../modules/app_components_plannables_tasks_tasks_component.html">app/components/plannables/tasks/tasks.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_planner_wrapper_planner_wrapper_component.html">app/components/planner-<wbr>wrapper/planner-<wbr>wrapper.component</a>
+						<a href="../modules/app_components_planning_views_daily_view_daily_view_component.html">app/components/planning-<wbr>views/daily-<wbr>view/daily-<wbr>view.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_signup_signup_component.html">app/components/signup/signup.component</a>
+						<a href="../modules/app_components_planning_views_monthly_view_monthly_view_component.html">app/components/planning-<wbr>views/monthly-<wbr>view/monthly-<wbr>view.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_tasks_tasks_component.html">app/components/tasks/tasks.component</a>
+						<a href="../modules/app_components_planning_views_weekly_view_weekly_view_component.html">app/components/planning-<wbr>views/weekly-<wbr>view/weekly-<wbr>view.component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/app_components_weekly_view_weekly_view_component.html">app/components/weekly-<wbr>view/weekly-<wbr>view.component</a>
+						<a href="../modules/app_components_routed_views_login_login_component.html">app/components/routed-<wbr>views/login/login.component</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/app_components_routed_views_not_found_not_found_component.html">app/components/routed-<wbr>views/not-<wbr>found/not-<wbr>found.component</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/app_components_routed_views_planner_wrapper_planner_wrapper_component.html">app/components/routed-<wbr>views/planner-<wbr>wrapper/planner-<wbr>wrapper.component</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/app_components_routed_views_signup_signup_component.html">app/components/routed-<wbr>views/signup/signup.component</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/app_services_auth_guard.html">app/services/auth.guard</a>
@@ -209,29 +212,32 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="app_components_draggable_draggable_model.draggable.html" class="tsd-kind-icon">draggable</a>
+						<a href="app_components_plannables_draggable_draggable_model.draggable.html" class="tsd-kind-icon">draggable</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="app_components_plannables_draggable_draggable_model.metric.html" class="tsd-kind-icon">metric</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="app_components_plannables_draggable_draggable_model.note.html" class="tsd-kind-icon">note</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="app_components_draggable_draggable_model.metric.html" class="tsd-kind-icon">metric</a>
+						<a href="app_components_plannables_draggable_draggable_model.task.html" class="tsd-kind-icon">task</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="app_components_draggable_draggable_model.metric.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="app_components_plannables_draggable_draggable_model.task.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="app_components_draggable_draggable_model.metric.html#label" class="tsd-kind-icon">label</a>
+								<a href="app_components_plannables_draggable_draggable_model.task.html#isComplete" class="tsd-kind-icon">is<wbr>Complete</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="app_components_draggable_draggable_model.metric.html#value" class="tsd-kind-icon">value</a>
+								<a href="app_components_plannables_draggable_draggable_model.task.html#value" class="tsd-kind-icon">value</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="app_components_draggable_draggable_model.task.html" class="tsd-kind-icon">task</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
