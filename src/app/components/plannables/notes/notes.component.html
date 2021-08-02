@@ -1,0 +1,13 @@
+<span class="note">
+  <mat-icon cdkDragHandle>pan_tool</mat-icon>
+  <textarea
+    type="text"
+    cols="20"
+    wrap="hard"
+    placeholder="note"
+    [style.fontSize]="fontSize"
+    [style.fontFamily]="fontFamily"
+    [formControl]="valueControl"
+    >{{ info.value }}</textarea
+  >
+</span>

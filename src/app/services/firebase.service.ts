@@ -4,7 +4,8 @@ import {
   draggable,
   metric,
   task,
-} from '../components/draggable/draggable.model';
+  note,
+} from '../components/plannables/draggable/draggable.model';
 
 /** a service that can be injected in any component to provide connections to
  * firebase while only initializing the app here
@@ -126,9 +127,8 @@ export class FirebaseService {
     });
   }
 
-  // FIXME figure out why index isn't always reliable if metric/task doesn't fill whole width
   /**
-   * adjust all the indexes on the metrics/tasks in the day because they reordered them
+   * adjust all the indexes on the metrics/tasks/notes in the day because they reordered them
    * @param uid user's id
    * @param date string representing the date
    * @param prevIdx the index where the moved one used to be
@@ -136,19 +136,20 @@ export class FirebaseService {
    * @param allDraggablesInDay all the draggable options in the day
    */
   reorderMetricOrTask(
+    // TODO rename to be more generic
     uid: string,
     date: string,
     prevIdx: number,
     newIdx: number,
     allDraggablesInDay: Array<draggable>
-  ) {
+  ): void {
     // item from prevIdx should always go to newIdx
     // if prevIdx > newIdx, all items previously at idx of newIdx or greater and less than prevIdx should increase their idx by one
     // if prevIdx < newIdx, items between should decrease their idx by one
     allDraggablesInDay.forEach((draggable: draggable) => {
       if (draggable.idx === prevIdx) {
         draggable.idx = newIdx;
-        this.updateMetricOrTask(uid, date, draggable);
+        this.updateMetricOrTask(uid, date, draggable); // TODO rename to be more generic
       } else if (
         draggable.idx >= Math.min(prevIdx, newIdx) &&
         draggable.idx <= Math.max(prevIdx, newIdx)
@@ -158,20 +159,21 @@ export class FirebaseService {
         } else if (prevIdx > newIdx) {
           draggable.idx++;
         }
-        this.updateMetricOrTask(uid, date, draggable);
+        this.updateMetricOrTask(uid, date, draggable); // TODO rename to be more generic
       }
     });
   }
 
   /**
-   * create a brand new metric or task in the db
+   * create a brand new metric/task/note in the db
    * @param uid  the user id
-   * @param date a string representing the date to put the metric/task on
+   * @param date a string representing the date to put the metric/task/note on
    * @param dragItem the item being dropped into the day
    * @param idx the index at which that item shall be dropped
    * @param allDraggablesInDay all the draggables already in the day before dropping this one
    */
   writeMetricOrTask(
+    // TODO rename to be more generic
     uid: string,
     date: string,
     dragItem: draggable,
@@ -183,7 +185,7 @@ export class FirebaseService {
     writeObj.value = dragItem.value;
     writeObj.idx = dragItem.idx;
 
-    // get id for metric or tasks, unique within the day
+    // get id for metric/task/note, unique within the day
     let usedIds: string[] = [];
     if (allDraggablesInDay) {
       allDraggablesInDay.forEach((dragItem: draggable) => {
@@ -204,7 +206,7 @@ export class FirebaseService {
   }
 
   /**
-   * update a single metric/task that's already been configured with whatever needs updating
+   * update a single metric/task/note that's already been configured with whatever needs updating
    * @param uid user's id
    * @param date string representing date to save stuff under
    * @param dragItem the draggable item to be updated in the DB
@@ -232,7 +234,7 @@ export class FirebaseService {
    * delete a draggable
    * @param uid the user's id
    * @param date the dateString
-   * @param draggableType the draggable type, such as metric or task
+   * @param draggableType the draggable type, such as metric/task/note
    * @param draggableId the id of the draggable to delete
    */
   deleteDraggable(
@@ -255,13 +257,14 @@ export class FirebaseService {
       .remove();
   }
 
-  /** generate a unique ID for the metric or task */
+  /** generate a unique ID for the metric/task/note */
   createUniqueID(): string {
     return (
       Math.floor(Math.random() * Math.floor(Math.random() * Date.now())) + ''
     );
   }
 
+  // TODO combine edit metric, edit task, and edit note into one common function
   /**
    * update a metric's content after editing the label or input fields
    * @param uid the user id
@@ -275,22 +278,35 @@ export class FirebaseService {
     metricId: string,
     updateObj: metric
   ): void {
-    let objWithVal = { value: updateObj };
+    const objWithVal = { value: updateObj };
     this.db
       .ref('users/' + uid + '/dates/' + date + '/metrics/' + metricId + '/')
       .update(objWithVal);
   }
 
-  /** update a metric's content after editing the textarea or checkbox fields
+  /** update a task's content after editing the textarea or checkbox fields
    * @param uid the user id
    * @param date the dateString
    * @param taskId the task's id
    * @param updateObj the dragggable:value object; type task
    */
   editTask(uid: string, date: string, taskId: string, updateObj: task): void {
-    let objWithVal = { value: updateObj };
+    const objWithVal = { value: updateObj };
     this.db
       .ref('users/' + uid + '/dates/' + date + '/tasks/' + taskId + '/')
+      .update(objWithVal);
+  }
+
+  /** update a note's content after editing
+   * @param uid the user id
+   * @param date the dateString
+   * @param noteId the note's id
+   * @param updateObj the dragggable:value object; type note
+   */
+  editNote(uid: string, date: string, noteId: string, updateObj: note): void {
+    const objWithVal = { value: updateObj };
+    this.db
+      .ref('users/' + uid + '/dates/' + date + '/notes/' + noteId + '/')
       .update(objWithVal);
   }
 
@@ -299,7 +315,7 @@ export class FirebaseService {
    * @param uid the user's id
    * @param fontSize the customized font size
    */
-  editFontSize(uid: string, fontSize: number) {
+  editFontSize(uid: string, fontSize: number): void {
     this.db.ref('users/' + uid + '/settings/').update({ fontSize: fontSize });
   }
 
@@ -308,7 +324,7 @@ export class FirebaseService {
    * @param uid the user's id
    * @param fontFamily the customized font family
    */
-  editFontFamily(uid: string, fontFamily: string) {
+  editFontFamily(uid: string, fontFamily: string): void {
     this.db
       .ref('users/' + uid + '/settings/')
       .update({ fontFamily: fontFamily });
@@ -319,7 +335,7 @@ export class FirebaseService {
    * @param uid the user's id
    * @param fontColor the customized font color
    */
-  editFontColor(uid: string, fontColor: string) {
+  editFontColor(uid: string, fontColor: string): void {
     this.db.ref('users/' + uid + '/settings/').update({ fontColor: fontColor });
   }
 }

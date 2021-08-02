@@ -1,0 +1,29 @@
+<div class="draggable" cdkDrag>
+  <app-tasks
+    *ngIf="option.type === 'task'"
+    [fontSize]="fontSize"
+    [fontFamily]="fontFamily"
+    [info]="option.value"
+    [taskId]="option.id"
+    [dateString]="dateString"
+    [uid]="uid"
+  ></app-tasks>
+  <app-metrics
+    *ngIf="option.type === 'metric'"
+    [fontSize]="fontSize"
+    [fontFamily]="fontFamily"
+    [info]="option.value"
+    [metricId]="option.id"
+    [dateString]="dateString"
+    [uid]="uid"
+  ></app-metrics>
+  <app-notes
+    *ngIf="option.type === 'note'"
+    [fontSize]="fontSize"
+    [fontFamily]="fontFamily"
+    [info]="option.value"
+    [noteId]="option.id"
+    [dateString]="dateString"
+    [uid]="uid"
+  ></app-notes>
+</div>

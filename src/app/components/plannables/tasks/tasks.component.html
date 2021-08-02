@@ -1,0 +1,21 @@
+<span class="task">
+  <span>
+    <mat-icon cdkDragHandle>pan_tool</mat-icon>
+    <input
+      [formControl]="completeControl"
+      type="checkbox"
+      [checked]="info.isComplete"
+    />
+    <br />
+  </span>
+  <textarea
+    type="text"
+    placeholder="task"
+    cols="20"
+    wrap="hard"
+    [style.fontSize]="fontSize"
+    [style.fontFamily]="fontFamily"
+    [formControl]="valueControl"
+    >{{ info.value }}</textarea
+  >
+</span>
