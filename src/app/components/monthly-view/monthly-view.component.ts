@@ -79,7 +79,7 @@ export class MonthlyViewComponent implements OnInit {
     let firstOfMonth = this.copy(current);
     firstOfMonth.setDate(1);
     // want index to still be based on day of the week. note getDay() is zero indexed and getDate() is not
-    let spot = current.getDate() - 1 + firstOfMonth.getDay();
+    const spot = current.getDate() - 1 + firstOfMonth.getDay();
     let tracker = 0;
     let working = this.copy(current);
     working.setMonth(current.getMonth());
@@ -94,8 +94,8 @@ export class MonthlyViewComponent implements OnInit {
     // backfill days in previous month
     let tempDate = this.copy(current);
     tempDate.setDate(0); // will go to last day in previous month
-    let daysInPreviousMonth = tempDate.getDate();
-    let daysToBackFill = working.getDay();
+    const daysInPreviousMonth = tempDate.getDate();
+    const daysToBackFill = working.getDay();
     for (let i = 0; i < daysToBackFill; i++) {
       working.setFullYear(tempDate.getFullYear());
       working.setMonth(tempDate.getMonth());
@@ -108,9 +108,9 @@ export class MonthlyViewComponent implements OnInit {
     let lastDayOfMonth = this.copy(current); // makes new copy
     lastDayOfMonth.setMonth(current.getMonth() + 1); // advances month
     lastDayOfMonth.setDate(0); // sets back to last day of working month
-    let daysInCurrentMonth = lastDayOfMonth.getDate();
-    let need6Weeks = daysInCurrentMonth + firstOfMonth.getDay() > 35; // getDay() = 0 for sunday
-    let arrLen = need6Weeks ? 42 : 35;
+    const daysInCurrentMonth = lastDayOfMonth.getDate();
+    const need6Weeks = daysInCurrentMonth + firstOfMonth.getDay() > 35; // getDay() = 0 for sunday
+    const arrLen = need6Weeks ? 42 : 35;
     for (let i = spot + 1; i < arrLen; i++) {
       // fill rest of days until end of 5 weeks
       working.setFullYear(current.getFullYear());

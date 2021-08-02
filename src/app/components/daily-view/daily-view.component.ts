@@ -166,7 +166,7 @@ export class DailyViewComponent {
    * navigate to tomorrow (relative to focusDate)
    */
   tomorrow() {
-    let temp: Date = new Date(
+    const temp: Date = new Date(
       this.focusDate.getFullYear(),
       this.focusDate.getMonth(),
       this.focusDate.getDate() + 1
@@ -179,7 +179,7 @@ export class DailyViewComponent {
    * navigate to yesterday (relative to focusDate)
    */
   yesterday() {
-    let temp: Date = new Date(
+    const temp: Date = new Date(
       this.focusDate.getFullYear(),
       this.focusDate.getMonth(),
       this.focusDate.getDate() - 1
@@ -220,7 +220,7 @@ export class DailyViewComponent {
   dropExistingOption(dropItem: CdkDragDrop<any>) {
     if (dropItem.previousContainer !== dropItem.container) {
       // grab item to be deleted
-      let deleteItem: draggable =
+      const deleteItem: draggable =
         this.allDayOptions[this.dateString][dropItem.previousIndex];
 
       // re-assign new indexes to any following the deleted one

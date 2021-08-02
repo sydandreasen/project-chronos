@@ -275,7 +275,7 @@ export class FirebaseService {
     metricId: string,
     updateObj: metric
   ): void {
-    let objWithVal = { value: updateObj };
+    const objWithVal = { value: updateObj };
     this.db
       .ref('users/' + uid + '/dates/' + date + '/metrics/' + metricId + '/')
       .update(objWithVal);
@@ -288,7 +288,7 @@ export class FirebaseService {
    * @param updateObj the dragggable:value object; type task
    */
   editTask(uid: string, date: string, taskId: string, updateObj: task): void {
-    let objWithVal = { value: updateObj };
+    const objWithVal = { value: updateObj };
     this.db
       .ref('users/' + uid + '/dates/' + date + '/tasks/' + taskId + '/')
       .update(objWithVal);

@@ -84,7 +84,7 @@ export class PlannerWrapperComponent {
             const draggableIds = Object.getOwnPropertyNames(draggablesOfType);
             draggableIds.forEach((id) => {
               const draggable = this.dateInfo[dateString][type][id];
-              let newDraggable: draggable = {
+              const newDraggable: draggable = {
                 type: type.substring(0, type.length - 1), // take off the plural s
                 id: id,
                 value: draggable.value,

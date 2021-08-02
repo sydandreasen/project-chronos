@@ -85,7 +85,7 @@ export class WeeklyViewComponent implements OnInit {
    */
   generateweek(current: Date): void {
     let tracker = 0; // this is for num days displacement from current day
-    let spot = current.getDay(); // indexed day of week, starting with Sunday
+    const spot = current.getDay(); // indexed day of week, starting with Sunday
     let working = this.copy(current);
     for (let i = spot; i >= 0; i--) {
       // backfill the array, starting with the current day
@@ -152,7 +152,7 @@ export class WeeklyViewComponent implements OnInit {
     toPng(weekGrid)
       .then((dataUrl) => {
         // download image
-        var a = document.createElement('a');
+        let a = document.createElement('a');
         a.href = dataUrl;
         a.download = 'download.png';
         document.body.appendChild(a);
