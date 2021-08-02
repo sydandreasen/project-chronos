@@ -5,11 +5,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import {
-  draggable,
-  metric,
-  task,
-} from '../../plannables/draggable/draggable.model';
+import { draggable } from '../../plannables/draggable/draggable.model';
 import { FontDialogComponent } from '../../font-dialog/font-dialog.component';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
@@ -22,10 +18,10 @@ export class PlannerWrapperComponent {
   /** the trigger to open menu (the button with three horizontal lines icon) */
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger | undefined;
 
-  /** font size for tasks and metrics */
+  /** font size for tasks, notes, and metrics */
   fontSize: number = 0; // overridden in subscription
 
-  /** font-fmaily for tasks and metrics */
+  /** font-fmaily for tasks, notes, and metrics */
   fontFamily: string = ''; // overridden in subscription
 
   /** start focusing on today. */
@@ -37,7 +33,7 @@ export class PlannerWrapperComponent {
   /** the chosen text color */
   chosenColor: string = ''; // overridden in subscription
 
-  /** the user's current dates data -- any date may include metric and/or task data.
+  /** the user's current dates data -- any date may include metric/note/task data.
    * at wrapper level to pass to each view
    */
   dateInfo: { [key: string]: any } = {};

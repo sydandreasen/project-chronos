@@ -65,6 +65,9 @@
               dateOption.value.value ? dateOption.value.value : " "
             }}
           </span>
+          <span *ngIf="dateOption.type === 'note'">
+            {{ dateOption.value.value ? dateOption.value.value : " " }}
+          </span>
         </div>
       </div>
     </div>

@@ -17,4 +17,13 @@
     [dateString]="dateString"
     [uid]="uid"
   ></app-metrics>
+  <app-notes
+    *ngIf="option.type === 'note'"
+    [fontSize]="fontSize"
+    [fontFamily]="fontFamily"
+    [info]="option.value"
+    [noteId]="option.id"
+    [dateString]="dateString"
+    [uid]="uid"
+  ></app-notes>
 </div>

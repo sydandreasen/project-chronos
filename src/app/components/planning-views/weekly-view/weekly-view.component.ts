@@ -14,10 +14,10 @@ export class WeeklyViewComponent implements OnInit {
   /** the currently chosen font color */
   @Input() chosenColor: string = '';
 
-  /** the font size to have for tasks and metrics */
+  /** the font size to have for tasks, notes, and metrics */
   @Input() fontSize: string = '';
 
-  /** the font family to have for tasks and metrics */
+  /** the font family to have for tasks, notes, and metrics */
   @Input() fontFamily: string = '';
 
   /** the current options planned for all days */

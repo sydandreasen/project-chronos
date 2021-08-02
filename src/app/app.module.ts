@@ -28,6 +28,7 @@ import { DraggableComponent } from './components/plannables/draggable/draggable.
 import { FontDialogComponent } from './components/font-dialog/font-dialog.component';
 import { MetricsComponent } from './components/plannables/metrics/metrics.component';
 import { TasksComponent } from './components/plannables/tasks/tasks.component';
+import { NotesComponent } from './components/plannables/notes/notes.component';
 
 /**
  * routes to show certain components based on URL
@@ -61,6 +62,7 @@ const routes: Routes = [
     FontDialogComponent,
     MetricsComponent,
     TasksComponent,
+    NotesComponent,
   ],
   imports: [
     BrowserModule,

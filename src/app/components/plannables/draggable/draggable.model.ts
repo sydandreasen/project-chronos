@@ -1,6 +1,6 @@
 // a model class of a draggable
 export class draggable {
-  /** the type of draggable item, such as a metric or a task */
+  /** the type of draggable item, such as a metric or a task or a note */
   type: string = '';
   /** a value to populate the draggable's text */
   value: any = undefined;
@@ -24,4 +24,10 @@ export class task {
   value: string = '';
   /** whether the task has been complete -- whether the checkbox is checked */
   isComplete: boolean = false;
+}
+
+// a model class of a note
+export class note {
+  /** the note text */
+  value: string = '';
 }

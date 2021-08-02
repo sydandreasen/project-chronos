@@ -6,6 +6,7 @@ import {
   draggable,
   metric,
   task,
+  note,
 } from '../../plannables/draggable/draggable.model';
 
 /**
@@ -23,10 +24,10 @@ export class DailyViewComponent {
   /** the font color chosen */
   @Input() chosenColor: string = '';
 
-  /** the font size to have for tasks and metrics */
+  /** the font size to have for tasks, notes, and metrics */
   @Input() fontSize: string = '';
 
-  /** the font family to have for tasks and metrics */
+  /** the font family to have for tasks, notes and metrics */
   @Input() fontFamily: string = '';
 
   /** the current options planned for all days */
@@ -42,6 +43,7 @@ export class DailyViewComponent {
   slideList: Array<draggable> = [
     { type: 'task', value: new task(), id: '', idx: -1 },
     { type: 'metric', value: new metric(), id: '', idx: -1 },
+    { type: 'note', value: new note(), id: '', idx: -1 },
   ];
 
   /** the user's uid */
@@ -59,7 +61,7 @@ export class DailyViewComponent {
     this.dateString = this.getStringDate(this.focusDate);
   }
 
-  /** generate metrics and tasks for the week based on the focused day */
+  /** generate metrics, notes, and tasks for the week based on the focused day */
   generateWeek(): void {
     // items to base generation on
     const basis: Array<draggable> = this.allDayOptions[this.dateString];
@@ -73,7 +75,7 @@ export class DailyViewComponent {
         // make an example
         examples[dragItem.type] = new draggable();
         examples[dragItem.type].type = dragItem.type;
-        examples[dragItem.type].value = this.getFreshDraggableValue(dragItem); // TODO may need to come back and make this nicer so that it corresponds to format of specific kind of draggable's value
+        examples[dragItem.type].value = this.getFreshDraggableValue(dragItem);
       }
     });
     // dates to edit
@@ -114,6 +116,7 @@ export class DailyViewComponent {
             ) {
               // write draggables to the day such that the total of that type on the day becomes no more than in the model day
               this.fbService.writeMetricOrTask(
+                // TODO rename this to be more generic
                 this.uid,
                 tempStringDate,
                 examples[neededType],
@@ -128,16 +131,20 @@ export class DailyViewComponent {
   }
 
   /** return a new draggable value based on its type
-   * // FIXME this could all probably be refactored to make draggable an interface that the other two extend
    * @param draggable the draggable item to get the value of based on type
    */
-  getFreshDraggableValue(draggable: draggable): metric | task | undefined {
+  getFreshDraggableValue(
+    draggable: draggable
+  ): metric | task | note | undefined {
     switch (draggable.type) {
       case 'metric':
         return new metric();
         break;
       case 'task':
         return new task();
+        break;
+      case 'note':
+        return new note();
         break;
       default:
         return undefined; // shouldn't ever happen
@@ -197,6 +204,7 @@ export class DailyViewComponent {
     if (dropItem.previousContainer === dropItem.container) {
       // update dragged one's idx
       this.fbService.reorderMetricOrTask(
+        // TODO rename to be more generic
         this.uid,
         this.dateString,
         dropItem.previousIndex,
@@ -209,8 +217,9 @@ export class DailyViewComponent {
         dropItem.currentIndex
       );
     } else {
-      // write new metric/task
+      // write new metric/task/note
       this.fbService.writeMetricOrTask(
+        // TODO rename to be more generic
         this.uid,
         this.dateString,
         JSON.parse(JSON.stringify(this.slideList[dropItem.previousIndex])),
@@ -229,6 +238,7 @@ export class DailyViewComponent {
 
       // re-assign new indexes to any following the deleted one
       this.fbService.reorderMetricOrTask(
+        // TODO rename to be more generic
         this.uid,
         this.dateString,
         dropItem.previousIndex,
