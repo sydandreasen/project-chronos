@@ -1,8 +1,4 @@
-// our color scheme
-$blue: #3c96f7;
-$white: #ffffff;
-$ltgrey: #c1c0c0;
-$dkgrey: #7a797a;
+@import "../../../../styles.scss";
 
 .tooltip .tooltiptext {
   visibility: hidden;
