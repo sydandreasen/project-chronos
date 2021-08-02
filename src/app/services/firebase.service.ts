@@ -4,7 +4,7 @@ import {
   draggable,
   metric,
   task,
-} from '../components/draggable/draggable.model';
+} from '../components/plannables/draggable/draggable.model';
 
 /** a service that can be injected in any component to provide connections to
  * firebase while only initializing the app here

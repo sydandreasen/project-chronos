@@ -2,7 +2,11 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { draggable, metric, task } from '../draggable/draggable.model';
+import {
+  draggable,
+  metric,
+  task,
+} from '../../plannables/draggable/draggable.model';
 
 /**
  * shows/manages daily view of plan endpoint

@@ -17,17 +17,17 @@ import { AuthGuard } from './services/auth.guard';
 import { AngularFireModule } from '@angular/fire';
 
 import { AppComponent } from './app.component';
-import { PlannerWrapperComponent } from './components/planner-wrapper/planner-wrapper.component';
-import { WeeklyViewComponent } from './components/weekly-view/weekly-view.component';
-import { MonthlyViewComponent } from './components/monthly-view/monthly-view.component';
-import { DailyViewComponent } from './components/daily-view/daily-view.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import { DraggableComponent } from './components/draggable/draggable.component';
+import { PlannerWrapperComponent } from './components/routed-views/planner-wrapper/planner-wrapper.component';
+import { WeeklyViewComponent } from './components/planning-views/weekly-view/weekly-view.component';
+import { MonthlyViewComponent } from './components/planning-views/monthly-view/monthly-view.component';
+import { DailyViewComponent } from './components/planning-views/daily-view/daily-view.component';
+import { LoginComponent } from './components/routed-views/login/login.component';
+import { SignupComponent } from './components/routed-views/signup/signup.component';
+import { NotFoundComponent } from './components/routed-views/not-found/not-found.component';
+import { DraggableComponent } from './components/plannables/draggable/draggable.component';
 import { FontDialogComponent } from './components/font-dialog/font-dialog.component';
-import { MetricsComponent } from './components/metrics/metrics.component';
-import { TasksComponent } from './components/tasks/tasks.component';
+import { MetricsComponent } from './components/plannables/metrics/metrics.component';
+import { TasksComponent } from './components/plannables/tasks/tasks.component';
 
 /**
  * routes to show certain components based on URL
