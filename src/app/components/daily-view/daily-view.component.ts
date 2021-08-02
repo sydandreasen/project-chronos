@@ -17,7 +17,7 @@ export class DailyViewComponent {
   @Input() focusDate: Date = new Date();
 
   /** the font color chosen */
-  @Input() chosenColor: String = '';
+  @Input() chosenColor: string = '';
 
   /** the font size to have for tasks and metrics */
   @Input() fontSize: string = '';
@@ -143,7 +143,7 @@ export class DailyViewComponent {
   /**
    * reset the focused date back to today
    */
-  jumpToToday() {
+  jumpToToday(): void {
     this.setFocusDate(new Date());
     this.dateString = this.getStringDate(this.focusDate);
   }
@@ -165,7 +165,7 @@ export class DailyViewComponent {
   /**
    * navigate to tomorrow (relative to focusDate)
    */
-  tomorrow() {
+  tomorrow(): void {
     const temp: Date = new Date(
       this.focusDate.getFullYear(),
       this.focusDate.getMonth(),
@@ -178,7 +178,7 @@ export class DailyViewComponent {
   /**
    * navigate to yesterday (relative to focusDate)
    */
-  yesterday() {
+  yesterday(): void {
     const temp: Date = new Date(
       this.focusDate.getFullYear(),
       this.focusDate.getMonth(),
@@ -189,7 +189,7 @@ export class DailyViewComponent {
   }
 
   /** handle drag and drop into day */
-  dropNewOption(dropItem: CdkDragDrop<any>) {
+  dropNewOption(dropItem: CdkDragDrop<any>): void {
     if (dropItem.previousContainer === dropItem.container) {
       // update dragged one's idx
       this.fbService.reorderMetricOrTask(
@@ -217,7 +217,7 @@ export class DailyViewComponent {
   }
 
   /* handle drag and drop into options */
-  dropExistingOption(dropItem: CdkDragDrop<any>) {
+  dropExistingOption(dropItem: CdkDragDrop<any>): void {
     if (dropItem.previousContainer !== dropItem.container) {
       // grab item to be deleted
       const deleteItem: draggable =

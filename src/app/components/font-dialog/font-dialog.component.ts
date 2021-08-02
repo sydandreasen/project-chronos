@@ -65,7 +65,7 @@ export class FontDialogComponent {
   }
 
   /** pass data up to parents */
-  close() {
+  close(): void {
     this.dialogRef.close({
       fontSize: this.fontSize.value,
       fontFamily: this.fontFamily.value,

@@ -117,12 +117,12 @@ export class PlannerWrapperComponent {
   }
 
   /** set focus data at wrapper level to pass updated info  to views */
-  setFocusDate(date: Date) {
+  setFocusDate(date: Date): void {
     this.focusDate = date;
   }
 
   /** edit a specific day */
-  editDay(date: Date) {
+  editDay(date: Date): void {
     this.setFocusDate(date);
     this.switchMode('day');
   }
@@ -189,7 +189,7 @@ export class PlannerWrapperComponent {
   }
 
   /** get font size in pixels based on inputted number */
-  getFontSize() {
+  getFontSize(): string {
     return this.fontSize + 'px';
   }
 }

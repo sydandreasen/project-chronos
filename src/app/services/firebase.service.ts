@@ -141,7 +141,7 @@ export class FirebaseService {
     prevIdx: number,
     newIdx: number,
     allDraggablesInDay: Array<draggable>
-  ) {
+  ): void {
     // item from prevIdx should always go to newIdx
     // if prevIdx > newIdx, all items previously at idx of newIdx or greater and less than prevIdx should increase their idx by one
     // if prevIdx < newIdx, items between should decrease their idx by one
@@ -299,7 +299,7 @@ export class FirebaseService {
    * @param uid the user's id
    * @param fontSize the customized font size
    */
-  editFontSize(uid: string, fontSize: number) {
+  editFontSize(uid: string, fontSize: number): void {
     this.db.ref('users/' + uid + '/settings/').update({ fontSize: fontSize });
   }
 
@@ -308,7 +308,7 @@ export class FirebaseService {
    * @param uid the user's id
    * @param fontFamily the customized font family
    */
-  editFontFamily(uid: string, fontFamily: string) {
+  editFontFamily(uid: string, fontFamily: string): void {
     this.db
       .ref('users/' + uid + '/settings/')
       .update({ fontFamily: fontFamily });
@@ -319,7 +319,7 @@ export class FirebaseService {
    * @param uid the user's id
    * @param fontColor the customized font color
    */
-  editFontColor(uid: string, fontColor: string) {
+  editFontColor(uid: string, fontColor: string): void {
     this.db.ref('users/' + uid + '/settings/').update({ fontColor: fontColor });
   }
 }

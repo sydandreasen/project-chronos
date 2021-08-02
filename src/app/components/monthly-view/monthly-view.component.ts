@@ -13,7 +13,7 @@ export class MonthlyViewComponent implements OnInit {
   @Input() focusDate: Date = new Date(); // default date to build the month around.
 
   /** the currently chosen font color */
-  @Input() chosenColor: String = '';
+  @Input() chosenColor: string = '';
 
   /** the font size to have for tasks and metrics */
   @Input() fontSize: string = '';
@@ -51,7 +51,7 @@ export class MonthlyViewComponent implements OnInit {
   /**
    * jump back to focus on today
    */
-  jumpToToday() {
+  jumpToToday(): void {
     this.setFocusDate(new Date());
     this.generateMonth(new Date());
   }

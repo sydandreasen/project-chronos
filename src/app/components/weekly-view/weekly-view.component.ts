@@ -12,7 +12,7 @@ export class WeeklyViewComponent implements OnInit {
   @Input() focusDate: Date = new Date(); // default date to build the week around.
 
   /** the currently chosen font color */
-  @Input() chosenColor: String = '';
+  @Input() chosenColor: string = '';
 
   /** the font size to have for tasks and metrics */
   @Input() fontSize: string = '';
@@ -60,7 +60,7 @@ export class WeeklyViewComponent implements OnInit {
   }
 
   /** jump the focus date automatically back to today */
-  jumpToToday() {
+  jumpToToday(): void {
     this.setFocusDate(new Date());
     this.generateweek(new Date());
   }
