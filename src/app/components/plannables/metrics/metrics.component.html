@@ -1,7 +1,7 @@
 <span class="metric">
   <label for="metry-entry"
     ><input
-      [value]="info.label ? info.label : ''"
+      [value]="dragItem.value.label ? dragItem.value.label : ''"
       [formControl]="labelControl"
       type="text"
       class="metric-label"
@@ -12,7 +12,7 @@
   >
   <mat-icon cdkDragHandle>pan_tool</mat-icon>
   <input
-    [value]="info.value ? info.value : ''"
+    [value]="dragItem.value.value ? dragItem.value.value : ''"
     [formControl]="valueControl"
     type="text"
     class="metric-entry"

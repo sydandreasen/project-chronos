@@ -115,11 +115,14 @@ export class DailyViewComponent {
               i++
             ) {
               // write draggables to the day such that the total of that type on the day becomes no more than in the model day
+              let newDraggable: draggable = JSON.parse(
+                JSON.stringify(examples[neededType])
+              );
+              newDraggable.idx = this.allDayOptions[tempStringDate]?.length | 0;
               this.fbService.writePlannedObject(
                 this.uid,
                 tempStringDate,
-                examples[neededType],
-                this.allDayOptions[tempStringDate]?.length | 0,
+                newDraggable,
                 this.allDayOptions[tempStringDate]
               );
             }
@@ -215,12 +218,15 @@ export class DailyViewComponent {
         dropItem.currentIndex
       );
     } else {
-      // write new metric/task/note
+      // write new planned object
+      let newDraggable: draggable = JSON.parse(
+        JSON.stringify(this.slideList[dropItem.previousIndex])
+      );
+      newDraggable.idx = this.allDayOptions[this.dateString]?.length | 0; // currentIndex provided by library seemed off having the first drop into the day always go to the end. let them reorder from there
       this.fbService.writePlannedObject(
         this.uid,
         this.dateString,
-        JSON.parse(JSON.stringify(this.slideList[dropItem.previousIndex])),
-        this.allDayOptions[this.dateString]?.length | 0, // currentIndex provided by library seemed off having the first drop into the day always go to the end. let them reorder from there
+        newDraggable,
         this.allDayOptions[this.dateString]
       );
     }

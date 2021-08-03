@@ -129,20 +129,21 @@ export class FirebaseService {
     newIdx: number,
     allDraggablesInDay: Array<draggable>
   ): void {
-    // item from prevIdx should always go to newIdx
-    // if prevIdx > newIdx, all items previously at idx of newIdx or greater and less than prevIdx should increase their idx by one
-    // if prevIdx < newIdx, items between should decrease their idx by one
     allDraggablesInDay.forEach((draggable: draggable) => {
       if (draggable.idx === prevIdx) {
+        // item from prevIdx should always go to newIdx
         draggable.idx = newIdx;
         this.updatePlannedObject(uid, date, draggable);
       } else if (
+        // is this item between the indices touched by the dragged object?
         draggable.idx >= Math.min(prevIdx, newIdx) &&
         draggable.idx <= Math.max(prevIdx, newIdx)
       ) {
         if (prevIdx < newIdx) {
+          // if prevIdx < newIdx, items between should decrease their idx by one
           draggable.idx--;
         } else if (prevIdx > newIdx) {
+          // if prevIdx > newIdx, all items between should increase their idx by one
           draggable.idx++;
         }
         this.updatePlannedObject(uid, date, draggable);
@@ -155,22 +156,19 @@ export class FirebaseService {
    * @param uid  the user id
    * @param date a string representing the date to put the planned object on
    * @param dragItem the item being dropped into the day
-   * @param idx the index at which that item shall be dropped
    * @param allDraggablesInDay all the draggables already in the day before dropping this one
    */
   writePlannedObject(
     uid: string,
     date: string,
     dragItem: draggable,
-    idx: number,
     allDraggablesInDay: Array<draggable>
   ): void {
-    dragItem.idx = idx;
     let writeObj: { [key: string]: any } = {};
     writeObj.value = dragItem.value;
     writeObj.idx = dragItem.idx;
 
-    // get id for planned object, unique within the day
+    // get id for new planned object, unique within the day
     let usedIds: string[] = [];
     if (allDraggablesInDay) {
       allDraggablesInDay.forEach((dragItem: draggable) => {
@@ -186,17 +184,18 @@ export class FirebaseService {
     }
     dragItem.id = itemId;
 
-    allDraggablesInDay?.splice(dragItem.idx, 0, dragItem); // put it in the right place in the array of options
     this.updatePlannedObject(uid, date, dragItem);
   }
 
   /**
-   * update a single planned object that's already been configured with whatever needs updating
+   * update a single planned object
    * @param uid user's id
    * @param date string representing date to save stuff under
    * @param dragItem the draggable item to be updated in the DB
    */
   updatePlannedObject(uid: string, date: string, dragItem: draggable): void {
+    // use type and id from draggable to find path and
+    // use idx and value from draggable to fill that path in the DB with data
     let updateObj: { [key: string]: any } = {};
     updateObj.idx = dragItem.idx;
     updateObj.value = dragItem.value;
@@ -247,27 +246,6 @@ export class FirebaseService {
     return (
       Math.floor(Math.random() * Math.floor(Math.random() * Date.now())) + ''
     );
-  }
-
-  /**
-   * update a planned object's content after editing the label or input fields
-   * @param uid the user id
-   * @param date the dateString
-   * @param metridId the object's id
-   * @param updateObj the draggable:value object
-   * @param type a string indicated the draggable:type
-   */
-  editPlannedObject(
-    uid: string,
-    date: string,
-    id: string,
-    updateObj: metric | task | note,
-    type: string
-  ): void {
-    const objWithVal = { value: updateObj };
-    this.db
-      .ref('users/' + uid + '/dates/' + date + '/' + type + 's/' + id + '/')
-      .update(objWithVal);
   }
 
   /**

@@ -4,7 +4,7 @@
     <input
       [formControl]="completeControl"
       type="checkbox"
-      [checked]="info.isComplete"
+      [checked]="dragItem.value.isComplete"
     />
     <br />
   </span>
@@ -16,6 +16,6 @@
     [style.fontSize]="fontSize"
     [style.fontFamily]="fontFamily"
     [formControl]="valueControl"
-    >{{ info.value }}</textarea
+    >{{ dragItem.value.value }}</textarea
   >
 </span>

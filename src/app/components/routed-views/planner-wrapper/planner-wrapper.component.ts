@@ -56,6 +56,8 @@ export class PlannerWrapperComponent {
     this.subscribeToUser(uid);
   }
 
+  // TODO use defaults instead of blue, 14, and roboto
+  // FIXME why does data end up displaying not according to it's idx? When did this break happen?
   /** subscribe to user's data */
   subscribeToUser(uid: string): void {
     this.fbService.db.ref('users/' + uid).on('value', (snapshot) => {

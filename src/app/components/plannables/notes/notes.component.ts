@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { note } from '../draggable/draggable.model';
+import { draggable } from '../draggable/draggable.model';
 
 @Component({
   selector: 'app-notes',
@@ -9,8 +9,8 @@ import { note } from '../draggable/draggable.model';
   styleUrls: ['./notes.component.scss'],
 })
 export class NotesComponent implements OnInit {
-  /** the note info to display */
-  @Input() info: note = new note();
+  /** the draggable with note info to display */
+  @Input() dragItem: draggable = new draggable();
 
   /** the font size to display */
   @Input() fontSize: string = '';
@@ -37,10 +37,12 @@ export class NotesComponent implements OnInit {
   constructor(private fbSerivce: FirebaseService) {}
 
   ngOnInit(): void {
-    this.valueControl.setValue(this.info.value ? this.info.value : '');
+    this.valueControl.setValue(
+      this.dragItem.value.value ? this.dragItem.value.value : ''
+    );
 
     this.valueControl.valueChanges.subscribe((value: string) => {
-      this.info.value = value;
+      this.dragItem.value.value = value;
       clearTimeout(this.editingTimer);
       this.editingTimer = setTimeout(() => {
         this.editNote();
@@ -51,12 +53,10 @@ export class NotesComponent implements OnInit {
   /** edit the note in the DB */
   editNote(): void {
     if (this.uid && this.dateString && this.noteId) {
-      this.fbSerivce.editPlannedObject(
+      this.fbSerivce.updatePlannedObject(
         this.uid,
         this.dateString,
-        this.noteId,
-        this.info,
-        'note'
+        this.dragItem
       );
     }
   }

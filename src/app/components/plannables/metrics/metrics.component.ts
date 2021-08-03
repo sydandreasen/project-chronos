@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { metric } from '../draggable/draggable.model';
+import { draggable } from '../draggable/draggable.model';
 
 @Component({
   selector: 'app-metrics',
@@ -9,8 +9,8 @@ import { metric } from '../draggable/draggable.model';
   styleUrls: ['./metrics.component.scss'],
 })
 export class MetricsComponent {
-  /** the metric info to display */
-  @Input() info: metric = new metric();
+  /** the draggable with metric info to display */
+  @Input() dragItem: draggable = new draggable();
 
   /** the font size to display */
   @Input() fontSize: string = '';
@@ -41,20 +41,24 @@ export class MetricsComponent {
 
   /** manage form control changes */
   ngOnInit() {
-    this.labelControl.setValue(this.info.label ? this.info.label : '');
+    this.labelControl.setValue(
+      this.dragItem.value.label ? this.dragItem.value.label : ''
+    );
 
     this.labelControl.valueChanges.subscribe((label: string) => {
-      this.info.label = label;
+      this.dragItem.value.label = label;
       clearTimeout(this.editingTimer);
       this.editingTimer = setTimeout(() => {
         this.editMetric();
       }, 800);
     });
 
-    this.valueControl.setValue(this.info.value ? this.info.value : '');
+    this.valueControl.setValue(
+      this.dragItem.value.value ? this.dragItem.value.value : ''
+    );
 
     this.valueControl.valueChanges.subscribe((value: string) => {
-      this.info.value = value;
+      this.dragItem.value.value = value;
       clearTimeout(this.editingTimer);
       this.editingTimer = setTimeout(() => {
         this.editMetric();
@@ -65,12 +69,10 @@ export class MetricsComponent {
   /** edit the task in the DB */
   editMetric(): void {
     if (this.uid && this.dateString && this.metricId) {
-      this.fbSerivce.editPlannedObject(
+      this.fbSerivce.updatePlannedObject(
         this.uid,
         this.dateString,
-        this.metricId,
-        this.info,
-        'metric'
+        this.dragItem
       );
     }
   }

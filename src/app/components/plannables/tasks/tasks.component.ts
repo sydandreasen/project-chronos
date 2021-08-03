@@ -1,7 +1,7 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { task } from '../draggable/draggable.model';
+import { draggable } from '../draggable/draggable.model';
 
 @Component({
   selector: 'app-tasks',
@@ -9,8 +9,8 @@ import { task } from '../draggable/draggable.model';
   styleUrls: ['./tasks.component.scss'],
 })
 export class TasksComponent {
-  /** the task info to display */
-  @Input() info: task = new task();
+  /** the draggable with task info to display */
+  @Input() dragItem: draggable = new draggable();
 
   /** the font size to display */
   @Input() fontSize: string = '';
@@ -41,17 +41,19 @@ export class TasksComponent {
 
   /** manage form control changes */
   ngOnInit() {
-    this.completeControl.setValue(this.info.isComplete);
+    this.completeControl.setValue(this.dragItem.value.isComplete);
 
     this.completeControl.valueChanges.subscribe((isComplete: boolean) => {
-      this.info.isComplete = isComplete;
+      this.dragItem.value.isComplete = isComplete;
       this.editTask();
     });
 
-    this.valueControl.setValue(this.info.value ? this.info.value : '');
+    this.valueControl.setValue(
+      this.dragItem.value.value ? this.dragItem.value.value : ''
+    );
 
     this.valueControl.valueChanges.subscribe((value: string) => {
-      this.info.value = value;
+      this.dragItem.value.value = value;
       clearTimeout(this.editingTimer);
       this.editingTimer = setTimeout(() => {
         this.editTask();
@@ -62,12 +64,10 @@ export class TasksComponent {
   /** edit the task in the DB */
   editTask(): void {
     if (this.uid && this.dateString && this.taskId) {
-      this.fbSerivce.editPlannedObject(
+      this.fbSerivce.updatePlannedObject(
         this.uid,
         this.dateString,
-        this.taskId,
-        this.info,
-        'task'
+        this.dragItem
       );
     }
   }
