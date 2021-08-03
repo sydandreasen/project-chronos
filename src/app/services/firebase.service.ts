@@ -6,6 +6,7 @@ import {
   task,
   note,
 } from '../components/plannables/draggable/draggable.model';
+import { UserDefaults } from './user-defaults';
 
 /** a service that can be injected in any component to provide connections to
  * firebase while only initializing the app here
@@ -16,6 +17,9 @@ import {
 export class FirebaseService {
   /** connection to real-time database */
   db;
+
+  /** the user defaults to use to populate the foundation of a user in the db */
+  defaults: UserDefaults = new UserDefaults();
 
   constructor(private afDatabase: AngularFireDatabase) {
     this.db = afDatabase.database;
@@ -32,9 +36,9 @@ export class FirebaseService {
     const settingsPath = 'users/' + uid + '/settings';
     let updateObj: { [key: string]: any } = {};
     updateObj[settingsPath] = {
-      fontColor: 'blue',
-      fontFamily: 'Roboto',
-      fontSize: 14,
+      fontColor: this.defaults.fontColor,
+      fontFamily: this.defaults.fontFamily,
+      fontSize: this.defaults.fontSize,
     };
     // create accountInfo
     const accountInfoPath = 'users/' + uid + '/accountInfo';
@@ -64,27 +68,27 @@ export class FirebaseService {
         // fontColor missing
         flag = true;
         const colorPath = settingsPath + '/fontColor';
-        updateObj[colorPath] = 'blue';
+        updateObj[colorPath] = this.defaults.fontColor;
       }
       if (!settings.fontFamily) {
         // fontFamily missing
         flag = true;
         const famPath = settingsPath + '/fontFamily';
-        updateObj[famPath] = 'Roboto';
+        updateObj[famPath] = this.defaults.fontFamily;
       }
       if (!settings.fontSize) {
         // fontSize missing
         flag = true;
         const sizePath = settingsPath + '/fontSize';
-        updateObj[sizePath] = 14;
+        updateObj[sizePath] = this.defaults.fontSize;
       }
     } else {
       // settings don't exist. create all settings
       flag = true;
       updateObj[settingsPath] = {
-        fontColor: 'blue',
-        fontFamily: 'Roboto',
-        fontSize: 14,
+        fontColor: this.defaults.fontColor,
+        fontFamily: this.defaults.fontFamily,
+        fontSize: this.defaults.fontSize,
       };
     }
     // check account info

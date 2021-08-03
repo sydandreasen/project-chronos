@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AuthGuard | Project Chronos</title>
+	<title>UserDefaults | Project Chronos</title>
 	<meta name="description" content="Documentation for Project Chronos">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">Project Chronos</a>
 				</li>
 				<li>
-					<a href="../modules/app_services_auth_guard.html">app/services/auth.guard</a>
+					<a href="../modules/app_services_user_defaults.html">app/services/user-defaults</a>
 				</li>
 				<li>
-					<a href="app_services_auth_guard.AuthGuard.html">AuthGuard</a>
+					<a href="app_services_user_defaults.UserDefaults.html">UserDefaults</a>
 				</li>
 			</ul>
-			<h1>Class AuthGuard</h1>
+			<h1>Class UserDefaults</h1>
 		</div>
 	</div>
 </header>
@@ -72,14 +72,8 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AuthGuard</span>
+						<span class="target">UserDefaults</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><span class="tsd-signature-type">CanActivate</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -89,13 +83,15 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="app_services_auth_guard.AuthGuard.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="app_services_user_defaults.UserDefaults.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_services_auth_guard.AuthGuard.html#canActivate" class="tsd-kind-icon">can<wbr>Activate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_services_user_defaults.UserDefaults.html#fontColor" class="tsd-kind-icon">font<wbr>Color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_services_user_defaults.UserDefaults.html#fontFamily" class="tsd-kind-icon">font<wbr>Family</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_services_user_defaults.UserDefaults.html#fontSize" class="tsd-kind-icon">font<wbr>Size</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,67 +103,48 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Auth<wbr>Guard<span class="tsd-signature-symbol">(</span>router<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Router</span>, afAuth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AngularFireAuth</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_services_auth_guard.AuthGuard.html" class="tsd-signature-type" data-tsd-kind="Class">AuthGuard</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>User<wbr>Defaults<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_services_user_defaults.UserDefaults.html" class="tsd-signature-type" data-tsd-kind="Class">UserDefaults</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/services/auth.guard.ts#L18">services/auth.guard.ts:18</a></li>
-								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>router: <span class="tsd-signature-type">Router</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>allows managing  routes</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>afAuth: <span class="tsd-signature-type">AngularFireAuth</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>for access to auth</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="app_services_auth_guard.AuthGuard.html" class="tsd-signature-type" data-tsd-kind="Class">AuthGuard</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="app_services_user_defaults.UserDefaults.html" class="tsd-signature-type" data-tsd-kind="Class">UserDefaults</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="canActivate" class="tsd-anchor"></a>
-					<h3>can<wbr>Activate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">can<wbr>Activate<span class="tsd-signature-symbol">(</span>route<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ActivatedRouteSnapshot</span>, state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RouterStateSnapshot</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Implementation of CanActivate.canActivate</p>
-								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/services/auth.guard.ts#L20">services/auth.guard.ts:20</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>route: <span class="tsd-signature-type">ActivatedRouteSnapshot</span></h5>
-								</li>
-								<li>
-									<h5>state: <span class="tsd-signature-type">RouterStateSnapshot</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="fontColor" class="tsd-anchor"></a>
+					<h3>font<wbr>Color</h3>
+					<div class="tsd-signature tsd-kind-icon">font<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;blue&#x27;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in services/user-defaults.ts:2</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="fontFamily" class="tsd-anchor"></a>
+					<h3>font<wbr>Family</h3>
+					<div class="tsd-signature tsd-kind-icon">font<wbr>Family<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;roboto&#x27;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in services/user-defaults.ts:3</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="fontSize" class="tsd-anchor"></a>
+					<h3>font<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in services/user-defaults.ts:4</li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -222,7 +199,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/app_components_routed_views_signup_signup_component.html">app/components/routed-<wbr>views/signup/signup.component</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/app_services_auth_guard.html">app/services/auth.guard</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -231,7 +208,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/app_services_firebase_service.html">app/services/firebase.service</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/app_services_user_defaults.html">app/services/user-<wbr>defaults</a>
 					</li>
 				</ul>
@@ -241,13 +218,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="app_services_auth_guard.AuthGuard.html" class="tsd-kind-icon">Auth<wbr>Guard</a>
+						<a href="app_services_user_defaults.UserDefaults.html" class="tsd-kind-icon">User<wbr>Defaults</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="app_services_auth_guard.AuthGuard.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="app_services_user_defaults.UserDefaults.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="app_services_auth_guard.AuthGuard.html#canActivate" class="tsd-kind-icon">can<wbr>Activate</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="app_services_user_defaults.UserDefaults.html#fontColor" class="tsd-kind-icon">font<wbr>Color</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="app_services_user_defaults.UserDefaults.html#fontFamily" class="tsd-kind-icon">font<wbr>Family</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="app_services_user_defaults.UserDefaults.html#fontSize" class="tsd-kind-icon">font<wbr>Size</a>
 							</li>
 						</ul>
 					</li>
@@ -265,7 +248,7 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 		</div>
 	</div>
