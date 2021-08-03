@@ -62,11 +62,12 @@ export class TasksComponent {
   /** edit the task in the DB */
   editTask(): void {
     if (this.uid && this.dateString && this.taskId) {
-      this.fbSerivce.editTask(
+      this.fbSerivce.editPlannedObject(
         this.uid,
         this.dateString,
         this.taskId,
-        this.info
+        this.info,
+        'task'
       );
     }
   }

@@ -264,49 +264,24 @@ export class FirebaseService {
     );
   }
 
-  // TODO combine edit metric, edit task, and edit note into one common function
   /**
-   * update a metric's content after editing the label or input fields
+   * update a planned object's content after editing the label or input fields
    * @param uid the user id
    * @param date the dateString
-   * @param metridId the metric's id
-   * @param updateObj the draggable:value object; type metric
+   * @param metridId the object's id
+   * @param updateObj the draggable:value object
+   * @param type a string indicated the draggable:type
    */
-  editMetric(
+  editPlannedObject(
     uid: string,
     date: string,
-    metricId: string,
-    updateObj: metric
+    id: string,
+    updateObj: metric | task | note,
+    type: string
   ): void {
     const objWithVal = { value: updateObj };
     this.db
-      .ref('users/' + uid + '/dates/' + date + '/metrics/' + metricId + '/')
-      .update(objWithVal);
-  }
-
-  /** update a task's content after editing the textarea or checkbox fields
-   * @param uid the user id
-   * @param date the dateString
-   * @param taskId the task's id
-   * @param updateObj the dragggable:value object; type task
-   */
-  editTask(uid: string, date: string, taskId: string, updateObj: task): void {
-    const objWithVal = { value: updateObj };
-    this.db
-      .ref('users/' + uid + '/dates/' + date + '/tasks/' + taskId + '/')
-      .update(objWithVal);
-  }
-
-  /** update a note's content after editing
-   * @param uid the user id
-   * @param date the dateString
-   * @param noteId the note's id
-   * @param updateObj the dragggable:value object; type note
-   */
-  editNote(uid: string, date: string, noteId: string, updateObj: note): void {
-    const objWithVal = { value: updateObj };
-    this.db
-      .ref('users/' + uid + '/dates/' + date + '/notes/' + noteId + '/')
+      .ref('users/' + uid + '/dates/' + date + '/' + type + 's/' + id + '/')
       .update(objWithVal);
   }
 

@@ -51,11 +51,12 @@ export class NotesComponent implements OnInit {
   /** edit the note in the DB */
   editNote(): void {
     if (this.uid && this.dateString && this.noteId) {
-      this.fbSerivce.editNote(
+      this.fbSerivce.editPlannedObject(
         this.uid,
         this.dateString,
         this.noteId,
-        this.info
+        this.info,
+        'note'
       );
     }
   }

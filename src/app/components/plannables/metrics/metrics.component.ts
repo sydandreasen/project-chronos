@@ -65,11 +65,12 @@ export class MetricsComponent {
   /** edit the task in the DB */
   editMetric(): void {
     if (this.uid && this.dateString && this.metricId) {
-      this.fbSerivce.editMetric(
+      this.fbSerivce.editPlannedObject(
         this.uid,
         this.dateString,
         this.metricId,
-        this.info
+        this.info,
+        'metric'
       );
     }
   }
