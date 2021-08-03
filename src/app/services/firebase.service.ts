@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import {
-  draggable,
-  metric,
-  task,
-  note,
-} from '../components/plannables/draggable/draggable.model';
+import { draggable } from '../components/plannables/draggable/draggable.model';
 import { UserDefaults } from './user-defaults';
 
 /** a service that can be injected in any component to provide connections to
@@ -249,31 +244,14 @@ export class FirebaseService {
   }
 
   /**
-   * set the font size in settings
+   * edit a single setting
    * @param uid the user's id
-   * @param fontSize the customized font size
+   * @param settingType the type of setting in the user's settings
+   * @param settingValue the value to assign to the settingType in the db
    */
-  editFontSize(uid: string, fontSize: number): void {
-    this.db.ref('users/' + uid + '/settings/').update({ fontSize: fontSize });
-  }
-
-  /**
-   * set the font family in settings
-   * @param uid the user's id
-   * @param fontFamily the customized font family
-   */
-  editFontFamily(uid: string, fontFamily: string): void {
-    this.db
-      .ref('users/' + uid + '/settings/')
-      .update({ fontFamily: fontFamily });
-  }
-
-  /**
-   * set the font color in settings
-   * @param uid the user's id
-   * @param fontColor the customized font color
-   */
-  editFontColor(uid: string, fontColor: string): void {
-    this.db.ref('users/' + uid + '/settings/').update({ fontColor: fontColor });
+  editSingleSetting(uid: string, settingType: string, settingValue: any): void {
+    let updateObj: { [key: string]: any } = {};
+    updateObj[settingType] = settingValue;
+    this.db.ref('users/' + uid + '/settings/').update(updateObj);
   }
 }

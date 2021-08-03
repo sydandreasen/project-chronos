@@ -56,11 +56,11 @@ export class FontDialogComponent {
   ngOnInit() {
     this.fontSize.valueChanges.subscribe((fontSize: number) => {
       const uid = this.authService.getUID();
-      this.fbService.editFontSize(uid, fontSize);
+      this.fbService.editSingleSetting(uid, 'fontSize', fontSize);
     });
     this.fontFamily.valueChanges.subscribe((fontFamily: string) => {
       const uid = this.authService.getUID();
-      this.fbService.editFontFamily(uid, fontFamily);
+      this.fbService.editSingleSetting(uid, 'fontFamily', fontFamily);
     });
   }
 
