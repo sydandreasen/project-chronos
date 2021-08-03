@@ -21,6 +21,7 @@ export class FirebaseService {
   /** the user defaults to use to populate the foundation of a user in the db */
   defaults: UserDefaults = new UserDefaults();
 
+  /** set up FirebaseService */
   constructor(private afDatabase: AngularFireDatabase) {
     this.db = afDatabase.database;
   }
@@ -35,11 +36,7 @@ export class FirebaseService {
     // create settings
     const settingsPath = 'users/' + uid + '/settings';
     let updateObj: { [key: string]: any } = {};
-    updateObj[settingsPath] = {
-      fontColor: this.defaults.fontColor,
-      fontFamily: this.defaults.fontFamily,
-      fontSize: this.defaults.fontSize,
-    };
+    updateObj[settingsPath] = this.defaults;
     // create accountInfo
     const accountInfoPath = 'users/' + uid + '/accountInfo';
     updateObj[accountInfoPath] = { email: user.email };
@@ -64,32 +61,18 @@ export class FirebaseService {
     if (userData.settings) {
       // settings exist
       const settings = userData.settings;
-      if (!settings.fontColor) {
-        // fontColor missing
-        flag = true;
-        const colorPath = settingsPath + '/fontColor';
-        updateObj[colorPath] = this.defaults.fontColor;
-      }
-      if (!settings.fontFamily) {
-        // fontFamily missing
-        flag = true;
-        const famPath = settingsPath + '/fontFamily';
-        updateObj[famPath] = this.defaults.fontFamily;
-      }
-      if (!settings.fontSize) {
-        // fontSize missing
-        flag = true;
-        const sizePath = settingsPath + '/fontSize';
-        updateObj[sizePath] = this.defaults.fontSize;
-      }
+      const requiredSettings = Object.getOwnPropertyNames(this.defaults);
+      requiredSettings.forEach((setting: string, index: number) => {
+        if (!settings[setting]) {
+          flag = true;
+          const path = settingsPath + '/' + setting;
+          updateObj[path] = Object.values(this.defaults)[index];
+        }
+      });
     } else {
       // settings don't exist. create all settings
       flag = true;
-      updateObj[settingsPath] = {
-        fontColor: this.defaults.fontColor,
-        fontFamily: this.defaults.fontFamily,
-        fontSize: this.defaults.fontSize,
-      };
+      updateObj[settingsPath] = this.defaults;
     }
     // check account info
     const accountInfoPath = 'users/' + uid + '/accountInfo';
