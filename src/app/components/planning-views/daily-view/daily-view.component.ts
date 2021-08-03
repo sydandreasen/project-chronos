@@ -115,8 +115,7 @@ export class DailyViewComponent {
               i++
             ) {
               // write draggables to the day such that the total of that type on the day becomes no more than in the model day
-              this.fbService.writeMetricOrTask(
-                // TODO rename this to be more generic
+              this.fbService.writePlannedObject(
                 this.uid,
                 tempStringDate,
                 examples[neededType],
@@ -203,8 +202,7 @@ export class DailyViewComponent {
   dropNewOption(dropItem: CdkDragDrop<any>): void {
     if (dropItem.previousContainer === dropItem.container) {
       // update dragged one's idx
-      this.fbService.reorderMetricOrTask(
-        // TODO rename to be more generic
+      this.fbService.reorderPlannedObject(
         this.uid,
         this.dateString,
         dropItem.previousIndex,
@@ -218,8 +216,7 @@ export class DailyViewComponent {
       );
     } else {
       // write new metric/task/note
-      this.fbService.writeMetricOrTask(
-        // TODO rename to be more generic
+      this.fbService.writePlannedObject(
         this.uid,
         this.dateString,
         JSON.parse(JSON.stringify(this.slideList[dropItem.previousIndex])),
@@ -237,8 +234,7 @@ export class DailyViewComponent {
         this.allDayOptions[this.dateString][dropItem.previousIndex];
 
       // re-assign new indexes to any following the deleted one
-      this.fbService.reorderMetricOrTask(
-        // TODO rename to be more generic
+      this.fbService.reorderPlannedObject(
         this.uid,
         this.dateString,
         dropItem.previousIndex,

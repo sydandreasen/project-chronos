@@ -128,15 +128,14 @@ export class FirebaseService {
   }
 
   /**
-   * adjust all the indexes on the metrics/tasks/notes in the day because they reordered them
+   * adjust all the indexes on the planned objects in the day because they reordered them
    * @param uid user's id
    * @param date string representing the date
    * @param prevIdx the index where the moved one used to be
    * @param newIdx the index where the moved one should now be
    * @param allDraggablesInDay all the draggable options in the day
    */
-  reorderMetricOrTask(
-    // TODO rename to be more generic
+  reorderPlannedObject(
     uid: string,
     date: string,
     prevIdx: number,
@@ -149,7 +148,7 @@ export class FirebaseService {
     allDraggablesInDay.forEach((draggable: draggable) => {
       if (draggable.idx === prevIdx) {
         draggable.idx = newIdx;
-        this.updateMetricOrTask(uid, date, draggable); // TODO rename to be more generic
+        this.updatePlannedObject(uid, date, draggable);
       } else if (
         draggable.idx >= Math.min(prevIdx, newIdx) &&
         draggable.idx <= Math.max(prevIdx, newIdx)
@@ -159,21 +158,20 @@ export class FirebaseService {
         } else if (prevIdx > newIdx) {
           draggable.idx++;
         }
-        this.updateMetricOrTask(uid, date, draggable); // TODO rename to be more generic
+        this.updatePlannedObject(uid, date, draggable);
       }
     });
   }
 
   /**
-   * create a brand new metric/task/note in the db
+   * create a brand new planned object in the db
    * @param uid  the user id
-   * @param date a string representing the date to put the metric/task/note on
+   * @param date a string representing the date to put the planned object on
    * @param dragItem the item being dropped into the day
    * @param idx the index at which that item shall be dropped
    * @param allDraggablesInDay all the draggables already in the day before dropping this one
    */
-  writeMetricOrTask(
-    // TODO rename to be more generic
+  writePlannedObject(
     uid: string,
     date: string,
     dragItem: draggable,
@@ -185,7 +183,7 @@ export class FirebaseService {
     writeObj.value = dragItem.value;
     writeObj.idx = dragItem.idx;
 
-    // get id for metric/task/note, unique within the day
+    // get id for planned object, unique within the day
     let usedIds: string[] = [];
     if (allDraggablesInDay) {
       allDraggablesInDay.forEach((dragItem: draggable) => {
@@ -202,16 +200,16 @@ export class FirebaseService {
     dragItem.id = itemId;
 
     allDraggablesInDay?.splice(dragItem.idx, 0, dragItem); // put it in the right place in the array of options
-    this.updateMetricOrTask(uid, date, dragItem);
+    this.updatePlannedObject(uid, date, dragItem);
   }
 
   /**
-   * update a single metric/task/note that's already been configured with whatever needs updating
+   * update a single planned object that's already been configured with whatever needs updating
    * @param uid user's id
    * @param date string representing date to save stuff under
    * @param dragItem the draggable item to be updated in the DB
    */
-  updateMetricOrTask(uid: string, date: string, dragItem: draggable): void {
+  updatePlannedObject(uid: string, date: string, dragItem: draggable): void {
     let updateObj: { [key: string]: any } = {};
     updateObj.idx = dragItem.idx;
     updateObj.value = dragItem.value;
@@ -234,7 +232,7 @@ export class FirebaseService {
    * delete a draggable
    * @param uid the user's id
    * @param date the dateString
-   * @param draggableType the draggable type, such as metric/task/note
+   * @param draggableType the draggable type
    * @param draggableId the id of the draggable to delete
    */
   deleteDraggable(
@@ -257,7 +255,7 @@ export class FirebaseService {
       .remove();
   }
 
-  /** generate a unique ID for the metric/task/note */
+  /** generate a unique ID for the planned object */
   createUniqueID(): string {
     return (
       Math.floor(Math.random() * Math.floor(Math.random() * Date.now())) + ''
