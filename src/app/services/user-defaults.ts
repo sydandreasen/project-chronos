@@ -1,5 +1,5 @@
 export class UserDefaults {
   fontColor: string = 'blue';
-  fontFamily: string = 'roboto';
+  fontFamily: string = 'Roboto';
   fontSize: number = 14;
 }

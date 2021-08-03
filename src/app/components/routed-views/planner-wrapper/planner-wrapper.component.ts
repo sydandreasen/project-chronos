@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { draggable } from '../../plannables/draggable/draggable.model';
 import { FontDialogComponent } from '../../font-dialog/font-dialog.component';
+import { UserDefaults } from 'src/app/services/user-defaults';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
 @Component({
@@ -17,6 +18,9 @@ import { FontDialogComponent } from '../../font-dialog/font-dialog.component';
 export class PlannerWrapperComponent {
   /** the trigger to open menu (the button with three horizontal lines icon) */
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger | undefined;
+
+  /** the user defaults to use to populate the foundation of a user in the db */
+  defaults: UserDefaults = new UserDefaults();
 
   /** font size for tasks, notes, and metrics */
   fontSize: number = 0; // overridden in subscription
@@ -56,20 +60,19 @@ export class PlannerWrapperComponent {
     this.subscribeToUser(uid);
   }
 
-  // TODO use defaults instead of blue, 14, and roboto
   // FIXME why does data end up displaying not according to it's idx? When did this break happen?
   /** subscribe to user's data */
   subscribeToUser(uid: string): void {
     this.fbService.db.ref('users/' + uid).on('value', (snapshot) => {
       this.chosenColor = snapshot.val().settings?.fontColor
         ? snapshot.val().settings.fontColor
-        : 'blue';
+        : this.defaults.fontColor;
       this.fontSize = snapshot.val().settings?.fontSize
         ? snapshot.val().settings.fontSize
-        : 14;
+        : this.defaults.fontSize;
       this.fontFamily = snapshot.val().settings?.fontFamily
         ? snapshot.val().settings.fontFamily
-        : 'Roboto';
+        : this.defaults.fontFamily;
 
       this.dateInfo = snapshot.val().dates;
       this.allDayOptions = {};
