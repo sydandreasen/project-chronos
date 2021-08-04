@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FontDialogComponent } from './font-dialog.component';
+import { CustomizationFormComponent } from './customization-form.component';
 
-describe('FontDialogComponent', () => {
-  let component: FontDialogComponent;
-  let fixture: ComponentFixture<FontDialogComponent>;
+describe('CustomizationFormComponent', () => {
+  let component: CustomizationFormComponent;
+  let fixture: ComponentFixture<CustomizationFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FontDialogComponent],
+      declarations: [CustomizationFormComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FontDialogComponent);
+    fixture = TestBed.createComponent(CustomizationFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

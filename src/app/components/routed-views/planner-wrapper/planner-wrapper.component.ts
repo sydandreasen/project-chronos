@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { draggable } from '../../plannables/draggable/draggable.model';
-import { FontDialogComponent } from '../../font-dialog/font-dialog.component';
+import { CustomizationFormComponent } from '../../customization-form/customization-form.component';
 import { UserDefaults } from 'src/app/services/user-defaults';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
@@ -31,8 +31,11 @@ export class PlannerWrapperComponent {
   /** start focusing on today. */
   focusDate: Date = new Date();
 
-  /** which view should be shown. week is default */
-  mode: string = 'week'; // default // TODO let them change this default setting
+  /** which view should be currently shown */
+  mode: string = ''; // overridden in subscription
+
+  /** the user's default planning view */
+  defaultMode: string = ''; // overridden in subscription;
 
   /** the chosen text color */
   chosenColor: string = ''; // overridden in subscription
@@ -72,6 +75,12 @@ export class PlannerWrapperComponent {
       this.fontFamily = snapshot.val().settings?.fontFamily
         ? snapshot.val().settings.fontFamily
         : this.defaults.fontFamily;
+      this.mode = snapshot.val().settings?.defaultView
+        ? snapshot.val().settings.defaultView
+        : this.defaults.defaultView;
+      this.defaultMode = snapshot.val().settings?.defaultView
+        ? snapshot.val().settings.defaultView
+        : this.defaults.defaultView;
 
       this.dateInfo = snapshot.val().dates;
       this.allDayOptions = {};
@@ -113,6 +122,9 @@ export class PlannerWrapperComponent {
       this.mode = mode;
     } else if (mode === 'month') {
       this.mode = mode;
+    } else {
+      // shouldn't ever need this
+      this.mode = this.defaults.defaultView;
     }
   }
 
@@ -166,15 +178,16 @@ export class PlannerWrapperComponent {
   }
 
   /** open the dialog for setting font size */
-  openFontDialog(): void {
+  openCustomizationForm(): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.restoreFocus = false;
     dialogConfig.data = {
       fontSize: this.fontSize,
       fontFamily: this.fontFamily,
+      defaultView: this.defaultMode,
     };
     const fontSizeDialogRef = this.dialog.open(
-      FontDialogComponent,
+      CustomizationFormComponent,
       dialogConfig
     );
     fontSizeDialogRef.afterClosed().subscribe((data) => {

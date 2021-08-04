@@ -25,7 +25,7 @@ import { LoginComponent } from './components/routed-views/login/login.component'
 import { SignupComponent } from './components/routed-views/signup/signup.component';
 import { NotFoundComponent } from './components/routed-views/not-found/not-found.component';
 import { DraggableComponent } from './components/plannables/draggable/draggable.component';
-import { FontDialogComponent } from './components/font-dialog/font-dialog.component';
+import { CustomizationFormComponent } from './components/customization-form/customization-form.component';
 import { MetricsComponent } from './components/plannables/metrics/metrics.component';
 import { TasksComponent } from './components/plannables/tasks/tasks.component';
 import { NotesComponent } from './components/plannables/notes/notes.component';
@@ -59,7 +59,7 @@ const routes: Routes = [
     SignupComponent,
     NotFoundComponent,
     DraggableComponent,
-    FontDialogComponent,
+    CustomizationFormComponent,
     MetricsComponent,
     TasksComponent,
     NotesComponent,

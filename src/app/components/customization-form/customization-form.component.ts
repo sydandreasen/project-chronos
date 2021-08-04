@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
   MatDialog,
@@ -9,11 +9,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
-  selector: 'app-font-dialog',
-  templateUrl: './font-dialog.component.html',
-  styleUrls: ['./font-dialog.component.scss'],
+  selector: 'app-customization-form',
+  templateUrl: './customization-form.component.html',
+  styleUrls: ['./customization-form.component.scss'],
 })
-export class FontDialogComponent {
+export class CustomizationFormComponent {
   /** form control for font size pixel number */
   fontSize: FormControl = new FormControl();
 
@@ -22,6 +22,9 @@ export class FontDialogComponent {
 
   /** form control for font family name string */
   fontFamily: FormControl = new FormControl();
+
+  /** form control for default view name string */
+  defaultView: FormControl = new FormControl();
 
   /** allowed font families */
   fontFamilies: string[] = [
@@ -38,9 +41,6 @@ export class FontDialogComponent {
     'Brush Script MT',
   ];
 
-  /** send font size up */
-  @Output() fontSizeChange: EventEmitter<number> = new EventEmitter<number>();
-
   /** injections and setup */
   constructor(
     private dialogRef: MatDialogRef<MatDialog>,
@@ -50,17 +50,20 @@ export class FontDialogComponent {
   ) {
     this.fontSize.setValue(data.fontSize);
     this.fontFamily.setValue(data.fontFamily);
+    this.defaultView.setValue(data.defaultView);
   }
 
   /** manage form control changes */
   ngOnInit() {
+    const uid = this.authService.getUID();
     this.fontSize.valueChanges.subscribe((fontSize: number) => {
-      const uid = this.authService.getUID();
       this.fbService.editSingleSetting(uid, 'fontSize', fontSize);
     });
     this.fontFamily.valueChanges.subscribe((fontFamily: string) => {
-      const uid = this.authService.getUID();
       this.fbService.editSingleSetting(uid, 'fontFamily', fontFamily);
+    });
+    this.defaultView.valueChanges.subscribe((defaultView: string) => {
+      this.fbService.editSingleSetting(uid, 'defaultView', defaultView);
     });
   }
 
