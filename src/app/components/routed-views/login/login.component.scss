@@ -1,0 +1,57 @@
+@import "../../../../styles.scss";
+
+.rcorners2 {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  border: 3px solid $ltgrey;
+  padding: 20px;
+  width: 200px;
+  height: 255px;
+  position: relative;
+  top: 150px;
+}
+
+.centerd {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.logtext {
+  text-align: center;
+  color: $dkgrey;
+}
+
+.logbut {
+  text-align: right;
+  color: $blue;
+  float: right;
+  background: transparent;
+  border-radius: 0.25rem;
+  border: 1px solid $blue;
+
+  &:disabled {
+    color: $dkgrey;
+    background: $ltgrey;
+    border: 1px solid $ltgrey;
+  }
+}
+
+.sutxt {
+  text-align: center;
+  color: $dkgrey;
+  font-size: 12px;
+}
+
+.typebox {
+  padding: 2px;
+  margin-bottom: 7px;
+  border-radius: 0.25rem;
+  border: 1px solid $blue;
+}
+
+.invalid {
+  border: 1px solid red;
+}

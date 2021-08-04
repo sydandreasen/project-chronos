@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import {
-  draggable,
-  metric,
-  task,
-} from '../components/draggable/draggable.model';
+import { draggable } from '../components/plannables/draggable/draggable.model';
+import { UserDefaults } from './user-defaults';
 
 /** a service that can be injected in any component to provide connections to
  * firebase while only initializing the app here
@@ -19,6 +16,10 @@ export class FirebaseService {
   /** connection to real-time database */
   db;
 
+  /** the user defaults to use to populate the foundation of a user in the db */
+  defaults: UserDefaults = new UserDefaults();
+
+  /** set up FirebaseService */
   constructor(private afDatabase: AngularFireDatabase) {
     this.db = afDatabase.database;
   }
@@ -33,11 +34,7 @@ export class FirebaseService {
     // create settings
     const settingsPath = 'users/' + uid + '/settings';
     let updateObj: { [key: string]: any } = {};
-    updateObj[settingsPath] = {
-      fontColor: 'blue',
-      fontFamily: 'Roboto',
-      fontSize: 14,
-    };
+    updateObj[settingsPath] = this.defaults;
     // create accountInfo
     const accountInfoPath = 'users/' + uid + '/accountInfo';
     updateObj[accountInfoPath] = { email: user.email };
@@ -62,32 +59,18 @@ export class FirebaseService {
     if (userData.settings) {
       // settings exist
       const settings = userData.settings;
-      if (!settings.fontColor) {
-        // fontColor missing
-        flag = true;
-        const colorPath = settingsPath + '/fontColor';
-        updateObj[colorPath] = 'blue';
-      }
-      if (!settings.fontFamily) {
-        // fontFamily missing
-        flag = true;
-        const famPath = settingsPath + '/fontFamily';
-        updateObj[famPath] = 'Roboto';
-      }
-      if (!settings.fontSize) {
-        // fontSize missing
-        flag = true;
-        const sizePath = settingsPath + '/fontSize';
-        updateObj[sizePath] = 14;
-      }
+      const requiredSettings = Object.getOwnPropertyNames(this.defaults);
+      requiredSettings.forEach((setting: string, index: number) => {
+        if (!settings[setting]) {
+          flag = true;
+          const path = settingsPath + '/' + setting;
+          updateObj[path] = Object.values(this.defaults)[index];
+        }
+      });
     } else {
       // settings don't exist. create all settings
       flag = true;
-      updateObj[settingsPath] = {
-        fontColor: 'blue',
-        fontFamily: 'Roboto',
-        fontSize: 14,
-      };
+      updateObj[settingsPath] = this.defaults;
     }
     // check account info
     const accountInfoPath = 'users/' + uid + '/accountInfo';
@@ -129,64 +112,61 @@ export class FirebaseService {
     });
   }
 
-  // FIXME figure out why index isn't always reliable if metric/task doesn't fill whole width
   /**
-   * adjust all the indexes on the metrics/tasks in the day because they reordered them
+   * adjust all the indexes on the planned objects in the day because they reordered them
    * @param uid user's id
    * @param date string representing the date
    * @param prevIdx the index where the moved one used to be
    * @param newIdx the index where the moved one should now be
    * @param allDraggablesInDay all the draggable options in the day
    */
-  reorderMetricOrTask(
+  reorderPlannedObject(
     uid: string,
     date: string,
     prevIdx: number,
     newIdx: number,
     allDraggablesInDay: Array<draggable>
-  ) {
-    // item from prevIdx should always go to newIdx
-    // if prevIdx > newIdx, all items previously at idx of newIdx or greater and less than prevIdx should increase their idx by one
-    // if prevIdx < newIdx, items between should decrease their idx by one
+  ): void {
     allDraggablesInDay.forEach((draggable: draggable) => {
       if (draggable.idx === prevIdx) {
+        // item from prevIdx should always go to newIdx
         draggable.idx = newIdx;
-        this.updateMetricOrTask(uid, date, draggable);
+        this.updatePlannedObject(uid, date, draggable);
       } else if (
+        // is this item between the indices touched by the dragged object?
         draggable.idx >= Math.min(prevIdx, newIdx) &&
         draggable.idx <= Math.max(prevIdx, newIdx)
       ) {
         if (prevIdx < newIdx) {
+          // if prevIdx < newIdx, items between should decrease their idx by one
           draggable.idx--;
         } else if (prevIdx > newIdx) {
+          // if prevIdx > newIdx, all items between should increase their idx by one
           draggable.idx++;
         }
-        this.updateMetricOrTask(uid, date, draggable);
+        this.updatePlannedObject(uid, date, draggable);
       }
     });
   }
 
   /**
-   * create a brand new metric or task in the db
+   * create a brand new planned object in the db
    * @param uid  the user id
-   * @param date a string representing the date to put the metric/task on
+   * @param date a string representing the date to put the planned object on
    * @param dragItem the item being dropped into the day
-   * @param idx the index at which that item shall be dropped
    * @param allDraggablesInDay all the draggables already in the day before dropping this one
    */
-  writeMetricOrTask(
+  writePlannedObject(
     uid: string,
     date: string,
     dragItem: draggable,
-    idx: number,
     allDraggablesInDay: Array<draggable>
   ): void {
-    dragItem.idx = idx;
     let writeObj: { [key: string]: any } = {};
     writeObj.value = dragItem.value;
     writeObj.idx = dragItem.idx;
 
-    // get id for metric or tasks, unique within the day
+    // get id for new planned object, unique within the day
     let usedIds: string[] = [];
     if (allDraggablesInDay) {
       allDraggablesInDay.forEach((dragItem: draggable) => {
@@ -202,17 +182,18 @@ export class FirebaseService {
     }
     dragItem.id = itemId;
 
-    allDraggablesInDay?.splice(dragItem.idx, 0, dragItem); // put it in the right place in the array of options
-    this.updateMetricOrTask(uid, date, dragItem);
+    this.updatePlannedObject(uid, date, dragItem);
   }
 
   /**
-   * update a single metric/task that's already been configured with whatever needs updating
+   * update a single planned object
    * @param uid user's id
    * @param date string representing date to save stuff under
    * @param dragItem the draggable item to be updated in the DB
    */
-  updateMetricOrTask(uid: string, date: string, dragItem: draggable): void {
+  updatePlannedObject(uid: string, date: string, dragItem: draggable): void {
+    // use type and id from draggable to find path and
+    // use idx and value from draggable to fill that path in the DB with data
     let updateObj: { [key: string]: any } = {};
     updateObj.idx = dragItem.idx;
     updateObj.value = dragItem.value;
@@ -235,7 +216,7 @@ export class FirebaseService {
    * delete a draggable
    * @param uid the user's id
    * @param date the dateString
-   * @param draggableType the draggable type, such as metric or task
+   * @param draggableType the draggable type
    * @param draggableId the id of the draggable to delete
    */
   deleteDraggable(
@@ -258,7 +239,7 @@ export class FirebaseService {
       .remove();
   }
 
-  /** generate a unique ID for the metric or task */
+  /** generate a unique ID for the planned object */
   createUniqueID(): string {
     return (
       Math.floor(Math.random() * Math.floor(Math.random() * Date.now())) + ''
@@ -266,63 +247,14 @@ export class FirebaseService {
   }
 
   /**
-   * update a metric's content after editing the label or input fields
-   * @param uid the user id
-   * @param date the dateString
-   * @param metridId the metric's id
-   * @param updateObj the draggable:value object; type metric
-   */
-  editMetric(
-    uid: string,
-    date: string,
-    metricId: string,
-    updateObj: metric
-  ): void {
-    let objWithVal = { value: updateObj };
-    this.db
-      .ref('users/' + uid + '/dates/' + date + '/metrics/' + metricId + '/')
-      .update(objWithVal);
-  }
-
-  /** update a metric's content after editing the textarea or checkbox fields
-   * @param uid the user id
-   * @param date the dateString
-   * @param taskId the task's id
-   * @param updateObj the dragggable:value object; type task
-   */
-  editTask(uid: string, date: string, taskId: string, updateObj: task): void {
-    let objWithVal = { value: updateObj };
-    this.db
-      .ref('users/' + uid + '/dates/' + date + '/tasks/' + taskId + '/')
-      .update(objWithVal);
-  }
-
-  /**
-   * set the font size in settings
+   * edit a single setting
    * @param uid the user's id
-   * @param fontSize the customized font size
+   * @param settingType the type of setting in the user's settings
+   * @param settingValue the value to assign to the settingType in the db
    */
-  editFontSize(uid: string, fontSize: number) {
-    this.db.ref('users/' + uid + '/settings/').update({ fontSize: fontSize });
-  }
-
-  /**
-   * set the font family in settings
-   * @param uid the user's id
-   * @param fontFamily the customized font family
-   */
-  editFontFamily(uid: string, fontFamily: string) {
-    this.db
-      .ref('users/' + uid + '/settings/')
-      .update({ fontFamily: fontFamily });
-  }
-
-  /**
-   * set the font color in settings
-   * @param uid the user's id
-   * @param fontColor the customized font color
-   */
-  editFontColor(uid: string, fontColor: string) {
-    this.db.ref('users/' + uid + '/settings/').update({ fontColor: fontColor });
+  editSingleSetting(uid: string, settingType: string, settingValue: any): void {
+    let updateObj: { [key: string]: any } = {};
+    updateObj[settingType] = settingValue;
+    this.db.ref('users/' + uid + '/settings/').update(updateObj);
   }
 }
