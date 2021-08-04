@@ -1,0 +1,162 @@
+@import "../../../../styles.scss";
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  display: block;
+  line-height: 1.3;
+  width: auto;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.month-head {
+  margin: 1.5rem auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  .date-range {
+    //color: $blue;
+    grid-column: 6/8;
+    text-align: center;
+  }
+
+  button {
+    grid-column: 11/12;
+  }
+}
+
+.jumpButton {
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.6rem;
+  background: $ltgrey;
+  border: none;
+  padding: 0.7rem;
+  color: $white;
+  font-size: 0.8rem;
+}
+
+.wrapping-grid {
+  display: grid;
+  grid-template-columns: 1fr 20fr 1fr;
+
+  .nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 15px;
+    gap: 10px;
+
+    h4 {
+      margin: 0 auto;
+      //color: $blue;
+      font-size: xx-small; // back to initial at at least 800px
+    }
+
+    .day {
+      border: 1px solid $dkgrey;
+      min-height: min-content; // made larger in big view
+      color: $dkgrey;
+      border-radius: 1rem;
+
+      .date {
+        background-color: $ltgrey;
+        color: $white;
+        border-radius: 50%;
+        width: 1.6vw;
+        min-width: 20px;
+        height: 1.6vw;
+        min-height: 20px;
+        padding: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-top: 2px;
+      }
+
+      .day-content {
+        text-align: left;
+        margin: 0.25rem 0.5rem;
+        line-height: 1;
+
+        h5 {
+          margin: 4px auto;
+        }
+
+        span {
+          font-size: smaller;
+        }
+
+        hr {
+          margin: 2px auto;
+        }
+      }
+
+      .currentMonth {
+        background-color: $blue;
+        padding: 2px;
+      }
+
+      span {
+        display: none; // mobile. appears again at 800px
+      }
+    }
+
+    .focused {
+      border: 3px solid $blue;
+      box-shadow: 0.25rem 0.25rem $ltgrey;
+
+      .date {
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  h4 {
+    font-size: large !important;
+  }
+  .day {
+    min-height: 150px !important;
+
+    .date {
+      margin: 3px !important;
+    }
+
+    span {
+      display: block !important;
+    }
+  }
+
+  .blue {
+    color: #3c96f7;
+  }
+
+  .green {
+    color: green;
+  }
+
+  .red {
+    color: red;
+  }
+}
