@@ -60,7 +60,6 @@ export class PlannerWrapperComponent {
     this.subscribeToUser(uid);
   }
 
-  // FIXME why does data end up displaying not according to it's idx? When did this break happen?
   /** subscribe to user's data */
   subscribeToUser(uid: string): void {
     this.fbService.db.ref('users/' + uid).on('value', (snapshot) => {
@@ -95,11 +94,7 @@ export class PlannerWrapperComponent {
                 value: draggable.value,
                 idx: draggable.idx,
               };
-              if (thisDayOptions.length === 0) {
-                thisDayOptions.push(newDraggable);
-              } else {
-                thisDayOptions.splice(newDraggable.idx, 0, newDraggable);
-              }
+              thisDayOptions[newDraggable.idx] = newDraggable;
             });
           });
           this.allDayOptions[dateString] = thisDayOptions;
