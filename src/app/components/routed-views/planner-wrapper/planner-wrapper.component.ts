@@ -32,7 +32,7 @@ export class PlannerWrapperComponent {
   focusDate: Date = new Date();
 
   /** which view should be currently shown */
-  mode: string = ''; // overridden in subscription
+  mode: string = 'week'; // overridden in subscription
 
   /** the user's default planning view */
   defaultMode: string = ''; // overridden in subscription;

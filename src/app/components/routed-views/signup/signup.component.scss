@@ -19,21 +19,8 @@
   top: 20px;
 }
 
-.logtext {
-  text-align: center;
-  color: $dkgrey;
-}
-
 .typebox {
   align-content: center;
-  padding: 2px;
-  margin-bottom: 7px;
-  border-radius: 0.25rem;
-  border: 1px solid $blue;
-}
-
-.invalid {
-  border: 1px solid red;
 }
 
 .litxt {
@@ -48,20 +35,6 @@ table {
   td:nth-child(2) {
     width: 67%;
     text-align: center;
-  }
-}
-
-.logbut {
-  text-align: right;
-  color: $blue;
-  background: transparent;
-  border-radius: 0.25rem;
-  border: 1px solid $blue;
-
-  &:disabled {
-    color: $dkgrey;
-    background: $ltgrey;
-    border: 1px solid $ltgrey;
   }
 }
 

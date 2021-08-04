@@ -1,6 +1,7 @@
 {
   "hosting": [
     {
+      "target": "ProjectChronos",
       "public": "dist/ProjectChronos",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
