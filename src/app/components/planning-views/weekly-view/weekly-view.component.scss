@@ -49,6 +49,16 @@
       border: 3px solid $blue;
       box-shadow: 0.25rem 0.25rem $ltgrey;
     }
+    
+    .focusedred {
+      border: 3px solid red;
+      box-shadow: 0.25rem 0.25rem $ltgrey;
+    }
+
+    .focusedgreen {
+      border: 3px solid green;
+      box-shadow: 0.25rem 0.25rem $ltgrey;
+    }
   }
 }
 

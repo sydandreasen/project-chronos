@@ -30,6 +30,8 @@
     <div
       id="day-options"
       class="day"
+      [class.dayred]="chosenColor === 'red'"
+      [class.daygreen]="chosenColor === 'green'"
       cdkDropList
       #dayList="cdkDropList"
       [cdkDropListData]="allDayOptions[dateString]"

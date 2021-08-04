@@ -89,6 +89,36 @@ body {
       align-items: center;
       margin: 3px;
     }
+
+    .datered {
+      background-color: red;
+      color: $white;
+      border-radius: 50%;
+      width: 1.6vw;
+      min-width: 20px;
+      height: 1.6vw;
+      min-height: 20px;
+      padding: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3px;
+    }
+
+    .dategreen {
+      background-color: green;
+      color: $white;
+      border-radius: 50%;
+      width: 1.6vw;
+      min-width: 20px;
+      height: 1.6vw;
+      min-height: 20px;
+      padding: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3px;
+    }
   }
 }
 
@@ -153,4 +183,19 @@ body {
 
 .red {
   color: red;
+}
+
+.focused {
+  border: 3px solid $blue;
+  box-shadow: 0.25rem 0.25rem $ltgrey;
+}
+
+.focusedred {
+  border: 3px solid red;
+  box-shadow: 0.25rem 0.25rem $ltgrey;
+}
+
+.focusedgreen {
+  border: 3px solid green;
+  box-shadow: 0.25rem 0.25rem $ltgrey;
 }

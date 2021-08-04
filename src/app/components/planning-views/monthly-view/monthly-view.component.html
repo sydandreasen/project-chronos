@@ -36,11 +36,15 @@
         *ngFor="let date of monthDates"
         (click)="setFocusDate(date)"
         (dblclick)="onDoubleClick(date)"
-        [class.focused]="focusDate.toDateString() === date.toDateString()"
+        [class.focused]="focusDate.toDateString() === date.toDateString() && chosenColor === 'blue'"
+        [class.focusedred]="focusDate.toDateString() === date.toDateString() && chosenColor === 'red'"
+        [class.focusedgreen]="focusDate.toDateString() === date.toDateString() && chosenColor === 'green'"
         class="day"
       >
         <div
-          [class.currentMonth]="date?.getMonth() === monthDates[15]?.getMonth()"
+          [class.currentMonth]="date?.getMonth() === monthDates[15]?.getMonth() && chosenColor === 'blue'"
+          [class.currentMonthRed]="date?.getMonth() === monthDates[15]?.getMonth() && chosenColor === 'red'"
+          [class.currentMonthGreen]="date?.getMonth() === monthDates[15]?.getMonth() && chosenColor === 'green'"
           class="date"
         >
           {{ date?.getDate() }}

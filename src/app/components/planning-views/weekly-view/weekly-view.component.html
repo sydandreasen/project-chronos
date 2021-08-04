@@ -42,10 +42,16 @@
           {{ dayNames[i] }}
         </h4>
         <div
-          [class.focused]="focusDate.toDateString() === date.toDateString()"
+          [class.focused]="focusDate.toDateString() === date.toDateString() && chosenColor === 'blue'"
+          [class.focusedred]="focusDate.toDateString() === date.toDateString() && chosenColor === 'red'"
+          [class.focusedgreen]="focusDate.toDateString() === date.toDateString() && chosenColor === 'green'"
           class="day"
         >
-          <div class="date">
+          <div 
+          class="date"
+          [class.datered] = "chosenColor === 'red'"
+          [class.dategreen] = "chosenColor === 'green'"
+          >
             {{ !hideDraggableContent ? date.getDate() : "" }}
           </div>
           <div
