@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,6 +28,8 @@ import { DraggableComponent } from './components/draggable/draggable.component';
 import { FontDialogComponent } from './components/font-dialog/font-dialog.component';
 import { MetricsComponent } from './components/metrics/metrics.component';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { TextDialogComponent } from './text-dialog/text-dialog.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 /**
  * routes to show certain components based on URL
@@ -61,6 +63,8 @@ const routes: Routes = [
     FontDialogComponent,
     MetricsComponent,
     TasksComponent,
+    TextDialogComponent,
+    MatDialogModule
   ],
   imports: [
     BrowserModule,
@@ -76,8 +80,14 @@ const routes: Routes = [
     MatSelectModule,
     MatDialogModule,
     DragDropModule,
+    LayoutModule,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
   providers: [],
+  entryComponents:[MatDialogModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

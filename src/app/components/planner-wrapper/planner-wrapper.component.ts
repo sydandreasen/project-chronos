@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { draggable, metric, task } from '../draggable/draggable.model';
 import { FontDialogComponent } from '../font-dialog/font-dialog.component';
+import { textDialogComponent } from '../text-dialog/text-dialog.component';
 
 /** provide a wrapper for the monthly, weekly, and daily views. manage which is shown */
 @Component({
@@ -21,8 +22,11 @@ export class PlannerWrapperComponent {
   /** font size for tasks and metrics */
   fontSize: number = 0; // overridden in subscription
 
-  /** font-fmaily for tasks and metrics */
+  /** font-family for tasks and metrics */
   fontFamily: string = ''; // overridden in subscription
+
+  /** color-family for tasks and metrics */
+  fontColor: string = ''; // overridden in subscription
 
   /** start focusing on today. */
   focusDate: Date = new Date();
@@ -155,6 +159,12 @@ export class PlannerWrapperComponent {
     this.fbService.editFontColor(uid, 'green');
   }
 
+  setColor(colorChoice: string): void {
+    this.chosenColor = colorChoice;
+    const uid = this.authService.getUID();
+    this.fbService.editFontColor(uid, colorChoice);
+  }
+
   /** set a new font size */
   setFontSize(size: number): void {
     this.fontSize = size;
@@ -183,6 +193,25 @@ export class PlannerWrapperComponent {
       }
       if (data?.fontFamily) {
         this.setFontFamily(data.fontFamily);
+      }
+      this.menuTrigger?.focus();
+    });
+  }
+
+  /** open the dialog for setting font size */
+  openTextDialog(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.restoreFocus = false;
+    dialogConfig.data = {
+      fontColor: this.fontColor,
+    };
+    const fontSizeDialogRef = this.dialog.open(
+      textDialogComponent,
+      dialogConfig
+    );
+    fontSizeDialogRef.afterClosed().subscribe((data) => {
+      if (data?.fontColor) {
+        this.setColor(data.fontColor);
       }
       this.menuTrigger?.focus();
     });

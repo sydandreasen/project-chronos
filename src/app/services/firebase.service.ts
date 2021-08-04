@@ -13,6 +13,9 @@ import {
   providedIn: 'root',
 })
 export class FirebaseService {
+  editColorFamily(uid: string, colorFamily: string) {
+    throw new Error('Method not implemented.');
+  }
   /** connection to real-time database */
   db;
 
