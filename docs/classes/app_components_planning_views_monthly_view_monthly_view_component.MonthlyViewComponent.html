@@ -104,6 +104,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#onEditDay" class="tsd-kind-icon">on<wbr>Edit<wbr>Day</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#sendFocusDate" class="tsd-kind-icon">send<wbr>Focus<wbr>Date</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#singleClickTimer" class="tsd-kind-icon">single<wbr>Click<wbr>Timer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#uid" class="tsd-kind-icon">uid</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -118,6 +119,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#ngOnInit" class="tsd-kind-icon">ng<wbr>OnInit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#onDoubleClick" class="tsd-kind-icon">on<wbr>Double<wbr>Click</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#toggleTaskCheckbox" class="tsd-kind-icon">toggle<wbr>Task<wbr>Checkbox</a></li>
 							</ul>
 						</section>
 					</div>
@@ -129,12 +131,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Monthly<wbr>View<wbr>Component<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html" class="tsd-signature-type" data-tsd-kind="Class">MonthlyViewComponent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Monthly<wbr>View<wbr>Component<span class="tsd-signature-symbol">(</span>fbService<span class="tsd-signature-symbol">: </span><a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a>, authService<span class="tsd-signature-symbol">: </span><a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html" class="tsd-signature-type" data-tsd-kind="Class">MonthlyViewComponent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L46">components/planning-views/monthly-view/monthly-view.component.ts:46</a></li>
+								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>inject services</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fbService: <a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a></h5>
+								</li>
+								<li>
+									<h5>authService: <a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html" class="tsd-signature-type" data-tsd-kind="Class">MonthlyViewComponent</a></h4>
 						</li>
 					</ul>
@@ -148,7 +167,7 @@
 					<div class="tsd-signature tsd-kind-icon">all<wbr>Day<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = {}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L25">components/planning-views/monthly-view/monthly-view.component.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L28">components/planning-views/monthly-view/monthly-view.component.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -171,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">chosen<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L16">components/planning-views/monthly-view/monthly-view.component.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L19">components/planning-views/monthly-view/monthly-view.component.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -186,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">focus<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L13">components/planning-views/monthly-view/monthly-view.component.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L16">components/planning-views/monthly-view/monthly-view.component.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -202,7 +221,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Family<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L22">components/planning-views/monthly-view/monthly-view.component.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L25">components/planning-views/monthly-view/monthly-view.component.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -217,7 +236,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L19">components/planning-views/monthly-view/monthly-view.component.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L22">components/planning-views/monthly-view/monthly-view.component.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -232,7 +251,7 @@
 					<div class="tsd-signature tsd-kind-icon">month<wbr>Dates<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L34">components/planning-views/monthly-view/monthly-view.component.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L37">components/planning-views/monthly-view/monthly-view.component.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -247,7 +266,7 @@
 					<div class="tsd-signature tsd-kind-icon">on<wbr>Edit<wbr>Day<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L31">components/planning-views/monthly-view/monthly-view.component.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L34">components/planning-views/monthly-view/monthly-view.component.ts:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -262,7 +281,7 @@
 					<div class="tsd-signature tsd-kind-icon">send<wbr>Focus<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L28">components/planning-views/monthly-view/monthly-view.component.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L31">components/planning-views/monthly-view/monthly-view.component.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -277,12 +296,27 @@
 					<div class="tsd-signature tsd-kind-icon">single<wbr>Click<wbr>Timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L37">components/planning-views/monthly-view/monthly-view.component.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L40">components/planning-views/monthly-view/monthly-view.component.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>timer to allow for double click before single click fires</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="uid" class="tsd-anchor"></a>
+					<h3>uid</h3>
+					<div class="tsd-signature tsd-kind-icon">uid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L43">components/planning-views/monthly-view/monthly-view.component.ts:43</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the user&#39;s uid</p>
 						</div>
 					</div>
 				</section>
@@ -299,7 +333,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L140">components/planning-views/monthly-view/monthly-view.component.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L151">components/planning-views/monthly-view/monthly-view.component.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -331,7 +365,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L77">components/planning-views/monthly-view/monthly-view.component.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L88">components/planning-views/monthly-view/monthly-view.component.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -362,7 +396,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L47">components/planning-views/monthly-view/monthly-view.component.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L58">components/planning-views/monthly-view/monthly-view.component.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -390,7 +424,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L54">components/planning-views/monthly-view/monthly-view.component.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L65">components/planning-views/monthly-view/monthly-view.component.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -412,7 +446,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L131">components/planning-views/monthly-view/monthly-view.component.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L142">components/planning-views/monthly-view/monthly-view.component.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -434,7 +468,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L125">components/planning-views/monthly-view/monthly-view.component.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L136">components/planning-views/monthly-view/monthly-view.component.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -457,12 +491,12 @@
 							<aside class="tsd-sources">
 								<p>Implementation of OnInit.ngOnInit</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L42">components/planning-views/monthly-view/monthly-view.component.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L52">components/planning-views/monthly-view/monthly-view.component.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>generates month based on initial focus date of today</p>
+									<p>setup class vars</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -479,7 +513,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L69">components/planning-views/monthly-view/monthly-view.component.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L80">components/planning-views/monthly-view/monthly-view.component.ts:80</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -507,7 +541,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L62">components/planning-views/monthly-view/monthly-view.component.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L73">components/planning-views/monthly-view/monthly-view.component.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -521,6 +555,43 @@
 									<h5>date: <span class="tsd-signature-type">Date</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>the date to now focus on</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="toggleTaskCheckbox" class="tsd-anchor"></a>
+					<h3>toggle<wbr>Task<wbr>Checkbox</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">toggle<wbr>Task<wbr>Checkbox<span class="tsd-signature-symbol">(</span>dateString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dragItem<span class="tsd-signature-symbol">: </span><a href="app_components_plannables_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/monthly-view/monthly-view.component.ts#L164">components/planning-views/monthly-view/monthly-view.component.ts:164</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>toggle the isComplete status of a task in the DB</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>dateString: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the date to change data on</p>
+									</div>
+								</li>
+								<li>
+									<h5>dragItem: <a href="app_components_plannables_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the draggable to change</p>
 									</div>
 								</li>
 							</ul>
@@ -632,6 +703,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#singleClickTimer" class="tsd-kind-icon">single<wbr>Click<wbr>Timer</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#uid" class="tsd-kind-icon">uid</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#copy" class="tsd-kind-icon">copy</a>
 							</li>
@@ -658,6 +732,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="app_components_planning_views_monthly_view_monthly_view_component.MonthlyViewComponent.html#toggleTaskCheckbox" class="tsd-kind-icon">toggle<wbr>Task<wbr>Checkbox</a>
 							</li>
 						</ul>
 					</li>

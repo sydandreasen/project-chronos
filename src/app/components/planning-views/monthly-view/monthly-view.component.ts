@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { draggable } from '../../plannables/draggable/draggable.model';
 
 @Component({
   selector: 'app-monthly-view',
@@ -36,10 +39,18 @@ export class MonthlyViewComponent implements OnInit {
   /** timer to allow for double click before single click fires */
   singleClickTimer: any = setTimeout(() => {}, 0);
 
-  /**
-   * generates month based on initial focus date of today
-   */
-  ngOnInit(): void {
+  /** the user's uid */
+  uid: string = '';
+
+  /** inject services */
+  constructor(
+    private fbService: FirebaseService,
+    private authService: AuthService
+  ) {}
+
+  /** setup class vars */
+  ngOnInit() {
+    this.uid = this.authService.getUID();
     this.generateMonth(this.focusDate);
   }
 
@@ -143,5 +154,19 @@ export class MonthlyViewComponent implements OnInit {
     reckoning.setMonth(working.getMonth());
     reckoning.setDate(working.getDate());
     return reckoning;
+  }
+
+  /**
+   * toggle the isComplete status of a task in the DB
+   * @param dateString the date to change data on
+   * @param dragItem the draggable to change
+   */
+  toggleTaskCheckbox(dateString: string, dragItem: draggable) {
+    // double check that we are dealing with a task
+    if (dragItem.type === 'task') {
+      // then should have isComplete within value
+      dragItem.value.isComplete = !dragItem.value.isComplete;
+      this.fbService.updatePlannedObject(this.uid, dateString, dragItem);
+    }
   }
 }

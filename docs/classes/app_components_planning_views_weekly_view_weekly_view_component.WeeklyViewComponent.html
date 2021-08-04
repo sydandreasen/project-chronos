@@ -112,6 +112,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#onEditDay" class="tsd-kind-icon">on<wbr>Edit<wbr>Day</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#sendFocusDate" class="tsd-kind-icon">send<wbr>Focus<wbr>Date</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#singleClickTimer" class="tsd-kind-icon">single<wbr>Click<wbr>Timer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#uid" class="tsd-kind-icon">uid</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#weekDates" class="tsd-kind-icon">week<wbr>Dates</a></li>
 							</ul>
 						</section>
@@ -129,6 +130,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#ngOnInit" class="tsd-kind-icon">ng<wbr>OnInit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#onDoubleClick" class="tsd-kind-icon">on<wbr>Double<wbr>Click</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#toggleTaskCheckbox" class="tsd-kind-icon">toggle<wbr>Task<wbr>Checkbox</a></li>
 							</ul>
 						</section>
 					</div>
@@ -140,12 +142,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Weekly<wbr>View<wbr>Component<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html" class="tsd-signature-type" data-tsd-kind="Class">WeeklyViewComponent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Weekly<wbr>View<wbr>Component<span class="tsd-signature-symbol">(</span>fbService<span class="tsd-signature-symbol">: </span><a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a>, authService<span class="tsd-signature-symbol">: </span><a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html" class="tsd-signature-type" data-tsd-kind="Class">WeeklyViewComponent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L59">components/planning-views/weekly-view/weekly-view.component.ts:59</a></li>
+								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>inject services</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fbService: <a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a></h5>
+								</li>
+								<li>
+									<h5>authService: <a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html" class="tsd-signature-type" data-tsd-kind="Class">WeeklyViewComponent</a></h4>
 						</li>
 					</ul>
@@ -159,7 +178,7 @@
 					<div class="tsd-signature tsd-kind-icon">all<wbr>Day<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = {}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L24">components/planning-views/weekly-view/weekly-view.component.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L27">components/planning-views/weekly-view/weekly-view.component.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -182,7 +201,7 @@
 					<div class="tsd-signature tsd-kind-icon">chosen<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L15">components/planning-views/weekly-view/weekly-view.component.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L18">components/planning-views/weekly-view/weekly-view.component.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -197,7 +216,7 @@
 					<div class="tsd-signature tsd-kind-icon">day<wbr>Names<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L39">components/planning-views/weekly-view/weekly-view.component.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L42">components/planning-views/weekly-view/weekly-view.component.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -212,7 +231,7 @@
 					<div class="tsd-signature tsd-kind-icon">focus<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L12">components/planning-views/weekly-view/weekly-view.component.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L15">components/planning-views/weekly-view/weekly-view.component.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -227,7 +246,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Family<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L21">components/planning-views/weekly-view/weekly-view.component.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L24">components/planning-views/weekly-view/weekly-view.component.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -242,7 +261,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L18">components/planning-views/weekly-view/weekly-view.component.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L21">components/planning-views/weekly-view/weekly-view.component.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -257,7 +276,7 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Draggable<wbr>Content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L33">components/planning-views/weekly-view/weekly-view.component.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L36">components/planning-views/weekly-view/weekly-view.component.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -272,7 +291,7 @@
 					<div class="tsd-signature tsd-kind-icon">on<wbr>Edit<wbr>Day<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L30">components/planning-views/weekly-view/weekly-view.component.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L33">components/planning-views/weekly-view/weekly-view.component.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -287,7 +306,7 @@
 					<div class="tsd-signature tsd-kind-icon">send<wbr>Focus<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L27">components/planning-views/weekly-view/weekly-view.component.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L30">components/planning-views/weekly-view/weekly-view.component.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -302,7 +321,7 @@
 					<div class="tsd-signature tsd-kind-icon">single<wbr>Click<wbr>Timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L50">components/planning-views/weekly-view/weekly-view.component.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L53">components/planning-views/weekly-view/weekly-view.component.ts:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -312,12 +331,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="uid" class="tsd-anchor"></a>
+					<h3>uid</h3>
+					<div class="tsd-signature tsd-kind-icon">uid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L56">components/planning-views/weekly-view/weekly-view.component.ts:56</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the user&#39;s uid</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="weekDates" class="tsd-anchor"></a>
 					<h3>week<wbr>Dates</h3>
 					<div class="tsd-signature tsd-kind-icon">week<wbr>Dates<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L36">components/planning-views/weekly-view/weekly-view.component.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L39">components/planning-views/weekly-view/weekly-view.component.ts:39</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -339,7 +373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L127">components/planning-views/weekly-view/weekly-view.component.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L140">components/planning-views/weekly-view/weekly-view.component.ts:140</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -371,7 +405,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L150">components/planning-views/weekly-view/weekly-view.component.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L163">components/planning-views/weekly-view/weekly-view.component.ts:163</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -393,7 +427,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L141">components/planning-views/weekly-view/weekly-view.component.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L154">components/planning-views/weekly-view/weekly-view.component.ts:154</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -418,7 +452,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L86">components/planning-views/weekly-view/weekly-view.component.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L99">components/planning-views/weekly-view/weekly-view.component.ts:99</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -449,7 +483,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L58">components/planning-views/weekly-view/weekly-view.component.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L71">components/planning-views/weekly-view/weekly-view.component.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -477,7 +511,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L63">components/planning-views/weekly-view/weekly-view.component.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L76">components/planning-views/weekly-view/weekly-view.component.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -499,7 +533,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L118">components/planning-views/weekly-view/weekly-view.component.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L131">components/planning-views/weekly-view/weekly-view.component.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -521,7 +555,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L112">components/planning-views/weekly-view/weekly-view.component.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L125">components/planning-views/weekly-view/weekly-view.component.ts:125</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -544,12 +578,12 @@
 							<aside class="tsd-sources">
 								<p>Implementation of OnInit.ngOnInit</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L53">components/planning-views/weekly-view/weekly-view.component.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L65">components/planning-views/weekly-view/weekly-view.component.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>generate initial week</p>
+									<p>setup class vars</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -566,7 +600,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L78">components/planning-views/weekly-view/weekly-view.component.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L91">components/planning-views/weekly-view/weekly-view.component.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -594,7 +628,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L71">components/planning-views/weekly-view/weekly-view.component.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L84">components/planning-views/weekly-view/weekly-view.component.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -608,6 +642,43 @@
 									<h5>date: <span class="tsd-signature-type">Date</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>the date to now focus on</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="toggleTaskCheckbox" class="tsd-anchor"></a>
+					<h3>toggle<wbr>Task<wbr>Checkbox</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">toggle<wbr>Task<wbr>Checkbox<span class="tsd-signature-symbol">(</span>dateString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dragItem<span class="tsd-signature-symbol">: </span><a href="app_components_plannables_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/c84f857/src/app/components/planning-views/weekly-view/weekly-view.component.ts#L188">components/planning-views/weekly-view/weekly-view.component.ts:188</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>toggle the isComplete status of a task in the DB</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>dateString: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the date to change data on</p>
+									</div>
+								</li>
+								<li>
+									<h5>dragItem: <a href="app_components_plannables_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the draggable to change</p>
 									</div>
 								</li>
 							</ul>
@@ -723,6 +794,9 @@
 								<a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#singleClickTimer" class="tsd-kind-icon">single<wbr>Click<wbr>Timer</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#uid" class="tsd-kind-icon">uid</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#weekDates" class="tsd-kind-icon">week<wbr>Dates</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -757,6 +831,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="app_components_planning_views_weekly_view_weekly_view_component.WeeklyViewComponent.html#toggleTaskCheckbox" class="tsd-kind-icon">toggle<wbr>Task<wbr>Checkbox</a>
 							</li>
 						</ul>
 					</li>
