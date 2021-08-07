@@ -72,6 +72,7 @@ export class CustomizationFormComponent {
     this.dialogRef.close({
       fontSize: this.fontSize.value,
       fontFamily: this.fontFamily.value,
+      defaultView: this.defaultView.value,
     });
   }
 }

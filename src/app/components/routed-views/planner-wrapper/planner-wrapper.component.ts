@@ -75,9 +75,12 @@ export class PlannerWrapperComponent {
       this.fontFamily = snapshot.val().settings?.fontFamily
         ? snapshot.val().settings.fontFamily
         : this.defaults.fontFamily;
-      this.mode = snapshot.val().settings?.defaultView
-        ? snapshot.val().settings.defaultView
-        : this.defaults.defaultView;
+      if (!this.defaultMode) {
+        // only do on first change. not every time user data updates
+        this.mode = snapshot.val().settings?.defaultView
+          ? snapshot.val().settings.defaultView
+          : this.defaults.defaultView;
+      }
       this.defaultMode = snapshot.val().settings?.defaultView
         ? snapshot.val().settings.defaultView
         : this.defaults.defaultView;
@@ -196,6 +199,10 @@ export class PlannerWrapperComponent {
       }
       if (data?.fontFamily) {
         this.setFontFamily(data.fontFamily);
+      }
+      this.setColor(data.fontColor);
+      if (data?.defaultView && data?.defaultView !== this.mode) {
+        this.mode = data.defaultView;
       }
       this.menuTrigger?.focus();
     });
