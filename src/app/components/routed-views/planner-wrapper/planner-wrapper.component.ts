@@ -201,7 +201,7 @@ export class PlannerWrapperComponent {
         this.setFontFamily(data.fontFamily);
       }
       this.setColor(data.fontColor);
-      if (data?.defaultView && data?.defaultView !== this.mode) {
+      if (data?.defaultView && data?.defaultView !== this.defaultMode) {
         this.mode = data.defaultView;
       }
       this.menuTrigger?.focus();
