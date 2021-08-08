@@ -7,7 +7,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -25,13 +24,11 @@ export class LoginComponent {
    * create instance of login component
    * @param formBuilder allows to create form group easily
    * @param router allows to manage URL navigation logic in TypeScript
-   * @param afAuth allows handling of Angular Firebase Authentication
    * @param authService connects to login logic
    */
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private afAuth: AngularFireAuth,
     private authService: AuthService
   ) {
     this.loginForm = formBuilder.group({
