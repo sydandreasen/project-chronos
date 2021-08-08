@@ -23,6 +23,15 @@
       >
     </mat-select>
   </mat-form-field>
+
+<p>Choose a main theme color.</p>
+<mat-form-field>
+  <mat-select [formControl]="fontColor">
+    <mat-option *ngFor="let shade of fontColors" [value]="shade">{{
+      shade
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
 </mat-dialog-content>
 
 <h2 mat-dialog-title>Choose a Main Theme Color.</h2>

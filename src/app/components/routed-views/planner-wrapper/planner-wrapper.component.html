@@ -55,6 +55,7 @@
     (onEditDay)="editDay($event)"
     [fontSize]="getFontSize()"
     [fontFamily]="fontFamily"
+    [fontColor]="fontColor"
   ></app-monthly-view>
   <app-weekly-view
     *ngSwitchCase="'week'"
@@ -65,6 +66,7 @@
     (onEditDay)="editDay($event)"
     [fontSize]="getFontSize()"
     [fontFamily]="fontFamily"
+    [fontColor]="fontColor"
   ></app-weekly-view>
   <app-daily-view
     *ngSwitchCase="'day'"
@@ -74,5 +76,6 @@
     [chosenColor]="chosenColor"
     [fontSize]="getFontSize()"
     [fontFamily]="fontFamily"
+    [fontColor]="fontColor"
   ></app-daily-view>
 </div>

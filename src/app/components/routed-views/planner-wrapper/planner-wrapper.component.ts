@@ -34,6 +34,9 @@ export class PlannerWrapperComponent {
   /** font-fmaily for tasks, notes, and metrics */
   fontFamily: string = ''; // overridden in subscription
 
+  /** color-family for tasks and metrics */
+  fontColor: string = ''; // overridden in subscription
+
   /** start focusing on today. */
   focusDate: Date = new Date();
 
