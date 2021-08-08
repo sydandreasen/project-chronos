@@ -1,3 +1,9 @@
+/**
+ * Daily view
+ *
+ * manages daily specific logic and displays daily content
+ */
+
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
@@ -49,7 +55,10 @@ export class DailyViewComponent {
   /** the user's uid */
   uid: string = '';
 
-  /** inject services */
+  /** inject services
+   * @param fbService reference to custom firebase service
+   * @param authService reference to custom auth service
+   */
   constructor(
     private fbService: FirebaseService,
     private authService: AuthService
@@ -134,6 +143,7 @@ export class DailyViewComponent {
 
   /** return a new draggable value based on its type
    * @param draggable the draggable item to get the value of based on type
+   * @return a fresh value of whatever type of draggable item is requested
    */
   getFreshDraggableValue(
     draggable: draggable
@@ -141,13 +151,10 @@ export class DailyViewComponent {
     switch (draggable.type) {
       case 'metric':
         return new metric();
-        break;
       case 'task':
         return new task();
-        break;
       case 'note':
         return new note();
-        break;
       default:
         return undefined; // shouldn't ever happen
     }
@@ -170,7 +177,11 @@ export class DailyViewComponent {
     this.dateString = this.focusDate.toDateString().replace(/ /g, '');
   }
 
-  /* set string date for accessing correct data */
+  /**
+   * get string date for accessing correct data
+   * @param date the date object to format
+   * @returns the formatted string for the requested date
+   */
   getStringDate(date: Date): string {
     return date.toDateString().replace(/ /g, '');
   }

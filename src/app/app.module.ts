@@ -1,4 +1,13 @@
-import { NgModule } from '@angular/core';
+/**
+ * AppModule
+ * handles the imports needed for the app as well as matching routes to components
+ */
+
+import {
+  NgModule,
+  NO_ERRORS_SCHEMA,
+  CUSTOM_ELEMENTS_SCHEMA,
+} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +20,7 @@ import { MatCarouselModule } from 'ng-mat-carousel';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './services/auth.guard';
@@ -77,9 +87,12 @@ const routes: Routes = [
     MatCarouselModule.forRoot(),
     MatSelectModule,
     MatDialogModule,
+    MatCheckboxModule,
     DragDropModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [],
+  entryComponents: [MatDialogModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

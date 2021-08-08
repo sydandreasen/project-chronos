@@ -16,6 +16,9 @@ export class DraggableComponent {
   /** the font family that the draggable's text should use */
   @Input() fontFamily: string = '';
 
+  /** chosen text color */
+  @Input() chosenColor: string = '';
+
   /** the date string */
   @Input() dateString: string = '';
 

@@ -37,15 +37,6 @@
       <span class="tooltiptext">More Options</span>
     </button>
     <mat-menu #menu="matMenu">
-      <button (click)="goRed()" routerLink="/plan" mat-menu-item>
-        Red Text
-      </button>
-      <button (click)="goBlue()" routerLink="/plan" mat-menu-item>
-        Blue Text
-      </button>
-      <button (click)="goGreen()" routerLink="/plan" mat-menu-item>
-        Green Text
-      </button>
       <button mat-menu-item (click)="openCustomizationForm()">
         Customize Planner
       </button>
@@ -64,6 +55,7 @@
     (onEditDay)="editDay($event)"
     [fontSize]="getFontSize()"
     [fontFamily]="fontFamily"
+    [fontColor]="fontColor"
   ></app-monthly-view>
   <app-weekly-view
     *ngSwitchCase="'week'"
@@ -74,6 +66,7 @@
     (onEditDay)="editDay($event)"
     [fontSize]="getFontSize()"
     [fontFamily]="fontFamily"
+    [fontColor]="fontColor"
   ></app-weekly-view>
   <app-daily-view
     *ngSwitchCase="'day'"
@@ -83,5 +76,6 @@
     [chosenColor]="chosenColor"
     [fontSize]="getFontSize()"
     [fontFamily]="fontFamily"
+    [fontColor]="fontColor"
   ></app-daily-view>
 </div>
