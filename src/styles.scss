@@ -143,8 +143,9 @@ body {
   margin: 5px 0;
 }
 
-.blue {
-  color: $blue;
+.focused {
+  border: 3px solid $blue;
+  box-shadow: 0.25rem 0.25rem $ltgrey;
 }
 
 ::ng-deep {
@@ -153,7 +154,4 @@ body {
     border-radius: 0.25rem;
     margin-right: 4px;
   }
-
-.red {
-  color: red;
 }
