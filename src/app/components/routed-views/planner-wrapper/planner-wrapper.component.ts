@@ -148,26 +148,8 @@ export class PlannerWrapperComponent {
     this.afAuth.signOut();
   }
 
-  // FIXME clean these up. 3 separate for same functionality not efficient. do one function with 1 param */
-  /** change font to red */
-  goRed(): void {
-    this.chosenColor = 'red';
-    const uid = this.authService.getUID();
-    this.fbService.editSingleSetting(uid, 'fontColor', 'red');
-  }
-
-  /** change font to blue */
-  goBlue(): void {
-    this.chosenColor = 'blue';
-    const uid = this.authService.getUID();
-    this.fbService.editSingleSetting(uid, 'fontColor', 'blue');
-  }
-
-  /** change font to green */
-  goGreen(): void {
-    this.chosenColor = 'green';
-    const uid = this.authService.getUID();
-    this.fbService.editSingleSetting(uid, 'fontColor', 'green');
+  setColor(shade: string): void {
+    this.chosenColor = shade;
   }
 
   /** set a new font size */
@@ -187,6 +169,7 @@ export class PlannerWrapperComponent {
     dialogConfig.data = {
       fontSize: this.fontSize,
       fontFamily: this.fontFamily,
+      fontColor: this.chosenColor,
       defaultView: this.defaultMode,
     };
     const fontSizeDialogRef = this.dialog.open(

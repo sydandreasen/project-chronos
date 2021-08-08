@@ -1,11 +1,6 @@
 <div>
   <div class="day-head">
-    <h2
-      class="date-shown"
-      [class.red]="chosenColor === 'red'"
-      [class.blue]="chosenColor === 'blue'"
-      [class.green]="chosenColor === 'green'"
-    >
+    <h2 class="date-shown" [ngStyle]="{ color: chosenColor }">
       {{ focusDate | date: "EE, MMM d, yyyy" }}
     </h2>
     <button class="btn template-button tooltip" (click)="generateWeek()">

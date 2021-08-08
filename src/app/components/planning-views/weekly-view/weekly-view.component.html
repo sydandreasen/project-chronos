@@ -1,11 +1,6 @@
 <div>
   <div class="week-head">
-    <h2
-      class="date-range"
-      [class.red]="chosenColor === 'red'"
-      [class.blue]="chosenColor === 'blue'"
-      [class.green]="chosenColor === 'green'"
-    >
+    <h2 class="date-range" [ngStyle]="{ color: chosenColor }">
       {{ weekDates[0] | date: "mediumDate" }} -
       {{ weekDates[6] | date: "mediumDate" }}
     </h2>
@@ -34,11 +29,7 @@
         (click)="setFocusDate(date)"
         (dblclick)="onDoubleClick(date)"
       >
-        <h4
-          [class.red]="chosenColor === 'red'"
-          [class.blue]="chosenColor === 'blue'"
-          [class.green]="chosenColor === 'green'"
-        >
+        <h4 [ngStyle]="{ color: chosenColor }">
           {{ dayNames[i] }}
         </h4>
         <div
