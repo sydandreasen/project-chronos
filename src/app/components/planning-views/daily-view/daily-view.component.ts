@@ -141,13 +141,10 @@ export class DailyViewComponent {
     switch (draggable.type) {
       case 'metric':
         return new metric();
-        break;
       case 'task':
         return new task();
-        break;
       case 'note':
         return new note();
-        break;
       default:
         return undefined; // shouldn't ever happen
     }
