@@ -48,16 +48,6 @@
         padding: 2px;
       }
 
-      .currentMonthRed {
-        background-color: red;
-        padding: 2px;
-      }
-
-      .currentMonthGreen {
-        background-color: green;
-        padding: 2px;
-      }
-
       span {
         display: none; // mobile. appears again at 800px
       }
@@ -67,23 +57,6 @@
       margin-top: 0px;
     }
     
-    .focusedred {
-      border: 3px solid red;
-      box-shadow: 0.25rem 0.25rem $ltgrey;
-
-      .date {
-        margin-top: 0px;
-      }
-    }
-
-    .focusedgreen {
-      border: 3px solid green;
-      box-shadow: 0.25rem 0.25rem $ltgrey;
-
-      .date {
-        margin-top: 0px;
-      }
-    }
 
   }
 }
