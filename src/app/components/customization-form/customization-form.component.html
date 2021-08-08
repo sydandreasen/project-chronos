@@ -37,6 +37,7 @@
       *ngFor="let family of fontFamilies"
       [value]="family"
       [ngStyle]="{ color: 'black' }"
+      [style.fontFamily]="family"
       >{{ family }}</mat-option
     >
   </mat-select>
@@ -56,6 +57,7 @@
     </mat-select>
   </mat-form-field>
 
-<mat-dialog-actions>
-  <button mat-raised-button (click)="close()">Close</button>
-</mat-dialog-actions>
+  <mat-dialog-actions>
+    <button mat-raised-button (click)="close()">Close</button>
+  </mat-dialog-actions>
+</mat-dialog-content>
