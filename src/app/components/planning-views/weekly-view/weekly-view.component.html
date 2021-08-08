@@ -51,7 +51,7 @@
                 [class.tallMetric]="hideDraggableContent"
               ></div>
               <h4
-                [ngStyle]="{ 'font-size': fontSize }"
+                [style.fontSize]="fontSize"
                 [style.color]="chosenColor"
                 [style.fontFamily]="fontFamily"
               >
@@ -62,7 +62,7 @@
                 }}
               </h4>
               <span
-                [ngStyle]="{ 'font-size': fontSize }"
+                [style.fontSize]="fontSize"
                 [style.color]="chosenColor"
                 [style.fontFamily]="fontFamily"
                 >{{
@@ -81,7 +81,7 @@
               ></mat-checkbox>
               <span
                 [class.tallTask]="hideDraggableContent"
-                [ngStyle]="{ 'font-size': fontSize }"
+                [style.fontSize]="fontSize"
                 [style.color]="chosenColor"
                 [style.fontFamily]="fontFamily"
                 [ngStyle]="{
@@ -100,7 +100,7 @@
             <span
               *ngIf="dateOption.type === 'note'"
               [class.tallNote]="hideDraggableContent"
-              [ngStyle]="{ 'font-size': fontSize }"
+              [style.fontSize]="fontSize"
               [style.color]="chosenColor"
               [style.fontFamily]="fontFamily"
               >{{
