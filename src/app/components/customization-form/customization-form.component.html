@@ -1,40 +1,6 @@
-<h2 mat-dialog-title>Customize the fonts for all your plannable objects.</h2>
-<mat-dialog-content>
-  <p>Choose the font size (in pixels).</p>
-  <mat-form-field>
-    <mat-select [formControl]="fontSize">
-      <mat-option
-        *ngFor="let size of fontSizes"
-        [value]="size"
-        [ngStyle]="{ color: 'black' }"
-        >{{ size }}</mat-option
-      >
-    </mat-select>
-  </mat-form-field>
+<h2 mat-dialog-title>Customize the generic elements of your planner.</h2>
 
-  <p>Choose the font.</p>
-  <mat-form-field>
-    <mat-select [formControl]="fontFamily">
-      <mat-option
-        *ngFor="let family of fontFamilies"
-        [value]="family"
-        [ngStyle]="{ color: 'black' }"
-        >{{ family }}</mat-option
-      >
-    </mat-select>
-  </mat-form-field>
-
-<p>Choose a main theme color.</p>
-<mat-form-field>
-  <mat-select [formControl]="fontColor">
-    <mat-option *ngFor="let shade of fontColors" [value]="shade">{{
-      shade
-    }}</mat-option>
-  </mat-select>
-</mat-form-field>
-</mat-dialog-content>
-
-<h2 mat-dialog-title>Choose a Main Theme Color.</h2>
+<p>Choose a Main Theme Color.</p>
 <mat-dialog-content>
   <mat-form-field>
     <mat-select [formControl]="fontColor">
@@ -49,7 +15,7 @@
   </mat-form-field>
 </mat-dialog-content>
 
-<h2 mat-dialog-title>Choose which view is your default planner view.</h2>
+<p>Choose which view is your default planner view.</p>
 <mat-dialog-content>
   <mat-form-field>
     <mat-select [formControl]="defaultView">
@@ -63,6 +29,32 @@
     </mat-select>
   </mat-form-field>
 </mat-dialog-content>
+
+<p>Choose the font.</p>
+<mat-form-field>
+  <mat-select [formControl]="fontFamily">
+    <mat-option
+      *ngFor="let family of fontFamilies"
+      [value]="family"
+      [ngStyle]="{ color: 'black' }"
+      >{{ family }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+
+<h2 mat-dialog-title>Customize the fonts for all your plannable objects.</h2>
+<mat-dialog-content>
+  <p>Choose the font size (in pixels).</p>
+  <mat-form-field>
+    <mat-select [formControl]="fontSize">
+      <mat-option
+        *ngFor="let size of fontSizes"
+        [value]="size"
+        [ngStyle]="{ color: 'black' }"
+        >{{ size }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
 
 <mat-dialog-actions>
   <button mat-raised-button (click)="close()">Close</button>

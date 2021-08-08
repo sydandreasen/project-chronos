@@ -1,6 +1,6 @@
 <div>
   <div class="month-head">
-    <h2 class="date-range" [ngStyle]="{ color: chosenColor }">
+    <h2 class="date-range" [ngStyle]="{ color: chosenColor }" [style.fontFamily]="fontFamily">
       <!-- 15 will always be in the main month, not backfilled or forwardfilled days -->
       {{ monthDates[15] | date: "MMMM y" }}
     </h2>
@@ -14,7 +14,7 @@
       </button>
     </div>
 
-    <div class="month-grid" [ngStyle]="{ color: chosenColor }">
+    <div class="month-grid" [ngStyle]="{ color: chosenColor }" [style.fontFamily]="fontFamily">
       <h4>Sunday</h4>
       <h4>Monday</h4>
       <h4>Tuesday</h4>
@@ -28,6 +28,7 @@
         (dblclick)="onDoubleClick(date)"
         [class.focused]="focusDate.toDateString() === date.toDateString()"
         [ngStyle]="{ 'border-color': chosenColor }"
+        
         class="day"
       >
         <div
