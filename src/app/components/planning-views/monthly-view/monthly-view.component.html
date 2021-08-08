@@ -32,33 +32,79 @@
       >
         <div
           [class.currentMonth]="date?.getMonth() === monthDates[15]?.getMonth()"
+          [ngStyle]="{
+            'background-color':
+              date?.getMonth() === monthDates[15]?.getMonth()
+                ? chosenColor
+                : '#c1c0c0'
+          }"
           class="date"
         >
           {{ date?.getDate() }}
         </div>
         <div
           class="day-content"
-          [ngStyle]="{ 'font-size': fontSize }"
-          [style.fontFamily]="fontFamily"
           *ngFor="let dateOption of allDayOptions[getDateString(date)]"
         >
           <hr />
           <span *ngIf="dateOption.type === 'metric'">
-            <h5>
+            <h5
+              [ngStyle]="{ 'font-size': fontSize }"
+              [ngStyle]="{
+                color:
+                  date?.getMonth() === monthDates[15]?.getMonth()
+                    ? chosenColor
+                    : '#c1c0c0'
+              }"
+              [style.fontFamily]="fontFamily"
+            >
               {{ dateOption.value.label ? dateOption.value.label : " " }}
             </h5>
-            <span>{{
-              dateOption.value.value ? dateOption.value.value : " "
-            }}</span>
+            <span
+              [ngStyle]="{ 'font-size': fontSize }"
+              [ngStyle]="{
+                color:
+                  date?.getMonth() === monthDates[15]?.getMonth()
+                    ? chosenColor
+                    : '#c1c0c0'
+              }"
+              [style.fontFamily]="fontFamily"
+              >{{ dateOption.value.value ? dateOption.value.value : " " }}</span
+            >
           </span>
-          <span *ngIf="dateOption.type === 'task'">
-            <input
-              type="checkbox"
-              [checked]="dateOption.value.isComplete"
+          <span
+            *ngIf="dateOption.type === 'task'"
+            [ngStyle]="{ 'font-size': fontSize }"
+            [ngStyle]="{
+              color:
+                date?.getMonth() === monthDates[15]?.getMonth()
+                  ? chosenColor
+                  : '#c1c0c0'
+            }"
+            [style.fontFamily]="fontFamily"
+            [ngStyle]="{
+              'text-decoration-line': dateOption.value.isComplete
+                ? 'line-through'
+                : 'none'
+            }"
+          >
+            <mat-checkbox
               (click)="toggleTaskCheckbox(getDateString(date), dateOption)"
-            />{{ dateOption.value.value ? dateOption.value.value : " " }}
+              [checked]="dateOption.value.isComplete"
+            ></mat-checkbox
+            >{{ dateOption.value.value ? dateOption.value.value : " " }}
           </span>
-          <span *ngIf="dateOption.type === 'note'">
+          <span
+            *ngIf="dateOption.type === 'note'"
+            [ngStyle]="{ 'font-size': fontSize }"
+            [ngStyle]="{
+              color:
+                date?.getMonth() === monthDates[15]?.getMonth()
+                  ? chosenColor
+                  : '#c1c0c0'
+            }"
+            [style.fontFamily]="fontFamily"
+          >
             {{ dateOption.value.value ? dateOption.value.value : " " }}
           </span>
         </div>

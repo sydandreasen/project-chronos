@@ -18,6 +18,9 @@ export class NotesComponent implements OnInit {
   /** the font family to display */
   @Input() fontFamily: string = '';
 
+  /** font color to use */
+  @Input() chosenColor: string = '';
+
   /** the note id */
   @Input() noteId: string = '';
 

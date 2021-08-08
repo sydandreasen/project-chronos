@@ -34,15 +34,14 @@
         </h4>
         <div
           [class.focused]="focusDate.toDateString() === date.toDateString()"
+          [ngStyle]="{ 'border-color': chosenColor }"
           class="day"
         >
-          <div class="date">
+          <div class="date" [ngStyle]="{ 'background-color': chosenColor }">
             {{ !hideDraggableContent ? date.getDate() : "" }}
           </div>
           <div
             class="day-content"
-            [ngStyle]="{ 'font-size': fontSize }"
-            [style.fontFamily]="fontFamily"
             *ngFor="let dateOption of allDayOptions[getDateString(date)]"
           >
             <hr />
@@ -51,35 +50,59 @@
                 *ngIf="hideDraggableContent"
                 [class.tallMetric]="hideDraggableContent"
               ></div>
-              <h4>
+              <h4
+                [ngStyle]="{ 'font-size': fontSize }"
+                [style.color]="chosenColor"
+                [style.fontFamily]="fontFamily"
+              >
                 {{
                   dateOption.value.label && !hideDraggableContent
                     ? dateOption.value.label
                     : ""
                 }}
               </h4>
-              <span>{{
-                dateOption.value.value && !hideDraggableContent
-                  ? dateOption.value.value
-                  : ""
-              }}</span>
+              <span
+                [ngStyle]="{ 'font-size': fontSize }"
+                [style.color]="chosenColor"
+                [style.fontFamily]="fontFamily"
+                >{{
+                  dateOption.value.value && !hideDraggableContent
+                    ? dateOption.value.value
+                    : ""
+                }}</span
+              >
             </span>
             <span *ngIf="dateOption.type === 'task'">
-              <input
-                type="checkbox"
+              <mat-checkbox
                 (click)="toggleTaskCheckbox(getDateString(date), dateOption)"
                 [checked]="
                   !hideDraggableContent ? dateOption.value.isComplete : false
                 "
-              /><span [class.tallTask]="hideDraggableContent">{{
-                dateOption.value.value && !hideDraggableContent
-                  ? dateOption.value.value
-                  : ""
-              }}</span>
+              ></mat-checkbox>
+              <span
+                [class.tallTask]="hideDraggableContent"
+                [ngStyle]="{ 'font-size': fontSize }"
+                [style.color]="chosenColor"
+                [style.fontFamily]="fontFamily"
+                [ngStyle]="{
+                  'text-decoration-line':
+                    !hideDraggableContent && dateOption.value.isComplete
+                      ? 'line-through'
+                      : 'none'
+                }"
+                >{{
+                  dateOption.value.value && !hideDraggableContent
+                    ? dateOption.value.value
+                    : ""
+                }}</span
+              >
             </span>
             <span
               *ngIf="dateOption.type === 'note'"
               [class.tallNote]="hideDraggableContent"
+              [ngStyle]="{ 'font-size': fontSize }"
+              [style.color]="chosenColor"
+              [style.fontFamily]="fontFamily"
               >{{
                 dateOption.value.value && !hideDraggableContent
                   ? dateOption.value.value

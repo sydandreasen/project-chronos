@@ -18,6 +18,9 @@ export class MetricsComponent {
   /** the font family to display */
   @Input() fontFamily: string = '';
 
+  /** font color to use */
+  @Input() chosenColor: string = '';
+
   /** the metric id */
   @Input() metricId: string = '';
 
