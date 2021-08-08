@@ -37,6 +37,7 @@
         (click)="setFocusDate(date)"
         (dblclick)="onDoubleClick(date)"
         [class.focused]="focusDate.toDateString() === date.toDateString()"
+        [ngStyle]="{ 'border-color': chosenColor }"
         class="day"
       >
         <div

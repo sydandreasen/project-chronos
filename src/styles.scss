@@ -103,7 +103,7 @@ body {
   .mat-icon {
     font-size: 14px;
     margin: auto;
-    color: $blue;
+    color: $ltgrey;
     width: 14px;
     cursor: grab;
   }
@@ -147,9 +147,12 @@ body {
   color: $blue;
 }
 
-.green {
-  color: green;
-}
+::ng-deep {
+  .mat-checkbox-layout {
+    border: 1px solid $dkgrey;
+    border-radius: 0.25rem;
+    margin-right: 4px;
+  }
 
 .red {
   color: red;

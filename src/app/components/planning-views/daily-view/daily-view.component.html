@@ -30,6 +30,7 @@
     <div
       id="day-options"
       class="day"
+      [ngStyle]="{ 'border-color': chosenColor }"
       cdkDropList
       #dayList="cdkDropList"
       [cdkDropListData]="allDayOptions[dateString]"
@@ -54,7 +55,7 @@
     </div>
   </div>
 
-  <div class="item-option-row">
+  <div class="item-option-row" [ngStyle]="{ 'border-color': chosenColor }">
     <mat-carousel
       timings="250ms ease-in"
       [autoplay]="false"
