@@ -1,3 +1,9 @@
+/**
+ * Task
+ *
+ * displays and manages content for a task
+ */
+
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -39,7 +45,9 @@ export class TasksComponent {
   /** timer to allow for editing before DB change is made. when db change happens, the focus is lost */
   editingTimer: any = setTimeout(() => {}, 0);
 
-  /** use the firebase service */
+  /** use the firebase service
+   * @param fbService reference to custom firebase service
+   */
   constructor(private fbSerivce: FirebaseService) {}
 
   /** manage form control changes */

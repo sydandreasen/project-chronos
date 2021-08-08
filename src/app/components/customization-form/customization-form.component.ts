@@ -1,3 +1,9 @@
+/**
+ * Customization Form
+ *
+ * displays and manages planner customization options
+ */
+
 import { Component, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
@@ -109,7 +115,12 @@ export class CustomizationFormComponent {
     'Brush Script MT',
   ];
 
-  /** injections and setup */
+  /** injections and setup
+   * @param dialogRef
+   * @param data
+   * @param fbService reference to custom firebase service
+   * @param authService reference to custom auth service
+   */
   constructor(
     private dialogRef: MatDialogRef<MatDialog>,
     @Inject(MAT_DIALOG_DATA) data: any,
@@ -150,6 +161,7 @@ export class CustomizationFormComponent {
   }
 }
 
+/** option object */
 export class Option {
   displayName: string = '';
   value: string = '';

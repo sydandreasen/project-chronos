@@ -1,3 +1,9 @@
+/**
+ * Planner Wrapper
+ *
+ * high-level planning logic to manage customization and data passing to each separate view
+ */
+
 import { Component, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -48,7 +54,13 @@ export class PlannerWrapperComponent {
   /** the current options to be used for the day */
   allDayOptions: { [key: string]: any } = {};
 
-  /** create planner wrapper */
+  /** create planner wrapper
+   * @param afAuth reference to angular fire auth
+   * @param dialog reference to material dialog
+   * @param router reference to router service
+   * @param fbService reference to custom firebase service
+   * @param authService reference to custom auth service
+   */
   constructor(
     private afAuth: AngularFireAuth,
     private dialog: MatDialog,
@@ -63,7 +75,9 @@ export class PlannerWrapperComponent {
     this.subscribeToUser(uid);
   }
 
-  /** subscribe to user's data */
+  /** subscribe to user's data
+   * @param uid the user's id
+   */
   subscribeToUser(uid: string): void {
     this.fbService.db.ref('users/' + uid).on('value', (snapshot) => {
       this.chosenColor = snapshot.val().settings?.fontColor
@@ -131,12 +145,16 @@ export class PlannerWrapperComponent {
     }
   }
 
-  /** set focus data at wrapper level to pass updated info  to views */
+  /** set focus data at wrapper level to pass updated info  to views
+   * @param date the date object to focus on
+   */
   setFocusDate(date: Date): void {
     this.focusDate = date;
   }
 
-  /** edit a specific day */
+  /** go into editing mode for a specific day
+   * @param date the date to edit
+   */
   editDay(date: Date): void {
     this.setFocusDate(date);
     this.switchMode('day');
@@ -148,16 +166,23 @@ export class PlannerWrapperComponent {
     this.afAuth.signOut();
   }
 
+  /** set the theme color
+   * @param shade the color string (such as hex code) to use
+   */
   setColor(shade: string): void {
     this.chosenColor = shade;
   }
 
-  /** set a new font size */
+  /** set a new font size
+   * @param size the font size in px
+   */
   setFontSize(size: number): void {
     this.fontSize = size;
   }
 
-  /** set a new font-family */
+  /** set a new font-family
+   * @param family the font-family string to set
+   */
   setFontFamily(family: string): void {
     this.fontFamily = family;
   }
@@ -191,7 +216,9 @@ export class PlannerWrapperComponent {
     });
   }
 
-  /** get font size in pixels based on inputted number */
+  /** get font size in pixels based on inputted number
+   * @returns string representing font size with px units attached
+   */
   getFontSize(): string {
     return this.fontSize + 'px';
   }

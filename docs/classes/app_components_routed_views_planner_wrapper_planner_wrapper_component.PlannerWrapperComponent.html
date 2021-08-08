@@ -113,12 +113,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#editDay" class="tsd-kind-icon">edit<wbr>Day</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#getFontSize" class="tsd-kind-icon">get<wbr>Font<wbr>Size</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#goBlue" class="tsd-kind-icon">go<wbr>Blue</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#goGreen" class="tsd-kind-icon">go<wbr>Green</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#goRed" class="tsd-kind-icon">go<wbr>Red</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#ngOnInit" class="tsd-kind-icon">ng<wbr>OnInit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#onLogout" class="tsd-kind-icon">on<wbr>Logout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#openCustomizationForm" class="tsd-kind-icon">open<wbr>Customization<wbr>Form</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#setColor" class="tsd-kind-icon">set<wbr>Color</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#setFontFamily" class="tsd-kind-icon">set<wbr>Font<wbr>Family</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#setFontSize" class="tsd-kind-icon">set<wbr>Font<wbr>Size</a></li>
@@ -141,7 +139,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L52">components/routed-views/planner-wrapper/planner-wrapper.component.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L64">components/routed-views/planner-wrapper/planner-wrapper.component.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -153,18 +151,43 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>afAuth: <span class="tsd-signature-type">AngularFireAuth</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>reference to angular fire auth</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>dialog: <span class="tsd-signature-type">MatDialog</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>reference to material dialog</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>router: <span class="tsd-signature-type">Router</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>reference to router service</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>fbService: <a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>reference to custom firebase service</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>authService: <a href="app_services_auth_service.AuthService.html" class="tsd-signature-type" data-tsd-kind="Class">AuthService</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>reference to custom auth service</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html" class="tsd-signature-type" data-tsd-kind="Class">PlannerWrapperComponent</a></h4>
@@ -180,7 +203,7 @@
 					<div class="tsd-signature tsd-kind-icon">all<wbr>Day<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = {}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L49">components/routed-views/planner-wrapper/planner-wrapper.component.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L55">components/routed-views/planner-wrapper/planner-wrapper.component.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -203,7 +226,7 @@
 					<div class="tsd-signature tsd-kind-icon">chosen<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L41">components/routed-views/planner-wrapper/planner-wrapper.component.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L47">components/routed-views/planner-wrapper/planner-wrapper.component.ts:47</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -218,7 +241,7 @@
 					<div class="tsd-signature tsd-kind-icon">date<wbr>Info<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = {}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L46">components/routed-views/planner-wrapper/planner-wrapper.component.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L52">components/routed-views/planner-wrapper/planner-wrapper.component.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -242,7 +265,7 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L38">components/routed-views/planner-wrapper/planner-wrapper.component.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L44">components/routed-views/planner-wrapper/planner-wrapper.component.ts:44</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -257,7 +280,7 @@
 					<div class="tsd-signature tsd-kind-icon">defaults<span class="tsd-signature-symbol">:</span> <a href="app_services_user_defaults.UserDefaults.html" class="tsd-signature-type" data-tsd-kind="Class">UserDefaults</a><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L23">components/routed-views/planner-wrapper/planner-wrapper.component.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L29">components/routed-views/planner-wrapper/planner-wrapper.component.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -272,7 +295,7 @@
 					<div class="tsd-signature tsd-kind-icon">focus<wbr>Date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L32">components/routed-views/planner-wrapper/planner-wrapper.component.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L38">components/routed-views/planner-wrapper/planner-wrapper.component.ts:38</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -287,7 +310,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Family<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L29">components/routed-views/planner-wrapper/planner-wrapper.component.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L35">components/routed-views/planner-wrapper/planner-wrapper.component.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -302,7 +325,7 @@
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L26">components/routed-views/planner-wrapper/planner-wrapper.component.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L32">components/routed-views/planner-wrapper/planner-wrapper.component.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -317,7 +340,7 @@
 					<div class="tsd-signature tsd-kind-icon">menu<wbr>Trigger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MatMenuTrigger</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L20">components/routed-views/planner-wrapper/planner-wrapper.component.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L26">components/routed-views/planner-wrapper/planner-wrapper.component.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -329,10 +352,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="mode" class="tsd-anchor"></a>
 					<h3>mode</h3>
-					<div class="tsd-signature tsd-kind-icon">mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;&#x27;</span></div>
+					<div class="tsd-signature tsd-kind-icon">mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;week&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L35">components/routed-views/planner-wrapper/planner-wrapper.component.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L41">components/routed-views/planner-wrapper/planner-wrapper.component.ts:41</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -354,18 +377,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L137">components/routed-views/planner-wrapper/planner-wrapper.component.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L158">components/routed-views/planner-wrapper/planner-wrapper.component.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>edit a specific day</p>
+									<p>go into editing mode for a specific day</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>date: <span class="tsd-signature-type">Date</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the date to edit</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -382,7 +408,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L205">components/routed-views/planner-wrapper/planner-wrapper.component.ts:205</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L222">components/routed-views/planner-wrapper/planner-wrapper.component.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -391,72 +417,7 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="goBlue" class="tsd-anchor"></a>
-					<h3>go<wbr>Blue</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">go<wbr>Blue<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L157">components/routed-views/planner-wrapper/planner-wrapper.component.ts:157</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>change font to blue</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="goGreen" class="tsd-anchor"></a>
-					<h3>go<wbr>Green</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">go<wbr>Green<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L164">components/routed-views/planner-wrapper/planner-wrapper.component.ts:164</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>change font to green</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="goRed" class="tsd-anchor"></a>
-					<h3>go<wbr>Red</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">go<wbr>Red<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L150">components/routed-views/planner-wrapper/planner-wrapper.component.ts:150</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>change font to red</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>string representing font size with px units attached</p>
 						</li>
 					</ul>
 				</section>
@@ -470,7 +431,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L61">components/routed-views/planner-wrapper/planner-wrapper.component.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L73">components/routed-views/planner-wrapper/planner-wrapper.component.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -492,7 +453,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L143">components/routed-views/planner-wrapper/planner-wrapper.component.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L164">components/routed-views/planner-wrapper/planner-wrapper.component.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -514,7 +475,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L181">components/routed-views/planner-wrapper/planner-wrapper.component.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L191">components/routed-views/planner-wrapper/planner-wrapper.component.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -522,6 +483,37 @@
 									<p>open the dialog for setting font size</p>
 								</div>
 							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setColor" class="tsd-anchor"></a>
+					<h3>set<wbr>Color</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Color<span class="tsd-signature-symbol">(</span>shade<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L172">components/routed-views/planner-wrapper/planner-wrapper.component.ts:172</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>set the theme color</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>shade: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the color string (such as hex code) to use</p>
+									</div>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -536,7 +528,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L132">components/routed-views/planner-wrapper/planner-wrapper.component.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L151">components/routed-views/planner-wrapper/planner-wrapper.component.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -548,6 +540,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>date: <span class="tsd-signature-type">Date</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the date object to focus on</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -564,7 +559,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L176">components/routed-views/planner-wrapper/planner-wrapper.component.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L186">components/routed-views/planner-wrapper/planner-wrapper.component.ts:186</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -576,6 +571,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>family: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the font-family string to set</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -592,7 +590,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L171">components/routed-views/planner-wrapper/planner-wrapper.component.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L179">components/routed-views/planner-wrapper/planner-wrapper.component.ts:179</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -604,6 +602,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>size: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the font size in px</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -620,7 +621,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L67">components/routed-views/planner-wrapper/planner-wrapper.component.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L81">components/routed-views/planner-wrapper/planner-wrapper.component.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -632,6 +633,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>uid: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the user&#39;s id</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -648,7 +652,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L118">components/routed-views/planner-wrapper/planner-wrapper.component.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L135">components/routed-views/planner-wrapper/planner-wrapper.component.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -783,15 +787,6 @@
 								<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#getFontSize" class="tsd-kind-icon">get<wbr>Font<wbr>Size</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#goBlue" class="tsd-kind-icon">go<wbr>Blue</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#goGreen" class="tsd-kind-icon">go<wbr>Green</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#goRed" class="tsd-kind-icon">go<wbr>Red</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#ngOnInit" class="tsd-kind-icon">ng<wbr>OnInit</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -799,6 +794,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#openCustomizationForm" class="tsd-kind-icon">open<wbr>Customization<wbr>Form</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#setColor" class="tsd-kind-icon">set<wbr>Color</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a>

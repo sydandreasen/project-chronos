@@ -1,3 +1,9 @@
+/**
+ * Signup
+ *
+ * manage signup form and authentication process
+ */
+
 import { Component } from '@angular/core';
 import {
   AbstractControl,
@@ -10,7 +16,6 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
-/** manage signup form and authentication process */
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -21,7 +26,7 @@ export class SignupComponent {
   signupForm: FormGroup;
 
   /**
-   * assign clas vars
+   * assign clas vars; create form
    * @param authService connects to signup logic
    * @param formBuilder allows easy creation of the signup form group
    * @param router allows managing navigation logic in typescript

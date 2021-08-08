@@ -1,3 +1,8 @@
+/**
+ * Firebase Service
+ * logic and Firebase connections to manage database operations
+ */
+
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { draggable } from '../components/plannables/draggable/draggable.model';
@@ -16,13 +21,15 @@ export class FirebaseService {
   /** the user defaults to use to populate the foundation of a user in the db */
   defaults: UserDefaults = new UserDefaults();
 
-  /** set up FirebaseService */
+  /** set up FirebaseService
+   * @param afDatabase connection to angular fire database
+   */
   constructor(private afDatabase: AngularFireDatabase) {
     this.db = afDatabase.database;
   }
 
   /**
-   * create brand new user with all default data
+   * create brand new user in DB with all default data
    * @param user the user information
    */
   createNewUserEntry(user: { [key: string]: any }): void {
@@ -41,8 +48,9 @@ export class FirebaseService {
   }
 
   /**
-   * complete any holes in user data with defaults
+   * complete any holes in DB user data with defaults
    * @param user the user information (as returned from auth -- not just the uid)
+   * @param userData the user data (as found in the database via the uid)
    */
   completeExistingUser(
     user: { [key: string]: any },
@@ -92,7 +100,7 @@ export class FirebaseService {
   }
 
   /**
-   * a user is authenticated... are they new? does their DB content just need to be checked for holes?
+   * a user is authenticated... are they new? does their DB content just need to be checked for holes? handle them accordingly
    * @param user the user information (as returned from auth, not just the uid)
    */
   checkExistingUser(user: { [key: string]: any }): void {
@@ -110,7 +118,7 @@ export class FirebaseService {
   }
 
   /**
-   * adjust all the indexes on the planned objects in the day because they reordered them
+   * adjust all the indexes on the planned objects in the day because they reordered them and update those idx's in the DB
    * @param uid user's id
    * @param date string representing the date
    * @param prevIdx the index where the moved one used to be
@@ -183,7 +191,7 @@ export class FirebaseService {
   }
 
   /**
-   * update a single planned object
+   * update a single planned object in the DB
    * @param uid user's id
    * @param date string representing date to save stuff under
    * @param dragItem the draggable item to be updated in the DB
@@ -210,7 +218,7 @@ export class FirebaseService {
   }
 
   /**
-   * delete a draggable
+   * delete a draggable from the DB
    * @param uid the user's id
    * @param date the dateString
    * @param draggableType the draggable type
@@ -236,7 +244,9 @@ export class FirebaseService {
       .remove();
   }
 
-  /** generate a unique ID for the planned object */
+  /** generate a unique ID for the planned object
+   * @returns a string that is meant to be a unique id
+   */
   createUniqueID(): string {
     return (
       Math.floor(Math.random() * Math.floor(Math.random() * Date.now())) + ''
@@ -244,7 +254,7 @@ export class FirebaseService {
   }
 
   /**
-   * edit a single setting
+   * edit a single setting in the DB
    * @param uid the user's id
    * @param settingType the type of setting in the user's settings
    * @param settingValue the value to assign to the settingType in the db

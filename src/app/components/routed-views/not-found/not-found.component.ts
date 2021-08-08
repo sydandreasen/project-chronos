@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
-/** display a 404 error on incorrect path and prompt to go back home */
+/** Not Found
+ * display a 404 error on incorrect path and prompt to go back home
+ * */
 @Component({
   selector: 'app-not-found',
   templateUrl: './not-found.component.html',

@@ -130,7 +130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L20">services/firebase.service.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L27">services/firebase.service.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -142,6 +142,11 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>afDatabase: <span class="tsd-signature-type">AngularFireDatabase</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>connection to angular fire database</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a></h4>
@@ -157,7 +162,7 @@
 					<div class="tsd-signature tsd-kind-icon">db<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Database</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L14">services/firebase.service.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L19">services/firebase.service.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -172,7 +177,7 @@
 					<div class="tsd-signature tsd-kind-icon">defaults<span class="tsd-signature-symbol">:</span> <a href="app_services_user_defaults.UserDefaults.html" class="tsd-signature-type" data-tsd-kind="Class">UserDefaults</a><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L17">services/firebase.service.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L22">services/firebase.service.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -194,12 +199,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L98">services/firebase.service.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L106">services/firebase.service.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>a user is authenticated... are they new? does their DB content just need to be checked for holes?</p>
+									<p>a user is authenticated... are they new? does their DB content just need to be checked for holes? handle them accordingly</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -230,12 +235,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L47">services/firebase.service.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L55">services/firebase.service.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>complete any holes in user data with defaults</p>
+									<p>complete any holes in DB user data with defaults</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -253,6 +258,9 @@
 								</li>
 								<li>
 									<h5>userData: <span class="tsd-signature-symbol">{}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the user data (as found in the database via the uid)</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-index-signature">
 											<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
@@ -274,12 +282,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L28">services/firebase.service.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L35">services/firebase.service.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>create brand new user with all default data</p>
+									<p>create brand new user in DB with all default data</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -310,7 +318,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L240">services/firebase.service.ts:240</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L250">services/firebase.service.ts:250</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -319,6 +327,7 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>a string that is meant to be a unique id</p>
 						</li>
 					</ul>
 				</section>
@@ -332,12 +341,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L219">services/firebase.service.ts:219</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L227">services/firebase.service.ts:227</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>delete a draggable</p>
+									<p>delete a draggable from the DB</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -381,12 +390,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L252">services/firebase.service.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L262">services/firebase.service.ts:262</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>edit a single setting</p>
+									<p>edit a single setting in the DB</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -424,12 +433,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L120">services/firebase.service.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L128">services/firebase.service.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>adjust all the indexes on the planned objects in the day because they reordered them</p>
+									<p>adjust all the indexes on the planned objects in the day because they reordered them and update those idx&#39;s in the DB</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -479,12 +488,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L191">services/firebase.service.ts:191</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L199">services/firebase.service.ts:199</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>update a single planned object</p>
+									<p>update a single planned object in the DB</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -522,7 +531,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/46743b4/src/app/services/firebase.service.ts#L156">services/firebase.service.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/d78d2c0/src/app/services/firebase.service.ts#L164">services/firebase.service.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

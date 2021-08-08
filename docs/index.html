@@ -77,13 +77,13 @@
 					<h1>Tech Stack</h1>
 				</a>
 				<ul>
-					<li> Angular</li>
-					<li> TypeScript</li>
-					<li> HTML5</li>
-					<li> CSS (via SCSS)</li>
-					<li> Firebase Hosting</li>
-					<li> Firebase Authentication</li>
-					<li> Firebase Realtime DB (NoSQL)</li>
+					<li>Angular</li>
+					<li>TypeScript</li>
+					<li>HTML5</li>
+					<li>CSS (via SCSS)</li>
+					<li>Firebase Hosting</li>
+					<li>Firebase Authentication</li>
+					<li>Firebase Realtime DB (NoSQL)</li>
 				</ul>
 				<a href="#what-it39s-about" id="what-it39s-about" style="color: inherit; text-decoration: none;">
 					<h1>What it&#39;s About</h1>
@@ -140,7 +140,13 @@
 				<a href="#release-notes-milestone-4-functionality" id="release-notes-milestone-4-functionality" style="color: inherit; text-decoration: none;">
 					<h1>Release Notes: Milestone 4 Functionality</h1>
 				</a>
-				<p>coming soon</p>
+				<p>For Milestone 4. New functionality is limited. Most of the code worked focused on testing and refactoring code to have cleaner, more re-used as opposed to repeated, code.</p>
+				<p>New functionality includes the ability for a user to set their default planning view (which one of weekly, daily, or monthly will show up automatically). New functionality (though a correction on what would have probably been an excpected behavior in Milestone 3, and therefore a bug fix) to allow the checkbox on tasks to be edited in the monthly and weekly views and saving that information to the database was implemented, instead of only being able to have those edits being persistent after making them in the daily view.</p>
+				<p>One new piece of functionality is a new draggable/plannable note option. This is very similar to a task but does not include the checkbox so that a user can simply apply notes to their day. This feature is in addition to the task and metric options. All the CRUD operations work the same on the note as on the others.</p>
+				<p>A bug fix was implemented related to the ordering of the planned objects in the day where their index was not always being properly taken into account when creating the array for the day.</p>
+				<p>A model object was created for the various user default setting values. This was then referenced throughout the project so that if a default font family, font size, etc. is to be changed, it can be changed in just the model and be propagated throughout the project immediately. This model also allows a more dynamic setup of user settings; by using Object.getOwnPropertyNames, we can loop through all the settings a user is supposed to have, without having to know and specify what each of those are in the code.</p>
+				<p>Various functions in our Firebase Service were consolidated to have less code and reuse the common functionality. For example, this was done with the settings functions, where previously there were separate functions to edit the font color, size, and family in the database, when truly only one is necessary. Similarly, by generalizing a function for updating our plannable objects, multiple functions were able to be removed. This means that a single value may be rewritten at times into the DB even if it doesn&#39;t need to be. However, with the speed of the database connection, many less lines of code is favorable, and rewriting that single value is not an impactful consequence.</p>
+				<p>Further code cleaning was done by reorganizing the file structure in the project and extracting common styling out to a global file and imported in where needed.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

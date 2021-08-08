@@ -1,3 +1,8 @@
+/**
+ * AppModule
+ * handles the imports needed for the app as well as matching routes to components
+ */
+
 import {
   NgModule,
   NO_ERRORS_SCHEMA,
