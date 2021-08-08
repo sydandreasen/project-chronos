@@ -1,3 +1,9 @@
+/**
+ * AuthGuard
+ *
+ * used to protect certain url endpoints from being accessed by unauthenticated users
+ */
+
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -12,11 +18,17 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AuthGuard implements CanActivate {
   /**
+   * inject services
    * @param router allows managing  routes
    * @param afAuth for access to auth
    */
   constructor(private router: Router, private afAuth: AngularFireAuth) {}
 
+  /** control redirect to login or if someone should be allowed to the route they're trying to access
+   * @param route
+   * @param state
+   * @returns promise of whether they're allowed to the route or not
+   */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -26,9 +38,6 @@ export class AuthGuard implements CanActivate {
         if (user) {
           resolve(true);
         } else {
-          // alert(
-          //   "Either your session ended or you were denied access. We're redirecting you back to the login screen."
-          // );
           this.router.navigate(['login']);
           resolve(false);
         }

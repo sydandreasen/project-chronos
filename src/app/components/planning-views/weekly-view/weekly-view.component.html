@@ -1,11 +1,6 @@
 <div>
   <div class="week-head">
-    <h2
-      class="date-range"
-      [class.red]="chosenColor === 'red'"
-      [class.blue]="chosenColor === 'blue'"
-      [class.green]="chosenColor === 'green'"
-    >
+    <h2 class="date-range" [ngStyle]="{ color: chosenColor }">
       {{ weekDates[0] | date: "mediumDate" }} -
       {{ weekDates[6] | date: "mediumDate" }}
     </h2>
@@ -34,30 +29,19 @@
         (click)="setFocusDate(date)"
         (dblclick)="onDoubleClick(date)"
       >
-        <h4
-          [class.red]="chosenColor === 'red'"
-          [class.blue]="chosenColor === 'blue'"
-          [class.green]="chosenColor === 'green'"
-        >
+        <h4 [ngStyle]="{ color: chosenColor }">
           {{ dayNames[i] }}
         </h4>
         <div
-          [class.focused]="focusDate.toDateString() === date.toDateString() && chosenColor === 'blue'"
-          [class.focusedred]="focusDate.toDateString() === date.toDateString() && chosenColor === 'red'"
-          [class.focusedgreen]="focusDate.toDateString() === date.toDateString() && chosenColor === 'green'"
+          [class.focused]="focusDate.toDateString() === date.toDateString()"
+          [ngStyle]="{ 'border-color': chosenColor }"
           class="day"
         >
-          <div 
-          class="date"
-          [class.datered] = "chosenColor === 'red'"
-          [class.dategreen] = "chosenColor === 'green'"
-          >
+          <div class="date" [ngStyle]="{ 'background-color': chosenColor }">
             {{ !hideDraggableContent ? date.getDate() : "" }}
           </div>
           <div
             class="day-content"
-            [ngStyle]="{ 'font-size': fontSize }"
-            [style.fontFamily]="fontFamily"
             *ngFor="let dateOption of allDayOptions[getDateString(date)]"
           >
             <hr />
@@ -66,35 +50,59 @@
                 *ngIf="hideDraggableContent"
                 [class.tallMetric]="hideDraggableContent"
               ></div>
-              <h4>
+              <h4
+                [style.fontSize]="fontSize"
+                [style.color]="chosenColor"
+                [style.fontFamily]="fontFamily"
+              >
                 {{
                   dateOption.value.label && !hideDraggableContent
                     ? dateOption.value.label
                     : ""
                 }}
               </h4>
-              <span>{{
-                dateOption.value.value && !hideDraggableContent
-                  ? dateOption.value.value
-                  : ""
-              }}</span>
+              <span
+                [style.fontSize]="fontSize"
+                [style.color]="chosenColor"
+                [style.fontFamily]="fontFamily"
+                >{{
+                  dateOption.value.value && !hideDraggableContent
+                    ? dateOption.value.value
+                    : ""
+                }}</span
+              >
             </span>
             <span *ngIf="dateOption.type === 'task'">
-              <input
-                type="checkbox"
+              <mat-checkbox
                 (click)="toggleTaskCheckbox(getDateString(date), dateOption)"
                 [checked]="
                   !hideDraggableContent ? dateOption.value.isComplete : false
                 "
-              /><span [class.tallTask]="hideDraggableContent">{{
-                dateOption.value.value && !hideDraggableContent
-                  ? dateOption.value.value
-                  : ""
-              }}</span>
+              ></mat-checkbox>
+              <span
+                [class.tallTask]="hideDraggableContent"
+                [style.fontSize]="fontSize"
+                [style.color]="chosenColor"
+                [style.fontFamily]="fontFamily"
+                [ngStyle]="{
+                  'text-decoration-line':
+                    !hideDraggableContent && dateOption.value.isComplete
+                      ? 'line-through'
+                      : 'none'
+                }"
+                >{{
+                  dateOption.value.value && !hideDraggableContent
+                    ? dateOption.value.value
+                    : ""
+                }}</span
+              >
             </span>
             <span
               *ngIf="dateOption.type === 'note'"
               [class.tallNote]="hideDraggableContent"
+              [style.fontSize]="fontSize"
+              [style.color]="chosenColor"
+              [style.fontFamily]="fontFamily"
               >{{
                 dateOption.value.value && !hideDraggableContent
                   ? dateOption.value.value

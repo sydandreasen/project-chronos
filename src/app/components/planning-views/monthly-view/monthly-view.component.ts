@@ -1,3 +1,9 @@
+/**
+ * Monthly View
+ *
+ * manages month specific logic and displays month content
+ */
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -42,7 +48,10 @@ export class MonthlyViewComponent implements OnInit {
   /** the user's uid */
   uid: string = '';
 
-  /** inject services */
+  /** inject services
+   * @param fbService reference to custom firebase service
+   * @param authService reference to custom auth service
+   */
   constructor(
     private fbService: FirebaseService,
     private authService: AuthService
@@ -54,7 +63,9 @@ export class MonthlyViewComponent implements OnInit {
     this.generateMonth(this.focusDate);
   }
 
-  /** get the format of a given date as it'll show in the db data */
+  /** get the format of a given date as it'll show in the db data
+   * @param date the date to return the formatted string of
+   */
   getDateString(date: Date): string {
     return date.toDateString().replace(/ /g, '');
   }
@@ -76,7 +87,9 @@ export class MonthlyViewComponent implements OnInit {
     }, 80);
   }
 
-  /** communicate to parent to edit date */
+  /** communicate to parent to edit date
+   * @param date the date to switch to editing mode for
+   */
   onDoubleClick(date: Date): void {
     clearTimeout(this.singleClickTimer);
     this.onEditDay.emit(date);
@@ -161,7 +174,7 @@ export class MonthlyViewComponent implements OnInit {
    * @param dateString the date to change data on
    * @param dragItem the draggable to change
    */
-  toggleTaskCheckbox(dateString: string, dragItem: draggable) {
+  toggleTaskCheckbox(dateString: string, dragItem: draggable): void {
     // double check that we are dealing with a task
     if (dragItem.type === 'task') {
       // then should have isComplete within value

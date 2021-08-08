@@ -1,21 +1,26 @@
 <h2 mat-dialog-title>Customize the fonts for all your plannable objects.</h2>
-
 <mat-dialog-content>
   <p>Choose the font size (in pixels).</p>
   <mat-form-field>
     <mat-select [formControl]="fontSize">
-      <mat-option *ngFor="let size of fontSizes" [value]="size">{{
-        size
-      }}</mat-option>
+      <mat-option
+        *ngFor="let size of fontSizes"
+        [value]="size"
+        [ngStyle]="{ color: 'black' }"
+        >{{ size }}</mat-option
+      >
     </mat-select>
   </mat-form-field>
 
   <p>Choose the font.</p>
   <mat-form-field>
     <mat-select [formControl]="fontFamily">
-      <mat-option *ngFor="let family of fontFamilies" [value]="family">{{
-        family
-      }}</mat-option>
+      <mat-option
+        *ngFor="let family of fontFamilies"
+        [value]="family"
+        [ngStyle]="{ color: 'black' }"
+        >{{ family }}</mat-option
+      >
     </mat-select>
   </mat-form-field>
 
@@ -29,14 +34,32 @@
 </mat-form-field>
 </mat-dialog-content>
 
-<h2 mat-dialog-title>Choose which view is your default planner view.</h2>
+<h2 mat-dialog-title>Choose a Main Theme Color.</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-select [formControl]="fontColor">
+      <mat-option
+        *ngFor="let shade of fontColors"
+        [value]="shade.value"
+        [ngStyle]="{ color: shade.value }"
+      >
+        {{ shade.displayName }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
 
+<h2 mat-dialog-title>Choose which view is your default planner view.</h2>
 <mat-dialog-content>
   <mat-form-field>
     <mat-select [formControl]="defaultView">
-      <mat-option value="day">Daily</mat-option>
-      <mat-option value="week">Weekly</mat-option>
-      <mat-option value="month">Monthly</mat-option>
+      <mat-option value="day" [ngStyle]="{ color: 'black' }">Daily</mat-option>
+      <mat-option value="week" [ngStyle]="{ color: 'black' }"
+        >Weekly</mat-option
+      >
+      <mat-option value="month" [ngStyle]="{ color: 'black' }"
+        >Monthly
+      </mat-option>
     </mat-select>
   </mat-form-field>
 </mat-dialog-content>

@@ -1,12 +1,15 @@
+/**
+ * Login
+ *
+ * shows/manages the login form
+ */
+
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from 'src/app/services/auth.service';
 
-/**
- * shows/manages the login page
- */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

@@ -63,14 +63,8 @@
       }
     }
 
-    .focused {
-      border: 3px solid $blue;
-      box-shadow: 0.25rem 0.25rem $ltgrey;
-
-      .date {
-        margin-top: 0px;
-      }
-    
+    .focused .date {
+      margin-top: 0px;
     }
     
     .focusedred {

@@ -1,4 +1,4 @@
-<span class="metric">
+<span class="metric" [ngStyle]="{ 'border-color': chosenColor }">
   <label for="metry-entry"
     ><input
       [value]="dragItem.value.label ? dragItem.value.label : ''"
@@ -8,9 +8,10 @@
       placeholder="metric"
       [style.fontSize]="fontSize"
       [style.fontFamily]="fontFamily"
+      [ngStyle]="{ color: chosenColor }"
     />:</label
   >
-  <mat-icon cdkDragHandle>pan_tool</mat-icon>
+  <mat-icon cdkDragHandle [ngStyle]="{ color: chosenColor }">pan_tool</mat-icon>
   <input
     [value]="dragItem.value.value ? dragItem.value.value : ''"
     [formControl]="valueControl"
@@ -19,5 +20,6 @@
     placeholder="value"
     [style.fontSize]="fontSize"
     [style.fontFamily]="fontFamily"
+    [ngStyle]="{ color: chosenColor }"
   />
 </span>

@@ -17,11 +17,12 @@
 
   button {
     margin: auto 15px;
+    color: $dkgrey;
 
     &:disabled {
-      border: 1px solid $dkgrey;
-      background-color: $ltgrey;
-      color: $blue;
+      border: 1px solid $ltgrey;
+      background-color: $dkgrey;
+      color: white;
     }
 
     &:hover {

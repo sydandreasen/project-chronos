@@ -1,11 +1,6 @@
 <div>
   <div class="day-head">
-    <h2
-      class="date-shown"
-      [class.red]="chosenColor === 'red'"
-      [class.blue]="chosenColor === 'blue'"
-      [class.green]="chosenColor === 'green'"
-    >
+    <h2 class="date-shown" [ngStyle]="{ color: chosenColor }">
       {{ focusDate | date: "EE, MMM d, yyyy" }}
     </h2>
     <button class="btn template-button tooltip" (click)="generateWeek()">
@@ -30,8 +25,7 @@
     <div
       id="day-options"
       class="day"
-      [class.dayred]="chosenColor === 'red'"
-      [class.daygreen]="chosenColor === 'green'"
+      [ngStyle]="{ 'border-color': chosenColor }"
       cdkDropList
       #dayList="cdkDropList"
       [cdkDropListData]="allDayOptions[dateString]"
@@ -42,6 +36,7 @@
         <app-draggable
           [fontSize]="fontSize"
           [fontFamily]="fontFamily"
+          [chosenColor]="chosenColor"
           [option]="option"
           [dateString]="dateString"
           [uid]="uid"
@@ -56,7 +51,7 @@
     </div>
   </div>
 
-  <div class="item-option-row">
+  <div class="item-option-row" [ngStyle]="{ 'border-color': chosenColor }">
     <mat-carousel
       timings="250ms ease-in"
       [autoplay]="false"
@@ -83,6 +78,7 @@
           [style.display]="'inline-grid'"
           [fontSize]="fontSize"
           [fontFamily]="fontFamily"
+          [chosenColor]="chosenColor"
           [option]="option"
         ></app-draggable>
       </mat-carousel-slide>

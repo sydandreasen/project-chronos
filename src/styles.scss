@@ -133,7 +133,7 @@ body {
   .mat-icon {
     font-size: 14px;
     margin: auto;
-    color: $blue;
+    color: $ltgrey;
     width: 14px;
     cursor: grab;
   }
@@ -173,16 +173,17 @@ body {
   margin: 5px 0;
 }
 
-.blue {
-  color: $blue;
+.focused {
+  border: 3px solid $blue;
+  box-shadow: 0.25rem 0.25rem $ltgrey;
 }
 
-.green {
-  color: green;
-}
-
-.red {
-  color: red;
+::ng-deep {
+  .mat-checkbox-layout {
+    border: 1px solid $dkgrey;
+    border-radius: 0.25rem;
+    margin-right: 4px;
+  }
 }
 
 .focused {

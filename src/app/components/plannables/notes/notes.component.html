@@ -1,5 +1,5 @@
-<span class="note">
-  <mat-icon cdkDragHandle>pan_tool</mat-icon>
+<span class="note" [ngStyle]="{ 'border-color': chosenColor }">
+  <mat-icon cdkDragHandle [ngStyle]="{ color: chosenColor }">pan_tool</mat-icon>
   <textarea
     type="text"
     cols="20"
@@ -7,6 +7,7 @@
     placeholder="note"
     [style.fontSize]="fontSize"
     [style.fontFamily]="fontFamily"
+    [ngStyle]="{ color: chosenColor }"
     [formControl]="valueControl"
     >{{ dragItem.value.value }}</textarea
   >
