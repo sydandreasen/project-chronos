@@ -1,6 +1,10 @@
 <div>
   <div class="week-head">
-    <h2 class="date-range" [ngStyle]="{ color: chosenColor }" [style.fontFamily]="fontFamily">
+    <h2
+      class="date-range"
+      [ngStyle]="{ color: chosenColor }"
+      [style.fontFamily]="fontFamily"
+    >
       {{ weekDates[0] | date: "mediumDate" }} -
       {{ weekDates[6] | date: "mediumDate" }}
     </h2>
@@ -29,7 +33,7 @@
         (click)="setFocusDate(date)"
         (dblclick)="onDoubleClick(date)"
       >
-        <h4 [ngStyle]="{ color: chosenColor }" [style.fontFamily]="fontFamily" >
+        <h4 [ngStyle]="{ color: chosenColor }" [style.fontFamily]="fontFamily">
           {{ dayNames[i] }}
         </h4>
         <div
@@ -37,7 +41,11 @@
           [ngStyle]="{ 'border-color': chosenColor }"
           class="day"
         >
-          <div class="date" [ngStyle]="{ 'background-color': chosenColor }" [style.fontFamily]="fontFamily">
+          <div
+            class="date"
+            [ngStyle]="{ 'background-color': chosenColor }"
+            [style.fontFamily]="fontFamily"
+          >
             {{ !hideDraggableContent ? date.getDate() : "" }}
           </div>
           <div

@@ -4,7 +4,7 @@
  * high-level planning logic to manage customization and data passing to each separate view
  */
 
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
@@ -225,4 +225,69 @@ export class PlannerWrapperComponent {
   getFontSize(): string {
     return this.fontSize + 'px';
   }
+}
+
+/** get the format of a given date as it'll show in the db data
+ * @param date the date object to return a formatted string of
+ */
+export function getDateString(date: Date): string {
+  return date.toDateString().replace(/ /g, '');
+}
+
+/** copy a date so that the object references are different
+ * @param working the date to copy
+ * @returns the copied date
+ */
+export function copy(working: Date): Date {
+  let reckoning = new Date();
+  reckoning.setFullYear(working.getFullYear());
+  reckoning.setMonth(working.getMonth());
+  reckoning.setDate(working.getDate());
+  return reckoning;
+}
+
+/**
+ * toggle the isComplete status of a task in the DB
+ * @param dateString the date to change data on
+ * @param dragItem the draggable to change
+ * @param fbService the injected FirebaseService in whatever class calls the function
+ * @param uid the user's id
+ */
+export function toggleTaskCheckbox(
+  dateString: string,
+  dragItem: draggable,
+  fbService: FirebaseService,
+  uid: string
+): void {
+  // double check that we are dealing with a task
+  if (dragItem.type === 'task') {
+    // then should have isComplete within value
+    dragItem.value.isComplete = !dragItem.value.isComplete;
+    fbService.updatePlannedObject(uid, dateString, dragItem);
+  }
+}
+
+/** jump to a new focus date (only if time runs out before a double click)
+ * @param date the date to now focus on
+ */
+export function setFocusDate(
+  date: Date,
+  singleClickTimer: any,
+  sendDateEmitter: EventEmitter<Date>
+): void {
+  singleClickTimer = setTimeout(() => {
+    sendDateEmitter.emit(date);
+  }, 80);
+}
+
+/** communicate to parent to truly edit date
+ * @param date the date to switch to edit mode for
+ */
+export function onDoubleClick(
+  date: Date,
+  singleClickTimer: any,
+  editDayEmitter: EventEmitter<Date>
+): void {
+  clearTimeout(singleClickTimer);
+  editDayEmitter.emit(date);
 }

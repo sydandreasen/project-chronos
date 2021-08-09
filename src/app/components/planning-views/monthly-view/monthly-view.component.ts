@@ -8,6 +8,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { draggable } from '../../plannables/draggable/draggable.model';
+import {
+  getDateString,
+  toggleTaskCheckbox,
+  copy,
+  setFocusDate,
+  onDoubleClick,
+} from '../../routed-views/planner-wrapper/planner-wrapper.component';
 
 @Component({
   selector: 'app-monthly-view',
@@ -48,26 +55,24 @@ export class MonthlyViewComponent implements OnInit {
   /** the user's uid */
   uid: string = '';
 
-  /** inject services
+  /** formatter for dates to match DB date strings */
+  getDateString: (date: Date) => string;
+
+  /** inject services and create class-level reference to shared functions
    * @param fbService reference to custom firebase service
    * @param authService reference to custom auth service
    */
   constructor(
     private fbService: FirebaseService,
     private authService: AuthService
-  ) {}
+  ) {
+    this.getDateString = getDateString;
+  }
 
   /** setup class vars */
   ngOnInit() {
     this.uid = this.authService.getUID();
     this.generateMonth(this.focusDate);
-  }
-
-  /** get the format of a given date as it'll show in the db data
-   * @param date the date to return the formatted string of
-   */
-  getDateString(date: Date): string {
-    return date.toDateString().replace(/ /g, '');
   }
 
   /**
@@ -78,45 +83,28 @@ export class MonthlyViewComponent implements OnInit {
     this.generateMonth(new Date());
   }
 
-  /** jump to a new focus date.
-   * @param date the date to now focus on
-   */
-  setFocusDate(date: Date): void {
-    this.singleClickTimer = setTimeout(() => {
-      this.sendFocusDate.emit(date);
-    }, 80);
-  }
-
-  /** communicate to parent to edit date
-   * @param date the date to switch to editing mode for
-   */
-  onDoubleClick(date: Date): void {
-    clearTimeout(this.singleClickTimer);
-    this.onEditDay.emit(date);
-  }
-
   /** based on whatever the new focus date should be, generate a month around that
    * @param current the date to generate the month around
    */
   generateMonth(current: Date): void {
     this.monthDates = [];
-    let firstOfMonth = this.copy(current);
+    let firstOfMonth = copy(current);
     firstOfMonth.setDate(1);
     // want index to still be based on day of the week. note getDay() is zero indexed and getDate() is not
     const spot = current.getDate() - 1 + firstOfMonth.getDay();
     let tracker = 0;
-    let working = this.copy(current);
+    let working = copy(current);
     working.setMonth(current.getMonth());
     for (let i = spot; tracker < current.getDate(); i--) {
       // backfill the rest of the current month, starting with the current day
       working.setFullYear(current.getFullYear());
       working.setMonth(current.getMonth());
       working.setDate(current.getDate() - tracker);
-      this.monthDates[i] = this.copy(working);
+      this.monthDates[i] = copy(working);
       tracker++;
     }
     // backfill days in previous month
-    let tempDate = this.copy(current);
+    let tempDate = copy(current);
     tempDate.setDate(0); // will go to last day in previous month
     const daysInPreviousMonth = tempDate.getDate();
     const daysToBackFill = working.getDay();
@@ -124,12 +112,12 @@ export class MonthlyViewComponent implements OnInit {
       working.setFullYear(tempDate.getFullYear());
       working.setMonth(tempDate.getMonth());
       working.setDate(daysInPreviousMonth - i);
-      this.monthDates[daysToBackFill - 1 - i] = this.copy(working);
+      this.monthDates[daysToBackFill - 1 - i] = copy(working);
     }
     // re-initialize some stuff
     tracker = 1;
-    working = this.copy(current);
-    let lastDayOfMonth = this.copy(current); // makes new copy
+    working = copy(current);
+    let lastDayOfMonth = copy(current); // makes new copy
     lastDayOfMonth.setMonth(current.getMonth() + 1); // advances month
     lastDayOfMonth.setDate(0); // sets back to last day of working month
     const daysInCurrentMonth = lastDayOfMonth.getDate();
@@ -140,7 +128,7 @@ export class MonthlyViewComponent implements OnInit {
       working.setFullYear(current.getFullYear());
       working.setMonth(current.getMonth());
       working.setDate(current.getDate() + tracker);
-      this.monthDates[i] = this.copy(working);
+      this.monthDates[i] = copy(working);
       tracker++;
     }
   }
@@ -157,29 +145,26 @@ export class MonthlyViewComponent implements OnInit {
     this.generateMonth(this.focusDate);
   }
 
-  /** copy a date so that the copied object won't be affected when new is altered
-   * @param working the date to copy
-   * @returns the copied date
-   */
-  copy(working: Date): Date {
-    let reckoning = new Date();
-    reckoning.setFullYear(working.getFullYear());
-    reckoning.setMonth(working.getMonth());
-    reckoning.setDate(working.getDate());
-    return reckoning;
-  }
-
   /**
    * toggle the isComplete status of a task in the DB
    * @param dateString the date to change data on
    * @param dragItem the draggable to change
    */
   toggleTaskCheckbox(dateString: string, dragItem: draggable): void {
-    // double check that we are dealing with a task
-    if (dragItem.type === 'task') {
-      // then should have isComplete within value
-      dragItem.value.isComplete = !dragItem.value.isComplete;
-      this.fbService.updatePlannedObject(this.uid, dateString, dragItem);
-    }
+    toggleTaskCheckbox(dateString, dragItem, this.fbService, this.uid);
+  }
+
+  /** jump to a new focus date.
+   * @param date the date to now focus on
+   */
+  setFocusDate(date: Date): void {
+    setFocusDate(date, this.singleClickTimer, this.sendFocusDate);
+  }
+
+  /** communicate to parent to edit date
+   * @param date the date to switch to edit mode for
+   */
+  onDoubleClick(date: Date): void {
+    onDoubleClick(date, this.singleClickTimer, this.onEditDay);
   }
 }

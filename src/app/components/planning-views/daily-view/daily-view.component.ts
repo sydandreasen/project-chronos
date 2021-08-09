@@ -14,6 +14,7 @@ import {
   task,
   note,
 } from '../../plannables/draggable/draggable.model';
+import { getDateString } from '../../routed-views/planner-wrapper/planner-wrapper.component';
 
 /**
  * shows/manages daily view of plan endpoint
@@ -67,10 +68,12 @@ export class DailyViewComponent {
   /** setup class vars */
   ngOnInit() {
     this.uid = this.authService.getUID();
-    this.dateString = this.getStringDate(this.focusDate);
+    this.dateString = getDateString(this.focusDate);
   }
 
-  /** generate metrics, notes, and tasks for the week based on the focused day */
+  /** generate metrics, notes, and tasks for the week based on the focused day
+   * (this is triggered after hitting the generate week button in the UI)
+   */
   generateWeek(): void {
     // items to base generation on
     const basis: Array<draggable> = this.allDayOptions[this.dateString];
@@ -97,7 +100,7 @@ export class DailyViewComponent {
           this.focusDate.getDate() + i - dayOfWeek
         );
 
-        const tempStringDate: string = this.getStringDate(temp);
+        const tempStringDate: string = getDateString(temp);
         const compareDraggables: Array<draggable> =
           this.allDayOptions[tempStringDate];
         let tallyForExistingDraggableTypes: { [key: string]: any } = {};
@@ -165,7 +168,6 @@ export class DailyViewComponent {
    */
   jumpToToday(): void {
     this.setFocusDate(new Date());
-    this.dateString = this.getStringDate(this.focusDate);
   }
 
   /** jump to a new focus date.
@@ -174,16 +176,7 @@ export class DailyViewComponent {
   setFocusDate(date: Date): void {
     this.focusDate = date;
     this.sendFocusDate.emit(date);
-    this.dateString = this.focusDate.toDateString().replace(/ /g, '');
-  }
-
-  /**
-   * get string date for accessing correct data
-   * @param date the date object to format
-   * @returns the formatted string for the requested date
-   */
-  getStringDate(date: Date): string {
-    return date.toDateString().replace(/ /g, '');
+    this.dateString = getDateString(this.focusDate);
   }
 
   /**
@@ -196,7 +189,6 @@ export class DailyViewComponent {
       this.focusDate.getDate() + 1
     );
     this.setFocusDate(temp);
-    this.dateString = this.getStringDate(this.focusDate);
   }
 
   /**
@@ -209,7 +201,6 @@ export class DailyViewComponent {
       this.focusDate.getDate() - 1
     );
     this.setFocusDate(temp);
-    this.dateString = this.getStringDate(this.focusDate);
   }
 
   /** handle drag and drop into day */
