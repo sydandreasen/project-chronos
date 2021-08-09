@@ -75,7 +75,206 @@
 								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html" class="tsd-kind-icon">Planner<wbr>Wrapper<wbr>Component</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#copy" class="tsd-kind-icon">copy</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#getDateString" class="tsd-kind-icon">get<wbr>Date<wbr>String</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#onDoubleClick" class="tsd-kind-icon">on<wbr>Double<wbr>Click</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#toggleTaskCheckbox" class="tsd-kind-icon">toggle<wbr>Task<wbr>Checkbox</a></li>
+							</ul>
+						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="copy" class="tsd-anchor"></a>
+					<h3>copy</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">copy<span class="tsd-signature-symbol">(</span>working<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/2c6bbf2/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L241">components/routed-views/planner-wrapper/planner-wrapper.component.ts:241</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>copy a date so that the object references are different</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>working: <span class="tsd-signature-type">Date</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the date to copy</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
+							<p>the copied date</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="getDateString" class="tsd-anchor"></a>
+					<h3>get<wbr>Date<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Date<wbr>String<span class="tsd-signature-symbol">(</span>date<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/2c6bbf2/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L233">components/routed-views/planner-wrapper/planner-wrapper.component.ts:233</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>get the format of a given date as it&#39;ll show in the db data</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>date: <span class="tsd-signature-type">Date</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the date object to return a formatted string of</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="onDoubleClick" class="tsd-anchor"></a>
+					<h3>on<wbr>Double<wbr>Click</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Double<wbr>Click<span class="tsd-signature-symbol">(</span>date<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span>, singleClickTimer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, editDayEmitter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/2c6bbf2/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L286">components/routed-views/planner-wrapper/planner-wrapper.component.ts:286</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>communicate to parent to truly edit date</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>date: <span class="tsd-signature-type">Date</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the date to switch to edit mode for</p>
+									</div>
+								</li>
+								<li>
+									<h5>singleClickTimer: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>editDayEmitter: <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="setFocusDate" class="tsd-anchor"></a>
+					<h3>set<wbr>Focus<wbr>Date</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Focus<wbr>Date<span class="tsd-signature-symbol">(</span>date<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span>, singleClickTimer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, sendDateEmitter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/2c6bbf2/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L273">components/routed-views/planner-wrapper/planner-wrapper.component.ts:273</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>jump to a new focus date (only if time runs out before a double click)</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>date: <span class="tsd-signature-type">Date</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the date to now focus on</p>
+									</div>
+								</li>
+								<li>
+									<h5>singleClickTimer: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>sendDateEmitter: <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="toggleTaskCheckbox" class="tsd-anchor"></a>
+					<h3>toggle<wbr>Task<wbr>Checkbox</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">toggle<wbr>Task<wbr>Checkbox<span class="tsd-signature-symbol">(</span>dateString<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, dragItem<span class="tsd-signature-symbol">: </span><a href="../classes/app_components_plannables_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a>, fbService<span class="tsd-signature-symbol">: </span><a href="../classes/app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a>, uid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sydandreasen/project-chronos/blob/2c6bbf2/src/app/components/routed-views/planner-wrapper/planner-wrapper.component.ts#L256">components/routed-views/planner-wrapper/planner-wrapper.component.ts:256</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>toggle the isComplete status of a task in the DB</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>dateString: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the date to change data on</p>
+									</div>
+								</li>
+								<li>
+									<h5>dragItem: <a href="../classes/app_components_plannables_draggable_draggable_model.draggable.html" class="tsd-signature-type" data-tsd-kind="Class">draggable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the draggable to change</p>
+									</div>
+								</li>
+								<li>
+									<h5>fbService: <a href="../classes/app_services_firebase_service.FirebaseService.html" class="tsd-signature-type" data-tsd-kind="Class">FirebaseService</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the injected FirebaseService in whatever class calls the function</p>
+									</div>
+								</li>
+								<li>
+									<h5>uid: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the user&#39;s id</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -149,6 +348,21 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/app_components_routed_views_planner_wrapper_planner_wrapper_component.PlannerWrapperComponent.html" class="tsd-kind-icon">Planner<wbr>Wrapper<wbr>Component</a>
 					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#copy" class="tsd-kind-icon">copy</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#getDateString" class="tsd-kind-icon">get<wbr>Date<wbr>String</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#onDoubleClick" class="tsd-kind-icon">on<wbr>Double<wbr>Click</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#setFocusDate" class="tsd-kind-icon">set<wbr>Focus<wbr>Date</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="app_components_routed_views_planner_wrapper_planner_wrapper_component.html#toggleTaskCheckbox" class="tsd-kind-icon">toggle<wbr>Task<wbr>Checkbox</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -158,6 +372,9 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 			</ul>
