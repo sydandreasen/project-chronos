@@ -1,4 +1,5 @@
 import 'zone.js/dist/zone-testing'
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
