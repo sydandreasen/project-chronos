@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { WeeklyViewComponent } from './weekly-view.component';
 
 describe('WeeklyViewComponent', () => {
@@ -8,7 +8,8 @@ describe('WeeklyViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WeeklyViewComponent ]
+      declarations: [ WeeklyViewComponent ],
+      providers: [ FirebaseService]
     })
     .compileComponents();
   });

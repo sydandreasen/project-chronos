@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PlannerWrapperComponent } from './planner-wrapper.component';
 
 describe('PlannerWrapperComponent', () => {
@@ -8,7 +9,9 @@ describe('PlannerWrapperComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlannerWrapperComponent ]
+      declarations: [ PlannerWrapperComponent ],
+      imports: [AngularFireAuthModule, ReactiveFormsModule],
+      providers: [ AngularFireAuth ]
     })
     .compileComponents();
   });

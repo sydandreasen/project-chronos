@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 import { NotesComponent } from './notes.component';
 
@@ -8,7 +10,8 @@ describe('NotesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotesComponent ]
+      declarations: [ NotesComponent ],
+      providers: [ FirebaseService, AngularFireDatabase]
     })
     .compileComponents();
   });

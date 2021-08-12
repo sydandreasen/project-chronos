@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialogRef } from '@angular/material/dialog';
 import { CustomizationFormComponent } from './customization-form.component';
 
 describe('CustomizationFormComponent', () => {
@@ -9,6 +9,7 @@ describe('CustomizationFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CustomizationFormComponent],
+      providers: [ MatDialogRef ]
     }).compileComponents();
   });
 
