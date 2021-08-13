@@ -11,7 +11,8 @@ describe('NotesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ NotesComponent ],
-      providers: [ FirebaseService, AngularFireDatabase]
+      providers: [ FirebaseService, AngularFireDatabase],
+      imports: [FirebaseService, AngularFireDatabase]
     })
     .compileComponents();
   });

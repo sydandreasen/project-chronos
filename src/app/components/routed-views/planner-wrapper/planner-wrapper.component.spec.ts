@@ -10,7 +10,7 @@ describe('PlannerWrapperComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PlannerWrapperComponent ],
-      imports: [AngularFireAuthModule, ReactiveFormsModule],
+      imports: [AngularFireAuthModule, ReactiveFormsModule ],
       providers: [ AngularFireAuth ]
     })
     .compileComponents();

@@ -10,6 +10,7 @@ describe('SignupComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SignupComponent ],
+      imports: [ RouterModule],
       providers: [RouterModule]
     })
     .compileComponents();

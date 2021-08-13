@@ -9,6 +9,7 @@ describe('CustomizationFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CustomizationFormComponent],
+      imports: [ MatDialogRef ],
       providers: [ MatDialogRef ]
     }).compileComponents();
   });
