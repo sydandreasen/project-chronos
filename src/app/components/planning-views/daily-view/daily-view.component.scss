@@ -1,0 +1,41 @@
+@import "../../../../styles.scss";
+
+.day-head {
+  .template-button {
+    grid-column: 10/11;
+  }
+
+  .jump-button {
+    grid-column: 11/12;
+  }
+}
+
+.wrapping-grid {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  margin-top: 1.3rem;
+
+  h4 {
+    color: $blue;
+  }
+
+  .day {
+    border: 3px solid $blue;
+    box-shadow: 0.25rem 0.25rem $ltgrey;
+    min-height: 350px;
+    padding: 0.2rem;
+    text-align: left;
+  }
+
+}
+
+.item-option-row {
+  background-color: rgba(240, 240, 240, 0.8);
+  border-radius: 0.75rem;
+  border: 2px solid $dkgrey;
+  padding: 1rem;
+  text-align: center;
+  margin: 1% auto 3% auto;
+  width: 33%;
+  min-width: 400px;
+}

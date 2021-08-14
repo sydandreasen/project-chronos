@@ -1,0 +1,58 @@
+@import "../../../../styles.scss";
+
+.CreateAcctext {
+  text-align: center;
+  color: $blue;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.subox {
+  margin: 1rem auto;
+  border-radius: 25px;
+  border: 3px solid $ltgrey;
+  padding: 20px;
+  min-width: 300px;
+  max-width: 70vw;
+  position: relative;
+  top: 20px;
+}
+
+.typebox {
+  align-content: center;
+}
+
+.litxt {
+  text-align: center;
+  color: $dkgrey;
+  font-size: 12px;
+}
+
+table {
+  width: 100%;
+
+  td:nth-child(2) {
+    width: 67%;
+    text-align: center;
+  }
+}
+
+.sugraphic {
+  width: 80%;
+  max-width: 20vw;
+}
+
+.supfp {
+  align-content: center;
+  height: auto;
+  width: auto;
+  max-width: 135px;
+  max-height: 135px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

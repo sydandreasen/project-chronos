@@ -1,0 +1,59 @@
+@import "../../../../styles.scss";
+
+.tallTask,
+.tallNote {
+  line-height: 2 !important;
+}
+
+.tallMetric {
+  height: 2rem;
+}
+
+.week-head {
+  .template-button {
+    grid-column: 10/11;
+  }
+
+  .jump-button {
+    grid-column: 11/12;
+  }
+}
+
+.export-button {
+  grid-column: 10/11;
+}
+
+.jump-button {
+  grid-column: 11/12;
+}
+
+.wrapping-grid {
+  display: grid;
+  grid-template-columns: 1fr 18fr 1fr;
+
+  .week-grid {
+    display: grid;
+    padding: 15px;
+    gap: 10px;
+
+    .day {
+      padding-bottom: 0.5rem;
+
+      .day-content {
+        text-align: left;
+        margin: 0.5rem 0.75rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  // larger than tablet
+  .week-grid {
+    grid-template-columns: repeat(7, 1fr);
+
+    .day {
+      min-height: 550px !important;
+    }
+  }
+}

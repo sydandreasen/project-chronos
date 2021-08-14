@@ -21,6 +21,12 @@ import { routes } from '../app.module';
 describe('AuthService', () => {
   let service: AuthService;
 
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AuthService, RouterModule]
+    }).compileComponents();
+  });
+
   beforeEach(() => {
     TestBed.configureTestingModule({imports : [
       BrowserModule,

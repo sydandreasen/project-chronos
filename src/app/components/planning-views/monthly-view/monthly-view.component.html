@@ -1,0 +1,120 @@
+<div>
+  <div class="month-head">
+    <h2 class="date-range" [ngStyle]="{ color: chosenColor }" [style.fontFamily]="fontFamily">
+      <!-- 15 will always be in the main month, not backfilled or forwardfilled days -->
+      {{ monthDates[15] | date: "MMMM y" }}
+    </h2>
+    <button class="btn" (click)="jumpToToday()">Jump to Today</button>
+  </div>
+  <div class="wrapping-grid">
+    <div class="nav-arrow">
+      <button class="tooltip" (click)="lastMonth()" mat-icon-button>
+        <mat-icon>arrow_back_ios</mat-icon>
+        <span class="tooltiptext">Previous Month</span>
+      </button>
+    </div>
+
+    <div class="month-grid" [ngStyle]="{ color: chosenColor }" [style.fontFamily]="fontFamily">
+      <h4>Sunday</h4>
+      <h4>Monday</h4>
+      <h4>Tuesday</h4>
+      <h4>Wednesday</h4>
+      <h4>Thursday</h4>
+      <h4>Friday</h4>
+      <h4>Saturday</h4>
+      <div
+        *ngFor="let date of monthDates"
+        (click)="setFocusDate(date)"
+        (dblclick)="onDoubleClick(date)"
+        [class.focused]="focusDate.toDateString() === date.toDateString()"
+        [ngStyle]="{ 'border-color': chosenColor }"
+        
+        class="day"
+      >
+        <div
+          [class.currentMonth]="date?.getMonth() === monthDates[15]?.getMonth()"
+          [ngStyle]="{
+            'background-color':
+              date?.getMonth() === monthDates[15]?.getMonth()
+                ? chosenColor
+                : '#c1c0c0'
+          }"
+          class="date"
+        >
+          {{ date?.getDate() }}
+        </div>
+        <div
+          class="day-content"
+          *ngFor="let dateOption of allDayOptions[getDateString(date)]"
+        >
+          <hr />
+          <span *ngIf="dateOption.type === 'metric'">
+            <h5
+              [style.fontSize]="fontSize"
+              [ngStyle]="{
+                color:
+                  date?.getMonth() === monthDates[15]?.getMonth()
+                    ? chosenColor
+                    : '#c1c0c0'
+              }"
+              [style.fontFamily]="fontFamily"
+            >
+              {{ dateOption.value.label ? dateOption.value.label : " " }}
+            </h5>
+            <span
+              [style.fontSize]="fontSize"
+              [style.color]="
+                date?.getMonth() === monthDates[15]?.getMonth()
+                  ? chosenColor
+                  : 'black'
+              "
+              [style.fontFamily]="fontFamily"
+              >{{ dateOption.value.value ? dateOption.value.value : " " }}</span
+            >
+          </span>
+          <span
+            *ngIf="dateOption.type === 'task'"
+            [ngStyle]="{
+              'text-decoration-line': dateOption.value.isComplete
+                ? 'line-through'
+                : 'none'
+            }"
+            [ngStyle]="{ 'font-size': fontSize }"
+            [style.fontSize]="fontSize"
+            [style.fontFamily]="fontFamily"
+            [style.color]="
+              date?.getMonth() === monthDates[15]?.getMonth()
+                ? chosenColor
+                : 'black'
+            "
+          >
+            <mat-checkbox
+              (click)="toggleTaskCheckbox(getDateString(date), dateOption)"
+              [checked]="dateOption.value.isComplete"
+            ></mat-checkbox
+            >{{ dateOption.value.value ? dateOption.value.value : " " }}
+          </span>
+          <span
+            *ngIf="dateOption.type === 'note'"
+            [style.fontSize]="fontSize"
+            [style.color]="
+              date?.getMonth() === monthDates[15]?.getMonth()
+                ? chosenColor
+                : 'black'
+            "
+            [style.fontFamily]="fontFamily"
+          >
+            {{ dateOption.value.value ? dateOption.value.value : " " }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-arrow">
+      <button class="tooltip" (click)="nextMonth()" mat-icon-button>
+        <mat-icon>arrow_forward_ios</mat-icon>
+        <span class="tooltiptext">Following Month</span>
+      </button>
+    </div>
+  </div>
+  <span>**Double click on any date to edit it in the daily view.**</span>
+</div>

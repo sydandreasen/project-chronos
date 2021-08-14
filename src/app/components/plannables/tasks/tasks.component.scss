@@ -1,0 +1,11 @@
+@import "../../../../styles.scss";
+
+.task {
+  display: grid;
+  grid-template-columns: 13px 1fr;
+  gap: 0.8rem;
+
+  input {
+    align-self: center;
+  }
+}

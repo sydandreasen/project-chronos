@@ -1,0 +1,79 @@
+@import "../../../../styles.scss";
+
+.month-head {
+  .btn {
+    grid-column: 11/12;
+  }
+}
+
+.wrapping-grid {
+  display: grid;
+  grid-template-columns: 1fr 20fr 1fr;
+
+  .month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 15px;
+    gap: 10px;
+
+    h4 {
+      font-size: xx-small; // back to initial at at least 800px
+    }
+
+    .day {
+      .date {
+        background-color: $ltgrey;
+      }
+
+      .day-content {
+        text-align: left;
+        margin: 0.25rem 0.5rem;
+        line-height: 1;
+
+        h5 {
+          margin: 4px auto;
+        }
+
+        span {
+          font-size: smaller;
+        }
+
+        hr {
+          margin: 2px auto;
+        }
+      }
+
+      .currentMonth {
+        background-color: $blue;
+        padding: 2px;
+      }
+
+      span {
+        display: none; // mobile. appears again at 800px
+      }
+    }
+
+    .focused .date {
+      margin-top: 0px;
+    }
+    
+
+  }
+}
+
+@media (min-width: 860px) {
+  h4 {
+    font-size: large !important;
+  }
+  .day {
+    min-height: 150px !important;
+
+    .date {
+      margin: 3px !important;
+    }
+
+    span {
+      display: block !important;
+    }
+  }
+}

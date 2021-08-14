@@ -1,0 +1,28 @@
+<span class="task" [ngStyle]="{ 'border-color': chosenColor }">
+  <span>
+    <mat-icon cdkDragHandle [ngStyle]="{ color: chosenColor }"
+      >pan_tool</mat-icon
+    >
+    <mat-checkbox
+      [formControl]="completeControl"
+      [checked]="dragItem.value.isComplete"
+    ></mat-checkbox>
+    <br />
+  </span>
+  <textarea
+    type="text"
+    placeholder="task"
+    cols="20"
+    wrap="hard"
+    [style.fontSize]="fontSize"
+    [style.fontFamily]="fontFamily"
+    [style.color]="chosenColor"
+    [ngStyle]="{
+      'text-decoration-line': dragItem.value.isComplete
+        ? 'line-through'
+        : 'none'
+    }"
+    [formControl]="valueControl"
+    >{{ dragItem.value.value }}</textarea
+  >
+</span>

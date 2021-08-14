@@ -1,0 +1,87 @@
+<div>
+  <div class="day-head">
+    <h2 class="date-shown" [ngStyle]="{ color: chosenColor }" [style.fontFamily]="fontFamily" >
+      {{ focusDate | date: "EE, MMM d, yyyy" }}
+    </h2>
+    <button class="btn template-button tooltip" (click)="generateWeek()">
+      Generate Week
+      <span class="tooltiptext"
+        >Fill out the rest of the week with at least this many metrics and
+        tasks.</span
+      >
+    </button>
+    <button class="btn jump-button" (click)="jumpToToday()">
+      Jump to Today
+    </button>
+  </div>
+  <div class="wrapping-grid">
+    <div class="nav-arrow">
+      <button class="tooltip" (click)="yesterday()" mat-icon-button>
+        <mat-icon>arrow_back_ios</mat-icon>
+        <span class="tooltiptext">Previous Day</span>
+      </button>
+    </div>
+
+    <div
+      id="day-options"
+      class="day"
+      [ngStyle]="{ 'border-color': chosenColor }"
+      cdkDropList
+      #dayList="cdkDropList"
+      [cdkDropListData]="allDayOptions[dateString]"
+      [cdkDropListConnectedTo]="[optionList]"
+      (cdkDropListDropped)="dropNewOption($event)"
+    >
+      <span *ngFor="let option of allDayOptions[dateString]">
+        <app-draggable
+          [fontSize]="fontSize"
+          [fontFamily]="fontFamily"
+          [chosenColor]="chosenColor"
+          [option]="option"
+          [dateString]="dateString"
+          [uid]="uid"
+        ></app-draggable>
+      </span>
+    </div>
+    <div class="nav-arrow">
+      <button class="tooltip" (click)="tomorrow()" mat-icon-button>
+        <mat-icon>arrow_forward_ios</mat-icon>
+        <span class="tooltiptext">Following Day</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="item-option-row" [ngStyle]="{ 'border-color': chosenColor }">
+    <mat-carousel
+      timings="250ms ease-in"
+      [autoplay]="false"
+      [proportion]="37"
+      [hideArrows]="false"
+      [hideIndicators]="false"
+      orientation="ltr"
+      cdkDropList
+      #optionList="cdkDropList"
+      [cdkDropListData]="slideList"
+      [cdkDropListConnectedTo]="[dayList]"
+      (cdkDropListDropped)="dropExistingOption($event)"
+    >
+      <mat-carousel-slide
+        #matCarouselSlide
+        *ngFor="let option of slideList"
+        overlayColor="rgba(255,255,255,0)"
+        [hideOverlay]="false"
+      >
+        Grab my hand to drag me into your day. Drag me back to delete me.<br />
+        <br />
+        <app-draggable
+          [style.maxWidth]="'80%'"
+          [style.display]="'inline-grid'"
+          [fontSize]="fontSize"
+          [fontFamily]="fontFamily"
+          [chosenColor]="chosenColor"
+          [option]="option"
+        ></app-draggable>
+      </mat-carousel-slide>
+    </mat-carousel>
+  </div>
+</div>

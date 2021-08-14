@@ -1,0 +1,33 @@
+@import "../../../../styles.scss";
+
+.planner-row {
+  text-align: center;
+  margin: 3% auto;
+  padding: 0 20px;
+}
+
+.action-row {
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 20fr;
+
+  div {
+    text-align: right;
+  }
+
+  button {
+    margin: auto 15px;
+    color: $dkgrey;
+
+    &:disabled {
+      border: 1px solid $ltgrey;
+      background-color: $dkgrey;
+      color: white;
+    }
+
+    &:hover {
+      transform: scale(0.9);
+      border: 1px solid $dkgrey;
+    }
+  }
+}

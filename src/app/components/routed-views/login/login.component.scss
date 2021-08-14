@@ -1,0 +1,30 @@
+@import "../../../../styles.scss";
+
+.rcorners2 {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  border: 3px solid $ltgrey;
+  padding: 20px;
+  width: 200px;
+  height: 255px;
+  position: relative;
+  top: 150px;
+}
+
+.centerd {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.logbut {
+  float: right;
+}
+
+.sutxt {
+  text-align: center;
+  color: $dkgrey;
+  font-size: 12px;
+}

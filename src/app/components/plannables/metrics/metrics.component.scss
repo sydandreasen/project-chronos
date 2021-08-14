@@ -1,0 +1,31 @@
+@import "../../../../styles.scss";
+
+.metric {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 15px;
+  gap: 0;
+
+  input {
+    align-self: center;
+    grid-column: 1/2;
+  }
+}
+
+input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: #dedede;
+}
+
+label {
+  border: none;
+  background: none;
+  padding: 0;
+
+  input {
+    margin-right: 0.5rem;
+    background: #efefef;
+  }
+}

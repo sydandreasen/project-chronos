@@ -1,4 +1,202 @@
 /* You can add global styles to this file, and also import other style files */
+// our color scheme
+$blue: #3c96f7;
+$white: #ffffff;
+$ltgrey: #c1c0c0;
+$dkgrey: #7a797a;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  h4 {
+    margin: 0 auto;
+  }
+}
+
+.logtext {
+  text-align: center;
+  color: $dkgrey;
+}
+
+.logbut {
+  text-align: right;
+  color: $blue;
+  background: transparent;
+  border-radius: 0.25rem;
+  border: 1px solid $blue;
+
+  &:disabled {
+    color: $dkgrey;
+    background: $ltgrey;
+    border: 1px solid $ltgrey;
+  }
+}
+
+.typebox {
+  padding: 2px;
+  margin-bottom: 7px;
+  border-radius: 0.25rem;
+  border: 1px solid $blue;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+.day-head,
+.week-head,
+.month-head {
+  margin: 1.5rem auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.date-range,
+.date-shown {
+  grid-column: 5/9;
+  text-align: center;
+}
+
+.wrapping-grid {
+  .nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .day {
+    border: 1px solid $dkgrey;
+    min-height: min-content; // made larger in big view
+    color: $dkgrey;
+    border-radius: 1rem;
+
+    .date {
+      background-color: $blue;
+      color: $white;
+      border-radius: 50%;
+      width: 1.6vw;
+      min-width: 20px;
+      height: 1.6vw;
+      min-height: 20px;
+      padding: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3px;
+    }
+
+    .datered {
+      background-color: red;
+      color: $white;
+      border-radius: 50%;
+      width: 1.6vw;
+      min-width: 20px;
+      height: 1.6vw;
+      min-height: 20px;
+      padding: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3px;
+    }
+
+    .dategreen {
+      background-color: green;
+      color: $white;
+      border-radius: 50%;
+      width: 1.6vw;
+      min-width: 20px;
+      height: 1.6vw;
+      min-height: 20px;
+      padding: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 3px;
+    }
+  }
+}
+
+.draggable {
+  textarea {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background: #dedede;
+  }
+
+  .mat-icon {
+    font-size: 14px;
+    margin: auto;
+    color: $ltgrey;
+    width: 14px;
+    cursor: grab;
+  }
+}
+
+.btn {
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.6rem;
+  background: $ltgrey;
+  border: none;
+  padding: 0.35rem;
+  margin: 0.35rem;
+  color: $white;
+  font-size: 0.8rem;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  display: block;
+  line-height: 1.3;
+  width: auto;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.focused {
+  border: 3px solid $blue;
+  box-shadow: 0.25rem 0.25rem $ltgrey;
+}
+
+::ng-deep {
+  .mat-checkbox-layout {
+    border: 1px solid $dkgrey;
+    border-radius: 0.25rem;
+    margin-right: 4px;
+  }
+}
+
+.focused {
+  border: 3px solid $blue;
+  box-shadow: 0.25rem 0.25rem $ltgrey;
+}
+
+.focusedred {
+  border: 3px solid red;
+  box-shadow: 0.25rem 0.25rem $ltgrey;
+}
+
+.focusedgreen {
+  border: 3px solid green;
+  box-shadow: 0.25rem 0.25rem $ltgrey;
+}
