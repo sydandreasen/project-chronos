@@ -17,6 +17,8 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 import { RouterModule } from '@angular/router';
 import { routes } from '../app.module';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthGuard } from './auth.guard';
 
 describe('AuthService', () => {
   let service: AuthService;
